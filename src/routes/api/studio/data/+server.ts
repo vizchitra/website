@@ -164,7 +164,10 @@ export const POST: RequestHandler = async ({ request, locals, platform }) => {
 					ref
 				});
 				if (!Array.isArray(fileData) && fileData.type === 'file') {
-					const decoded = atob(fileData.content.replace(/\n/g, ''));
+					const binaryStr = atob(fileData.content.replace(/\n/g, ''));
+					const decoded = new TextDecoder('utf-8').decode(
+						Uint8Array.from(binaryStr, (c) => c.charCodeAt(0))
+					);
 					if (repoPath.endsWith('.toml')) {
 						const { parse: parseToml } = await import('smol-toml');
 						currentData = parseToml(decoded);
