@@ -57,59 +57,74 @@
 		<Prose>
 			<Heading tag="h1">Funding our Mission</Heading>
 		</Prose>
-		<Text>
-			{data.fundingData.entity.description}
+		<Text class="entity-description">
+			{data.fundingData.entity.description.replace(/\\n/g, '\n')}
 		</Text>
 
-		<!-- Entity metadata table -->
+		<!-- Entity metadata definition list -->
 		<Prose>
-			<table>
-				<tbody>
-					<tr>
-						<td data-label="Field">Organization</td>
-						<td data-label="Value">{data.fundingData.entity.name}</td>
-					</tr>
-					<tr>
-						<td data-label="Field">Type</td>
-						<td data-label="Value">{data.fundingData.entity.type}</td>
-					</tr>
-					<tr>
-						<td data-label="Field">Role</td>
-						<td data-label="Value">{data.fundingData.entity.role}</td>
-					</tr>
-					<tr>
-						<td data-label="Field">Email</td>
-						<td data-label="Value">
-							<a href="mailto:{data.fundingData.entity.email}">
-								{data.fundingData.entity.email}
-							</a>
-						</td>
-					</tr>
-					{#if data.fundingData.entity.webpageUrl}
-						<tr>
-							<td data-label="Field">Website</td>
-							<td data-label="Value">
-								<a
-									href={data.fundingData.entity.webpageUrl.url}
-									target="_blank"
-									rel="noopener noreferrer"
-								>
-									{data.fundingData.entity.webpageUrl.url}
-								</a>
-							</td>
-						</tr>
-					{/if}
-					<tr>
-						<td data-label="Field">Manifest</td>
-						<td data-label="Value">
-							<a href="/funding.json">funding.json</a>
-						</td>
-					</tr>
-				</tbody>
-			</table>
+			<dl class="entity-metadata">
+				<dt>Organization</dt>
+				<dd>{data.fundingData.entity.name}</dd>
+
+				<dt>Type</dt>
+				<dd>{data.fundingData.entity.type}</dd>
+
+				<dt>Role</dt>
+				<dd>{data.fundingData.entity.role}</dd>
+
+				<dt>Email</dt>
+				<dd>
+					<a href="mailto:{data.fundingData.entity.email}">
+						{data.fundingData.entity.email}
+					</a>
+				</dd>
+
+				{#if data.fundingData.entity.webpageUrl}
+					<dt>Website</dt>
+					<dd>
+						<a
+							href={data.fundingData.entity.webpageUrl.url}
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							{data.fundingData.entity.webpageUrl.url}
+						</a>
+					</dd>
+				{/if}
+
+				<dt>Manifest</dt>
+				<dd>
+					<a href="/funding.json">funding.json</a>
+				</dd>
+			</dl>
 		</Prose>
 
-		<Heading tag="h2">Funding Plans</Heading>
+		<Heading tag="h2" class="mt-12">Our Project</Heading>
+		<Prose>
+			{#each data.fundingData.projects as project (project.guid)}
+				<h3>{project.name}</h3>
+				<p class="entity-description">{project.description.replace(/\\n/g, '\n')}</p>
+				{#if project.tags.length > 0}
+					<p><em>Tags: {project.tags.join(', ')}</em></p>
+				{/if}
+				<p>
+					{#if project.webpageUrl}
+						<a href={project.webpageUrl.url} target="_blank" rel="noopener noreferrer"> Website </a>
+						{#if project.repositoryUrl}
+							·
+						{/if}
+					{/if}
+					{#if project.repositoryUrl}
+						<a href={project.repositoryUrl.url} target="_blank" rel="noopener noreferrer">
+							Repository
+						</a>
+					{/if}
+				</p>
+			{/each}
+		</Prose>
+
+		<Heading tag="h2" class="mt-12">Funding Plans</Heading>
 		<div class="grid gap-8 md:grid-cols-2">
 			{#each data.fundingData.funding.plans.filter((p) => p.status === 'active') as plan, index (plan.guid)}
 				{@const channel = getChannel(plan.channels)}
@@ -182,6 +197,25 @@
 <style>
 	:global(a) {
 		color: inherit;
+	}
+
+	:global(.entity-description) {
+		white-space: pre-line;
+	}
+
+	:global(.entity-metadata) {
+		display: grid;
+		grid-template-columns: max-content 1fr;
+		gap: 0.5rem 1rem;
+	}
+
+	:global(.entity-metadata dt) {
+		font-style: italic;
+	}
+
+	:global(.entity-metadata dd) {
+		font-weight: 500;
+		margin: 0;
 	}
 
 	:global(.plan-link) {
