@@ -13,19 +13,41 @@
 		tagline?: string;
 		color?: 'yellow' | 'teal' | 'blue' | 'orange' | 'pink' | 'grey';
 		targetDate?: Date;
+		variant?: 'small' | 'large';
 	}
 
 	let {
 		banner = 'polygon',
 		tagline = 'A SPACE TO CONNECT AND CREATE WITH DATA',
 		color,
-		targetDate
+		targetDate,
+		variant = 'small'
 	}: Props = $props();
+
+	let innerWidth = $state(typeof window !== 'undefined' ? window.innerWidth : 1024);
 
 	// Curve + spinner share the curve layout; others use centered
 	const usesCurveLayout = $derived(banner === 'curve' || banner === 'spinner');
 	// Only centered banners get the bottom fade
 	const addTransparencyLayer = $derived(!usesCurveLayout);
+	// Responsive spinner size: 200px mobile, 300px desktop (md: 768px)
+	const spinnerSize = $derived(innerWidth >= 768 ? 300 : 200);
+	// Hero height based on variant: small (50svh) or large (75svh)
+	const heroHeight = $derived(variant === 'large' ? 'h-[75svh]' : 'h-[50svh]');
+	// Tagline positioning: higher on small variant, normal on large
+	const taglineClasses = $derived(variant === 'small' ? 'top-3 md:top-10' : 'top-5 md:top-15');
+	// Tagline font size: smaller on small variant
+	const taglineFontClasses = $derived(
+		variant === 'small' ? 'text-lg md:text-2xl' : 'text-xl md:text-3xl'
+	);
+
+	$effect(() => {
+		const handleResize = () => {
+			innerWidth = window.innerWidth;
+		};
+		window.addEventListener('resize', handleResize);
+		return () => window.removeEventListener('resize', handleResize);
+	});
 
 	function handleSpinnerInteract(e: TouchEvent | MouseEvent) {
 		// Haptic feedback on mobile
@@ -46,7 +68,7 @@
 </script>
 
 <FullBleed class="pb-24">
-	<div class="relative h-[50svh] overflow-visible">
+	<div class="relative {heroHeight} overflow-visible">
 		<!-- Banner layer -->
 		<div class="absolute inset-0 z-0">
 			{#if banner === 'curve' || banner === 'spinner'}
@@ -70,7 +92,7 @@
 		<!-- Content layer -->
 		{#if usesCurveLayout}
 			<!-- Curve layout: bottom-left content + top-right tagline -->
-			<div class="pointer-events-none absolute -bottom-20 left-0 z-2 md:-bottom-10 md:left-15">
+			<div class="pointer-events-none absolute -bottom-20 left-4 z-2 md:-bottom-10 md:left-15">
 				{#if banner === 'spinner'}
 					<a
 						href="https://tickets.vizchitra.com"
@@ -81,14 +103,14 @@
 						ontouchstart={handleSpinnerInteract}
 						onmousedown={handleSpinnerInteract}
 					>
-						<PatternArc {targetDate} width={300} height={300} />
+						<PatternArc {targetDate} width={spinnerSize} height={spinnerSize} />
 					</a>
 				{:else}
 					<LogoTagline />
 				{/if}
 			</div>
-			<div class="pointer-events-none absolute top-5 right-10 z-2 w-80 md:top-15 md:right-20">
-				<h2 class="max-w-1xl text-right leading-tight font-normal">
+			<div class="pointer-events-none absolute {taglineClasses} right-10 z-2 w-80 md:right-20">
+				<h2 class="max-w-1xl text-right leading-tight font-normal {taglineFontClasses}">
 					<Slanted color="grey" textContent={tagline} />
 				</h2>
 			</div>

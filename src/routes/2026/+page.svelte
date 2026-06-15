@@ -334,7 +334,7 @@
 	{/if}
 {/snippet}
 
-<Hero banner="spinner" />
+<Hero banner="spinner" variant="small" />
 
 <Container>
 	<Stack>
