@@ -100,11 +100,11 @@
 			</dl>
 		</Prose>
 
-		<Heading tag="h2">Our Project</Heading>
+		<Heading tag="h2" class="mt-12">Our Project</Heading>
 		<Prose>
 			{#each data.fundingData.projects as project (project.guid)}
 				<h3>{project.name}</h3>
-				<p>{project.description}</p>
+				<p class="entity-description">{project.description.replace(/\\n/g, '\n')}</p>
 				{#if project.tags.length > 0}
 					<p><em>Tags: {project.tags.join(', ')}</em></p>
 				{/if}
@@ -124,7 +124,7 @@
 			{/each}
 		</Prose>
 
-		<Heading tag="h2">Funding Plans</Heading>
+		<Heading tag="h2" class="mt-12">Funding Plans</Heading>
 		<div class="grid gap-8 md:grid-cols-2">
 			{#each data.fundingData.funding.plans.filter((p) => p.status === 'active') as plan, index (plan.guid)}
 				{@const channel = getChannel(plan.channels)}
