@@ -1,8 +1,4 @@
 <script lang="ts">
-	import { goto } from '$app/navigation';
-	import { onMount } from 'svelte';
-	onMount(() => goto('/2026'));
-
 	import {
 		Button,
 		RecapVideo,
@@ -21,7 +17,7 @@
 	} from '$lib/components';
 </script>
 
-<Hero banner="spinner" />
+<Hero banner="spinner" variant="large" />
 
 <Container>
 	<Stack>
