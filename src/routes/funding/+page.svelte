@@ -57,8 +57,8 @@
 		<Prose>
 			<Heading tag="h1">Funding our Mission</Heading>
 		</Prose>
-		<Text>
-			{data.fundingData.entity.description}
+		<Text class="entity-description">
+			{data.fundingData.entity.description.replace(/\\n/g, '\n')}
 		</Text>
 
 		<!-- Entity metadata definition list -->
@@ -173,6 +173,10 @@
 <style>
 	:global(a) {
 		color: inherit;
+	}
+
+	:global(.entity-description) {
+		white-space: pre-line;
 	}
 
 	:global(.entity-metadata) {
