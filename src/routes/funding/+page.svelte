@@ -1,5 +1,14 @@
 <script lang="ts">
-	import { Container, Stack, Prose, Heading, Text, Header, DividerCurves } from '$lib/components';
+	import {
+		Container,
+		Stack,
+		Prose,
+		Heading,
+		Text,
+		Header,
+		DividerCurves,
+		Button
+	} from '$lib/components';
 	import type { PageData } from './$types';
 
 	let { data }: { data: PageData } = $props();
@@ -12,27 +21,33 @@
 		}).format(amount);
 	}
 
-	function getPaymentChannel(channelGuids: string[]) {
+	function getChannel(channelGuids: string[]) {
 		return channelGuids
 			.map((guid) => data.fundingData.funding.channels.find((c) => c.guid === guid))
-			.find((c) => c?.type === 'payment-provider');
+			.find((c) => c);
 	}
 
-	const brandColors = ['yellow', 'teal', 'blue', 'orange', 'pink'];
+	const brandColors = ['pink', 'orange', 'teal', 'blue', 'yellow'];
 
 	function getCardColor(index: number): string {
 		const color = brandColors[index % brandColors.length];
 		return `bg-${color}-100`;
 	}
-</script>
 
-<svelte:head>
-	<title>Support VizChitra — Funding</title>
-	<meta
-		name="description"
-		content="Support VizChitra's community programs and annual data visualization conference."
-	/>
-</svelte:head>
+	function getButtonColor(index: number): 'yellow' | 'teal' | 'blue' | 'orange' | 'pink' {
+		return brandColors[index % brandColors.length] as
+			| 'yellow'
+			| 'teal'
+			| 'blue'
+			| 'orange'
+			| 'pink';
+	}
+
+	function getDarkColorVar(index: number): string {
+		const color = brandColors[index % brandColors.length];
+		return `--color-viz-${color}-dark`;
+	}
+</script>
 
 <Header title="Support VizChitra" banner="curve" />
 
@@ -45,90 +60,143 @@
 		<Text>
 			{data.fundingData.entity.description}
 		</Text>
-	</Stack>
 
-	<!-- Plan Cards -->
-	<div class="grid gap-8 py-12 md:grid-cols-2">
-		{#each data.fundingData.funding.plans as plan, index (plan.guid)}
-			{#if plan.status === 'active'}
-				{@const paymentChannel = getPaymentChannel(plan.channels)}
-				<div class="{getCardColor(index)} flex flex-col rounded-lg p-8">
+		<!-- Entity metadata table -->
+		<Prose>
+			<table>
+				<tbody>
+					<tr>
+						<td data-label="Field">Organization</td>
+						<td data-label="Value">{data.fundingData.entity.name}</td>
+					</tr>
+					<tr>
+						<td data-label="Field">Type</td>
+						<td data-label="Value">{data.fundingData.entity.type}</td>
+					</tr>
+					<tr>
+						<td data-label="Field">Role</td>
+						<td data-label="Value">{data.fundingData.entity.role}</td>
+					</tr>
+					<tr>
+						<td data-label="Field">Email</td>
+						<td data-label="Value">
+							<a href="mailto:{data.fundingData.entity.email}">
+								{data.fundingData.entity.email}
+							</a>
+						</td>
+					</tr>
+					{#if data.fundingData.entity.webpageUrl}
+						<tr>
+							<td data-label="Field">Website</td>
+							<td data-label="Value">
+								<a
+									href={data.fundingData.entity.webpageUrl.url}
+									target="_blank"
+									rel="noopener noreferrer"
+								>
+									{data.fundingData.entity.webpageUrl.url}
+								</a>
+							</td>
+						</tr>
+					{/if}
+					<tr>
+						<td data-label="Field">Manifest</td>
+						<td data-label="Value">
+							<a href="/funding.json">funding.json</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</Prose>
+
+		<Heading tag="h2">Funding Plans</Heading>
+		<div class="grid gap-8 md:grid-cols-2">
+			{#each data.fundingData.funding.plans.filter((p) => p.status === 'active') as plan, index (plan.guid)}
+				{@const channel = getChannel(plan.channels)}
+				{@const cardColor = getCardColor(index)}
+				{@const buttonColor = getButtonColor(index)}
+				<div class="{cardColor} flex flex-col rounded-lg p-8">
 					<h3 class="mb-2 text-lg font-semibold">{plan.name}</h3>
-					<p class="mb-4 text-2xl font-bold text-teal-600">
+					<p class="mb-4 text-2xl font-bold" style="color: var({getDarkColorVar(index)})">
 						{plan.amount === 0 ? 'Any amount' : formatINR(plan.amount)}
 					</p>
-					<p class="text-grey-700 mb-6 grow">{plan.description}</p>
+					<p class="mb-6 grow text-black">
+						{@html plan.description.replace(
+							/https?:\/\/[^\s]+/g,
+							(url) =>
+								`<a href="${url}" target="_blank" rel="noopener noreferrer" class="plan-link">${url}</a>`
+						)}
+					</p>
 
-					{#if paymentChannel}
+					{#if channel}
 						<div class="flex justify-end">
-							<a
-								href={paymentChannel.address}
-								target="_blank"
-								rel="noopener noreferrer"
-								class="rounded bg-teal-600 px-4 py-2 font-medium text-white hover:bg-teal-700"
-							>
-								Contribute
-							</a>
+							{#if channel.type === 'payment-provider'}
+								<Button href={channel.address} external color={buttonColor} size="sm">
+									Contribute
+								</Button>
+							{:else if channel.type === 'bank'}
+								<Button href="mailto:{data.fundingData.entity.email}" color={buttonColor} size="sm">
+									Contact for Details
+								</Button>
+							{/if}
 						</div>
-					{/if}
-				</div>
-			{/if}
-		{/each}
-	</div>
-</Container>
-
-<!-- Divider -->
-<div class="py-12">
-	<DividerCurves />
-</div>
-
-<!-- Channels Section -->
-<Container>
-	<Stack class="py-20">
-		<Heading tag="h2" align="center">Ways to Contribute</Heading>
-		<div class="mx-auto grid max-w-2xl gap-8 py-12 md:grid-cols-2">
-			{#each data.fundingData.funding.channels as channel, index}
-				<div class="{getCardColor(index)} rounded-lg p-8">
-					<h3 class="mb-3 text-lg font-semibold">
-						{channel.type === 'payment-provider' ? 'Online Payment' : 'Bank Transfer'}
-					</h3>
-					<p class="text-grey-700">{channel.description}</p>
-					{#if channel.type === 'payment-provider'}
-						<a
-							href={channel.address}
-							target="_blank"
-							rel="noopener noreferrer"
-							class="mt-4 inline-block rounded bg-teal-600 px-4 py-2 font-medium text-white hover:bg-teal-700"
-						>
-							Go to Payment Link
-						</a>
 					{/if}
 				</div>
 			{/each}
 		</div>
 
-		<div class="mt-12 rounded-lg bg-blue-100 p-6 text-center">
-			<Text>
-				For more details, reach out to <a
-					href="mailto:{data.fundingData.entity.email}"
-					class="underline">{data.fundingData.entity.email}</a
+		<Prose class="mt-12">
+			<h2>Funding Channels</h2>
+			<ul>
+				{#each data.fundingData.funding.channels as channel}
+					<li>
+						<strong
+							>{channel.type === 'payment-provider' ? 'Online Payment' : 'Bank Transfer'}</strong
+						>
+						— {channel.description}
+						{#if channel.type === 'payment-provider'}
+							(<a href={channel.address} target="_blank" rel="noopener noreferrer">
+								payment link
+							</a>)
+						{:else}
+							(<a href="mailto:{data.fundingData.entity.email}">
+								{data.fundingData.entity.email}
+							</a>)
+						{/if}
+					</li>
+				{/each}
+			</ul>
+			<p>
+				View the <a
+					href="https://vizchitra.com/funding.json"
+					target="_blank"
+					rel="noopener noreferrer"
 				>
-			</Text>
-		</div>
-	</Stack>
-</Container>
-
-<!-- Footer -->
-<Container>
-	<Stack class="border-t py-12 text-center">
-		<Text class="text-grey-600 text-sm">
-			<a href="/funding.json" class="underline">View our funding manifest</a>
-		</Text>
+					machine readable version
+				</a>
+			</p>
+		</Prose>
 	</Stack>
 </Container>
 
 <style>
 	:global(a) {
 		color: inherit;
+	}
+
+	:global(.plan-link) {
+		color: var(--color-viz-blue-dark);
+		text-decoration: underline;
+		text-decoration-color: var(--color-viz-grey-muted);
+		text-decoration-thickness: 2px;
+		text-underline-offset: 0.35em;
+		text-decoration-skip-ink: auto;
+		transition: all 200ms ease-in-out;
+	}
+
+	:global(.plan-link:hover) {
+		text-decoration-color: var(--color-viz-blue-dark);
+		background-color: var(--color-viz-blue-subtle);
+		padding: 0.35em;
 	}
 </style>
