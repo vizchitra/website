@@ -2,11 +2,12 @@ import type { RequestHandler } from './$types';
 import { Octokit } from '@octokit/rest';
 import matter from 'gray-matter';
 import { ensureStagingBranch, stagingKey, type StagingState } from '$lib/studio/staging';
+import { GITHUB_OWNER, GITHUB_REPO } from '$lib/config/github';
 
 export const prerender = false;
 
-const OWNER = 'vizchitra';
-const REPO = 'vizchitra.github.io';
+const OWNER = GITHUB_OWNER;
+const REPO = GITHUB_REPO;
 
 const ALLOWED_PREFIXES = ['content/'];
 
