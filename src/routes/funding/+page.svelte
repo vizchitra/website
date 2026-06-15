@@ -100,6 +100,43 @@
 			</dl>
 		</Prose>
 
+		<Heading tag="h2">Our Projects</Heading>
+		<div class="grid gap-8 md:grid-cols-2">
+			{#each data.fundingData.projects as project (project.guid)}
+				<div class="rounded-lg border border-gray-200 p-8">
+					<h3 class="mb-2 text-lg font-semibold">{project.name}</h3>
+					<p class="mb-4 text-sm text-gray-600">{project.description}</p>
+					<div class="mb-4 flex flex-wrap gap-2">
+						{#each project.tags as tag}
+							<span class="rounded-full bg-gray-100 px-3 py-1 text-xs text-gray-700">{tag}</span>
+						{/each}
+					</div>
+					<div class="flex gap-3">
+						{#if project.webpageUrl}
+							<a
+								href={project.webpageUrl.url}
+								target="_blank"
+								rel="noopener noreferrer"
+								class="text-sm text-blue-600 hover:underline"
+							>
+								Website ↗
+							</a>
+						{/if}
+						{#if project.repositoryUrl}
+							<a
+								href={project.repositoryUrl.url}
+								target="_blank"
+								rel="noopener noreferrer"
+								class="text-sm text-blue-600 hover:underline"
+							>
+								Repository ↗
+							</a>
+						{/if}
+					</div>
+				</div>
+			{/each}
+		</div>
+
 		<Heading tag="h2">Funding Plans</Heading>
 		<div class="grid gap-8 md:grid-cols-2">
 			{#each data.fundingData.funding.plans.filter((p) => p.status === 'active') as plan, index (plan.guid)}
