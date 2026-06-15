@@ -91,9 +91,7 @@
 			<p>
 				These are living documents. We will continue to update them as questions emerge and insights
 				evolve. If you have suggestions or improvements, please open an issue or submit a pull
-				request on <a href="https://github.com/vizchitra/vizchitra.github.io"
-					>our GitHub repository</a
-				>.
+				request on <a href="https://github.com/vizchitra/website">our GitHub repository</a>.
 			</p>
 			<div id="list"></div>
 			<h2>Our Five Guides</h2>

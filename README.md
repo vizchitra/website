@@ -14,7 +14,7 @@ VizChitra is an Indian data visualization community. Our mission is to foster a 
 ### Getting Started
 
 1.  Fork the repository.
-2.  Clone your fork: `git clone https://github.com/YOUR_USERNAME/vizchitra.github.io.git`
+2.  Clone your fork: `git clone https://github.com/YOUR_USERNAME/website.git`
 3.  Install dependencies: `pnpm install`
 4.  Start the development server: `pnpm dev`
 5.  Open `http://localhost:5173` in your browser to view the site.

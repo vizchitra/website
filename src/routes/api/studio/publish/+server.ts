@@ -1,10 +1,11 @@
 import type { RequestHandler } from './$types';
 import { Octokit } from '@octokit/rest';
+import { GITHUB_OWNER, GITHUB_REPO } from '$lib/config/github';
 
 export const prerender = false;
 
-const OWNER = 'vizchitra';
-const REPO = 'vizchitra.github.io';
+const OWNER = GITHUB_OWNER;
+const REPO = GITHUB_REPO;
 const BASE_BRANCH = 'master';
 
 interface StagingState {
