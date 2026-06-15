@@ -14,7 +14,7 @@ Format: date, what changed, why, key files, notes for the next agent.
 3. Staged files in the "Ready to publish" section are now clickable links back to the editable page.
 4. Studio dashboard shows a two-step Edit → Publish workflow explanation instead of the old misleading "changes go live immediately" text.
 5. `StudioPanel`: social og:image preview and optional `previewCard` snippet now appear _below_ frontmatter fields (not above). Parent pages can pass `{#snippet previewCard()}` for e.g. a `SessionCardExpanded` preview.
-6. Auth now checks GitHub repo collaborator status via the bot token instead of a static `STUDIO_ALLOWED_USERS` env var. Anyone added as a collaborator on `vizchitra/vizchitra.github.io` can log in — no redeployment needed to add/remove editors.
+6. Auth now checks GitHub repo collaborator status via the bot token instead of a static `STUDIO_ALLOWED_USERS` env var. Anyone added as a collaborator on `vizchitra/website` can log in — no redeployment needed to add/remove editors.
 7. Staged files are now loaded in the server `load()` function (from KV) with URLs resolved, removing the client-side `loadStaged()` fetch.
 
 **Key files:** `src/lib/studio/GroupedTableCard.svelte` (new), `src/routes/studio/+page.svelte`, `src/routes/studio/+page.server.ts`, `src/lib/studio/editor/StudioPanel.svelte`, `src/routes/studio/auth/callback/+server.ts`, `src/lib/studio/session.ts`, `src/app.d.ts`, `studio.config.ts`

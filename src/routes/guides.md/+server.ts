@@ -73,7 +73,7 @@ These guides are designed to support both you and us as we move from first idea 
 
 They bring together best practices, practical tips, and curated guidelines to help you prepare, refine, and share your work with confidence across the entire journey. Think of this as a working reference you can return to at every stage.
 
-These are living documents. We will continue to update them as questions emerge and insights evolve. If you have suggestions or improvements, please open an issue or submit a pull request on our GitHub repository at https://github.com/vizchitra/vizchitra.github.io.
+These are living documents. We will continue to update them as questions emerge and insights evolve. If you have suggestions or improvements, please open an issue or submit a pull request on our GitHub repository at https://github.com/vizchitra/website.
 
 ## Our Five Guides
 
