@@ -61,52 +61,43 @@
 			{data.fundingData.entity.description}
 		</Text>
 
-		<!-- Entity metadata table -->
+		<!-- Entity metadata definition list -->
 		<Prose>
-			<table>
-				<tbody>
-					<tr>
-						<td data-label="Field">Organization</td>
-						<td data-label="Value">{data.fundingData.entity.name}</td>
-					</tr>
-					<tr>
-						<td data-label="Field">Type</td>
-						<td data-label="Value">{data.fundingData.entity.type}</td>
-					</tr>
-					<tr>
-						<td data-label="Field">Role</td>
-						<td data-label="Value">{data.fundingData.entity.role}</td>
-					</tr>
-					<tr>
-						<td data-label="Field">Email</td>
-						<td data-label="Value">
-							<a href="mailto:{data.fundingData.entity.email}">
-								{data.fundingData.entity.email}
-							</a>
-						</td>
-					</tr>
-					{#if data.fundingData.entity.webpageUrl}
-						<tr>
-							<td data-label="Field">Website</td>
-							<td data-label="Value">
-								<a
-									href={data.fundingData.entity.webpageUrl.url}
-									target="_blank"
-									rel="noopener noreferrer"
-								>
-									{data.fundingData.entity.webpageUrl.url}
-								</a>
-							</td>
-						</tr>
-					{/if}
-					<tr>
-						<td data-label="Field">Manifest</td>
-						<td data-label="Value">
-							<a href="/funding.json">funding.json</a>
-						</td>
-					</tr>
-				</tbody>
-			</table>
+			<dl>
+				<dt>Organization</dt>
+				<dd>{data.fundingData.entity.name}</dd>
+
+				<dt>Type</dt>
+				<dd>{data.fundingData.entity.type}</dd>
+
+				<dt>Role</dt>
+				<dd>{data.fundingData.entity.role}</dd>
+
+				<dt>Email</dt>
+				<dd>
+					<a href="mailto:{data.fundingData.entity.email}">
+						{data.fundingData.entity.email}
+					</a>
+				</dd>
+
+				{#if data.fundingData.entity.webpageUrl}
+					<dt>Website</dt>
+					<dd>
+						<a
+							href={data.fundingData.entity.webpageUrl.url}
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							{data.fundingData.entity.webpageUrl.url}
+						</a>
+					</dd>
+				{/if}
+
+				<dt>Manifest</dt>
+				<dd>
+					<a href="/funding.json">funding.json</a>
+				</dd>
+			</dl>
 		</Prose>
 
 		<Heading tag="h2">Funding Plans</Heading>
