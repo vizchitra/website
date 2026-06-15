@@ -63,7 +63,7 @@
 
 		<!-- Entity metadata definition list -->
 		<Prose>
-			<dl>
+			<dl class="entity-metadata">
 				<dt>Organization</dt>
 				<dd>{data.fundingData.entity.name}</dd>
 
@@ -173,6 +173,21 @@
 <style>
 	:global(a) {
 		color: inherit;
+	}
+
+	:global(.entity-metadata) {
+		display: grid;
+		grid-template-columns: max-content 1fr;
+		gap: 0.5rem 1rem;
+	}
+
+	:global(.entity-metadata dt) {
+		font-style: italic;
+	}
+
+	:global(.entity-metadata dd) {
+		font-weight: 500;
+		margin: 0;
 	}
 
 	:global(.plan-link) {
