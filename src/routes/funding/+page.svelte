@@ -150,9 +150,7 @@
 									Contribute
 								</Button>
 							{:else if channel.type === 'bank'}
-								<Button href="mailto:{data.fundingData.entity.email}" color={buttonColor} size="sm">
-									Contact for Details
-								</Button>
+								<Button href={channel.address} color={buttonColor} size="sm">Email Us</Button>
 							{/if}
 						</div>
 					{/if}
@@ -174,22 +172,11 @@
 								payment link
 							</a>)
 						{:else}
-							(<a href="mailto:{data.fundingData.entity.email}">
-								{data.fundingData.entity.email}
-							</a>)
+							(<a href={channel.address}> email us </a>)
 						{/if}
 					</li>
 				{/each}
 			</ul>
-			<p>
-				View the <a
-					href="https://vizchitra.com/funding.json"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					machine readable version
-				</a>
-			</p>
 		</Prose>
 	</Stack>
 </Container>
