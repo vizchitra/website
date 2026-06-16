@@ -150,9 +150,7 @@
 									Contribute
 								</Button>
 							{:else if channel.type === 'bank'}
-								<Button href={channel.address} color={buttonColor} size="sm">
-									Contact for Details
-								</Button>
+								<Button href={channel.address} color={buttonColor} size="sm">Email Us</Button>
 							{/if}
 						</div>
 					{/if}
@@ -174,7 +172,7 @@
 								payment link
 							</a>)
 						{:else}
-							(<a href={channel.address}> contact us </a>)
+							(<a href={channel.address}> email us </a>)
 						{/if}
 					</li>
 				{/each}
