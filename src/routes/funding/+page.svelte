@@ -150,7 +150,7 @@
 									Contribute
 								</Button>
 							{:else if channel.type === 'bank'}
-								<Button href="mailto:{data.fundingData.entity.email}" color={buttonColor} size="sm">
+								<Button href={channel.address} color={buttonColor} size="sm">
 									Contact for Details
 								</Button>
 							{/if}
@@ -174,9 +174,7 @@
 								payment link
 							</a>)
 						{:else}
-							(<a href="mailto:{data.fundingData.entity.email}">
-								{data.fundingData.entity.email}
-							</a>)
+							(<a href={channel.address}> contact us </a>)
 						{/if}
 					</li>
 				{/each}
