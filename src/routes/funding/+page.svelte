@@ -177,15 +177,6 @@
 					</li>
 				{/each}
 			</ul>
-			<p>
-				View the <a
-					href="https://vizchitra.com/funding.json"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					machine readable version
-				</a>
-			</p>
 		</Prose>
 	</Stack>
 </Container>
