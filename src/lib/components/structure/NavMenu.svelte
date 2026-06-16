@@ -61,7 +61,8 @@
 				{ name: 'The Community', href: '/community' },
 				{ name: 'Code of Conduct', href: '/conduct' },
 				{ name: 'Meet the Team', href: '/team' },
-				{ name: 'Tools & Patterns', href: '/tools' }
+				{ name: 'Tools & Patterns', href: '/tools' },
+				{ name: 'Funding', href: '/funding' }
 			],
 			expanded: false
 		}
