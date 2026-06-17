@@ -1,0 +1,396 @@
+# Conference Day schedule for 4 July 2026
+# Generated from 'Lineup _ VizChitra 2026.xlsx' → sheet
+# '4th July - Conference Day'. Hand-edit as needed.
+
+day = "2026-07-04"
+tracks = ["Auditorium", "Hall", "Library", "Boardroom"]
+
+[[slot]]
+track = "Auditorium"
+start = "08:00"
+end = "09:15"
+type = "ENTRY"
+label = "REGISTRATIONS"
+
+[[slot]]
+track = "Auditorium"
+start = "09:30"
+end = "09:45"
+type = "ADDRESS"
+label = "{Add Audio Reactive Drums + Vocals)"
+speakerLabel = "Nikita + Rasagy"
+
+[[slot]]
+track = "Auditorium"
+start = "09:45"
+end = "10:00"
+type = "ADDRESS"
+label = "WELCOME / STATE OF VIZ(CHITRA)"
+speakerLabel = "Amit (Proposal)"
+
+[[slot]]
+track = "Auditorium"
+start = "10:00"
+end = "10:30"
+type = "STANDARD"
+session = "timely-timeless-stories"
+
+[[slot]]
+track = "Auditorium"
+start = "10:30"
+end = "10:45"
+type = "LIGHTNING"
+session = "majestic-map-redesign"
+
+[[slot]]
+track = "Auditorium"
+start = "10:45"
+end = "11:15"
+type = "BREAK"
+label = "TEA BREAK"
+
+[[slot]]
+track = "Auditorium"
+start = "11:15"
+end = "11:45"
+type = "STANDARD"
+session = "esankhyiki-viz-scale"
+
+[[slot]]
+track = "Auditorium"
+start = "11:45"
+end = "12:00"
+type = "LIGHTNING"
+session = "atlas-of-intangibles"
+
+[[slot]]
+track = "Auditorium"
+start = "12:00"
+end = "12:30"
+type = "STANDARD"
+label = "TALK/PANEL - #1 | Sand, Data and Wicked Problem"
+
+[[slot]]
+track = "Auditorium"
+start = "12:30"
+end = "14:00"
+type = "BREAK"
+label = "LUNCH"
+
+[[slot]]
+track = "Auditorium"
+start = "14:00"
+end = "14:15"
+type = "LIGHTNING"
+session = "kuch-kuch-data-hai"
+
+[[slot]]
+track = "Auditorium"
+start = "14:15"
+end = "14:30"
+type = "STANDARD"
+label = "TALK/PANEL - #2 | Dasboard of our Discontent"
+
+[[slot]]
+track = "Auditorium"
+start = "14:30"
+end = "14:45"
+type = "STANDARD"
+label = "TBD"
+
+[[slot]]
+track = "Auditorium"
+start = "14:45"
+end = "15:15"
+type = "STANDARD"
+session = "data-viz-drift"
+
+[[slot]]
+track = "Auditorium"
+start = "15:15"
+end = "15:45"
+type = "BREAK"
+label = "TEA BREAK"
+
+[[slot]]
+track = "Auditorium"
+start = "15:45"
+end = "16:00"
+type = "LIGHTNING"
+session = "shape-health-costs"
+
+[[slot]]
+track = "Auditorium"
+start = "16:00"
+end = "16:30"
+type = "STANDARD"
+label = "TALK/PANEL - #3 | Caption This"
+
+[[slot]]
+track = "Auditorium"
+start = "16:30"
+end = "17:15"
+type = "KEYNOTE"
+session = "infinite-design-space"
+
+[[slot]]
+track = "Auditorium"
+start = "17:15"
+end = "17:30"
+type = "ADDRESS"
+label = "CLOSING / THANKS!"
+
+[[slot]]
+track = "Auditorium"
+start = "17:30"
+end = "18:30"
+type = "BREAK"
+label = "NETWORKING"
+
+[[slot]]
+track = "Hall"
+start = "08:00"
+end = "09:00"
+type = "ENTRY"
+label = "REGISTRATIONS"
+
+[[slot]]
+track = "Hall"
+start = "10:00"
+end = "10:30"
+type = "STANDARD"
+session = "dashboards-life-and-death"
+
+[[slot]]
+track = "Hall"
+start = "10:30"
+end = "10:45"
+type = "LIGHTNING"
+session = "viz-rural-care"
+
+[[slot]]
+track = "Hall"
+start = "10:45"
+end = "11:15"
+type = "BREAK"
+label = "TEA BREAK"
+
+[[slot]]
+track = "Hall"
+start = "11:15"
+end = "11:45"
+type = "STANDARD"
+session = "caption-this"
+
+[[slot]]
+track = "Hall"
+start = "11:45"
+end = "12:00"
+type = "LIGHTNING"
+session = "viz-speed-trust"
+
+[[slot]]
+track = "Hall"
+start = "12:30"
+end = "14:00"
+type = "BREAK"
+label = "LUNCH"
+
+[[slot]]
+track = "Hall"
+start = "14:00"
+end = "14:15"
+type = "STANDARD"
+session = "bite-sized-views"
+
+[[slot]]
+track = "Hall"
+start = "14:30"
+end = "14:45"
+type = "LIGHTNING"
+session = "whats-in-your-bag"
+
+[[slot]]
+track = "Hall"
+start = "14:45"
+end = "15:15"
+type = "STANDARD"
+session = "sand-data-wicked-problems"
+
+[[slot]]
+track = "Hall"
+start = "15:15"
+end = "15:45"
+type = "BREAK"
+label = "TEA BREAK"
+
+[[slot]]
+track = "Hall"
+start = "15:45"
+end = "16:00"
+type = "LIGHTNING"
+session = "no-clean-maps"
+
+[[slot]]
+track = "Hall"
+start = "16:00"
+end = "16:30"
+type = "STANDARD"
+session = "dashboards-of-our-discontent"
+
+[[slot]]
+track = "Hall"
+start = "17:15"
+end = "18:30"
+type = "BREAK"
+label = "NETWORKING"
+
+[[slot]]
+track = "Library"
+start = "08:00"
+end = "09:00"
+type = "ENTRY"
+label = "REGISTRATIONS"
+
+[[slot]]
+track = "Library"
+start = "10:00"
+end = "10:45"
+session = "curators-dilemma"
+
+[[slot]]
+track = "Library"
+start = "10:45"
+end = "11:15"
+type = "BREAK"
+label = "TEA BREAK"
+
+[[slot]]
+track = "Library"
+start = "11:15"
+end = "12:00"
+session = "charts-untold-stories"
+
+[[slot]]
+track = "Library"
+start = "12:30"
+end = "14:00"
+type = "BREAK"
+label = "LUNCH"
+
+[[slot]]
+track = "Library"
+start = "14:00"
+end = "14:45"
+session = "chart-crimes-autopsy"
+
+[[slot]]
+track = "Library"
+start = "15:15"
+end = "15:45"
+type = "BREAK"
+label = "TEA BREAK"
+
+[[slot]]
+track = "Library"
+start = "16:30"
+end = "16:45"
+type = "KEYNOTE"
+label = "TBD"
+
+[[slot]]
+track = "Library"
+start = "16:45"
+end = "17:00"
+type = "ADDRESS"
+label = "CLOSING / COMMUNITY / COLLECTIVE"
+
+[[slot]]
+track = "Library"
+start = "17:00"
+end = "17:15"
+type = "ADDRESS"
+label = "-"
+
+[[slot]]
+track = "Library"
+start = "17:15"
+end = "18:30"
+type = "BREAK"
+label = "NETWORKING"
+
+[[slot]]
+track = "Boardroom"
+start = "08:00"
+end = "09:00"
+type = "ENTRY"
+label = "REGISTRATIONS"
+
+[[slot]]
+track = "Boardroom"
+start = "10:45"
+end = "11:15"
+type = "BREAK"
+label = "TEA BREAK"
+
+[[slot]]
+track = "Boardroom"
+start = "11:45"
+end = "12:15"
+type = "SPONSORED"
+label = "Janagaraha?"
+
+[[slot]]
+track = "Boardroom"
+start = "12:30"
+end = "14:00"
+type = "BREAK"
+label = "LUNCH"
+
+[[slot]]
+track = "Boardroom"
+start = "14:00"
+end = "14:00"
+type = "SPONSORED"
+label = "Thurro"
+
+[[slot]]
+track = "Boardroom"
+start = "15:15"
+end = "15:45"
+type = "BREAK"
+label = "TEA BREAK"
+
+[[slot]]
+track = "Boardroom"
+start = "15:45"
+end = "16:00"
+label = "STUDENT SHOWCASE"
+
+[[slot]]
+track = "Boardroom"
+start = "16:30"
+end = "16:45"
+type = "KEYNOTE"
+label = "TBD"
+
+[[slot]]
+track = "Boardroom"
+start = "16:45"
+end = "17:00"
+type = "ADDRESS"
+label = "TBD"
+
+[[slot]]
+track = "Boardroom"
+start = "17:00"
+end = "17:15"
+type = "ADDRESS"
+label = "-"
+
+[[slot]]
+track = "Boardroom"
+start = "17:15"
+end = "18:30"
+type = "BREAK"
+label = "NETWORKING"
