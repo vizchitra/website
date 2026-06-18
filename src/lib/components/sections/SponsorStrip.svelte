@@ -37,6 +37,13 @@
 				height: 30
 			},
 			{
+				name: 'People + AI',
+				logo: '/images/logos/people-ai-logo.png',
+				url: 'https://peopleplus.ai',
+				tier: 'Bronze Sponsor',
+				height: 52
+			},
+			{
 				name: 'The Pudding',
 				logo: '/images/logos/pudding-logo.svg',
 				url: 'https://pudding.cool',

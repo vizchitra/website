@@ -560,8 +560,6 @@
 			{@render sessionRow('Dialogues')}
 			{@render sessionRow('Exhibition')}
 		</Stack>
-
-		<DividerCurves />
 	</Stack>
 </Container>
 

@@ -92,7 +92,7 @@
 	<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 		<div class="flex h-16 justify-between">
 			<div class="flex">
-				<a href="/" class="flex items-center text-3xl">
+				<a href="/2026/" class="flex items-center text-3xl">
 					<VizChitraLogoType year={null} />
 				</a>
 			</div>

@@ -13,7 +13,7 @@ Data visualization is a field that rewards access: to tools, to education, to co
 
 These financial aid scholarships exist to make that possible.
 
-**Applications are now closed.** We are currently reviewing applications. Recipients will be notified by email.
+**Applications are now closed.** Selected applicants have been notified by email.
 
 ## The Scholarship
 
@@ -33,7 +33,7 @@ You don't need to tick every box. If you're unsure, apply.
 
 ## How it works
 
-Applications were open until **May 25, 2026** and are now closed. All applications are being reviewed by a panel from the VizChitra community based on financial need, geographic access, career stage, impact outcome, and lived experience. Recipients will be notified by email by **June 8, 2026**.
+Applications were open until **May 25, 2026** and are now closed. Applications were reviewed by a panel from the VizChitra community based on financial need, geographic access, career stage, impact outcome, and lived experience. Selected applicants have been notified by email.
 
 _Want to attend and can afford it? [Buy a ticket](https://tickets.vizchitra.com/) — it helps us offer more scholarships._
 
