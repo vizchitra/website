@@ -25,6 +25,7 @@ export const speakerImageTransforms = {
 	'Adolfo Arranz': { x: 15, y: -30, scale: 1.2 },
 	'Prakriti Bakshi': { x: 0, y: 12, scale: 1.2 },
 	'Prasanta Kumar Dutta': { x: 15, y: -25, scale: 1.3 },
+	'Karthik Shashidhar': { x: 15, y: -30, scale: 1.3 },
 
 	// Talks
 	'Arvind Satyanarayan': { x: 10, y: -35, scale: 1.25 },

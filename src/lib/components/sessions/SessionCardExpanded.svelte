@@ -23,7 +23,6 @@
 		tbd?: boolean;
 		soldOut?: boolean;
 		isExpanded?: boolean;
-		showViewDetailsButton?: boolean;
 		descriptionHtml?: string;
 		from?: string;
 		pageReady?: boolean;
@@ -45,7 +44,6 @@
 		tbd = false,
 		soldOut = false,
 		isExpanded = true,
-		showViewDetailsButton = false,
 		descriptionHtml = '',
 		from = '',
 		pageReady = false
@@ -203,225 +201,227 @@
 	</div>
 {:else}
 	{@const currentColor = colorClasses[color] ?? colorClasses.blue}
-	<div
-		class="sessions-card-wrapper group @container relative mx-auto w-full overflow-hidden rounded"
-	>
-		{#if soldOut}
-			<div class="sold-out-ribbon" style="background: {shadowColor};">
-				<span class="sold-out-ribbon-text">Sold Out</span>
-			</div>
-		{/if}
-		<svelte:element
-			this={pageReady ? 'a' : 'div'}
-			href={pageReady ? detailHref : undefined}
-			class="sessions-card bg-viz-white border-viz-grey/40 isolate block w-full transform-gpu overflow-hidden rounded border transition-[transform,box-shadow] {pageReady
-				? 'cursor-pointer group-hover:scale-102'
-				: 'cursor-default'}"
-			onpointermove={handlePointerMove}
-			onpointerleave={handlePointerLeave}
-		>
+	<div class="sessions-card-outer group relative mx-auto w-full">
+		<div class="sessions-card-wrapper @container relative w-full overflow-hidden rounded">
 			{#if soldOut}
-				<div class="sold-out-ribbon">
+				<div class="sold-out-ribbon" style="background: {shadowColor};">
 					<span class="sold-out-ribbon-text">Sold Out</span>
 				</div>
 			{/if}
-			<div
-				class="session-card-body relative flex aspect-4/5.75 max-h-[85svh] flex-col md:max-h-none {soldOut
-					? 'sold-out-card'
-					: ''}"
-				bind:clientWidth={backgroundWidth}
-				bind:clientHeight={backgroundHeight}
+			<svelte:element
+				this={pageReady ? 'a' : 'div'}
+				href={pageReady ? detailHref : undefined}
+				class="sessions-card bg-viz-white border-viz-grey/40 isolate block w-full transform-gpu overflow-hidden rounded border transition-[transform,box-shadow] {pageReady
+					? 'cursor-pointer group-hover:scale-102'
+					: 'cursor-default'}"
+				onpointermove={handlePointerMove}
+				onpointerleave={handlePointerLeave}
 			>
-				<!-- Pattern anchored to full card so translate % is stable regardless of flex split -->
-				<div class="pattern-bg-expanded absolute inset-0 z-0 overflow-visible">
-					{#if expandedBgWidth > 0}
-						<SessionCardBackground
-							{sessionType}
-							{color}
-							{variation}
-							{seed}
-							width={expandedBgWidth}
-							height={expandedBgWidth}
-							class="h-full w-full"
-						/>
-					{/if}
-				</div>
-				<div class="session-top-text-content z-20">
-					<div class="session-card-header relative z-10 p-2.5 pb-0! md:p-4">
-						<div class="title mb-2.5 flex flex-row items-baseline justify-start gap-2 md:mb-3">
-							<div class="logo-container text-xl leading-none text-[#4c4c4c] md:text-2xl">
-								<LogoType classes="text-xl md:text-2xl" year={null} />
-							</div>
-
-							<!-- <div class="divider my-0.5 w-0.5 self-stretch bg-[#4c4c4c]"></div> -->
-							<p
-								class="font-display text-shadow block text-xl leading-none tracking-tighter uppercase md:text-2xl"
-								style="color: {themeTokens[color]?.dark ??
-									themeTokens.blue.dark}; font-variation-settings: 'wght' 600;"
-							>
-								{sessionType}
-							</p>
-						</div>
-
-						<div class="sessions-logistics hidden">
-							<div class="text-base leading-none uppercase md:text-base">
-								{#if time}
-									<span class="font-display leading-snug! font-bold md:text-[17px]">{time} ⋅ </span>
-									{#if slot}<span class="font-display leading-snug! font-bold md:text-[17px]"
-											>{slot}</span
-										>{/if}
-								{/if}
-								{#if venue}
-									<p class="text-base leading-none uppercase md:text-base">
-										<span class="font-display leading-none! font-light md:text-[16px]"
-											>{venue}
-										</span>
-									</p>
-								{/if}
-							</div>
-						</div>
+				{#if soldOut}
+					<div class="sold-out-ribbon">
+						<span class="sold-out-ribbon-text">Sold Out</span>
 					</div>
+				{/if}
+				<div
+					class="session-card-body relative flex aspect-4/5.75 max-h-[85svh] flex-col md:max-h-none {soldOut
+						? 'sold-out-card'
+						: ''}"
+					bind:clientWidth={backgroundWidth}
+					bind:clientHeight={backgroundHeight}
+				>
+					<!-- Pattern anchored to full card so translate % is stable regardless of flex split -->
+					<div class="pattern-bg-expanded absolute inset-0 z-0 overflow-visible">
+						{#if expandedBgWidth > 0}
+							<SessionCardBackground
+								{sessionType}
+								{color}
+								{variation}
+								{seed}
+								width={expandedBgWidth}
+								height={expandedBgWidth}
+								class="h-full w-full"
+							/>
+						{/if}
+					</div>
+					<div class="session-top-text-content z-20">
+						<div class="session-card-header relative z-10 p-2.5 pb-0! md:p-4">
+							<div class="title mb-2.5 flex flex-row items-baseline justify-start gap-2 md:mb-3">
+								<div class="logo-container text-xl leading-none text-[#4c4c4c] md:text-2xl">
+									<LogoType classes="text-xl md:text-2xl" year={null} />
+								</div>
 
-					<div
-						class="title-content relative z-10 p-3 pt-1 md:p-4 md:pt-3"
-						style={layout.titlePaddingRatio && backgroundWidth > 0
-							? `padding-top: ${Math.round(backgroundWidth * layout.titlePaddingRatio)}px`
-							: undefined}
-					>
-						<h3
-							class="title font-display text-shadow mb-1 text-[20px] leading-none font-extrabold text-[#4c4c4c] uppercase md:text-[20px] lg:text-[22px] 2xl:text-[28px]"
-							style={layout.titleMaxWidth ? `max-width: ${layout.titleMaxWidth}` : undefined}
+								<!-- <div class="divider my-0.5 w-0.5 self-stretch bg-[#4c4c4c]"></div> -->
+								<p
+									class="font-display text-shadow block text-xl leading-none tracking-tighter uppercase md:text-2xl"
+									style="color: {themeTokens[color]?.dark ??
+										themeTokens.blue.dark}; font-variation-settings: 'wght' 600;"
+								>
+									{sessionType}
+								</p>
+							</div>
+
+							<div class="sessions-logistics hidden">
+								<div class="text-base leading-none uppercase md:text-base">
+									{#if time}
+										<span class="font-display leading-snug! font-bold md:text-[17px]"
+											>{time} ⋅
+										</span>
+										{#if slot}<span class="font-display leading-snug! font-bold md:text-[17px]"
+												>{slot}</span
+											>{/if}
+									{/if}
+									{#if venue}
+										<p class="text-base leading-none uppercase md:text-base">
+											<span class="font-display leading-none! font-light md:text-[16px]"
+												>{venue}
+											</span>
+										</p>
+									{/if}
+								</div>
+							</div>
+						</div>
+
+						<div
+							class="title-content relative z-10 p-3 pt-1 md:p-4 md:pt-3"
+							style={layout.titlePaddingRatio && backgroundWidth > 0
+								? `padding-top: ${Math.round(backgroundWidth * layout.titlePaddingRatio)}px`
+								: undefined}
 						>
-							{title}
-						</h3>
-						<!-- {#if subtitle}
+							<h3
+								class="title font-display text-shadow mb-1 text-[20px] leading-none font-extrabold text-[#4c4c4c] uppercase md:text-[20px] lg:text-[22px] 2xl:text-[28px]"
+								style={layout.titleMaxWidth ? `max-width: ${layout.titleMaxWidth}` : undefined}
+							>
+								{title}
+							</h3>
+							<!-- {#if subtitle}
 					<p
 						class="subtitle font-display text-shadow mb-1 text-[20px] leading-none font-extrabold text-[#4c4c4c] uppercase md:text-[28px]"
 					></p>
 				{/if} -->
+						</div>
+
+						{#if isExpanded}
+							<div class="short-description-container relative z-10 p-3 pt-0 md:p-4 md:pt-1">
+								<!-- float pushes text away from the photo/pattern on the right -->
+								<div
+									class="text-shape-float"
+									style="width: {layout.floatWidth}; height: {layout.floatHeight};"
+									aria-hidden="true"
+								></div>
+								<!-- div (not p) so that inner <p> tags from descriptionHtml don't break float context -->
+								<div
+									class="short-description font-body text-shadow mb-1 text-[15px] leading-tight font-normal text-[#4c4c4c] md:text-[18px]"
+								>
+									{subtitle}
+								</div>
+							</div>
+						{/if}
+					</div>
+					<div
+						class="background-container-expanded relative z-0 flex w-full flex-1 flex-row items-center justify-end"
+					>
+						{#each (speakerImage || '')
+							.split('//')
+							.map((s) => s.trim())
+							.filter(Boolean) as img, i}
+							<div
+								class="speaker-image pointer-events-none absolute bottom-0 origin-center transition-transform duration-300 group-hover:scale-104 group-hover:rotate-1"
+								style:right="{5 + i * 30}%"
+								style:transform={buildSpeakerImageTransform(speakerName, screenWidth, sessionType)}
+							>
+								<img
+									class="relative z-10 h-auto w-full"
+									style="filter: drop-shadow(0px 8px 16px {shadowColor}cc)"
+									src={img}
+									alt={speakerName?.split('//')[i]?.trim() ?? speakerName ?? ''}
+								/>
+							</div>
+						{:else}
+							<div
+								class="speaker-image pointer-events-none absolute right-5 bottom-0 origin-center transition-transform duration-300 group-hover:scale-104 group-hover:rotate-1"
+								style:transform={buildSpeakerImageTransform(speakerName, screenWidth, sessionType)}
+							>
+								<img
+									class="relative z-10 h-auto w-full"
+									style="filter: drop-shadow(0px 8px 16px {shadowColor}cc)"
+									src="/images/speakers/2026/speaker-placeholder.avif"
+									alt={speakerName ?? ''}
+								/>
+							</div>
+						{/each}
 					</div>
 
-					{#if isExpanded}
-						<div class="short-description-container relative z-10 p-3 pt-0 md:p-4 md:pt-1">
-							<!-- float pushes text away from the photo/pattern on the right -->
-							<div
-								class="text-shape-float"
-								style="width: {layout.floatWidth}; height: {layout.floatHeight};"
-								aria-hidden="true"
-							></div>
-							<!-- div (not p) so that inner <p> tags from descriptionHtml don't break float context -->
-							<div
-								class="short-description font-body text-shadow mb-1 text-[15px] leading-tight font-normal text-[#4c4c4c] md:text-[18px]"
-							>
-								{subtitle}
+					<div
+						class="speaker-details-overlay pointer-events-auto absolute inset-x-0 bottom-0 z-10 flex flex-col"
+					>
+						<!-- wave height = card-width/3; padding-bottom% is relative to own width (inset-x-0) -->
+						<div
+							class="absolute inset-x-0 -bottom-px"
+							style="height: 0; padding-bottom: calc(33.34% + 2px);"
+						>
+							<div class="absolute inset-0">
+								<svg
+									class="relative z-0 block h-full w-full"
+									viewBox="0 0 1080 364"
+									preserveAspectRatio="none"
+									fill="none"
+									aria-hidden="true"
+								>
+									<path
+										d="M-12 364.516V0.516363C191.5 -0.982956 456 101.337 579 114.518C705 128.018 1004.5 9.01752 1092 2.01636V364.516H-12Z"
+										fill={overlayColor}
+									/>
+									<path
+										d="M-12 0.516363C191.5 -0.982956 456 101.337 579 114.518C705 128.018 1004.5 9.01752 1092 2.01636"
+										fill="none"
+										stroke="#fff"
+										stroke-width={overlayStrokeWidth}
+									/>
+								</svg>
 							</div>
 						</div>
-					{/if}
-				</div>
-				<div
-					class="background-container-expanded relative z-0 flex w-full flex-1 flex-row items-center justify-end"
-				>
-					{#each (speakerImage || '')
-						.split('//')
-						.map((s) => s.trim())
-						.filter(Boolean) as img, i}
-						<div
-							class="speaker-image pointer-events-none absolute bottom-0 origin-center transition-transform duration-300 group-hover:scale-104 group-hover:rotate-1"
-							style:right="{5 + i * 30}%"
-							style:transform={buildSpeakerImageTransform(speakerName, screenWidth, sessionType)}
-						>
-							<img
-								class="relative z-10 h-auto w-full"
-								style="filter: drop-shadow(0px 8px 16px {shadowColor}cc)"
-								src={img}
-								alt={speakerName?.split('//')[i]?.trim() ?? speakerName ?? ''}
-							/>
-						</div>
-					{:else}
-						<div
-							class="speaker-image pointer-events-none absolute right-5 bottom-0 origin-center transition-transform duration-300 group-hover:scale-104 group-hover:rotate-1"
-							style:transform={buildSpeakerImageTransform(speakerName, screenWidth, sessionType)}
-						>
-							<img
-								class="relative z-10 h-auto w-full"
-								style="filter: drop-shadow(0px 8px 16px {shadowColor}cc)"
-								src="/images/speakers/2026/speaker-placeholder.avif"
-								alt={speakerName ?? ''}
-							/>
-						</div>
-					{/each}
-				</div>
 
-				<div
-					class="speaker-details-overlay pointer-events-auto absolute inset-x-0 bottom-0 z-10 flex flex-col"
-				>
-					<!-- wave height = card-width/3; padding-bottom% is relative to own width (inset-x-0) -->
-					<div
-						class="absolute inset-x-0 -bottom-px"
-						style="height: 0; padding-bottom: calc(33.34% + 2px);"
-					>
-						<div class="absolute inset-0">
-							<svg
-								class="relative z-0 block h-full w-full"
-								viewBox="0 0 1080 364"
-								preserveAspectRatio="none"
-								fill="none"
-								aria-hidden="true"
-							>
-								<path
-									d="M-12 364.516V0.516363C191.5 -0.982956 456 101.337 579 114.518C705 128.018 1004.5 9.01752 1092 2.01636V364.516H-12Z"
-									fill={overlayColor}
-								/>
-								<path
-									d="M-12 0.516363C191.5 -0.982956 456 101.337 579 114.518C705 128.018 1004.5 9.01752 1092 2.01636"
-									fill="none"
-									stroke="#fff"
-									stroke-width={overlayStrokeWidth}
-								/>
-							</svg>
-						</div>
-					</div>
-
-					<div class="speaker-details-content relative z-30 mt-auto w-full p-2.5 md:p-4">
-						<div class="speaker-details relative z-10">
-							<h3
-								class="font-display text-shadow mb-1 text-[18px] leading-none text-[#4c4c4c] uppercase md:text-[20px] lg:text-[22px] 2xl:text-[26px] 2xl:text-shadow-none!"
-							>
-								{#each speakerName.split('//').map((s) => s.trim()) as person, i}
-									{@const isDual = speakerName.includes('//')}
-									{#if i > 0}<span
-											class="text-[18px] leading-none font-medium md:text-[20px] lg:text-[22px] 2xl:text-[28px]"
-										>
-											&nbsp;//
-										</span>{/if}
-									<span
-										class="first-name text-[18px] leading-none font-extrabold md:text-[20px] lg:text-[22px] 2xl:text-[28px]"
-										>{person.split(' ')[0]}</span
-									>
-									<span
-										class="last-name text-[18px] leading-none font-medium md:text-[20px] lg:text-[22px] 2xl:text-[28px] {isDual
-											? 'hidden @sm:inline'
-											: ''}">{person.split(' ').slice(1).join(' ')}</span
-									>
-								{/each}
-							</h3>
-							{#if designation || organisation}
-								<span
-									class="font-display block text-sm leading-tight text-[#4c4c4c] md:text-[14px] lg:text-[15px] 2xl:text-lg"
+						<div class="speaker-details-content relative z-30 mt-auto w-full p-2.5 md:p-4">
+							<div class="speaker-details relative z-10">
+								<h3
+									class="font-display text-shadow mb-1 text-[18px] leading-none text-[#4c4c4c] uppercase md:text-[20px] lg:text-[22px] 2xl:text-[26px] 2xl:text-shadow-none!"
 								>
-									{#if designation}
-										{designation}
-									{/if}{#if organisation}, {organisation}
-									{/if}
-								</span>
-							{/if}
+									{#each speakerName.split('//').map((s) => s.trim()) as person, i}
+										{@const isDual = speakerName.includes('//')}
+										{#if i > 0}<span
+												class="text-[18px] leading-none font-medium md:text-[20px] lg:text-[22px] 2xl:text-[28px]"
+											>
+												&nbsp;//
+											</span>{/if}
+										<span
+											class="first-name text-[18px] leading-none font-extrabold md:text-[20px] lg:text-[22px] 2xl:text-[28px]"
+											>{person.split(' ')[0]}</span
+										>
+										<span
+											class="last-name text-[18px] leading-none font-medium md:text-[20px] lg:text-[22px] 2xl:text-[28px] {isDual
+												? 'hidden @sm:inline'
+												: ''}">{person.split(' ').slice(1).join(' ')}</span
+										>
+									{/each}
+								</h3>
+								{#if designation || organisation}
+									<span
+										class="font-display block text-sm leading-tight text-[#4c4c4c] md:text-[14px] lg:text-[15px] 2xl:text-lg"
+									>
+										{#if designation}
+											{designation}
+										{/if}{#if organisation}, {organisation}
+										{/if}
+									</span>
+								{/if}
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-		</svelte:element>
+			</svelte:element>
+		</div>
 
-		{#if showViewDetailsButton && pageReady}
+		{#if pageReady}
 			<svg
 				class="view-details-button pointer-events-none absolute -right-18 -bottom-6 z-40 block h-32 w-32 origin-center scale-0 transition-transform duration-400 ease-out group-hover:scale-100 md:h-40 md:w-40 lg:-right-10 lg:-bottom-10 lg:h-48 lg:w-48"
 				viewBox="0 0 200 200"
@@ -521,13 +521,13 @@
 		text-transform: uppercase;
 	}
 
-	.sessions-card-wrapper {
+	.sessions-card-outer {
 		box-shadow:
 			rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
 			rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 	}
 
-	.sessions-card-wrapper:hover {
+	.sessions-card-outer:hover {
 		box-shadow:
 			rgba(50, 50, 93, 0.2) 0px 10px 15px -2px,
 			rgba(0, 0, 0, 0.2) 0px 6px 8px -3px;

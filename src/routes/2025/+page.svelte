@@ -104,7 +104,7 @@
 	];
 </script>
 
-<Hero banner="polygon" />
+<Hero banner="polygon" variant="large" />
 
 <CallToAction />
 

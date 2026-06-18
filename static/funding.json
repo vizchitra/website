@@ -1,0 +1,77 @@
+{
+	"$schema": "https://fundingjson.org/schema/v1.1.0.json",
+	"version": "v1.1.0",
+	"entity": {
+		"type": "organisation",
+		"role": "steward",
+		"name": "VizChitra Collective Private Limited",
+		"email": "hello@vizchitra.com",
+		"description": "VizChitra is India's data visualisation community and annual conference, based in Bengaluru. We bring together designers, developers, journalists, researchers, and analysts working at the intersection of data and visual communication. \n\n We are fully volunteer-driven, run an open call for sessions with feedback to every proposal, and publish guides and resources to support speakers, facilitators, and the wider community.",
+		"webpageUrl": {
+			"url": "https://vizchitra.com"
+		}
+	},
+	"projects": [
+		{
+			"guid": "vizchitra-conference",
+			"name": "VizChitra Conference",
+			"description": "VizChitra is India's annual data visualisation conference and community, bringing together designers, developers, journalists, researchers, and analysts working at the intersection of data and visual communication.\n\n VizChitra 2026 takes place 3-4 July at the Bangalore International Centre.",
+			"webpageUrl": {
+				"url": "https://vizchitra.com"
+			},
+			"repositoryUrl": {
+				"url": "https://github.com/vizchitra/website"
+			},
+			"licenses": ["spdx:MIT"],
+			"tags": ["data-visualization", "education", "design", "data"]
+		}
+	],
+	"funding": {
+		"channels": [
+			{
+				"guid": "razorpay-contribute",
+				"type": "payment-provider",
+				"address": "https://tickets.vizchitra.com/contribute",
+				"description": "Online payments via Razorpay. GST-compliant invoice provided."
+			},
+			{
+				"guid": "bank-transfer",
+				"type": "bank",
+				"address": "mailto:hello@vizchitra.com?subject=VizChitra%202026%20Sponsorship%20%2F%20Contribution",
+				"description": "Direct bank transfer for sponsorships and larger contributions. Email us to receive bank details. GST-compliant invoice provided."
+			}
+		],
+		"plans": [
+			{
+				"guid": "conference-sponsorship",
+				"status": "active",
+				"name": "VizChitra 2026 Sponsorship",
+				"description": "Sponsor VizChitra 2026: tiers from Community to Platinum, with branding, booth space, speaking slots, and diversity scholarship support. See https://vizchitra.com/2026/sponsorship for details and to get in touch.",
+				"amount": 0,
+				"currency": "INR",
+				"frequency": "one-time",
+				"channels": ["bank-transfer"]
+			},
+			{
+				"guid": "community-support",
+				"status": "active",
+				"name": "Community Support",
+				"description": "Support travel and accommodation for speakers, facilitators, and artists coming from outside Bengaluru, India, and South Asia. We fund ₹15,000 per outstation contributor. ₹50,000 supports travel for 3-4 contributors, broadening the voices represented at VizChitra 2026.",
+				"amount": 50000,
+				"currency": "INR",
+				"frequency": "one-time",
+				"channels": ["bank-transfer"]
+			},
+			{
+				"guid": "general-contribution",
+				"status": "active",
+				"name": "General Contribution",
+				"description": "Any amount to support VizChitra's community programmes, open guides, and the annual conference.",
+				"amount": 0,
+				"currency": "INR",
+				"frequency": "one-time",
+				"channels": ["razorpay-contribute"]
+			}
+		]
+	}
+}

@@ -300,5 +300,7 @@ export function parseMarkdown(markdownText: string): PmNode {
 /** Serialize a ProseMirror document back to a markdown string. */
 export function serializeMarkdown(doc: PmNode): string {
 	const mdast = fromProseMirror(doc, { schema, nodeHandlers, markHandlers });
-	return serializeProcessor.stringify(mdast);
+	// remark-stringify encodes trailing spaces as &#x20; to preserve them in
+	// markdown round-trips, but trailing spaces are meaningless in TOML strings.
+	return serializeProcessor.stringify(mdast).replace(/&#x20;/g, '');
 }

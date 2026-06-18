@@ -123,11 +123,11 @@
 						venue={session.venue}
 						slug={session.slug}
 						speakerImage={session.speakerImage}
-						showViewDetailsButton={true}
 						descriptionHtml={session.descriptionHtml}
 						tbd={session.tbd}
 						soldOut={session.soldOut}
 						isExpanded={true}
+						pageReady={session.pageReady}
 					/>
 				{/each}
 			</Grid>

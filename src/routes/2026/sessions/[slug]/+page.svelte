@@ -16,6 +16,19 @@
 	const session = $derived(data.session);
 	const color = $derived(sessionColorMap[session.sessionType] ?? 'blue');
 
+	const ticketBtnClass: Record<string, string> = {
+		blue: 'bg-viz-blue-dark hover:bg-viz-blue',
+		teal: 'bg-viz-teal-dark hover:bg-viz-teal',
+		pink: 'bg-viz-pink-dark hover:bg-viz-pink',
+		orange: 'bg-viz-orange-dark hover:bg-viz-orange'
+	};
+	const soldOutBtnClass: Record<string, string> = {
+		blue: 'bg-viz-blue',
+		teal: 'bg-viz-teal',
+		pink: 'bg-viz-pink',
+		orange: 'bg-viz-orange'
+	};
+
 	const backLink = $derived.by(() => {
 		if (!browser) return { href: '/2026/sessions', label: 'Back to All Sessions' };
 		const from = page.url.searchParams.get('from');
@@ -189,14 +202,53 @@
 		</div>
 
 		<!-- Tickets -->
-		<div class="mt-8">
+		<div class="mt-8 flex flex-wrap gap-3">
+			{#if session.sessionType === 'Workshops' && session.ticketCode}
+				{#if session.soldOut}
+					<span
+						class="font-display inline-flex cursor-not-allowed items-center rounded-full px-5 py-2 text-sm font-extrabold tracking-[0.15em] text-white uppercase {soldOutBtnClass[
+							color
+						]}"
+						style="box-shadow: 0 3px 10px rgba(0,0,0,0.2)"
+					>
+						Workshop Sold Out
+					</span>
+				{:else}
+					<a
+						href="https://tickets.vizchitra.com/?ticket={session.ticketCode}"
+						target="_blank"
+						rel="noopener noreferrer"
+						class="font-display inline-flex items-center gap-2 rounded-full px-5 py-2 text-sm font-bold text-white uppercase transition-colors {ticketBtnClass[
+							color
+						]}"
+					>
+						Get Workshop Ticket
+						<svg
+							class="h-4 w-4"
+							fill="none"
+							stroke="currentColor"
+							viewBox="0 0 24 24"
+							aria-hidden="true"
+						>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+								d="M14 5l7 7m0 0l-7 7m7-7H3"
+							/>
+						</svg>
+					</a>
+				{/if}
+			{/if}
 			<a
-				href="https://tickets.vizchitra.com/"
+				href="https://tickets.vizchitra.com/?ticket=conference_practitioner"
 				target="_blank"
 				rel="noopener noreferrer"
-				class="font-display bg-viz-{color}-dark hover:bg-viz-{color} inline-flex items-center gap-2 rounded-full px-5 py-2 text-sm font-bold text-white uppercase transition-colors"
+				class="font-display inline-flex items-center gap-2 rounded-full px-5 py-2 text-sm font-bold text-white uppercase transition-colors {ticketBtnClass[
+					color
+				]}"
 			>
-				Purchase Tickets
+				Get Conference Ticket
 				<svg
 					class="h-4 w-4"
 					fill="none"

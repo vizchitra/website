@@ -1,7 +1,8 @@
 import type { Octokit } from '@octokit/rest';
+import { GITHUB_OWNER, GITHUB_REPO } from '$lib/config/github';
 
-const OWNER = 'vizchitra';
-const REPO = 'vizchitra.github.io';
+const OWNER = GITHUB_OWNER;
+const REPO = GITHUB_REPO;
 const BASE_BRANCH = 'master';
 
 export interface StagingState {

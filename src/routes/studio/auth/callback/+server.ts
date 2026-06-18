@@ -2,6 +2,7 @@ import type { RequestHandler } from './$types';
 import { dev } from '$app/environment';
 import { Octokit } from '@octokit/rest';
 import { createSignedSession, buildSessionCookie } from '$lib/studio/session';
+import { GITHUB_OWNER, GITHUB_REPO } from '$lib/config/github';
 
 export const GET: RequestHandler = async ({ platform, url, request }) => {
 	const code = url.searchParams.get('code');
@@ -96,13 +97,13 @@ export const GET: RequestHandler = async ({ platform, url, request }) => {
 	}
 
 	// Check GitHub repo collaborator status using the bot token.
-	// Anyone added as a collaborator on vizchitra/vizchitra.github.io can log in.
+	// Anyone added as a collaborator on vizchitra repo can log in.
 	if (githubBotToken) {
 		try {
 			const octokit = new Octokit({ auth: githubBotToken });
 			await octokit.repos.checkCollaborator({
-				owner: 'vizchitra',
-				repo: 'vizchitra.github.io',
+				owner: GITHUB_OWNER,
+				repo: GITHUB_REPO,
 				username: handle
 			});
 		} catch {

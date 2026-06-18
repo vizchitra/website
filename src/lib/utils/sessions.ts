@@ -29,6 +29,8 @@ export interface SessionData {
 	tbd: boolean;
 	soldOut?: boolean;
 	order?: number;
+	pageReady?: boolean;
+	ticketCode?: string;
 }
 
 export function getSessionOrder(s: Pick<SessionData, 'order'>): number {
