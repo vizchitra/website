@@ -611,54 +611,6 @@
 	</Stack>
 </Container>
 
-<Container>
-	<Stack>
-		<!-- ── How to Attend ─────────────────────────────────────────────── -->
-		<Heading tag="h2" class="font-normal" align="center">
-			<Slanted color="orange" textContent="HOW TO ATTEND" />
-		</Heading>
-		<Text type="body" align="center">
-			Be there in person in Bengaluru, or join online from anywhere in the world.
-		</Text>
-
-		<div class="attend-grid">
-			<div class="attend-card attend-pink">
-				<h3 class="attend-title">In person · Bengaluru</h3>
-				<ul class="attend-list">
-					<li>Conference Day, 4 July, at the BIC</li>
-					<li>Talks, Dialogues and the Exhibition</li>
-					<li>Add a hands-on Workshop separately</li>
-				</ul>
-				<a class="attend-btn" href="https://tickets.vizchitra.com" target="_blank" rel="noopener"
-					>🎟️ Get in-person tickets →</a
-				>
-			</div>
-			<div class="attend-card attend-teal">
-				<h3 class="attend-title">Online · From anywhere</h3>
-				<ul class="attend-list">
-					<li>Stream the conference live</li>
-					<li>Join from any city or country</li>
-					<li>Virtual pass at ₹1,299</li>
-				</ul>
-				<a class="attend-btn" href="https://tickets.vizchitra.com" target="_blank" rel="noopener"
-					>💻 Get a virtual pass →</a
-				>
-			</div>
-		</div>
-
-		<Text type="body" align="center">
-			Not attending but want to back VizChitra?
-			<a
-				href="https://tickets.vizchitra.com/contribute"
-				target="_blank"
-				rel="noopener"
-				class="text-viz-pink-dark font-bold underline decoration-2 underline-offset-2"
-				>Contribute any amount →</a
-			>
-		</Text>
-	</Stack>
-</Container>
-
 <SponsorStrip />
 
 <div class="sponsor-banner">
