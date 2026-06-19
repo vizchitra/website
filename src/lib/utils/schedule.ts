@@ -173,3 +173,40 @@ export function resolveSlot(
 		rowSpan: rowSpan(slot)
 	};
 }
+
+/** Identity for a break row — breaks sharing this key across tracks are the same row. */
+export function breakKey(r: ResolvedSlot): string {
+	return `${r.slot.start}-${r.slot.end}-${r.title}`;
+}
+
+/** Keys of breaks present in every track; these render as one full-width row. */
+export function computeSpanningBreakKeys(slots: ResolvedSlot[], trackCount: number): Set<string> {
+	const count = new Map<string, number>();
+	for (const r of slots) {
+		if (r.kind !== 'break') continue;
+		count.set(breakKey(r), (count.get(breakKey(r)) ?? 0) + 1);
+	}
+	const keys = new Set<string>();
+	for (const [k, c] of count) if (c >= trackCount) keys.add(k);
+	return keys;
+}
+
+/** Whether a slot is a break common to all tracks (drawn as one full-width row). */
+export function isSpanningBreak(r: ResolvedSlot, spanningKeys: Set<string>): boolean {
+	return r.kind === 'break' && spanningKeys.has(breakKey(r));
+}
+
+/** Drop the per-track duplicates of each spanning break so it renders once. */
+export function dedupeSpanningBreaks(
+	slots: ResolvedSlot[],
+	spanningKeys: Set<string>
+): ResolvedSlot[] {
+	const seen = new Set<string>();
+	return slots.filter((r) => {
+		if (!isSpanningBreak(r, spanningKeys)) return true;
+		const key = breakKey(r);
+		if (seen.has(key)) return false;
+		seen.add(key);
+		return true;
+	});
+}

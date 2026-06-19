@@ -3,12 +3,13 @@
 	import {
 		computeGridBounds,
 		computeHourMarks,
-		formatTimeRange,
+		computeSpanningBreakKeys,
+		dedupeSpanningBreaks,
+		isSpanningBreak,
 		addMinutes,
 		resolveSlot,
 		timeToRow,
-		trackColumn,
-		type SlotKind
+		trackColumn
 	} from '$lib/utils/schedule';
 	import type { PageData } from './$types';
 
@@ -27,6 +28,12 @@
 	const activeTrackNames = $derived(schedule.tracks.filter((_, i) => isActive(i)));
 
 	const isCollapsed = (track: string) => !isActive(schedule.tracks.indexOf(track));
+
+	const spanningKeys = $derived(computeSpanningBreakKeys(resolvedSlots, schedule.tracks.length));
+	const renderSlots = $derived(dedupeSpanningBreaks(resolvedSlots, spanningKeys));
+
+	const leadCollapsed = $derived(windowStart);
+	const trailCollapsed = $derived(Math.max(0, schedule.tracks.length - 2 - windowStart));
 
 	const GUTTER = 'min(8%, 2rem)';
 	const INACTIVE_WIDTH = 'min(7%, 3rem)';
@@ -83,7 +90,7 @@
 			<!-- Column dividers — one per column (excluding the last), sit behind the slot cells -->
 			{#each { length: schedule.tracks.length + 1 } as _, i}
 				<div
-					class="border-viz-grey-light pointer-events-none z-10 border-r"
+					class="border-viz-grey-light pointer-events-none -z-10 border-r"
 					style="grid-column: {i + 1}; grid-row: 1 / -1;"
 				></div>
 			{/each}
@@ -105,7 +112,7 @@
 			{/each}
 
 			<!-- Slot cells -->
-			{#each resolvedSlots as r}
+			{#each renderSlots as r}
 				<svelte:element
 					this={r.href ? 'a' : 'div'}
 					href={r.href}
@@ -113,8 +120,13 @@
 						? 'cursor-pointer hover:-translate-y-px hover:shadow-md'
 						: ''} flex min-h-0 flex-col gap-0.5 overflow-hidden px-3 py-2.5 text-[0.8rem] leading-tight no-underline transition duration-150"
 					style="grid-row: {timeToRow(r.slot.start, bounds.gridStart) +
-						1} / span {r.rowSpan}; grid-column: {trackColumn(schedule.tracks, r.slot.track)};"
-					class:inactive={isCollapsed(r.slot.track)}
+						1} / span {r.rowSpan}; grid-column: {isSpanningBreak(r, spanningKeys)
+						? '2 / -1'
+						: trackColumn(schedule.tracks, r.slot.track)};{isSpanningBreak(r, spanningKeys)
+						? ` --break-pad-left: calc(${leadCollapsed} * ${INACTIVE_WIDTH}); --break-pad-right: calc(${trailCollapsed} * ${INACTIVE_WIDTH});`
+						: ''}"
+					class:inactive={!isSpanningBreak(r, spanningKeys) && isCollapsed(r.slot.track)}
+					class:break-row={isSpanningBreak(r, spanningKeys)}
 				>
 					<!-- <div class="text-[0.65rem] font-semibold opacity-70">{formatTimeRange(r.slot)}</div> -->
 					<!-- {#if r.slot.type}
@@ -140,9 +152,9 @@
 			{/each}
 		</div>
 
-		<!-- Track window slider -->
+		<!-- Track window slider — desktop-hidden; grid only collapses tracks below 1024px. -->
 		<div
-			class="track-slider border-viz-grey-light bg-viz-white fixed inset-x-0 bottom-0 z-20 flex-col items-center gap-2 border-t px-4 py-3"
+			class="border-viz-grey-light bg-viz-white fixed inset-x-0 bottom-0 z-20 hidden flex-col items-center gap-2 border-t px-4 py-3 max-lg:flex"
 		>
 			<div class="flex items-baseline justify-between">
 				<span class="font-display text-viz-grey-dark text-sm font-bold tracking-wide uppercase">
@@ -150,23 +162,26 @@
 				</span>
 			</div>
 
-			<!-- Custom slider: the real <input> sits on top, transparent, and drives
-			     the value (drag / click / keyboard). The track + pill below are the
-			     visible UI; the pill spans the two active tracks. -->
-			<div class="track-range relative h-6 w-full max-w-75">
-				<div class="track-range__rail"></div>
-				<!-- One mark per track, centred in its 1/N slice of the rail. The pill
-				     is opaque and drawn after these, so it hides the marks of the two
-				     active tracks — only the other tracks' marks stay visible. -->
+			<div class="relative h-6 w-full max-w-75">
+				<!-- Rail: thin full-width line, vertically centred. -->
+				<div
+					class="bg-viz-grey-light absolute inset-x-0 top-1/2 h-1 -translate-y-1/2 rounded-full"
+				></div>
+				<!-- Per-track dots, under the pill so only inactive tracks' marks show. -->
 				{#each schedule.tracks as _, i}
 					<div
-						class="track-range__mark"
+						class="bg-viz-grey pointer-events-none absolute top-1/2 h-1.5 w-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full"
 						style="left: {((i + 0.5) / schedule.tracks.length) * 100}%;"
 					></div>
 				{/each}
-				<div class="track-range__pill" style="width: {thumbPct}%; left: {thumbLeftPct}%;"></div>
+				<!-- Pill thumb over the two visible tracks; pointer-events off so the input handles interaction. Transition matches the grid's column animation. -->
+				<div
+					class="bg-viz-grey-dark pointer-events-none absolute top-1/2 h-5 -translate-y-1/2 rounded-full transition-[left,width] duration-200"
+					style="width: {thumbPct}%; left: {thumbLeftPct}%;"
+				></div>
+				<!-- Real range input: full-size, invisible, above the visuals. -->
 				<input
-					class="track-range__input"
+					class="absolute inset-0 m-0 h-full w-full cursor-pointer opacity-0"
 					type="range"
 					min="0"
 					max={maxWindowStart}
@@ -188,62 +203,16 @@
 		transition: grid-template-columns 0.2s ease;
 	}
 
-	/* The track-window slider is desktop-hidden; the grid only collapses tracks
-	   below the 1024px breakpoint where space is tight. */
-	.track-slider {
-		display: none;
-	}
-
-	/* Thin rail running the full width, vertically centred. */
-	.track-range__rail {
-		position: absolute;
-		top: 50%;
-		left: 0;
-		right: 0;
-		height: 4px;
-		transform: translateY(-50%);
-		border-radius: 9999px;
-		background: var(--color-viz-grey-light);
-	}
-
-	/* Per-track dot on the rail. Sits under the pill, so only the marks of the
-	   non-active tracks remain visible. */
-	.track-range__mark {
-		position: absolute;
-		top: 50%;
-		width: 6px;
-		height: 6px;
-		transform: translate(-50%, -50%);
-		border-radius: 9999px;
-		background: var(--color-viz-grey);
-		pointer-events: none;
-	}
-
-	/* Wide pill thumb spanning the two visible tracks. pointer-events stay off so
-	   the transparent <input> above handles all interaction. Transition matches
-	   the grid's column animation so they move together. */
-	.track-range__pill {
-		position: absolute;
-		top: 50%;
-		height: 1.25rem;
-		transform: translateY(-50%);
-		border-radius: 9999px;
-		background: var(--color-viz-grey-dark);
-		pointer-events: none;
-		transition:
-			left 0.2s ease,
-			width 0.2s ease;
-	}
-
-	/* Real range input: full-size, invisible, sits above the visuals. */
-	.track-range__input {
-		position: absolute;
-		inset: 0;
-		width: 100%;
-		height: 100%;
-		margin: 0;
-		opacity: 0;
-		cursor: pointer;
+	.event-slot.break-row {
+		position: relative;
+		z-index: 11;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		border-color: #aaa;
+		box-shadow:
+			rgb(204, 219, 232) 3px 3px 6px 0px inset,
+			rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
 	}
 
 	@media (max-width: 1024px) {
@@ -252,25 +221,20 @@
 			grid-template-rows: auto repeat(var(--total-rows), 6.5rem);
 		}
 
-		.track-slider {
-			display: flex;
-		}
-
 		.event-slot.inactive span {
 			color: transparent;
 			border-radius: 16px;
 		}
-		.event-slot.inactive {
+
+		.event-slot.break-row {
+			padding-left: var(--break-pad-left);
+			padding-right: var(--break-pad-right);
 		}
 	}
 
 	@media (max-width: 600px) {
 		.schedule-grid {
 			grid-template-rows: auto repeat(var(--total-rows), 8rem);
-		}
-
-		.track-slider {
-			display: flex;
 		}
 	}
 

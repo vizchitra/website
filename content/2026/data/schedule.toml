@@ -8,7 +8,7 @@ tracks = ["Auditorium", "Hall", "Library", "Boardroom"]
 [[slot]]
 track = "Auditorium"
 start = "08:00"
-end = "09:15"
+end = "09:00"
 type = "ENTRY"
 label = "REGISTRATIONS"
 
@@ -240,7 +240,7 @@ session = "dashboards-of-our-discontent"
 
 [[slot]]
 track = "Hall"
-start = "17:15"
+start = "17:30"
 end = "18:30"
 type = "BREAK"
 label = "NETWORKING"
@@ -314,7 +314,7 @@ label = "-"
 
 [[slot]]
 track = "Library"
-start = "17:15"
+start = "17:30"
 end = "18:30"
 type = "BREAK"
 label = "NETWORKING"
@@ -390,7 +390,7 @@ label = "-"
 
 [[slot]]
 track = "Boardroom"
-start = "17:15"
+start = "17:30"
 end = "18:30"
 type = "BREAK"
 label = "NETWORKING"
