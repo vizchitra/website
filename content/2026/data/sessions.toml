@@ -618,6 +618,7 @@ speakerImage = "/images/speakers/2026/speaker-prasanta.avif"
 display = true
 pageReady = true
 ticketCode = "workshop_2026_maps"
+soldOut = true
 order = 5
 
 [[session]]
