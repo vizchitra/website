@@ -25,8 +25,10 @@
 	const isActive = (i: number) => i === windowStart || i === windowStart + 1;
 	const activeTrackNames = $derived(schedule.tracks.filter((_, i) => isActive(i)));
 
+	const isCollapsed = (track: string) => !isActive(schedule.tracks.indexOf(track));
+
 	const GUTTER = 'min(8%, 2rem)';
-	const INACTIVE_WIDTH = 'min(7%, 4rem)';
+	const INACTIVE_WIDTH = 'min(7%, 3rem)';
 	const mobileCols = $derived.by(() => {
 		const collapsed = schedule.tracks.length - 2; // number of collapsed tracks
 		// Active tracks split whatever's left after the gutter and the slivers.
@@ -95,7 +97,7 @@
 			<!-- Column dividers — one per column (excluding the last), sit behind the slot cells -->
 			{#each { length: schedule.tracks.length + 1 } as _, i}
 				<div
-					class="pointer-events-none z-10 border-r-2 border-gray-700"
+					class="border-viz-grey-light pointer-events-none z-10 border-r"
 					style="grid-column: {i + 1}; grid-row: 1 / -1;"
 				></div>
 			{/each}
@@ -115,11 +117,12 @@
 				<svelte:element
 					this={r.href ? 'a' : 'div'}
 					href={r.href}
-					class="slot-color-{r.color} {kindClass[r.kind]} {r.href
+					class="event-slot slot-color-{r.color} {kindClass[r.kind]} {r.href
 						? linkClass
-						: ''} flex min-h-0 flex-col gap-0.5 overflow-hidden px-3 py-2.5 text-[0.8rem] leading-tight text-inherit no-underline transition duration-150"
+						: ''} flex min-h-0 flex-col gap-0.5 overflow-hidden px-3 py-2.5 text-[0.8rem] leading-tight no-underline transition duration-150"
 					style="grid-row: {timeToRow(r.slot.start, bounds.gridStart) +
 						1} / span {r.rowSpan}; grid-column: {trackColumn(schedule.tracks, r.slot.track)};"
+					class:inactive={isCollapsed(r.slot.track)}
 				>
 					<!-- <div class="text-[0.65rem] font-semibold opacity-70">{formatTimeRange(r.slot)}</div> -->
 					<!-- {#if r.slot.type}
@@ -145,8 +148,7 @@
 			{/each}
 		</div>
 
-		<!-- Track window slider — only shown below 1024px (see CSS). Lets the
-		     viewer slide the pair of visible tracks across the four. -->
+		<!-- Track window slider -->
 		<div
 			class="track-slider border-viz-grey-light bg-viz-white fixed inset-x-0 bottom-0 z-20 flex-col items-center gap-2 border-t px-4 py-3"
 		>
@@ -261,6 +263,13 @@
 		.track-slider {
 			display: flex;
 		}
+
+		.event-slot.inactive span {
+			color: transparent;
+			border-radius: 16px;
+		}
+		.event-slot.inactive {
+		}
 	}
 
 	@media (max-width: 600px) {
@@ -275,32 +284,27 @@
 
 	.slot-color-blue {
 		background: var(--color-viz-blue-light);
-		border-top: 1px solid var(--color-viz-blue);
-		border-bottom: 1px solid var(--color-viz-blue);
+		border: 2px solid var(--color-viz-blue);
 		color: var(--color-viz-blue-dark);
 	}
 	.slot-color-teal {
 		background: var(--color-viz-teal-light);
-		border-top: 1px solid var(--color-viz-teal);
-		border-bottom: 1px solid var(--color-viz-teal);
+		border: 2px solid var(--color-viz-teal);
 		color: var(--color-viz-teal-dark);
 	}
 	.slot-color-pink {
 		background: var(--color-viz-pink-light);
-		border-top: 1px solid var(--color-viz-pink);
-		border-bottom: 1px solid var(--color-viz-pink);
+		border: 2px solid var(--color-viz-pink);
 		color: var(--color-viz-pink-dark);
 	}
 	.slot-color-orange {
 		background: var(--color-viz-orange-light);
-		border-top: 1px solid var(--color-viz-orange);
-		border-bottom: 1px solid var(--color-viz-orange);
+		border: 2px solid var(--color-viz-orange);
 		color: var(--color-viz-orange-dark);
 	}
 	.slot-color-grey {
 		background: #fff;
-		border-top: 1px solid #555;
-		border-bottom: 1px solid #555;
+		border: 1px solid #555;
 		color: #222;
 	}
 
