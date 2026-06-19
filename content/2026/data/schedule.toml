@@ -3,7 +3,7 @@
 # '4th July - Conference Day'. Hand-edit as needed.
 
 day = "2026-07-04"
-tracks = ["Auditorium", "Hall", "Library", "Boardroom"]
+tracks = ["Auditorium", "Hall", "Library", "Boardroom", "Gallery"]
 
 [[slot]]
 track = "Auditorium"

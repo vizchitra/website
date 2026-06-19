@@ -9,7 +9,10 @@
 		addMinutes,
 		resolveSlot,
 		timeToRow,
-		trackColumn
+		trackColumn,
+		exhibitionTrack,
+		exhibitionStart,
+		exhibitionEnd
 	} from '$lib/utils/schedule';
 	import type { PageData } from './$types';
 
@@ -17,10 +20,18 @@
 
 	const schedule = $derived(data.schedule);
 	const sessionsBySlug = $derived(data.sessionsBySlug);
+	const exhibitions = $derived(data.exhibitions);
 
 	const bounds = $derived(computeGridBounds(schedule.slots));
 	const hourMarks = $derived(computeHourMarks(bounds.gridStart, bounds.gridEnd));
 	const resolvedSlots = $derived(schedule.slots.map((s) => resolveSlot(s, sessionsBySlug)));
+
+	const sessionTracks = $derived(schedule.tracks.filter((t) => t !== exhibitionTrack));
+	const galleryCol = $derived(trackColumn(schedule.tracks, exhibitionTrack));
+	const galleryRowStart = $derived(timeToRow(exhibitionStart, bounds.gridStart) + 1);
+	const galleryRowSpan = $derived(
+		timeToRow(exhibitionEnd, bounds.gridStart) - timeToRow(exhibitionStart, bounds.gridStart)
+	);
 
 	let windowStart = $state(0);
 	const maxWindowStart = $derived(Math.max(0, schedule.tracks.length - 2));
@@ -29,11 +40,14 @@
 
 	const isCollapsed = (track: string) => !isActive(schedule.tracks.indexOf(track));
 
-	const spanningKeys = $derived(computeSpanningBreakKeys(resolvedSlots, schedule.tracks.length));
+	const spanningKeys = $derived(computeSpanningBreakKeys(resolvedSlots, sessionTracks.length));
 	const renderSlots = $derived(dedupeSpanningBreaks(resolvedSlots, spanningKeys));
 
+	// Gutter + one equal column per track on desktop; mobile collapses below.
+	const desktopCols = $derived('3rem ' + schedule.tracks.map(() => 'minmax(0, 1fr)').join(' '));
+
 	const GUTTER = 'min(8%, 2rem)';
-	const INACTIVE_WIDTH = 'min(7%, 3rem)';
+	const INACTIVE_WIDTH = 'min(5%, 2rem)';
 	const mobileCols = $derived.by(() => {
 		const collapsed = schedule.tracks.length - 2; // number of collapsed tracks
 		// Active tracks split whatever's left after the gutter and the slivers.
@@ -65,11 +79,11 @@
 
 		<div
 			class="schedule-grid relative mt-6 grid gap-0 pb-28 lg:pb-0"
-			style="--total-rows: {bounds.totalRows}; --cols-mobile: {mobileCols};"
+			style="--total-rows: {bounds.totalRows}; --cols-desktop: {desktopCols}; --cols-mobile: {mobileCols};"
 		>
 			{#each schedule.tracks as track, i}
 				<div
-					class="track-header border-viz-grey-light bg-viz-white font-display text-viz-grey-dark sticky top-[calc(4rem+var(--announcement-bar-height,32px))] z-20 overflow-hidden border-b px-3 py-2 text-sm font-bold tracking-wide whitespace-nowrap uppercase shadow-2xl"
+					class="track-header border-viz-grey-light bg-viz-white font-display text-viz-grey-dark sticky top-[calc(4rem+var(--announcement-bar-height,32px))] z-20 overflow-hidden border-b px-3 py-2 text-sm font-bold tracking-wide whitespace-nowrap uppercase shadow-lg"
 					style="grid-row: 1; grid-column: {i + 2};"
 					class:inactive={isCollapsed(track)}
 				>
@@ -119,7 +133,7 @@
 						: ''} z-10 flex min-h-0 flex-col gap-0.5 overflow-hidden px-3 py-2.5 text-[0.8rem] leading-tight no-underline transition duration-150"
 					style="grid-row: {timeToRow(r.slot.start, bounds.gridStart) +
 						1} / span {r.rowSpan}; grid-column: {isSpanningBreak(r, spanningKeys)
-						? '2 / -1'
+						? `2 / ${galleryCol}`
 						: trackColumn(schedule.tracks, r.slot.track)};"
 					class:inactive={!isSpanningBreak(r, spanningKeys) && isCollapsed(r.slot.track)}
 					class:break-row={isSpanningBreak(r, spanningKeys)}
@@ -153,6 +167,37 @@
 					{/if}
 				</svelte:element>
 			{/each}
+
+			<!-- Gallery: the all-day exhibition column is one cell listing every
+				 exhibition, since they all run simultaneously for the whole day. -->
+			{#if exhibitions.length}
+				<div
+					class="event-slot slot-color-orange z-10 flex min-h-0 flex-col gap-3 overflow-hidden px-3 py-2.5 leading-tight"
+					style="grid-row: {galleryRowStart} / span {galleryRowSpan}; grid-column: {galleryCol};"
+					class:inactive={isCollapsed(exhibitionTrack)}
+				>
+					<span class="font-display block self-center text-sm font-bold uppercase lg:text-[18px]">
+						Exhibition
+					</span>
+					<div class="flex flex-1 flex-col justify-evenly gap-3">
+						{#each exhibitions as ex}
+							<a
+								href={ex.href}
+								class="border-viz-orange/30 block pt-3 no-underline transition first:pt-0 hover:opacity-70"
+							>
+								<span class="font-display block text-sm font-bold uppercase lg:text-[16px]">
+									{ex.title}
+								</span>
+								{#if ex.speaker}
+									<span class="text-[14px]"
+										><span class="font-bold">{ex.speaker}</span>{#if ex.role}, {ex.role}{/if}</span
+									>
+								{/if}
+							</a>
+						{/each}
+					</div>
+				</div>
+			{/if}
 		</div>
 
 		<!-- Track window slider — desktop-hidden; grid only collapses tracks below 1024px. -->
@@ -201,7 +246,7 @@
 	.schedule-grid {
 		display: grid;
 		gap: 0;
-		grid-template-columns: 3rem repeat(4, minmax(0, 1fr));
+		grid-template-columns: var(--cols-desktop);
 		grid-template-rows: auto repeat(var(--total-rows), 5rem);
 		transition: grid-template-columns 0.2s ease;
 	}
@@ -223,6 +268,10 @@
 			grid-template-rows: auto repeat(var(--total-rows), 6.5rem);
 		}
 
+		.event-slot.inactive {
+			padding: 0;
+		}
+
 		.event-slot.inactive span {
 			color: transparent;
 			border-radius: 16px;
@@ -230,9 +279,10 @@
 
 		.track-header.inactive {
 			color: transparent;
-			background: #efefef;
+			background: #ddd;
 			border: 2px solid var(--color-viz-white);
 			border-radius: 4px;
+			padding: 0;
 		}
 	}
 

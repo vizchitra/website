@@ -1,5 +1,5 @@
 import type { PageServerLoad } from './$types';
-import { resolveSchedule } from '$lib/utils/schedule';
+import { resolveSchedule, resolveExhibitions } from '$lib/utils/schedule';
 import { resolveAllSessions, type SessionData } from '$lib/utils/sessions';
 
 export const prerender = true;
@@ -7,6 +7,7 @@ export const prerender = true;
 export const load: PageServerLoad = async () => {
 	const schedule = resolveSchedule();
 	const { sessions } = resolveAllSessions();
+	const exhibitions = resolveExhibitions(sessions);
 
 	// Index sessions by slug for O(1) lookup at render time.
 	const sessionsBySlug: Record<
@@ -39,6 +40,7 @@ export const load: PageServerLoad = async () => {
 	return {
 		schedule,
 		sessionsBySlug,
+		exhibitions,
 		pageMeta: {
 			title: 'Schedule | VizChitra 2026',
 			description:

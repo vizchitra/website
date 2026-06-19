@@ -1,6 +1,6 @@
 import { parse as parseToml } from 'smol-toml';
 import scheduleRaw from '../../../content/2026/data/schedule.toml?raw';
-import { sessionColorMap, type SessionData } from './sessions';
+import { sessionColorMap, getSessionOrder, type SessionData } from './sessions';
 
 export interface ScheduleSlot {
 	track: string;
@@ -33,6 +33,35 @@ export type SessionLookup = Pick<
 >;
 
 export type SlotKind = 'session' | 'break' | 'address' | 'sponsored' | 'placeholder';
+
+/** The all-day exhibition column and the time window it occupies. */
+export const exhibitionTrack = 'Gallery';
+export const exhibitionStart = '10:00';
+export const exhibitionEnd = '17:00';
+
+/** One exhibition listed inside the all-day Gallery cell. */
+export interface ExhibitionEntry {
+	slug: string;
+	title: string;
+	speaker?: string;
+	role?: string;
+	href: string;
+}
+
+/** Exhibition sessions, ordered, shaped for the Gallery cell. */
+export function resolveExhibitions(sessions: SessionData[]): ExhibitionEntry[] {
+	return sessions
+		.filter((s) => s.sessionType === 'Exhibition' && !s.tbd)
+		.sort((a, b) => getSessionOrder(a) - getSessionOrder(b))
+		.map((s) => ({
+			slug: s.slug,
+			title: s.title,
+			speaker: s.speakerName || undefined,
+			// Same role composition as resolveSlot — drop empty parts to avoid a stray comma.
+			role: [s.designation, s.organisation].filter(Boolean).join(', ') || undefined,
+			href: `/2026/sessions/${s.slug}`
+		}));
+}
 
 /** A slot enriched with everything the renderer needs — no lookups left to do. */
 export interface ResolvedSlot {
