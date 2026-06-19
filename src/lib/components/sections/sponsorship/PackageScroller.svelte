@@ -14,6 +14,8 @@
 		tier: string;
 		price: string;
 		slots: string;
+		/** Remaining slots; when set, `slots` is struck through and "N left" is shown. */
+		slotsLeft?: number;
 		color: 'yellow' | 'teal' | 'blue' | 'orange' | 'pink';
 		purpose: string;
 		what: string;
@@ -123,7 +125,16 @@
 					<!-- Row 1 · Header -->
 					<div class="pkg-header">
 						<span class="pkg-tier">{pkg.tier}</span>
-						<span class="pkg-slots">{pkg.slots}</span>
+						{#if pkg.slotsLeft != null}
+							<span class="pkg-slots">
+								<s class="pkg-slots-total">{pkg.slots}</s>
+								<span class="pkg-slots-left">
+									{pkg.slotsLeft === 0 ? 'Sold out' : `${pkg.slotsLeft} left`}
+								</span>
+							</span>
+						{:else}
+							<span class="pkg-slots">{pkg.slots}</span>
+						{/if}
 					</div>
 
 					<!-- Row 2 · Purpose -->
@@ -299,6 +310,17 @@
 		letter-spacing: 0.05em;
 		text-transform: uppercase;
 		opacity: 0.85;
+	}
+
+	.pkg-slots-total {
+		opacity: 0.6;
+		margin-right: 5px;
+	}
+
+	.pkg-slots-left {
+		font-weight: 800;
+		opacity: 1;
+		white-space: nowrap;
 	}
 
 	/* ── Meta rows (Purpose / What / Best For / Value) ─ */
