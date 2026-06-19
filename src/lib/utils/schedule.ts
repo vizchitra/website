@@ -64,6 +64,14 @@ export function timeToMinutes(t: string): number {
 	return h * 60 + m;
 }
 
+/** "HH:MM" advanced by `mins` minutes, wrapping at 24h and zero-padded. */
+export function addMinutes(time: string, mins: number): string {
+	const total = timeToMinutes(time) + mins;
+	const h = Math.floor(total / 60) % 24;
+	const m = total % 60;
+	return `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}`;
+}
+
 /** Row index (1-based) for any time aligned to 15-min steps from gridStart. */
 export function timeToRow(time: string, gridStart: string): number {
 	return Math.floor((timeToMinutes(time) - timeToMinutes(gridStart)) / 15) + 1;

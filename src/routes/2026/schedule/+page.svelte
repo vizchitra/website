@@ -4,6 +4,7 @@
 		computeGridBounds,
 		computeHourMarks,
 		formatTimeRange,
+		addMinutes,
 		resolveSlot,
 		timeToRow,
 		trackColumn,
@@ -39,16 +40,6 @@
 		);
 	});
 
-	const kindClass: Record<SlotKind, string> = {
-		session: '',
-		break: 'italic opacity-80',
-		address: 'italic opacity-80',
-		sponsored: '',
-		placeholder: 'placeholder-border opacity-80'
-	};
-
-	const linkClass = 'cursor-pointer hover:-translate-y-px hover:shadow-md';
-
 	let screenWidth = $state(1000);
 
 	const thumbPct = $derived((2 / schedule.tracks.length) * 100);
@@ -72,11 +63,6 @@
 			class="schedule-grid relative mt-6 grid gap-0 pb-28 lg:pb-0"
 			style="--total-rows: {bounds.totalRows}; --cols-mobile: {mobileCols};"
 		>
-			<!-- Top-left empty cell -->
-			<div
-				class="border-viz-grey-light bg-viz-white sticky top-0 z-5 border-b"
-				style="grid-row: 1; grid-column: 1;"
-			></div>
 			{#each schedule.tracks as track, i}
 				<div
 					class="border-viz-grey-light bg-viz-white font-display text-viz-grey-dark sticky top-0 z-5 overflow-hidden border-b px-3 py-2 text-sm font-bold tracking-wide whitespace-nowrap uppercase"
@@ -104,12 +90,18 @@
 
 			<!-- Time gutter labels (one per hour) -->
 			{#each hourMarks as mark}
-				<div
-					class="border-viz-grey-light text-viz-grey translate-y-[-0.45rem] self-start border-t border-dashed px-2 text-xs"
+				<span
+					class="hour-mark text-viz-grey block -translate-x-2 -translate-y-1.5 pr-1 text-right text-xs font-medium lg:-translate-y-2.5 lg:text-[16px]"
 					style="grid-row: {mark.row + 1}; grid-column: 1;"
 				>
 					{mark.time}
-				</div>
+				</span>
+				<span
+					class="hour-mark text-viz-grey block -translate-x-2 -translate-y-1.5 pr-1 text-right text-xs font-medium opacity-80 lg:-translate-y-2.5 lg:text-[16px]"
+					style="grid-row: {mark.row + 3}; grid-column: 1;"
+				>
+					{addMinutes(mark.time, 30)}
+				</span>
 			{/each}
 
 			<!-- Slot cells -->
@@ -117,8 +109,8 @@
 				<svelte:element
 					this={r.href ? 'a' : 'div'}
 					href={r.href}
-					class="event-slot slot-color-{r.color} {kindClass[r.kind]} {r.href
-						? linkClass
+					class="event-slot slot-color-{r.color} {r.href
+						? 'cursor-pointer hover:-translate-y-px hover:shadow-md'
 						: ''} flex min-h-0 flex-col gap-0.5 overflow-hidden px-3 py-2.5 text-[0.8rem] leading-tight no-underline transition duration-150"
 					style="grid-row: {timeToRow(r.slot.start, bounds.gridStart) +
 						1} / span {r.rowSpan}; grid-column: {trackColumn(schedule.tracks, r.slot.track)};"
