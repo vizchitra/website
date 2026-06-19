@@ -10,6 +10,7 @@ export interface ScheduleSlot {
 	session?: string; // slug into sessions.toml
 	label?: string;
 	speakerLabel?: string;
+	description?: string; // optional sub-text, e.g. under a full-width break row
 }
 
 export interface ScheduleDay {
@@ -41,6 +42,7 @@ export interface ResolvedSlot {
 	title: string;
 	speaker?: string;
 	role?: string;
+	description?: string;
 	href?: string;
 	rowSpan: number;
 }
@@ -169,6 +171,7 @@ export function resolveSlot(
 		title: session?.title ?? slot.label ?? 'TBD',
 		speaker: session?.speakerName ?? slot.speakerLabel,
 		role: role || undefined,
+		description: slot.description,
 		href: session ? `/2026/sessions/${session.slug}` : undefined,
 		rowSpan: rowSpan(slot)
 	};

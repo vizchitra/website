@@ -143,6 +143,13 @@
 					>
 						{r.title}
 					</span>
+					{#if r.description}
+						<span
+							class="block max-w-[80vw] text-[13px] leading-snug font-normal normal-case opacity-80 lg:text-[15px]"
+						>
+							{r.description}
+						</span>
+					{/if}
 					{#if r.speaker}
 						<span class="text-[14px]"
 							><span class="font-bold">{r.speaker}</span>{#if r.role}, {r.role}{/if}</span
@@ -209,7 +216,7 @@
 		align-items: center;
 		justify-content: center;
 		text-align: center;
-		border-color: #aaa;
+		border-color: #ccc;
 		box-shadow:
 			rgb(204, 219, 232) 3px 3px 6px 0px inset,
 			rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;

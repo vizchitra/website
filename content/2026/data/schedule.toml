@@ -11,6 +11,7 @@ start = "08:00"
 end = "09:00"
 type = "ENTRY"
 label = "REGISTRATIONS"
+description = "Scan your QR code and grab your goodie bag at the entrance booth"
 
 [[slot]]
 track = "Auditorium"
@@ -48,6 +49,7 @@ start = "10:45"
 end = "11:15"
 type = "BREAK"
 label = "TEA BREAK"
+description = "Grab a chai and stretch your legs - sessions resume at 11:15"
 
 [[slot]]
 track = "Auditorium"
@@ -76,6 +78,7 @@ start = "12:30"
 end = "14:00"
 type = "BREAK"
 label = "LUNCH"
+description = "Head to the terrace to grab a plate and mingle with fellow data enthusiasts"
 
 [[slot]]
 track = "Auditorium"
@@ -111,6 +114,7 @@ start = "15:15"
 end = "15:45"
 type = "BREAK"
 label = "TEA BREAK"
+description = "Last break of the day - grab a snack before the closing sessions"
 
 [[slot]]
 track = "Auditorium"
@@ -146,6 +150,7 @@ start = "17:30"
 end = "18:30"
 type = "BREAK"
 label = "NETWORKING"
+description = "Wind down and connect with the community before you head out"
 
 [[slot]]
 track = "Hall"
