@@ -44,6 +44,13 @@
 				height: 52
 			},
 			{
+				name: 'Thurro',
+				logo: '/images/logos/thurro-logo.png',
+				url: 'https://thurro.com',
+				tier: 'Bronze Sponsor',
+				height: 40
+			},
+			{
 				name: 'The Pudding',
 				logo: '/images/logos/pudding-logo.svg',
 				url: 'https://pudding.cool',
