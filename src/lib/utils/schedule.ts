@@ -21,7 +21,14 @@ export interface ScheduleDay {
 /** Minimal session fields the schedule needs to render a slot. */
 export type SessionLookup = Pick<
 	SessionData,
-	'slug' | 'sessionType' | 'title' | 'speakerName' | 'subtitle' | 'venue'
+	| 'slug'
+	| 'sessionType'
+	| 'title'
+	| 'speakerName'
+	| 'designation'
+	| 'organisation'
+	| 'subtitle'
+	| 'venue'
 >;
 
 export type SlotKind = 'session' | 'break' | 'address' | 'sponsored' | 'placeholder';
@@ -33,6 +40,7 @@ export interface ResolvedSlot {
 	color: 'blue' | 'teal' | 'pink' | 'orange' | 'grey';
 	title: string;
 	speaker?: string;
+	role?: string;
 	href?: string;
 	rowSpan: number;
 }
@@ -140,12 +148,19 @@ export function resolveSlot(
 		color = 'grey';
 	}
 
+	// Compose the speaker's role from the cfp/cfe fields; drop empty parts so we
+	// never render a stray comma when only one (or neither) is present.
+	const role = session
+		? [session.designation, session.organisation].filter(Boolean).join(', ')
+		: undefined;
+
 	return {
 		slot,
 		kind,
 		color,
 		title: session?.title ?? slot.label ?? 'TBD',
 		speaker: session?.speakerName ?? slot.speakerLabel,
+		role: role || undefined,
 		href: session ? `/2026/sessions/${session.slug}` : undefined,
 		rowSpan: rowSpan(slot)
 	};

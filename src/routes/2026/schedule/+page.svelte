@@ -137,7 +137,9 @@
 						{r.title}
 					</span>
 					{#if r.speaker}
-						<span class="text-[14px]"><span class="font-bold">{r.speaker}</span>, Indpendent</span>
+						<span class="text-[14px]"
+							><span class="font-bold">{r.speaker}</span>{#if r.role}, {r.role}{/if}</span
+						>
 					{/if}
 				</svelte:element>
 			{/each}

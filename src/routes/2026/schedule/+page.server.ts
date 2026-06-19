@@ -11,7 +11,17 @@ export const load: PageServerLoad = async () => {
 	// Index sessions by slug for O(1) lookup at render time.
 	const sessionsBySlug: Record<
 		string,
-		Pick<SessionData, 'slug' | 'sessionType' | 'title' | 'speakerName' | 'subtitle' | 'venue'>
+		Pick<
+			SessionData,
+			| 'slug'
+			| 'sessionType'
+			| 'title'
+			| 'speakerName'
+			| 'designation'
+			| 'organisation'
+			| 'subtitle'
+			| 'venue'
+		>
 	> = {};
 	for (const s of sessions) {
 		sessionsBySlug[s.slug] = {
@@ -19,6 +29,8 @@ export const load: PageServerLoad = async () => {
 			sessionType: s.sessionType,
 			title: s.title,
 			speakerName: s.speakerName,
+			designation: s.designation,
+			organisation: s.organisation,
 			subtitle: s.subtitle,
 			venue: s.venue
 		};
