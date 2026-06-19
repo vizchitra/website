@@ -26,6 +26,7 @@
 		venue: string;
 		order?: number;
 		display: boolean;
+		soldOut?: boolean;
 		title: string;
 		subtitle: string;
 		speakerName: string;
@@ -55,6 +56,7 @@
 		venue,
 		order,
 		display,
+		soldOut,
 		title,
 		subtitle,
 		speakerName,
@@ -81,6 +83,7 @@
 	let localVenue = $state(untrack(() => venue));
 	let localOrder = $state(untrack(() => order ?? 0));
 	let localDisplay = $state(untrack(() => display));
+	let localSoldOut = $state(untrack(() => soldOut ?? false));
 	let localTitle = $state(untrack(() => title));
 	let localSubtitle = $state(untrack(() => subtitle));
 	let localSpeaker = $state(untrack(() => speakerName));
@@ -97,6 +100,7 @@
 			localVenue = venue;
 			localOrder = order ?? 0;
 			localDisplay = display;
+			localSoldOut = soldOut ?? false;
 			localTitle = title;
 			localSubtitle = subtitle;
 			localSpeaker = speakerName;
@@ -150,6 +154,7 @@
 						venue: localVenue,
 						order: localOrder,
 						display: localDisplay,
+						soldOut: localSoldOut,
 						title: localTitle,
 						subtitle: localSubtitle,
 						speakerName: localSpeaker,
@@ -367,6 +372,20 @@
 				/>
 				<label class="text-viz-grey-muted text-xs font-medium" for="session-display">
 					display
+				</label>
+			</div>
+
+			<!-- Sold out -->
+			<div class="flex items-center gap-2">
+				<input
+					id="session-sold-out"
+					type="checkbox"
+					bind:checked={localSoldOut}
+					disabled={!isEditing}
+					class="accent-viz-yellow disabled:opacity-50"
+				/>
+				<label class="text-viz-grey-muted text-xs font-medium" for="session-sold-out">
+					sold out
 				</label>
 			</div>
 		</div>
