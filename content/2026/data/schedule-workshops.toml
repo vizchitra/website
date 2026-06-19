@@ -1,0 +1,62 @@
+# Workshops Day schedule for 3 July 2026
+# Tracks are the 2 concurrent rooms per venue. Workshop timings/venues come from
+# sessions.toml (sessionType = "Workshops"); slots place each into a column.
+# Column assignment is by venue + session `order` and can be rearranged freely.
+
+day = "2026-07-03"
+name = "Workshops"
+tracks = ["Underline 1", "Underline 2", "BIC 1", "BIC 2", "Gallery"]
+galleryStart = "15:00"
+galleryEnd = "20:00"
+
+# --- Underline Center, room 1 ---
+[[slot]]
+track = "Underline 1"
+start = "10:00"
+end = "13:00"
+session = "observe-collect-map"
+
+[[slot]]
+track = "Underline 1"
+start = "14:30"
+end = "17:30"
+session = "agentic-dataviz"
+
+# --- Underline Center, room 2 ---
+[[slot]]
+track = "Underline 2"
+start = "10:00"
+end = "13:00"
+session = "draw-with-data"
+
+[[slot]]
+track = "Underline 2"
+start = "14:30"
+end = "17:30"
+session = "from-tables-to-maps"
+
+# --- Bangalore International Centre, room 1 ---
+[[slot]]
+track = "BIC 1"
+start = "10:00"
+end = "13:00"
+session = "designing-data-stories-for-small-screens"
+
+[[slot]]
+track = "BIC 1"
+start = "14:30"
+end = "17:30"
+session = "a-dataviz-crash-course"
+
+# --- Bangalore International Centre, room 2 ---
+[[slot]]
+track = "BIC 2"
+start = "10:00"
+end = "13:00"
+session = "interactive-dataviz-using-ai-coding"
+
+[[slot]]
+track = "BIC 2"
+start = "14:30"
+end = "17:30"
+session = "data-rough"

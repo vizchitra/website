@@ -3,7 +3,10 @@
 # '4th July - Conference Day'. Hand-edit as needed.
 
 day = "2026-07-04"
+name = "Conference"
 tracks = ["Auditorium", "Hall", "Library", "Boardroom", "Gallery"]
+galleryStart = "10:00"
+galleryEnd = "17:00"
 
 [[slot]]
 track = "Auditorium"

@@ -1,5 +1,6 @@
 import { parse as parseToml } from 'smol-toml';
 import scheduleRaw from '../../../content/2026/data/schedule.toml?raw';
+import scheduleWorkshopsRaw from '../../../content/2026/data/schedule-workshops.toml?raw';
 import { sessionColorMap, getSessionOrder, type SessionData } from './sessions';
 
 export interface ScheduleSlot {
@@ -15,8 +16,11 @@ export interface ScheduleSlot {
 
 export interface ScheduleDay {
 	day: string; // "YYYY-MM-DD"
+	name: string; // short label for the day toggle, e.g. "Conference"
 	tracks: string[];
 	slots: ScheduleSlot[];
+	galleryStart?: string; // all-day Gallery window for this day (falls back to exhibitionStart/End)
+	galleryEnd?: string;
 }
 
 /** Minimal session fields the schedule needs to render a slot. */
@@ -76,17 +80,30 @@ export interface ResolvedSlot {
 	rowSpan: number;
 }
 
-export function resolveSchedule(): ScheduleDay {
-	const parsed = parseToml(scheduleRaw) as unknown as {
+function parseScheduleDay(raw: string): ScheduleDay {
+	const parsed = parseToml(raw) as unknown as {
 		day: string;
+		name: string;
 		tracks: string[];
 		slot: ScheduleSlot[];
+		galleryStart?: string;
+		galleryEnd?: string;
 	};
 	return {
 		day: parsed.day,
+		name: parsed.name,
 		tracks: parsed.tracks,
-		slots: parsed.slot
+		slots: parsed.slot,
+		galleryStart: parsed.galleryStart,
+		galleryEnd: parsed.galleryEnd
 	};
+}
+
+/** All schedule days (conference + workshops), ordered chronologically. */
+export function resolveScheduleDays(): ScheduleDay[] {
+	return [parseScheduleDay(scheduleRaw), parseScheduleDay(scheduleWorkshopsRaw)].sort((a, b) =>
+		a.day < b.day ? -1 : a.day > b.day ? 1 : 0
+	);
 }
 
 /** Convert "HH:MM" to minutes since midnight. */
@@ -124,17 +141,25 @@ export function formatTimeRange(slot: ScheduleSlot): string {
 	return `${slot.start}–${slot.end}`;
 }
 
-/** Earliest start + latest end across all slots, plus the total 15-min row count. */
-export function computeGridBounds(slots: ScheduleSlot[]): {
+/**
+ * Earliest start + latest end across all slots, plus the total 15-min row count.
+ * `extraRanges` (e.g. the all-day Gallery window) are folded in so the grid grows
+ * to cover them even when they start before / end after every timed slot.
+ */
+export function computeGridBounds(
+	slots: ScheduleSlot[],
+	extraRanges: { start: string; end: string }[] = []
+): {
 	gridStart: string;
 	gridEnd: string;
 	totalRows: number;
 } {
-	if (slots.length === 0) {
+	const ranges = [...slots, ...extraRanges];
+	if (ranges.length === 0) {
 		return { gridStart: '08:00', gridEnd: '19:00', totalRows: 44 };
 	}
-	const gridStart = slots.reduce((min, s) => (s.start < min ? s.start : min), slots[0].start);
-	const gridEnd = slots.reduce((max, s) => (s.end > max ? s.end : max), slots[0].end);
+	const gridStart = ranges.reduce((min, r) => (r.start < min ? r.start : min), ranges[0].start);
+	const gridEnd = ranges.reduce((max, r) => (r.end > max ? r.end : max), ranges[0].end);
 	const totalRows = Math.ceil((timeToMinutes(gridEnd) - timeToMinutes(gridStart)) / 15);
 	return { gridStart, gridEnd, totalRows };
 }

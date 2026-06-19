@@ -1,11 +1,11 @@
 import type { PageServerLoad } from './$types';
-import { resolveSchedule, resolveExhibitions } from '$lib/utils/schedule';
+import { resolveScheduleDays, resolveExhibitions } from '$lib/utils/schedule';
 import { resolveAllSessions, type SessionData } from '$lib/utils/sessions';
 
 export const prerender = true;
 
 export const load: PageServerLoad = async () => {
-	const schedule = resolveSchedule();
+	const days = resolveScheduleDays();
 	const { sessions } = resolveAllSessions();
 	const exhibitions = resolveExhibitions(sessions);
 
@@ -38,7 +38,7 @@ export const load: PageServerLoad = async () => {
 	}
 
 	return {
-		schedule,
+		days,
 		sessionsBySlug,
 		exhibitions,
 		pageMeta: {

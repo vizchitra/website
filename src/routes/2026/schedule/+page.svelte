@@ -18,19 +18,50 @@
 
 	let { data }: { data: PageData } = $props();
 
-	const schedule = $derived(data.schedule);
+	// Days are ordered chronologically; default to the last (latest) = Conference.
+	// One-time initial value by design — the day set never changes after load.
+	// svelte-ignore state_referenced_locally
+	let activeDayIndex = $state(data.days.length - 1);
+	const schedule = $derived(data.days[activeDayIndex]);
 	const sessionsBySlug = $derived(data.sessionsBySlug);
 	const exhibitions = $derived(data.exhibitions);
 
-	const bounds = $derived(computeGridBounds(schedule.slots));
+	const MONTHS = [
+		'Jan',
+		'Feb',
+		'Mar',
+		'Apr',
+		'May',
+		'Jun',
+		'Jul',
+		'Aug',
+		'Sep',
+		'Oct',
+		'Nov',
+		'Dec'
+	];
+	const dayLabel = (d: { day: string; name: string }) => {
+		const [, m, date] = d.day.split('-').map(Number);
+		return `${date} ${MONTHS[m - 1]} · ${d.name}`;
+	};
+
+	// Gallery window is per-day (e.g. 10:00–17:00 conference, 15:00–20:00 workshops).
+	const galleryStart = $derived(schedule.galleryStart ?? exhibitionStart);
+	const galleryEnd = $derived(schedule.galleryEnd ?? exhibitionEnd);
+
+	// Fold the Gallery window into the grid bounds so the grid grows to fit it even
+	// when it runs later than every timed slot (e.g. workshops end 17:30, gallery 20:00).
+	const bounds = $derived(
+		computeGridBounds(schedule.slots, [{ start: galleryStart, end: galleryEnd }])
+	);
 	const hourMarks = $derived(computeHourMarks(bounds.gridStart, bounds.gridEnd));
 	const resolvedSlots = $derived(schedule.slots.map((s) => resolveSlot(s, sessionsBySlug)));
 
 	const sessionTracks = $derived(schedule.tracks.filter((t) => t !== exhibitionTrack));
 	const galleryCol = $derived(trackColumn(schedule.tracks, exhibitionTrack));
-	const galleryRowStart = $derived(timeToRow(exhibitionStart, bounds.gridStart) + 1);
+	const galleryRowStart = $derived(timeToRow(galleryStart, bounds.gridStart) + 1);
 	const galleryRowSpan = $derived(
-		timeToRow(exhibitionEnd, bounds.gridStart) - timeToRow(exhibitionStart, bounds.gridStart)
+		timeToRow(galleryEnd, bounds.gridStart) - timeToRow(galleryStart, bounds.gridStart)
 	);
 
 	let windowStart = $state(0);
@@ -45,6 +76,14 @@
 
 	// Gutter + one equal column per track on desktop; mobile collapses below.
 	const desktopCols = $derived('3rem ' + schedule.tracks.map(() => 'minmax(0, 1fr)').join(' '));
+
+	// Per-15-min row height (desktop / ≤1024 / ≤600). Workshops have only ~2 slots
+	// per track, so they use shorter rows than the dense conference grid.
+	const rowHeights = $derived(
+		schedule.name === 'Workshops'
+			? { base: '3rem', md: '4rem', sm: '5.25rem' }
+			: { base: '5rem', md: '6.5rem', sm: '8rem' }
+	);
 
 	const GUTTER = 'min(8%, 2rem)';
 	const INACTIVE_WIDTH = 'min(5%, 2rem)';
@@ -74,12 +113,35 @@
 	<Stack>
 		<Prose>
 			<h1>Schedule</h1>
-			<p>Four parallel tracks across the conference day, {schedule.day}.</p>
+			<p>
+				{#if schedule.name === 'Workshops'}
+					Hands-on workshops across two venues, {schedule.day}.
+				{:else}
+					Four parallel tracks across the conference day, {schedule.day}.
+				{/if}
+			</p>
 		</Prose>
+
+		<!-- Day toggle -->
+		<div
+			class="border-viz-grey-light bg-viz-white font-display inline-flex gap-1 self-start rounded-full border p-1 text-sm font-bold tracking-wide uppercase"
+		>
+			{#each data.days as d, i}
+				<button
+					type="button"
+					onclick={() => (activeDayIndex = i)}
+					class="rounded-full px-4 py-1.5 transition-colors {i === activeDayIndex
+						? 'bg-viz-grey-dark text-viz-white'
+						: 'text-viz-grey-dark hover:bg-viz-grey-light'}"
+				>
+					{dayLabel(d)}
+				</button>
+			{/each}
+		</div>
 
 		<div
 			class="schedule-grid relative mt-6 grid gap-0 pb-28 lg:pb-0"
-			style="--total-rows: {bounds.totalRows}; --cols-desktop: {desktopCols}; --cols-mobile: {mobileCols};"
+			style="--total-rows: {bounds.totalRows}; --cols-desktop: {desktopCols}; --cols-mobile: {mobileCols}; --row-h: {rowHeights.base}; --row-h-md: {rowHeights.md}; --row-h-sm: {rowHeights.sm};"
 		>
 			{#each schedule.tracks as track, i}
 				<div
@@ -110,17 +172,19 @@
 			<!-- Time gutter labels (one per hour) -->
 			{#each hourMarks as mark}
 				<span
-					class="hour-mark text-viz-grey block -translate-x-2 -translate-y-1.5 pr-1 text-right text-xs font-medium lg:-translate-y-2.5 lg:text-[16px]"
+					class="hour-mark text-viz-grey block -translate-x-4 -translate-y-1.5 pr-1 text-right text-xs font-medium lg:-translate-y-2.5 lg:text-[16px]"
 					style="grid-row: {mark.row + 1}; grid-column: 1;"
 				>
 					{mark.time}
 				</span>
-				<span
-					class="hour-mark text-viz-grey block -translate-x-2 -translate-y-1.5 pr-1 text-right text-xs font-medium opacity-80 lg:-translate-y-2.5 lg:text-[16px]"
-					style="grid-row: {mark.row + 3}; grid-column: 1;"
-				>
-					{addMinutes(mark.time, 30)}
-				</span>
+				{#if mark.row <= bounds.totalRows - 1}
+					<span
+						class="hour-mark text-viz-grey block -translate-x-4 -translate-y-1.5 pr-1 text-right text-xs font-medium opacity-80 lg:-translate-y-2.5 lg:text-[16px]"
+						style="grid-row: {mark.row + 3}; grid-column: 1;"
+					>
+						{addMinutes(mark.time, 30)}
+					</span>
+				{/if}
 			{/each}
 
 			<!-- Slot cells -->
@@ -130,7 +194,7 @@
 					href={r.href}
 					class="event-slot slot-color-{r.color} {r.href
 						? 'cursor-pointer hover:-translate-y-px hover:shadow-md'
-						: ''} z-10 flex min-h-0 flex-col gap-0.5 overflow-hidden px-3 py-2.5 text-[0.8rem] leading-tight no-underline transition duration-150"
+						: ''} z-10 flex min-h-0 flex-col gap-0.5 overflow-hidden px-2 py-1.5 text-[0.8rem] leading-tight no-underline transition duration-150 md:px-3 md:py-2.5"
 					style="grid-row: {timeToRow(r.slot.start, bounds.gridStart) +
 						1} / span {r.rowSpan}; grid-column: {isSpanningBreak(r, spanningKeys)
 						? `2 / ${galleryCol}`
@@ -161,7 +225,7 @@
 						</span>
 					{/if}
 					{#if r.speaker}
-						<span class="text-[14px]"
+						<span class="line-clamp-4 text-[13px] md:text-[14px]"
 							><span class="font-bold">{r.speaker}</span>{#if r.role}, {r.role}{/if}</span
 						>
 					{/if}
@@ -202,7 +266,7 @@
 
 		<!-- Track window slider — desktop-hidden; grid only collapses tracks below 1024px. -->
 		<div
-			class="border-viz-grey-light bg-viz-white fixed inset-x-0 bottom-0 z-20 hidden flex-col items-center gap-2 border-t px-4 py-3 max-lg:flex"
+			class="border-viz-grey-light bg-viz-white fixed inset-x-0 bottom-0 z-20 hidden flex-col items-center gap-2 border-t px-4 pt-2 pb-3.5 max-lg:flex md:py-3"
 		>
 			<div class="flex items-baseline justify-between">
 				<span class="font-display text-viz-grey-dark text-sm font-bold tracking-wide uppercase">
@@ -247,7 +311,7 @@
 		display: grid;
 		gap: 0;
 		grid-template-columns: var(--cols-desktop);
-		grid-template-rows: auto repeat(var(--total-rows), 5rem);
+		grid-template-rows: auto repeat(var(--total-rows), var(--row-h, 5rem));
 		transition: grid-template-columns 0.2s ease;
 	}
 
@@ -265,7 +329,7 @@
 	@media (max-width: 1024px) {
 		.schedule-grid {
 			grid-template-columns: var(--cols-mobile);
-			grid-template-rows: auto repeat(var(--total-rows), 6.5rem);
+			grid-template-rows: auto repeat(var(--total-rows), var(--row-h-md, 6.5rem));
 		}
 
 		.event-slot.inactive {
@@ -288,7 +352,7 @@
 
 	@media (max-width: 600px) {
 		.schedule-grid {
-			grid-template-rows: auto repeat(var(--total-rows), 8rem);
+			grid-template-rows: auto repeat(var(--total-rows), var(--row-h-sm, 8rem));
 		}
 	}
 
