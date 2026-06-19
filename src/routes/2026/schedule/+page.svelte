@@ -32,9 +32,6 @@
 	const spanningKeys = $derived(computeSpanningBreakKeys(resolvedSlots, schedule.tracks.length));
 	const renderSlots = $derived(dedupeSpanningBreaks(resolvedSlots, spanningKeys));
 
-	const leadCollapsed = $derived(windowStart);
-	const trailCollapsed = $derived(Math.max(0, schedule.tracks.length - 2 - windowStart));
-
 	const GUTTER = 'min(8%, 2rem)';
 	const INACTIVE_WIDTH = 'min(7%, 3rem)';
 	const mobileCols = $derived.by(() => {
@@ -72,8 +69,9 @@
 		>
 			{#each schedule.tracks as track, i}
 				<div
-					class="border-viz-grey-light bg-viz-white font-display text-viz-grey-dark sticky top-0 z-5 overflow-hidden border-b px-3 py-2 text-sm font-bold tracking-wide whitespace-nowrap uppercase"
+					class="track-header border-viz-grey-light bg-viz-white font-display text-viz-grey-dark sticky top-[calc(4rem+var(--announcement-bar-height,32px))] z-20 overflow-hidden border-b px-3 py-2 text-sm font-bold tracking-wide whitespace-nowrap uppercase shadow-2xl"
 					style="grid-row: 1; grid-column: {i + 2};"
+					class:inactive={isCollapsed(track)}
 				>
 					{track}
 				</div>
@@ -90,7 +88,7 @@
 			<!-- Column dividers — one per column (excluding the last), sit behind the slot cells -->
 			{#each { length: schedule.tracks.length + 1 } as _, i}
 				<div
-					class="border-viz-grey-light pointer-events-none -z-10 border-r"
+					class="border-viz-grey-light pointer-events-none z-0 border-r"
 					style="grid-column: {i + 1}; grid-row: 1 / -1;"
 				></div>
 			{/each}
@@ -118,13 +116,11 @@
 					href={r.href}
 					class="event-slot slot-color-{r.color} {r.href
 						? 'cursor-pointer hover:-translate-y-px hover:shadow-md'
-						: ''} flex min-h-0 flex-col gap-0.5 overflow-hidden px-3 py-2.5 text-[0.8rem] leading-tight no-underline transition duration-150"
+						: ''} z-10 flex min-h-0 flex-col gap-0.5 overflow-hidden px-3 py-2.5 text-[0.8rem] leading-tight no-underline transition duration-150"
 					style="grid-row: {timeToRow(r.slot.start, bounds.gridStart) +
 						1} / span {r.rowSpan}; grid-column: {isSpanningBreak(r, spanningKeys)
 						? '2 / -1'
-						: trackColumn(schedule.tracks, r.slot.track)};{isSpanningBreak(r, spanningKeys)
-						? ` --break-pad-left: calc(${leadCollapsed} * ${INACTIVE_WIDTH}); --break-pad-right: calc(${trailCollapsed} * ${INACTIVE_WIDTH});`
-						: ''}"
+						: trackColumn(schedule.tracks, r.slot.track)};"
 					class:inactive={!isSpanningBreak(r, spanningKeys) && isCollapsed(r.slot.track)}
 					class:break-row={isSpanningBreak(r, spanningKeys)}
 				>
@@ -212,7 +208,6 @@
 
 	.event-slot.break-row {
 		position: relative;
-		z-index: 11;
 		align-items: center;
 		justify-content: center;
 		text-align: center;
@@ -233,9 +228,11 @@
 			border-radius: 16px;
 		}
 
-		.event-slot.break-row {
-			padding-left: var(--break-pad-left);
-			padding-right: var(--break-pad-right);
+		.track-header.inactive {
+			color: transparent;
+			background: #efefef;
+			border: 2px solid var(--color-viz-white);
+			border-radius: 4px;
 		}
 	}
 
