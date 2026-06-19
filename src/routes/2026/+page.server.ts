@@ -16,6 +16,7 @@ export const load: PageServerLoad = async () => {
 	);
 
 	selectedSessions.sort((a, b) => getSessionOrder(a) - getSessionOrder(b));
+	selectedSessions.sort((a, b) => Number(a.soldOut) - Number(b.soldOut));
 
 	return {
 		selectedSessions,

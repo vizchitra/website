@@ -18,8 +18,9 @@ export const load: PageServerLoad = async () => {
 		})
 	);
 
-	// Sort by configured order in speakerConfig, then push TBD entries last
+	// Sort by configured order, then push sold-out entries, then TBD entries last
 	sessions.sort((a, b) => getSessionOrder(a) - getSessionOrder(b));
+	sessions.sort((a, b) => Number(a.soldOut) - Number(b.soldOut));
 	sessions.sort((a, b) => Number(a.tbd) - Number(b.tbd));
 
 	return {
