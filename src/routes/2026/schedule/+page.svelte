@@ -82,7 +82,7 @@
 	const rowHeights = $derived(
 		schedule.name === 'Workshops'
 			? { base: '3rem', md: '4rem', sm: '5.25rem' }
-			: { base: '5rem', md: '6.5rem', sm: '8rem' }
+			: { base: '7rem', md: '7.5rem', sm: '8rem' }
 	);
 
 	const GUTTER = 'min(8%, 2rem)';
