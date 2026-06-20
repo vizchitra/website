@@ -1,6 +1,12 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { getColorHex, colors } from '$lib/tokens';
+	import { getColorHex, getTheme, colors, type Color } from '$lib/tokens';
+
+	interface Props {
+		tone?: Color;
+	}
+
+	let { tone = undefined }: Props = $props();
 
 	let width: number | null = $state(null);
 	const height = 80;
@@ -49,8 +55,16 @@
 	function generateCurve() {
 		if (!width) return;
 
-		// Shuffle colors for segments using getColorHex directly
-		const shuffledColors = shuffleArray(brandColors).map((c) => getColorHex(c));
+		// Single-tone mode: use shades of one color; multi-color mode: shuffle brand colors
+		const shuffledColors = tone
+			? shuffleArray([
+					getTheme(tone).dark,
+					getTheme(tone).base,
+					getTheme(tone).solid,
+					getTheme(tone).muted,
+					getTheme(tone).light
+				])
+			: shuffleArray(brandColors).map((c) => getColorHex(c));
 
 		// Padding must match the outer circle radius to prevent edge clipping
 		const edgePad = DOT_RADIUS + 3;

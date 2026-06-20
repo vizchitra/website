@@ -20,6 +20,8 @@
 		venue?: string;
 		slug?: string;
 		speakerImage?: string;
+		speaker2Name?: string;
+		speaker2Image?: string;
 		tbd?: boolean;
 		soldOut?: boolean;
 		isExpanded?: boolean;
@@ -41,6 +43,8 @@
 		venue,
 		slug,
 		speakerImage,
+		speaker2Name,
+		speaker2Image,
 		tbd = false,
 		soldOut = false,
 		isExpanded = true,
@@ -48,6 +52,14 @@
 		from = '',
 		pageReady = false
 	}: Props = $props();
+
+	const effectiveSpeakerName = $derived(
+		speaker2Name ? `${speakerName ?? ''} // ${speaker2Name}` : (speakerName ?? '')
+	);
+	const effectiveSpeakerImage = $derived(
+		speaker2Image ? `${speakerImage ?? ''} // ${speaker2Image}` : (speakerImage ?? '')
+	);
+	const isDual = $derived(effectiveSpeakerName.includes('//'));
 
 	const textLayouts: Record<
 		string,
@@ -73,18 +85,38 @@
 			floatWidth: '48%',
 			floatHeight: '11em'
 		},
+		WorkshopsDual: {
+			titleMaxWidth: '54%',
+			descriptionTop: '28%',
+			floatWidth: '46%',
+			floatHeight: '11em'
+		},
 		Exhibition: {
 			titleMaxWidth: '100%',
 			descriptionTop: '42%',
 			floatWidth: '48%',
 			floatHeight: '11em'
+		},
+		ExhibitionDual: {
+			titleMaxWidth: '54%',
+			descriptionTop: '42%',
+			floatWidth: '46%',
+			floatHeight: '11em'
 		}
 	};
 
-	const layout = $derived(textLayouts[sessionType] ?? textLayouts.Talks);
+	const layout = $derived(
+		(isDual ? textLayouts[`${sessionType}Dual`] : undefined) ??
+			textLayouts[sessionType] ??
+			textLayouts.Talks
+	);
 
 	const detailHref = $derived(
-		from ? `/2026/sessions/${slug}?from=${from}` : `/2026/sessions/${slug}`
+		sessionType === 'Exhibition'
+			? `/2026/exhibition#${slug}`
+			: from
+				? `/2026/sessions/${slug}?from=${from}`
+				: `/2026/sessions/${slug}`
 	);
 
 	const colorClasses = {
@@ -320,20 +352,26 @@
 					<div
 						class="background-container-expanded relative z-0 flex w-full flex-1 flex-row items-center justify-end"
 					>
-						{#each (speakerImage || '')
+						{#each (effectiveSpeakerImage || '')
 							.split('//')
 							.map((s) => s.trim())
 							.filter(Boolean) as img, i}
 							<div
 								class="speaker-image pointer-events-none absolute bottom-0 origin-center transition-transform duration-300 group-hover:scale-104 group-hover:rotate-1"
-								style:right="{5 + i * 30}%"
-								style:transform={buildSpeakerImageTransform(speakerName, screenWidth, sessionType)}
+								class:speaker-image--dual={isDual}
+								style:right="{isDual ? (i === 0 ? 1 : 50) : 5 + i * 30}%"
+								style:bottom={isDual ? '20%' : undefined}
+								style:transform={buildSpeakerImageTransform(
+									effectiveSpeakerName.split('//')[i]?.trim(),
+									screenWidth,
+									sessionType
+								)}
 							>
 								<img
 									class="relative z-10 h-auto w-full"
 									style="filter: drop-shadow(0px 8px 16px {shadowColor}cc)"
 									src={img}
-									alt={speakerName?.split('//')[i]?.trim() ?? speakerName ?? ''}
+									alt={effectiveSpeakerName?.split('//')[i]?.trim() ?? effectiveSpeakerName ?? ''}
 								/>
 							</div>
 						{:else}
@@ -386,8 +424,8 @@
 								<h3
 									class="font-display text-shadow mb-1 text-[18px] leading-none text-[#4c4c4c] uppercase md:text-[20px] lg:text-[22px] 2xl:text-[26px] 2xl:text-shadow-none!"
 								>
-									{#each speakerName.split('//').map((s) => s.trim()) as person, i}
-										{@const isDual = speakerName.includes('//')}
+									{#each effectiveSpeakerName.split('//').map((s) => s.trim()) as person, i}
+										{@const isDual = effectiveSpeakerName.includes('//')}
 										{#if i > 0}<span
 												class="text-[18px] leading-none font-medium md:text-[20px] lg:text-[22px] 2xl:text-[28px]"
 											>
@@ -541,6 +579,10 @@
 
 	.speaker-image {
 		max-width: min(300px, 55%);
+	}
+
+	.speaker-image--dual {
+		max-width: min(200px, 48%);
 	}
 
 	/* .session-top-text-content: max-h set inline (52%) caps text area so background-container always gets space */
