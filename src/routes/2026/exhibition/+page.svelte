@@ -8,8 +8,6 @@
 		return `DO/2026/${String(n).padStart(2, '0')}`;
 	}
 
-	const PLACEHOLDER = '/images/speakers/2026/speaker-placeholder.avif';
-
 	let expandedBios = $state(new Set<string>());
 
 	function toggleBio(key: string) {
@@ -54,7 +52,7 @@
 				rel="noopener noreferrer"
 				class="font-display bg-viz-orange-dark hover:bg-viz-orange inline-flex items-center gap-2 rounded-full px-5 py-2 text-sm font-bold text-white uppercase transition-colors"
 			>
-				Exhibition Ticket · 03 July
+				Exhibition Only Ticket · 03 July
 				<svg
 					class="h-4 w-4"
 					fill="none"
@@ -181,11 +179,22 @@
 									{#if exhibit.speakerAboutHtml}
 										<div class="artist-bio" class:expanded={expandedBios.has(`${exhibit.slug}-1`)}>
 											<div class="artist-photo-wrap">
-												<img
-													class="artist-photo"
-													src={exhibit.speakerImage || PLACEHOLDER}
-													alt={exhibit.speakerName?.split('//')[0]?.trim() ?? ''}
-												/>
+												{#if exhibit.speakerImage}
+													<img
+														class="artist-photo"
+														src={exhibit.speakerImage}
+														alt={exhibit.speakerName?.split('//')[0]?.trim() ?? ''}
+													/>
+												{:else}
+													<div class="artist-photo-placeholder" aria-hidden="true">
+														{(exhibit.speakerName?.split('//')[0]?.trim() ?? '')
+															.split(' ')
+															.map((n) => n[0] ?? '')
+															.join('')
+															.slice(0, 2)
+															.toUpperCase()}
+													</div>
+												{/if}
 											</div>
 											<Prose>
 												{@html exhibit.speakerAboutHtml}
@@ -239,11 +248,22 @@
 												class:expanded={expandedBios.has(`${exhibit.slug}-2`)}
 											>
 												<div class="artist-photo-wrap">
-													<img
-														class="artist-photo"
-														src={exhibit.speaker2Image || PLACEHOLDER}
-														alt={exhibit.speaker2Name ?? ''}
-													/>
+													{#if exhibit.speaker2Image}
+														<img
+															class="artist-photo"
+															src={exhibit.speaker2Image}
+															alt={exhibit.speaker2Name ?? ''}
+														/>
+													{:else}
+														<div class="artist-photo-placeholder" aria-hidden="true">
+															{(exhibit.speaker2Name ?? '')
+																.split(' ')
+																.map((n) => n[0] ?? '')
+																.join('')
+																.slice(0, 2)
+																.toUpperCase()}
+														</div>
+													{/if}
 												</div>
 												<Prose>
 													{@html exhibit.speaker2AboutHtml}
@@ -423,6 +443,20 @@
 		height: 100%;
 		object-fit: cover;
 		object-position: top center;
+	}
+
+	.artist-photo-placeholder {
+		width: 100%;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background: var(--color-viz-orange-light);
+		color: var(--color-viz-orange-dark);
+		font-family: var(--font-display);
+		font-size: 2.5rem;
+		font-weight: 800;
+		letter-spacing: -0.02em;
 	}
 
 	.artist-social {

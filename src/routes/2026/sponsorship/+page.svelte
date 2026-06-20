@@ -561,7 +561,7 @@
 		<div class="edition-photos">
 			<img
 				src="/images/photos/group-photo.jpg"
-				alt="VizChitra 2025 group photo"
+				alt="VizChitra 2025 attendees gathered together"
 				class="edition-photo"
 			/>
 			<img

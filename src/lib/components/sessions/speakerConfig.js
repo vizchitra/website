@@ -53,6 +53,7 @@ export const speakerImageTransforms = {
 
 	// Exhibitions
 	'Shreya Dan': { x: 10, y: -25, scale: 1.2 },
+	'Aswanth Choyan': { x: 10, y: -25, scale: 1.4 },
 	'Kashvi Bansal': { x: 10, y: -25, scale: 1.2 },
 	'Surbhi Bhatia': { x: 10, y: -25, scale: 1.2 },
 	'Sadhana Lokesh': { x: 10, y: -25, scale: 1.2 },

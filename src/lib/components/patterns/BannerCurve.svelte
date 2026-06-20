@@ -45,10 +45,12 @@
 	}
 
 	// Initialize resolved colors from prop or module defaults (SSR-safe)
-	let resolvedColors: string[] = [...colors];
+	let resolvedColors: string[] = $derived([...colors]);
 
 	// Randomize color order for each instance
-	let shuffledColorOrder: number[] = shuffleArray([...Array(resolvedColors.length).keys()]);
+	let shuffledColorOrder: number[] = $derived(
+		shuffleArray([...Array(resolvedColors.length).keys()])
+	);
 
 	let canvas: HTMLCanvasElement = $state();
 	let ctx: CanvasRenderingContext2D;
