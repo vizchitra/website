@@ -705,6 +705,7 @@ display = true
 pageReady = true
 ticketCode = "workshop_2026_datawalk"
 order = 1
+soldOut = true
 
 [[session]]
 slug = "interactive-dataviz-using-ai-coding"
