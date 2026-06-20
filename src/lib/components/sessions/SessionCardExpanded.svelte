@@ -243,6 +243,7 @@
 			<svelte:element
 				this={pageReady ? 'a' : 'div'}
 				href={pageReady ? detailHref : undefined}
+				role={pageReady ? undefined : 'presentation'}
 				class="sessions-card bg-viz-white border-viz-grey/40 isolate block w-full transform-gpu overflow-hidden rounded border transition-[transform,box-shadow] {pageReady
 					? 'cursor-pointer group-hover:scale-102'
 					: 'cursor-default'}"
