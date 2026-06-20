@@ -88,13 +88,13 @@
 		Exhibition: {
 			pattern: 'stream',
 			tone: 'orange',
-			titlePosition: 'pt-4 text-center',
+			titlePosition: 'pt-2 text-center',
 			href: '/2026/exhibition',
 			subtitle: 'The Immersive Journey',
 			description:
 				'Data, Otherwise: a curated gallery on climate & ecology viz. Works that slow you down & feel.',
 			descriptionPosition: 'bottom-2 left-1/2 -translate-x-1/2 text-center',
-			descriptionWidth: '20ch'
+			descriptionWidth: '30ch'
 		}
 	};
 
@@ -175,12 +175,18 @@
 			handleScroll(type, node);
 		}
 
+		function onWheel(e: WheelEvent) {
+			e.preventDefault();
+			node.scrollLeft += e.deltaX + e.deltaY;
+		}
+
 		node.addEventListener('mousedown', onMouseDown);
 		node.addEventListener('mouseleave', onMouseLeave);
 		node.addEventListener('mouseup', onMouseUp);
 		node.addEventListener('mousemove', onMouseMove);
 		node.addEventListener('click', onClick, true); // capture phase
 		node.addEventListener('scroll', onScroll);
+		node.addEventListener('wheel', onWheel, { passive: false });
 
 		return {
 			destroy() {
@@ -190,6 +196,7 @@
 				node.removeEventListener('mousemove', onMouseMove);
 				node.removeEventListener('click', onClick, true);
 				node.removeEventListener('scroll', onScroll);
+				node.removeEventListener('wheel', onWheel);
 			}
 		};
 	}
@@ -320,6 +327,8 @@
 								venue={session.venue}
 								slug={session.slug}
 								speakerImage={session.speakerImage}
+								speaker2Name={session.speaker2Name}
+								speaker2Image={session.speaker2Image}
 								tbd={session.tbd}
 								soldOut={session.soldOut}
 								isExpanded={true}
@@ -658,8 +667,6 @@
 	.type-label {
 		flex: none;
 		width: 360px;
-		position: sticky;
-		left: 0;
 		z-index: 10;
 	}
 
@@ -687,7 +694,6 @@
 	.sessions-scroll {
 		display: flex;
 		overflow-x: auto;
-		padding-bottom: 0.75rem;
 		padding-left: 16px;
 		padding-right: 2rem;
 		scroll-snap-type: x mandatory;

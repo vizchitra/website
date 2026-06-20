@@ -31,6 +31,17 @@ export interface SessionData {
 	order?: number;
 	pageReady?: boolean;
 	ticketCode?: string;
+	exhibitNumber?: number;
+	speakerSocial?: string;
+	speaker2Name?: string;
+	speaker2Designation?: string;
+	speaker2Organisation?: string;
+	speaker2About?: string;
+	speaker2Image?: string;
+	speaker2Social?: string;
+	artworkHeroImage?: string;
+	artworkDetail1Image?: string;
+	artworkDetail2Image?: string;
 }
 
 export function getSessionOrder(s: Pick<SessionData, 'order'>): number {
