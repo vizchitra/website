@@ -694,6 +694,7 @@ display = true
 pageReady = true
 ticketCode = "workshop_2026_datavix_course"
 order = 3
+soldOut = true
 
 [[session]]
 slug = "data-rough"
