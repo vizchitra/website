@@ -26,26 +26,36 @@
 		<p class="catalog-label mb-3">Exhibition</p>
 		<Prose color="orange">
 			<h1>Data, Otherwise</h1>
-			<p>Eight works at the intersection of climate, ecology, and data</p>
+			<p>An exhibition on climate, through data you can experience</p>
 			<p>
-				<em>Data, Otherwise</em> is an exhibition of eight works that move data off the screen and into
-				the room. Each piece draws on non-human worlds: rivers, soil, birds, insects, heat, rain, where
-				sensing and meaning extend beyond people and instruments.
+				We have more climate data than ever before. Enough to track glaciers retreating and monsoons
+				shifting, to tell fishermen what they already know about their changing coastline. And yet
+				the reality of it often stays at a distance. Feeling it, though, takes something else.
 			</p>
 			<p>
-				The works share a common intuition: that climate is not only a measurement problem but a
-				lived one. Heat as exhaustion. Rain as anxiety. Smoke as grief. These artists ask what data
-				can hold when the body becomes part of what needs to be communicated.
+				<em>Data, Otherwise</em> is a tangible data visualisation exhibition on climate and ecological
+				change. It brings data out of the chart and into the room, through experiences you can walk through,
+				listen to, sit with, hold. The works draw from more-than-human worlds and from climate as lived
+				experience, from the ways people and places have found to keep going. Treating data as something
+				felt as much as read. Because if data can be felt, it has a better chance of being understood.
 			</p>
+
 			<p>
-				Together, the eight works explore how people, communities, and environments cope, adjust,
-				and rebuild, and what stays out of view when resilience gets counted. These are not
+				In this exhbition, eight works explore how people, communities, and environments cope,
+				adjust, and rebuild, and what stays out of view when resilience gets counted. These are not
 				definitive answers. They are eight ways of looking.
 			</p>
+
+			<p>
+				The exhibition opens on <strong>Friday, 3rd July 2025, 3pm to 8pm</strong>, at Bangalore
+				International Centre, Bengaluru.
+			</p>
+
+			<h2 style="margin-top: 30px !important;">You are warmly invited.</h2>
 		</Prose>
 
 		<!-- Tickets -->
-		<div class="mt-8 flex flex-wrap gap-3">
+		<div class="mt-12 flex flex-col items-start gap-3">
 			<a
 				href="https://tickets.vizchitra.com/?ticket=exhibition"
 				target="_blank"
