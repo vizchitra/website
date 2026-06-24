@@ -320,10 +320,7 @@
 		align-items: center;
 		justify-content: center;
 		text-align: center;
-		border-color: #ccc;
-		box-shadow:
-			rgb(204, 219, 232) 3px 3px 6px 0px inset,
-			rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+		border-color: #999;
 	}
 
 	@media (max-width: 1024px) {
