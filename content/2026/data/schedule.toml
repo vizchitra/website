@@ -10,8 +10,8 @@ galleryEnd = "17:00"
 
 [[slot]]
 track = "Auditorium"
-start = "08:00"
-end = "09:00"
+start = "08:30"
+end = "09:30"
 type = "ENTRY"
 label = "REGISTRATIONS"
 description = "Scan your QR code and grab your goodie bag at the entrance booth"
@@ -20,17 +20,17 @@ description = "Scan your QR code and grab your goodie bag at the entrance booth"
 track = "Auditorium"
 start = "09:30"
 end = "09:45"
-type = "ADDRESS"
-label = "{Add Audio Reactive Drums + Vocals)"
-speakerLabel = "Nikita + Rasagy"
+type = "ACTIVITY"
+label = "Morning Melody"
+speakerLabel = "Nikita Deshpande"
 
 [[slot]]
 track = "Auditorium"
 start = "09:45"
 end = "10:00"
 type = "ADDRESS"
-label = "WELCOME / STATE OF VIZ(CHITRA)"
-speakerLabel = "Amit (Proposal)"
+label = "This is VizChitra"
+speakerLabel = "Gurman Bhatia"
 
 [[slot]]
 track = "Auditorium"
@@ -52,7 +52,7 @@ start = "10:45"
 end = "11:15"
 type = "BREAK"
 label = "TEA BREAK"
-description = "Grab a chai and stretch your legs - sessions resume at 11:15"
+description = "Grab a chai and stretch your legs - sessions resume at 11:15. Check out the **book signing by Rohit Saran and Rukmini S**."
 
 [[slot]]
 track = "Auditorium"
@@ -66,14 +66,14 @@ track = "Auditorium"
 start = "11:45"
 end = "12:00"
 type = "LIGHTNING"
-session = "atlas-of-intangibles"
+session = "whats-in-your-bag"
 
 [[slot]]
 track = "Auditorium"
 start = "12:00"
 end = "12:30"
 type = "STANDARD"
-label = "TALK/PANEL - #1 | Sand, Data and Wicked Problem"
+session = "dashboards-of-our-discontent"
 
 [[slot]]
 track = "Auditorium"
@@ -87,22 +87,23 @@ description = "Head to the terrace to grab a plate and mingle with fellow data e
 track = "Auditorium"
 start = "14:00"
 end = "14:15"
-type = "LIGHTNING"
-session = "kuch-kuch-data-hai"
+type = "ACTIVITY"
+label = "Afternoon Rhythm"
+speakerLabel = "Ashok Kumar"
 
 [[slot]]
 track = "Auditorium"
 start = "14:15"
 end = "14:30"
-type = "STANDARD"
-label = "TALK/PANEL - #2 | Dasboard of our Discontent"
+type = "LIGHTNING"
+session = "kuch-kuch-data-hai"
 
 [[slot]]
 track = "Auditorium"
 start = "14:30"
 end = "14:45"
-type = "STANDARD"
-label = "TBD"
+type = "LIGHTNING"
+session = "atlas-of-intangibles"
 
 [[slot]]
 track = "Auditorium"
@@ -131,7 +132,7 @@ track = "Auditorium"
 start = "16:00"
 end = "16:30"
 type = "STANDARD"
-label = "TALK/PANEL - #3 | Caption This"
+session = "caption-this"
 
 [[slot]]
 track = "Auditorium"
@@ -145,7 +146,8 @@ track = "Auditorium"
 start = "17:15"
 end = "17:30"
 type = "ADDRESS"
-label = "CLOSING / THANKS!"
+label = "Data. Seen Differently."
+speakerLabel = "Amit Kapoor"
 
 [[slot]]
 track = "Auditorium"
@@ -157,24 +159,10 @@ description = "Wind down and connect with the community before you head out"
 
 [[slot]]
 track = "Hall"
-start = "08:00"
-end = "09:00"
+start = "08:30"
+end = "09:30"
 type = "ENTRY"
 label = "REGISTRATIONS"
-
-[[slot]]
-track = "Hall"
-start = "10:00"
-end = "10:30"
-type = "STANDARD"
-session = "dashboards-life-and-death"
-
-[[slot]]
-track = "Hall"
-start = "10:30"
-end = "10:45"
-type = "LIGHTNING"
-session = "viz-rural-care"
 
 [[slot]]
 track = "Hall"
@@ -188,7 +176,7 @@ track = "Hall"
 start = "11:15"
 end = "11:45"
 type = "STANDARD"
-session = "caption-this"
+session = "dashboards-life-and-death"
 
 [[slot]]
 track = "Hall"
@@ -196,6 +184,13 @@ start = "11:45"
 end = "12:00"
 type = "LIGHTNING"
 session = "viz-speed-trust"
+
+[[slot]]
+track = "Hall"
+start = "12:00"
+end = "12:15"
+type = "LIGHTNING"
+session = "viz-rural-care"
 
 [[slot]]
 track = "Hall"
@@ -207,7 +202,7 @@ label = "LUNCH"
 [[slot]]
 track = "Hall"
 start = "14:00"
-end = "14:15"
+end = "14:30"
 type = "STANDARD"
 session = "bite-sized-views"
 
@@ -216,7 +211,7 @@ track = "Hall"
 start = "14:30"
 end = "14:45"
 type = "LIGHTNING"
-session = "whats-in-your-bag"
+session = "no-clean-maps"
 
 [[slot]]
 track = "Hall"
@@ -235,16 +230,10 @@ label = "TEA BREAK"
 [[slot]]
 track = "Hall"
 start = "15:45"
-end = "16:00"
-type = "LIGHTNING"
-session = "no-clean-maps"
-
-[[slot]]
-track = "Hall"
-start = "16:00"
 end = "16:30"
-type = "STANDARD"
-session = "dashboards-of-our-discontent"
+type = "PANEL"
+label = "So You Want to Work With Data"
+speakerLabel = "Sandeep Karmarkar, Areena Arora, Hamsa Ganesh"
 
 [[slot]]
 track = "Hall"
@@ -255,8 +244,8 @@ label = "NETWORKING"
 
 [[slot]]
 track = "Library"
-start = "08:00"
-end = "09:00"
+start = "08:30"
+end = "09:30"
 type = "ENTRY"
 label = "REGISTRATIONS"
 
@@ -301,24 +290,10 @@ label = "TEA BREAK"
 
 [[slot]]
 track = "Library"
-start = "16:30"
-end = "16:45"
-type = "KEYNOTE"
-label = "TBD"
-
-[[slot]]
-track = "Library"
-start = "16:45"
-end = "17:00"
-type = "ADDRESS"
-label = "CLOSING / COMMUNITY / COLLECTIVE"
-
-[[slot]]
-track = "Library"
-start = "17:00"
-end = "17:15"
-type = "ADDRESS"
-label = "-"
+start = "15:45"
+end = "16:30"
+type = "ACTIVITY"
+label = "Decode the Chart"
 
 [[slot]]
 track = "Library"
@@ -329,8 +304,8 @@ label = "NETWORKING"
 
 [[slot]]
 track = "Boardroom"
-start = "08:00"
-end = "09:00"
+start = "08:30"
+end = "09:30"
 type = "ENTRY"
 label = "REGISTRATIONS"
 
@@ -344,9 +319,9 @@ label = "TEA BREAK"
 [[slot]]
 track = "Boardroom"
 start = "11:45"
-end = "12:15"
+end = "12:30"
 type = "SPONSORED"
-label = "Janagaraha?"
+label = "City Finance"
 
 [[slot]]
 track = "Boardroom"
@@ -357,8 +332,8 @@ label = "LUNCH"
 
 [[slot]]
 track = "Boardroom"
-start = "14:00"
-end = "14:00"
+start = "14:15"
+end = "15:00"
 type = "SPONSORED"
 label = "Thurro"
 
@@ -368,33 +343,6 @@ start = "15:15"
 end = "15:45"
 type = "BREAK"
 label = "TEA BREAK"
-
-[[slot]]
-track = "Boardroom"
-start = "15:45"
-end = "16:00"
-label = "STUDENT SHOWCASE"
-
-[[slot]]
-track = "Boardroom"
-start = "16:30"
-end = "16:45"
-type = "KEYNOTE"
-label = "TBD"
-
-[[slot]]
-track = "Boardroom"
-start = "16:45"
-end = "17:00"
-type = "ADDRESS"
-label = "TBD"
-
-[[slot]]
-track = "Boardroom"
-start = "17:00"
-end = "17:15"
-type = "ADDRESS"
-label = "-"
 
 [[slot]]
 track = "Boardroom"

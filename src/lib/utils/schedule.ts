@@ -11,7 +11,7 @@ export interface ScheduleSlot {
 	session?: string; // slug into sessions.toml
 	label?: string;
 	speakerLabel?: string;
-	description?: string; // optional sub-text, e.g. under a full-width break row
+	description?: string; // optional sub-text (inline markdown → HTML server-side)
 }
 
 export interface ScheduleDay {

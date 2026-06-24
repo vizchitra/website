@@ -221,7 +221,7 @@
 						<span
 							class="block max-w-[80vw] text-[13px] leading-snug font-normal normal-case opacity-80 lg:text-[15px]"
 						>
-							{r.description}
+							{@html r.description}
 						</span>
 					{/if}
 					{#if r.speaker}
