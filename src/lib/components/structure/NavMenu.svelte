@@ -17,10 +17,11 @@
 			accentColor: 'var(--color-viz-orange)',
 			subsections: [
 				{ name: 'Event', href: '/2026/' },
-				{ name: 'Sessions', href: '/2026/sessions' },
-				{ name: 'Sponsorship', href: '/2026/sponsorship' },
 				{ name: 'Get Tickets', href: 'https://tickets.vizchitra.com' },
+				{ name: 'Sessions', href: '/2026/sessions' },
+				{ name: 'Exhibition', href: '/2026/exhibition' },
 				{ name: 'Attendee Guide', href: '/2026/attendee-guide' },
+				{ name: 'Sponsorship', href: '/2026/sponsorship' },
 				{ name: 'Scholarships', href: '/2026/scholarships' },
 				{ name: 'Submissions', href: '/2026/submissions' }
 			],

@@ -1,5 +1,10 @@
 <script lang="ts">
 	import { BannerPolygon, BannerCurve, BannerSquare, BannerBlob, FullBleed } from '$lib/components';
+	import { CURVE_PALETTE_ORANGE } from '$lib/tokens';
+
+	const CURVE_TONE_PALETTES: Partial<Record<string, readonly string[]>> = {
+		orange: CURVE_PALETTE_ORANGE
+	};
 
 	interface Props {
 		title?: string;
@@ -8,6 +13,8 @@
 	}
 
 	let { title = '', banner = 'polygon', color }: Props = $props();
+
+	const curveColors = $derived(color ? CURVE_TONE_PALETTES[color] : undefined);
 
 	// Curve has no tranparncy layer ; others share centered layout
 	const addTransparencyLayer = $derived(banner !== 'curve');
@@ -18,7 +25,7 @@
 		<!-- Banner layer -->
 		<div class="sketch-bg absolute inset-0 z-0">
 			{#if banner === 'curve'}
-				<BannerCurve direction="header" />
+				<BannerCurve direction="header" colors={curveColors} />
 			{:else if banner === 'square'}
 				<BannerSquare {color} />
 			{:else if banner === 'blob'}

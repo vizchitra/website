@@ -123,6 +123,8 @@
 						venue={session.venue}
 						slug={session.slug}
 						speakerImage={session.speakerImage}
+						speaker2Name={session.speaker2Name}
+						speaker2Image={session.speaker2Image}
 						descriptionHtml={session.descriptionHtml}
 						tbd={session.tbd}
 						soldOut={session.soldOut}

@@ -142,6 +142,17 @@ export const CURVE_PALETTE = [
 	'#9FBAFC'
 ] as const;
 
+export const CURVE_PALETTE_ORANGE = [
+	'#FFF0E5',
+	'#FFD9BE',
+	'#FFB88A',
+	'#FC915B',
+	'#E86D38',
+	'#C84D1A',
+	'#A0360A',
+	'#7A2305'
+] as const;
+
 /**
  * Get color tokens with fallback to a default color.
  */

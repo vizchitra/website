@@ -18,7 +18,8 @@
 /** @type {Record<string, { x?: number; y?: number; scale?: number }>} */
 export const speakerImageTransforms = {
 	// Workshops
-	'Kenneth Dsouza // Rasagy Sharma': { x: 10, y: -65, scale: 1.3 },
+	'Kenneth Dsouza': { x: 10, y: -65, scale: 1.3 },
+	'Rasagy Sharma': { x: 10, y: -65, scale: 1.3 },
 	'Areena Arora': { x: 10, y: 5, scale: 1.1 },
 	'Schubert de Abreu': { x: 14, y: -25, scale: 1.1 },
 	'Priti Pandurangan': { x: 15, y: -30, scale: 0.9 },
@@ -39,7 +40,7 @@ export const speakerImageTransforms = {
 	'Abhiram Jois': { x: 10, y: -15, scale: 1.3 },
 	'Siddharth Agarwal': { x: 10, y: -15, scale: 1.1 },
 	'Rohit Bhardwaj': { x: 10, y: -25, scale: 1.2 },
-	'Surbhi Bhatia': { x: 10, y: -40, scale: 1.5 },
+	'Surbhi Bhatia__Talks': { x: 10, y: -40, scale: 1.5 },
 	'Rohit Saran': { x: 10, y: -45, scale: 1.4 },
 	'Aman Bhargava': { x: 10, y: -45, scale: 1.3 },
 	'Sandeep Karmarkar': { x: 10, y: -40, scale: 1.25 },
@@ -52,11 +53,14 @@ export const speakerImageTransforms = {
 
 	// Exhibitions
 	'Shreya Dan': { x: 10, y: -25, scale: 1.2 },
-	'Kashvi Bansal // Surbhi Bhatia': { x: 10, y: -25, scale: 1.2 },
+	'Aswanth Choyan': { x: 10, y: -25, scale: 1.4 },
+	'Kashvi Bansal': { x: 10, y: -25, scale: 1.2 },
+	'Surbhi Bhatia': { x: 10, y: -25, scale: 1.2 },
 	'Sadhana Lokesh': { x: 10, y: -25, scale: 1.2 },
-	'Nithya Kirti // Arkoprabho Bhattacharjee': { x: 10, y: -25, scale: 1.2 },
+	'Nithya Kirti': { x: 10, y: -25, scale: 1.2 },
+	'Arkoprabho Bhattacharjee': { x: 10, y: -25, scale: 1.2 },
 	'Vishal Garg': { x: 10, y: -25, scale: 1.2 },
-	'Meghana Singh': { x: 10, y: -25, scale: 1.2 },
+	'Meghana Singh': { x: 10, y: -25, scale: 1.1 },
 	'Kuhu Gupta': { x: 10, y: -25, scale: 1.1 }
 };
 
