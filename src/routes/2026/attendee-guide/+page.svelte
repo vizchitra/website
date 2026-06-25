@@ -34,12 +34,12 @@
 		<Prose>
 			<h2>What this guide covers</h2>
 			<ul>
-				<li><a href="#venue">Venue &amp; How to Get There</a></li>
-				<li><a href="#whatsapp">Attendee WhatsApp Group</a></li>
-				<li><a href="#registration">Registration</a></li>
-				<li><a href="#workshops">Workshops</a></li>
-				<li><a href="#conduct">Code of Conduct</a></li>
-				<li><a href="#accommodation">Accommodation</a></li>
+				<li><a href="/2026/attendee-guide#venue">Venue &amp; How to Get There</a></li>
+				<li><a href="/2026/attendee-guide#whatsapp">Attendee WhatsApp Group</a></li>
+				<li><a href="/2026/attendee-guide#registration">Registration</a></li>
+				<li><a href="/2026/attendee-guide#workshops">Workshops</a></li>
+				<li><a href="/2026/attendee-guide#conduct">Code of Conduct</a></li>
+				<li><a href="/2026/attendee-guide#accommodation">Accommodation</a></li>
 			</ul>
 		</Prose>
 
@@ -281,7 +281,37 @@
 							rel="noopener">Ramada Encore by Wyndham, Domlur</a
 						></strong
 					>
-					— 5-star, right in Domlur near BIC. From Rs 6,000/night.
+					— 4-star, ~2km from BIC in Domlur. From Rs 6,000/night.
+				</li>
+				<li>
+					<strong
+						><a
+							href="https://www.google.com/travel/hotels/s/1NWyKkbdx8Nypqa3A"
+							target="_blank"
+							rel="noopener">Hotel Royal Orchid</a
+						></strong
+					>
+					— 5-star, ~2.5km from BIC. From Rs 8,000/night.
+				</li>
+				<li>
+					<strong
+						><a
+							href="https://www.google.com/travel/hotels/s/tjMpQz1sj5UthqL78"
+							target="_blank"
+							rel="noopener">Hilton Bangalore Embassy GolfLinks</a
+						></strong
+					>
+					— 5-star, ~5km from BIC. From Rs 14,000/night.
+				</li>
+				<li>
+					<strong
+						><a
+							href="https://www.google.com/travel/hotels/s/8MFkJgPGX4K4YHeSA"
+							target="_blank"
+							rel="noopener">The Leela Palace Bengaluru</a
+						></strong
+					>
+					— 5-star, ~2km from BIC. From Rs 22,000/night.
 				</li>
 			</ul>
 		</Prose>
