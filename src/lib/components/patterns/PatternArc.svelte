@@ -2,7 +2,8 @@
 	import { onMount } from 'svelte';
 
 	interface Props {
-		targetDate?: Date;
+		startDateTime?: Date;
+		endDateTime?: Date;
 		width?: number;
 		height?: number;
 		class?: string;
@@ -10,7 +11,8 @@
 	}
 
 	let {
-		targetDate = new Date('2026-07-03T09:00:00+05:30'),
+		startDateTime = new Date('2026-07-03T09:30:00+05:30'),
+		endDateTime = new Date('2026-07-04T18:30:00+05:30'),
 		width = 350,
 		height = 400,
 		class: className = '',
@@ -59,7 +61,7 @@
 
 	onMount(() => {
 		const startTime = Date.now();
-		const targetMs = targetDate.getTime();
+		const targetMs = startDateTime.getTime();
 		let raf: number;
 
 		// Smooth reset: track animation state for the minute-boundary refill
@@ -111,7 +113,7 @@
 		};
 	});
 
-	let diff = $derived(Math.max(0, targetDate.getTime() - now.getTime()));
+	let diff = $derived(Math.max(0, startDateTime.getTime() - now.getTime()));
 	let totalSeconds = $derived(Math.floor(diff / 1000));
 	let days = $derived(Math.floor(totalSeconds / 86400));
 	let hours = $derived(Math.floor((totalSeconds % 86400) / 3600));
@@ -123,9 +125,24 @@
 	let hrsFraction = $derived(hours / 24);
 	let daysFraction = $derived(Math.min(1, days / MAX_DISPLAY_DAYS));
 
-	// Center number and bottom label switch units as time runs down
-	let centerDisplay = $derived(days > 0 ? days : hours > 0 ? hours : minutes);
-	let bottomLabel = $derived(days > 0 ? 'DAYS TO GO' : hours > 0 ? 'HOURS TO GO' : 'MINUTES TO GO');
+	let phase = $derived(
+		now.getTime() >= endDateTime.getTime()
+			? 'ended'
+			: now.getTime() >= startDateTime.getTime()
+				? 'happening'
+				: 'countdown'
+	);
+
+	let centerDisplay = $derived(
+		phase === 'countdown' ? (days > 0 ? days : hours > 0 ? hours : minutes) : null
+	);
+	let bottomLabel = $derived(
+		phase === 'ended'
+			? 'SEE YOU NEXT YEAR'
+			: phase === 'happening'
+				? 'HAPPENING NOW'
+				: `${days} DAYS  ${hours} HRS  ${String(minutes).padStart(2, '0')} MINS  TO GO`
+	);
 
 	const secsCirc = 2 * Math.PI * SECS_R;
 	const minsCirc = 2 * Math.PI * MINS_R;
@@ -200,21 +217,23 @@
 			transform={`rotate(${daysAngle}, ${cx}, ${cy})`}
 		/>
 
-		<!-- Center countdown number — drawn BEFORE rings so arcs layer on top -->
-		<text
-			x={cx}
-			y={cy + 14}
-			text-anchor="middle"
-			dominant-baseline="middle"
-			font-size="200"
-			font-weight="850"
-			font-family="var(--font-display)"
-			fill="var(--color-viz-grey)"
-			letter-spacing="-0.04em"
-			style="font-variation-settings: 'slnt' 0"
-		>
-			{centerDisplay}
-		</text>
+		<!-- Center countdown number — shown only during countdown, drawn BEFORE rings so arcs layer on top -->
+		{#if phase === 'countdown'}
+			<text
+				x={cx}
+				y={cy + 14}
+				text-anchor="middle"
+				dominant-baseline="middle"
+				font-size="200"
+				font-weight="850"
+				font-family="var(--font-display)"
+				fill="var(--color-viz-grey)"
+				letter-spacing="-0.04em"
+				style="font-variation-settings: 'slnt' 0"
+			>
+				{centerDisplay}
+			</text>
+		{/if}
 
 		<!-- Seconds — outermost, orange -->
 		<circle
