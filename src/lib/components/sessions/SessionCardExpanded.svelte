@@ -3,6 +3,7 @@
 	import ProposalBadge from '../proposals/ProposalBadge.svelte';
 	import SessionCardBackground from './SessionCardBackground.svelte';
 	import PatternComingSoon from './PatternComingSoon.svelte';
+	import PatternMountain from '../patterns/PatternMountain.svelte';
 	import { sessionColorMap } from '$lib/utils/sessions';
 	import { themeTokens, colorTokens } from '$lib/tokens';
 	import { buildSpeakerImageTransform } from './speakerConfig.js';
@@ -24,6 +25,7 @@
 		speaker2Image?: string;
 		tbd?: boolean;
 		soldOut?: boolean;
+		sponsored?: boolean;
 		isExpanded?: boolean;
 		descriptionHtml?: string;
 		from?: string;
@@ -47,6 +49,7 @@
 		speaker2Image,
 		tbd = false,
 		soldOut = false,
+		sponsored = false,
 		isExpanded = true,
 		descriptionHtml = '',
 		from = '',
@@ -231,6 +234,210 @@
 			</div>
 		</div>
 	</div>
+{:else if sessionType === 'Activities'}
+	{@const currentColor = colorClasses[color] ?? colorClasses.yellow}
+	<div class="sessions-card-outer group relative mx-auto w-full">
+		<div class="sessions-card-wrapper @container relative w-full overflow-hidden rounded">
+			<svelte:element
+				this={pageReady && slug ? 'a' : 'div'}
+				href={pageReady && slug ? detailHref : undefined}
+				role={pageReady && slug ? undefined : 'presentation'}
+				class="sessions-card bg-viz-white border-viz-grey/40 isolate block w-full transform-gpu overflow-hidden rounded border transition-[transform,box-shadow] {pageReady &&
+				slug
+					? 'cursor-pointer group-hover:scale-102'
+					: 'cursor-default'}"
+				onpointermove={handlePointerMove}
+				onpointerleave={handlePointerLeave}
+			>
+				<div
+					class="session-card-body relative flex aspect-4/5.75 max-h-[85svh] flex-col md:max-h-none"
+					bind:clientWidth={backgroundWidth}
+					bind:clientHeight={backgroundHeight}
+				>
+					<!-- PatternMountain anchored to bottom of card -->
+					<div class="activities-mountain-bg pointer-events-none absolute inset-x-0 bottom-0 z-0">
+						{#if backgroundWidth > 0}
+							<PatternMountain
+								tone={color}
+								{variation}
+								width={backgroundWidth}
+								height={Math.round(backgroundHeight * 0.72)}
+								class="block h-full w-full"
+							/>
+						{/if}
+					</div>
+
+					<!-- Header -->
+					<div class="session-card-header relative z-10 p-2.5 pb-0! md:p-4">
+						<div class="title mb-2.5 flex flex-row items-baseline justify-start gap-2 md:mb-3">
+							<div class="logo-container text-xl leading-none text-[#4c4c4c] md:text-2xl">
+								<LogoType classes="text-xl md:text-2xl" year={null} />
+							</div>
+							<p
+								class="font-display text-shadow block text-xl leading-none tracking-tighter uppercase md:text-2xl"
+								style="color: {themeTokens[color]?.dark ??
+									themeTokens.yellow.dark}; font-variation-settings: 'wght' 600;"
+							>
+								{sessionType}
+							</p>
+						</div>
+					</div>
+
+					<!-- Title & subtitle -->
+					<div class="relative z-10 flex flex-col p-3 pt-1 md:p-4 md:pt-2">
+						<h3
+							class="title font-display text-shadow mb-2 text-[20px] leading-tight font-extrabold text-[#4c4c4c] uppercase md:text-[20px] lg:text-[22px] 2xl:text-[28px]"
+						>
+							{title}
+						</h3>
+						{#if subtitle && isExpanded}
+							<p
+								class="short-description font-body text-shadow text-[14px] leading-tight font-normal text-[#4c4c4c] md:text-[16px]"
+							>
+								{subtitle}
+							</p>
+						{/if}
+						{#if sponsored}
+							<span
+								class="sponsored-badge mt-2"
+								style="color: {themeTokens[color]?.dark ?? themeTokens.blue.dark}">Sponsored</span
+							>
+						{/if}
+					</div>
+
+					<!-- Spacer to push wave overlay down -->
+					<div class="flex-1"></div>
+
+					<!-- Wave overlay with speaker details — same as other session types -->
+					<div
+						class="speaker-details-overlay pointer-events-auto absolute inset-x-0 bottom-0 z-10 flex flex-col"
+					>
+						<div
+							class="absolute inset-x-0 -bottom-px"
+							style="height: 0; padding-bottom: calc(33.34% + 2px);"
+						>
+							<div class="absolute inset-0">
+								<svg
+									class="relative z-0 block h-full w-full"
+									viewBox="0 0 1080 364"
+									preserveAspectRatio="none"
+									fill="none"
+									aria-hidden="true"
+								>
+									<path
+										d="M-12 364.516V0.516363C191.5 -0.982956 456 101.337 579 114.518C705 128.018 1004.5 9.01752 1092 2.01636V364.516H-12Z"
+										fill={overlayColor}
+									/>
+									<path
+										d="M-12 0.516363C191.5 -0.982956 456 101.337 579 114.518C705 128.018 1004.5 9.01752 1092 2.01636"
+										fill="none"
+										stroke="#fff"
+										stroke-width={overlayStrokeWidth}
+									/>
+								</svg>
+							</div>
+						</div>
+
+						<div class="speaker-details-content relative z-30 mt-auto w-full p-2.5 md:p-4">
+							<div class="speaker-details relative z-10">
+								<h3
+									class="font-display text-shadow mb-1 text-[18px] leading-none text-[#4c4c4c] uppercase md:text-[20px] lg:text-[22px] 2xl:text-[26px] 2xl:text-shadow-none!"
+								>
+									{#each effectiveSpeakerName.split('//').map((s) => s.trim()) as person, i}
+										{#if i > 0}<span
+												class="text-[18px] leading-none font-medium md:text-[20px] lg:text-[22px] 2xl:text-[28px]"
+											>
+												&nbsp;//
+											</span>{/if}
+										<span
+											class="first-name text-[18px] leading-none font-extrabold md:text-[20px] lg:text-[22px] 2xl:text-[28px]"
+											>{person.split(' ')[0]}</span
+										>
+										<span
+											class="last-name text-[18px] leading-none font-medium md:text-[20px] lg:text-[22px] 2xl:text-[28px]"
+											>{person.split(' ').slice(1).join(' ')}</span
+										>
+									{/each}
+								</h3>
+								{#if designation || organisation}
+									<span
+										class="font-display block text-sm leading-tight text-[#4c4c4c] md:text-[14px] lg:text-[15px] 2xl:text-lg"
+									>
+										{#if designation}{designation}{/if}{#if organisation}, {organisation}{/if}
+									</span>
+								{/if}
+							</div>
+						</div>
+					</div>
+				</div>
+			</svelte:element>
+		</div>
+
+		{#if pageReady && slug}
+			<svg
+				class="view-details-button pointer-events-none absolute -right-18 -bottom-6 z-40 block h-32 w-32 origin-center scale-0 transition-transform duration-400 ease-out group-hover:scale-100 md:h-40 md:w-40 lg:-right-10 lg:-bottom-10 lg:h-48 lg:w-48"
+				viewBox="0 0 200 200"
+				fill="none"
+				aria-hidden="true"
+			>
+				<defs>
+					<path
+						id="view-details-path-{slug}"
+						d="M 100,100 m -{textPathRadius},0 a {textPathRadius},{textPathRadius} 0 1,1 {textPathRadius *
+							2},0 a {textPathRadius},{textPathRadius} 0 1,1 -{textPathRadius * 2},0"
+						fill="none"
+					/>
+				</defs>
+				<circle
+					cx="100"
+					cy="100"
+					r="80"
+					fill="#fff"
+					stroke="var(--color-{colorClasses[color]})"
+					stroke-width="7"
+					fill-opacity="1"
+				/>
+				<circle
+					cx="100"
+					cy="100"
+					r="52"
+					fill="var(--color-{colorClasses[color]}-dark)"
+					stroke-width="10"
+					fill-opacity="0.75"
+				/>
+				<circle
+					cx="100"
+					cy="100"
+					r="45"
+					fill="var(--color-{colorClasses[color]})"
+					fill-opacity="1"
+				/>
+				<circle cx="100" cy="100" r="35" fill="#fff" fill-opacity="1" />
+				<g
+					transform="translate(100 100) scale(0.325) translate(-63 -63)"
+					stroke="#4c4c4c"
+					stroke-width="13"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					fill="none"
+				>
+					<path d="M26.25 63L99.75 63" />
+					<path d="M63 26.25L99.75 63L63 99.75" />
+				</g>
+				<text
+					class="view-details-text font-display"
+					fill="#4c4c4c"
+					font-size="16"
+					font-weight="800"
+					letter-spacing="2"
+					text-anchor="middle"
+				>
+					<textPath href="#view-details-path-{slug}" startOffset="18%">VIEW DETAILS</textPath>
+					<textPath href="#view-details-path-{slug}" startOffset="65%">VIEW DETAILS</textPath>
+				</text>
+			</svg>
+		{/if}
+	</div>
 {:else}
 	{@const currentColor = colorClasses[color] ?? colorClasses.blue}
 	<div class="sessions-card-outer group relative mx-auto w-full">
@@ -320,6 +527,12 @@
 								? `padding-top: ${Math.round(backgroundWidth * layout.titlePaddingRatio)}px`
 								: undefined}
 						>
+							{#if sponsored && sessionType === 'Dialogues'}
+								<span
+									class="sponsored-badge mb-1 block"
+									style="color: {themeTokens[color]?.dark ?? themeTokens.blue.dark}">Sponsored</span
+								>
+							{/if}
 							<h3
 								class="title font-display text-shadow mb-1 text-[20px] leading-none font-extrabold text-[#4c4c4c] uppercase md:text-[20px] lg:text-[22px] 2xl:text-[28px]"
 								style={layout.titleMaxWidth ? `max-width: ${layout.titleMaxWidth}` : undefined}
@@ -347,6 +560,14 @@
 								>
 									{subtitle}
 								</div>
+							</div>
+						{/if}
+						{#if sponsored && sessionType !== 'Dialogues'}
+							<div class="relative z-10 px-3 pb-1 md:px-4">
+								<span
+									class="sponsored-badge"
+									style="color: {themeTokens[color]?.dark ?? themeTokens.blue.dark}">Sponsored</span
+								>
 							</div>
 						{/if}
 					</div>
@@ -596,6 +817,21 @@
 			height: 60px;
 			bottom: -60px;
 		}
+	}
+
+	.sponsored-badge {
+		display: inline-block;
+		font-family: var(--font-display);
+		font-size: var(--text-viz-sm);
+		font-weight: 400;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		line-height: 1.4;
+		white-space: nowrap;
+	}
+
+	.activities-mountain-bg {
+		height: 72%;
 	}
 
 	.text-shape-float {

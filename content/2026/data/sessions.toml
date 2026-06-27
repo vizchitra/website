@@ -783,3 +783,163 @@ display = true
 pageReady = true
 ticketCode = "workshop_2026_mobile_viz"
 order = 2
+
+
+[[session]]
+slug = "public-data-roundtable"
+sessionType = "Dialogues"
+date = "2026-07-03"
+time = "18:30 to 20:30 "
+slot = ""
+venue = "Bangalore International Centre"
+title = "Unlocking Public Sector Data & its Value"
+subtitle = "Public data holds enormous promise. This roundtable asks what actually stands in the way."
+shortDescription = "India's public data problem is no longer about whether datasets exist. It's about whether organisations can actually use them. This session brings 8 to 10 organisations building on public and administrative data into one room to test where the value is real, where it's overstated, and what keeps breaking. It closes with the raw material for a short, co-authored piece that puts concrete use cases on record."
+longDescription = "The case for opening public and administrative data is usually made in the abstract. If the data existed in usable form, value would follow. The organisations actually building on public data know the gap between that assumption and reality. They keep solving the same problems through their own ingenuity: broken discovery, machine-unreadable formats, mismatched identifiers, missing metadata. Problems that arguably should not need private ingenuity to solve. \n This roundtable is for organisations that work directly with public and administrative datasets: researchers, builders, analysts, and policy practitioners who have gone from 'the dataset exists' to 'we built something useful' and know exactly where that path broke. A smaller, focused room serves this topic better than a panel. The goal is candid accounts, not polished positions. \n The conversation will move through three questions. Where has using public data produced something genuinely valuable, and what made that possible? Where is the value overstated, and what honest caveats does the room raise? And which break-points matter most: discovery, machine-readability, common identifiers, harmonised definitions, trust? The session will not attempt to produce policy recommendations or consensus positions. \n Participants leave with a shared account of what India's public data is actually good for, and their name on a short, co-authored piece that puts those use cases on record. This is an invite-only session, kept small so the conversation can go somewhere."
+speakerName = "Anumpama Kashyap"
+designation = ""
+organisation = "People + AI"
+speakerAbout = ""
+speakerImage = ""
+display = true
+pageReady = true
+sponsored = true
+order = 40
+
+
+[[session]]
+slug = ""
+sessionType = "Activities"
+date = "2026-07-04"
+time = "15:45 to 16:30"
+slot = ""
+venue = "Bangalore International Centre"
+title = "AMA: So You Want to Work with Data."
+subtitle = "A career in data viz is less a path and more a series of educated guesses. Three practitioners on theirs."
+shortDescription = "Data visualization has no single entry point. People arrive from journalism, design, engineering, social science, and places that have otherwise little to do with charts. If you're trying to figure out how to actually get into this field, what to learn, what kind of work exists, whether it pays — this is for you. A panel discussion with three practitioners who talk honestly about the work, the career, and how they found their way in."
+longDescription = "Data visualization sits at an uncomfortable intersection;  part design, part journalism, part engineering, part storytelling. Nobody arrives fully prepared and everyone spends at least some time feeling like an imposter. If you're early in your journey and wondering whether a career in data viz is for you — and where you'd even begin — this session is for you. \n\n What do you actually need to know before you touch a tool? What does a typical workday or a real project look like? What are the career structures that exist in this field in India, and what does compensation actually look like across them? Three practitioners — Sandeep Karmarkar, Hamsa Ganesh, and Areena Arora — with varying experiences, will address these questions from three different vantage points. Between them, they represent the corporate design track, the independent studio track, and the newsroom track. The conversation will be structured, yet informal. \n\n No one usually has it all charted out. No maps for a career in this field. But by the end of the session, you'll leave with a clearer picture of where you might fit, a more honest sense of what the work actually demands, and at least one answer to a question you've been carrying around for a while. Where your path goes from here is still yours to figure out. But you'll have a better sense of the terrain."
+speakerName = "Anushka Gokhale"
+designation = "Lead Designer"
+organisation = "EPIC World"
+speakerAbout = "Anushka Gokhale is a Product Designer and number-crunching storyteller. In her 5+ years of experience, she has collaborated with mission-driven teams and designed data-heavy products across govtech, conservation tech, fintech, and spatial intelligence — bridging the gap between data and people.\n\n Currently Lead Designer at EPIC World. Previously Senior Product Designer at Parallel HQ and CivicDataLab, and  Visiting Faculty at SMI."
+speakerImage = ""
+display = true
+pageReady = true
+order = 40
+
+
+[[session]]
+slug = "decode-chart-game"
+sessionType = "Activities"
+date = "2026-07-0t"
+time = "15:45 to 16:30"
+slot = ""
+venue = "Bangalore International Centre"
+title = "Decode the Chart Game"
+subtitle = "Follow the clues. Uncover the story."
+shortDescription = "Step into the world of visual puzzles with Decode the Chart! In this interactive game, participants are presented with charts stripped of labels and context. The challenge? To uncover the hidden story behind the visuals using only patterns and intuition. Blending playful competition with serious data literacy, this session sparks curiosity, sharpens analytical thinking, and emphasizes the art of storytelling in visualizations."
+longDescription = "We often say that data speaks for itself. This session challenges that assumption. By removing titles, annotations, labels, and context from carefully selected visualizations, participants experience what happens when a chart is left to speak on its own. \n The session opens with a fast-paced visual challenge: participants are shown several well-known visualizations with key contextual elements removed (e.g, climate strips) and asked to infer what they represent, setting the stage for a deeper exploration of how we interpret visual information. Sounds easy enough! \n\n Next comes the main challenge. Participants are divided into small teams of 3–4 and introduced to the rules of the game. Each team receives a visualization where the visual marks, colors, chart structure, and creator credits remain intact, but all contextual clues including the title, subtitle, annotations, legend labels, and source narrative have been removed. Working together as data detectives, teams must determine what the chart represents, what the colors or categories signify, the key insight being communicated, and how confident they are in their interpretation on a scale of 1 to 5. (1 = least confident, 5 = most confident). Armed only with visual clues, they observe patterns, develop theories, debate interpretations, and defend their reasoning before the original chart and story are revealed. \n \n With each reveal, the room explores how context changes understanding. Which assumptions were correct? Which were completely off? What role did titles, annotations, and storytelling play in guiding interpretation? The focus is not on getting the right answer, but on uncovering how people make sense of visual information. \n\n By the end of the session, participants will have sharpened their visual literacy, challenged their assumptions, and gained a deeper appreciation for the design choices that transform data into understanding. The result is a lively, discussion-driven experience that turns attendees from chart readers into data detectives."
+speakerName = "Arshi Saleh"
+designation = "Tableau Developer"
+organisation = "Data Visual Designer"
+speakerAbout = "Arshi Saleh is a freelance Tableau Developer and Data Visual Designer. She serves as Community & Events Coordinator for DVS GeoIG, is Bengaluru TUG Co‑Lead and Tableau Ambassador (2025–2026). Her work has been recognized with two Viz of the Day features, a 2nd‑place finish in the DataViz Competition organized by WIA, and three entries showcased in the Information is Beautiful Longlist.\n\n Focused on creating data stories with social impact, Arshi is passionate about community‑led learning. She actively contributes to initiatives that make data literacy more accessible while fostering collaboration, mentorship, and knowledge sharing within the global data visualization community."
+speakerImage = ""
+display = true
+pageReady = true
+order = 41
+
+
+[[session]]
+slug = "data-playground"
+sessionType = "Activities"
+date = "2026-07-04"
+time = "1415 to 1500"
+slot = ""
+venue = "Bangalore International Centre"
+title = "Thurro's Data Playground"
+subtitle = "You bring the question and the craft. Thurro brings updated, clean, verified data to match."
+shortDescription = "If you work with data, the hardest part is often the data itself: finding reliable, trustworthy, and updated sources, or the dataset you need in your workflow but cannot easily get. Visualisers are artists: Thurro offers you tools. In this hands-on playground, you bring the questions and the curiosity on India, and Thurro will surface the data from 800+ sources immediately. On our connectors, let’s explore together. Where we may not yet have data, your asks shape what Thurro ingests next."
+longDescription = "If you make data visualisations, you know the hardest part is often the data itself. Reliable, trustworthy, updated Indian datasets are scattered, gated, or simply missing. You are often left with only half the equation: a sharp question or a story you want to tell, but not the data to ground it. Thurro is a structured intelligence platform that helps you build on your curiosity by surfacing the data you need in the work environment where you need it. Thurro's Data Playground puts that to work live, with the audience's asks driving what happens on screen. \n\n Before the session, attendees submit the craziest data questions they have always wanted to ask but never had the data access for: come in through social channels and physical question boards at the venue. A curated set of those questions anchors the live segment. In the room, Akhilesh and Aarushi open up ThurroConnect and build alongside you. \n\n The 45 minutes feature a short framing, a quick look at how Thurro works, and collaborative play. Attendees’ queries power Thurro’s responses served with real, updated, verified data. To take part fully, bring your question. If you can, do latch on to ThurroConnect via our custom MCP. Markets, tolls, ports, exports, companies, Vahan, pollution - you name it. \n\n You leave with a data tool you will actually want to keep using, a clear sense of what to ask it and how, and direct access to the people building it. The session is honest about its limits too: it is a shared room, not a one-to-one consult, the team will hear what Thurro does not yet cover or capabilities that they should build. The questions this room raises feed directly into what Thurro indexes, models, and ships next."
+speakerName = "Akhilesh Tilotia"
+designation = "Co-founder"
+organisation = "Thurro"
+speakerAbout = "Akhilesh has a unique perspective in his commentary as he views the world through the various lenses of an entreprenuer, government officer, an economist, a banker, and a strategist. These multiple world-views have shaped him as a dot-joiner and has powered his two books on India's macroeconomy and administration."
+speakerImage = ""
+display = true
+pageReady = true
+sponsored = true
+order = 42
+
+
+
+
+
+[[session]]
+slug = "cities-we-dont-see"
+sessionType = "Activities"
+date = "2026-07-04"
+time = "11:45 to 12:30"
+slot = ""
+venue = "Bangalore International Centre"
+title = "The Cities We Don’t See"
+subtitle = "The numbers are there. The narratives are not."
+shortDescription = "Urban India is one of the most data-rich, story-poor subjects in the country. While around 95% of cities regularly submit audited financial data, almost nobody outside the government has done anything interesting with it. This session will put the spotlight on urban financial datasets in front of the people most equipped to do something with it.   "
+longDescription = "Your street has a pothole you navigate every day. You may have complained about it — tagged someone, filed a request, waited. And if you live in an Indian city, you already know how that story ends. But has it ever occurred to you that this is, at its core, a financial problem? That somewhere in a budget, a line item either exists for your street or it doesn't — and that this information is, in theory, public? \n Urban India has always had a data problem. Not a shortage of it, but a shortage of data that is consistent, accessible, and presented in a form that means anything to the people it concerns. CityFinance was built to change that. As the national platform for municipal finance data, it tracks how India's cities raise money and where they spend it — cutting through the opacity that has long made urban governance feel like something that happens to citizens rather than for them. \n The session opens with a few questions about how cities are actually funded. The room will quickly discover how much or how little, most of us know about the financial machinery behind the places we live in. From there, we walk one city's financial story end to end. How much of what it spends comes from its own resources, and how much is simply waiting for a transfer from above? What share of every rupee is already committed before a single discretionary decision gets made? These are uncomfortable questions. The data has answers. \n We then open the floor. Call out any city in India and we pull it up live. Tell us what you see, what surprises you, what a better visualisation would look like, what story you would tell with this if you had a week and a deadline. You leave with a sharper financial lens on urban India — and with a clearer sense of the stories this data is still waiting for someone in this room to tell."
+speakerName = "Shobana Venkatasubbu"
+designation = "Senior Manager"
+organisation = "Janaagraha"
+speakerAbout = "Shobana took every traditional route her engineering, MBA and accounting degrees told her to, and then went looking for work that actually meant something. So she took a turn. She now spends her time with city balance sheets and looking for stories they tell. At Janaagraha, she leads CityFinance, the national platform for municipal financial data built in partnership with the Ministry of Housing and Urban Affairs. She also works with the Comptroller and Auditor General on revising the National Municipal Accounting Manual, which is the kind of sentence that clears a room at parties but is genuinely one of the most important things happening in urban fiscal governance right now. A thought she cannot stop returning to: India's cities have some of the most interesting data in the country,and not nearly enough stories to show for it. "
+speakerImage = ""
+speakerSocial = ""
+display = true
+pageReady = true
+order = 43
+speaker2Name = "Tushar Chakrabarty"
+speaker2Designation = "Associate Manager"
+speaker2Organisation = "Janaagraha"
+speaker2About = "Tushar is a public finance professional with experience ofworking across union, state, and municipal finances. He has authored multiple publications analysing the finances of union and state governments. He began his career as a journalist, covering events and telling stories impacting India's economy. At Janaagraha, he works towards making urban finance data more accessible for various stakeholders."
+speaker2Image = ""
+speaker2Social = ""
+
+
+
+
+[[session]]
+slug = "morning-melody"
+sessionType = "Activities"
+date = "2026-07-04"
+time = ""
+slot = ""
+venue = "Bangalore International Centre"
+title = "Morning Melody"
+subtitle = "Your voice is already here. Let's find it together."
+shortDescription = "Most people arrive at a conference already in their heads. This session pulls you out before the day begins. A vocal warm-up and collective sing-along that turns a room of strangers into a room that has made something together. If you have ever wanted permission to hum loudly in public, this is it."
+longDescription = "Congratulations, you made it here on a Saturday morning! And you’re now staring at some unfamiliar faces. A conference room can sometimes feel a bit distant, but fear not, we’re here to shake off those morning blues. \n This session is a playful vocal warm-up and collective sing-along to pause, loosen up, open our voices, and tune into the same rhythm. Through simple exercises, surprising sounds, and shared song, we’ll create a moment of connection before the day unfolds, so you’re all set for the conversations, discussions and networking! \n You don’t need to be a singer. You don’t need any musical experience. Just unleash the bathroom singer within you! \n Come ready to make some noise, harmonise and go from strangers to not-so-strangers in minutes!"
+speakerName = "Nikita Deshpande"
+designation = ""
+organisation = ""
+speakerAbout = "Nikita is an Art & Animation Director and illustrator with over 12 years of experience bringing stories to life through expressive, concept-driven visuals. Her work spans editorial, animation, games, music videos, and brand identity, and is rooted in clarity, emotion, and atmosphere. \n She spent seven years as a Visual Artist and Designer at BBC News, where she created illustrations, animations, infographics, and motion graphics for digital, social, and broadcast platforms, helping audiences better understand complex stories through authentic and impactful design. As an independent creative, she has collaborated with clients including BBC Media Action, Purpose Global, Unbias the News, Revisual Labs, and Collective Newsroom, among others. \n Since childhood, Nikita has felt a pull towards listening to and learning Indian classical music. Under the guidance of Hindustani classical vocalist Nirali Kartik, she continues to nurture this lifelong passion alongside her visual practice."
+speakerImage = ""
+display = true
+pageReady = true
+order = 44
+
+[[session]]
+slug = ""
+sessionType = "Activities"
+date = "2026-07-04"
+time = "11:45 to 12:30"
+slot = ""
+venue = "Bangalore International Centre"
+title = "Afternoon Rhythm"
+subtitle = "Every beat is data. Every pattern is yours."
+shortDescription = "Midway through a packed day, your attention is the first thing to go. This session brings it back with a solo djembe performance that pulls the room into call-and-response, claps, and a shared beat you did not expect to be following at a data visualisation conference. Rhythm is data too, and this is where you feel it."
+longDescription = "Rhythm is not just music. It is coordination, pattern, repetition, and response. It is data that lives in the body before it lives anywhere else. \n\n Midway through a packed day of talks and conversations, this session invites you to step out of your head and into something more immediate. A solo djembe performance, part interaction, part exploration, where the drum sets a beat and you find your place within it. \n\n You will clap. You will respond. You will discover where your instinct sits in relation to the group's pulse. Some will lock in early. Others will find it later. Both are the point. \n\n Finding Your Rhythm is a chance to listen, to move, and to notice what happens when you stop processing and start feeling. The beat is simple. What you do with it is yours."
+speakerName = "Ashok Kumar"
+designation = ""
+organisation = ""
+speakerAbout = ""
+speakerImage = ""
+display = true
+pageReady = true
+order = 45

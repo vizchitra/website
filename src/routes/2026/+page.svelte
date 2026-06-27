@@ -25,7 +25,7 @@
 
 	let { data }: { data: PageData } = $props();
 
-	const typeOrder = ['Workshops', 'Talks', 'Dialogues', 'Exhibition'];
+	const typeOrder = ['Workshops', 'Talks', 'Dialogues', 'Exhibition', 'Activities'];
 
 	const sessionGroups = $derived(
 		typeOrder
@@ -36,7 +36,7 @@
 			.filter((g) => g.sessions.length > 0)
 	);
 
-	type Pattern = 'circle' | 'waves' | 'river' | 'stream';
+	type Pattern = 'circle' | 'waves' | 'river' | 'stream' | 'mountain';
 	type Tone = 'blue' | 'teal' | 'orange' | 'pink' | 'yellow';
 
 	const typeConfig: Record<
@@ -95,6 +95,17 @@
 				'Data, Otherwise: a curated gallery on climate & ecology viz. Works that slow you down & feel.',
 			descriptionPosition: 'bottom-2 left-1/2 -translate-x-1/2 text-center',
 			descriptionWidth: '30ch'
+		},
+		Activities: {
+			pattern: 'mountain',
+			tone: 'yellow',
+			titlePosition: 'pt-2 text-left',
+			href: '/2026/sessions?type=Activities',
+			subtitle: 'The Community Journey',
+			description:
+				'Hands-on playgrounds, open forums, and sponsored sessions. Community experiences beyond the stage.',
+			descriptionPosition: 'bottom-5 left-5 md:left-8 text-left',
+			descriptionWidth: '28ch'
 		}
 	};
 
@@ -102,7 +113,9 @@
 	let visibleCards: Record<string, Set<number>> = $state({
 		Workshops: new Set([0]),
 		Talks: new Set([0]),
-		Dialogues: new Set([0])
+		Dialogues: new Set([0]),
+		Exhibition: new Set([0]),
+		Activities: new Set([0])
 	});
 
 	function handleScroll(type: string, el: HTMLElement) {
@@ -321,7 +334,7 @@
 					/>
 				</div>
 				<div class="sessions-scroll" use:scrollAction={type}>
-					{#each group.sessions as session (session.slug)}
+					{#each group.sessions as session, i (session.slug || `${type}-${i}`)}
 						<div class="session-card-wrap">
 							<SessionCardExpanded
 								title={session.title}
@@ -340,6 +353,7 @@
 								speaker2Image={session.speaker2Image}
 								tbd={session.tbd}
 								soldOut={session.soldOut}
+								sponsored={session.sponsored}
 								isExpanded={true}
 								descriptionHtml={session.descriptionHtml}
 								pageReady={session.pageReady}
@@ -570,13 +584,15 @@
 				<!-- <ColorSpan color="black">Conference Day on July 4<sup>th</sup>, 2026 (Saturday)</ColorSpan>: -->
 				Full day of sessions including
 				<ColorSpan color="blue">Talks</ColorSpan>,
-				<ColorSpan color="teal">Dialogues</ColorSpan>, and the
-				<ColorSpan color="orange">Exhibition</ColorSpan> at Bangalore International Centre (BIC), Bengaluru.
+				<ColorSpan color="teal">Dialogues</ColorSpan>,
+				<ColorSpan color="orange">Exhibition</ColorSpan>, and
+				<ColorSpan color="yellow">Activities</ColorSpan> at Bangalore International Centre (BIC), Bengaluru.
 				Can't make it to Bengaluru? A virtual pass streams the day live.
 			</Text>
 			{@render sessionRow('Talks')}
 			{@render sessionRow('Dialogues')}
 			{@render sessionRow('Exhibition')}
+			{@render sessionRow('Activities')}
 		</Stack>
 	</Stack>
 </Container>

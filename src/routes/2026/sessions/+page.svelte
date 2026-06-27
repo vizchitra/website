@@ -61,8 +61,8 @@
 		<Prose>
 			<h1>Sessions</h1>
 			<p>
-				Explore the sessions lined up for VizChitra 2026: Talks, Dialogues, Workshops, and
-				Exhibitions.
+				Explore the sessions lined up for VizChitra 2026: Talks, Dialogues, Workshops, Exhibitions,
+				and Activities.
 			</p>
 		</Prose>
 
@@ -128,6 +128,7 @@
 						descriptionHtml={session.descriptionHtml}
 						tbd={session.tbd}
 						soldOut={session.soldOut}
+						sponsored={session.sponsored}
 						isExpanded={true}
 						pageReady={session.pageReady}
 					/>
