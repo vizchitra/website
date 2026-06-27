@@ -18,7 +18,7 @@ export const prerender = true;
 
 export const entries: EntryGenerator = async () => {
 	const { sessions } = resolveAllSessions();
-	return sessions.filter((s) => !s.tbd).map((s) => ({ slug: s.slug }));
+	return sessions.filter((s) => !s.tbd && s.slug).map((s) => ({ slug: s.slug }));
 };
 
 export const load: PageServerLoad = async ({ params }) => {

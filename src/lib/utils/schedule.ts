@@ -207,7 +207,7 @@ export function resolveSlot(
 	} else if (t === 'SPONSORED') {
 		kind = 'sponsored';
 		color = 'yellow';
-	} else if (t === 'ACTIVITY') {
+	} else if (t === 'ACTIVITIES') {
 		kind = 'placeholder';
 		color = 'yellow';
 	} else if (t === 'DIALOGUE' || t === 'PANEL') {
@@ -301,17 +301,12 @@ export interface LegendEntry {
 	color: string;
 }
 
-// A few labels are widened where one colour covers more than one slot type
-// (e.g. teal also covers panels).
-const legendLabels: Record<string, string> = { Dialogues: 'Dialogues / Panels' };
-
 /** Session-type → swatch colour, plus a grey catch-all; sourced from the slot colour map. */
 export const scheduleLegend: LegendEntry[] = [
 	...Object.entries(sessionColorMap).map(([label, color]) => ({
-		label: legendLabels[label] ?? label,
+		label,
 		color
 	})),
-	{ label: 'Activities', color: 'yellow' },
 	{ label: 'Other', color: 'grey' }
 ];
 

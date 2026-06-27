@@ -5,6 +5,7 @@ export { default as BannerPolygon } from './BannerPolygon.svelte';
 export { default as DividerPolygon } from './DividerPolygon.svelte';
 export { default as DividerCurves } from './DividerCurves.svelte';
 export { default as PatternFormats } from './PatternMountain.svelte';
+export { default as PatternMountain } from './PatternMountain.svelte';
 export { default as PatternCircle } from './PatternCircle.svelte';
 export { default as PatternRiver } from './PatternRiver.svelte';
 export { default as PatternStream } from './PatternStream.svelte';

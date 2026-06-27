@@ -1,7 +1,8 @@
 <script lang="ts">
 	import { PatternCircle, PatternWaves, PatternRiver, PatternStream } from '$lib/components';
+	import PatternMountain from '../patterns/PatternMountain.svelte';
 
-	type Pattern = 'circle' | 'waves' | 'river' | 'stream';
+	type Pattern = 'circle' | 'waves' | 'river' | 'stream' | 'mountain';
 	type Tone = 'blue' | 'teal' | 'orange' | 'pink' | 'yellow';
 
 	interface Props {
@@ -68,7 +69,8 @@
 		circle: PatternCircle,
 		waves: PatternWaves,
 		river: PatternRiver,
-		stream: PatternStream
+		stream: PatternStream,
+		mountain: PatternMountain
 	};
 
 	const PatternComponent = $derived(patterns[pattern]);

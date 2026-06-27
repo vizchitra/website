@@ -2,11 +2,12 @@ import { parse as parseToml } from 'smol-toml';
 import sessionsRaw from '../../../content/2026/data/sessions.toml?raw';
 
 /** Color mapping for session types, used across all session components */
-export const sessionColorMap: Record<string, 'blue' | 'teal' | 'pink' | 'orange'> = {
+export const sessionColorMap: Record<string, 'blue' | 'teal' | 'pink' | 'orange' | 'yellow'> = {
 	Talks: 'blue',
 	Dialogues: 'teal',
 	Workshops: 'pink',
-	Exhibition: 'orange'
+	Exhibition: 'orange',
+	Activities: 'yellow'
 };
 
 export interface SessionData {
@@ -28,6 +29,7 @@ export interface SessionData {
 	display: boolean;
 	tbd: boolean;
 	soldOut?: boolean;
+	sponsored?: boolean;
 	order?: number;
 	pageReady?: boolean;
 	ticketCode?: string;
