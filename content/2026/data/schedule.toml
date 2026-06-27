@@ -1,0 +1,352 @@
+# Conference Day schedule for 4 July 2026
+# Generated from 'Lineup _ VizChitra 2026.xlsx' → sheet
+# '4th July - Conference Day'. Hand-edit as needed.
+
+day = "2026-07-04"
+name = "Conference"
+tracks = ["Auditorium", "Hall", "Library", "Boardroom", "Gallery"]
+galleryStart = "10:00"
+galleryEnd = "17:00"
+
+[[slot]]
+track = "Auditorium"
+start = "08:30"
+end = "09:30"
+type = "ENTRY"
+label = "REGISTRATIONS"
+description = "Scan your QR code and grab your goodie bag at the entrance booth"
+
+[[slot]]
+track = "Auditorium"
+start = "09:30"
+end = "09:45"
+type = "ACTIVITY"
+label = "Morning Melody"
+speakerLabel = "Nikita Deshpande"
+
+[[slot]]
+track = "Auditorium"
+start = "09:45"
+end = "10:00"
+type = "ADDRESS"
+label = "This is VizChitra"
+speakerLabel = "Gurman Bhatia"
+
+[[slot]]
+track = "Auditorium"
+start = "10:00"
+end = "10:30"
+type = "STANDARD"
+session = "timely-timeless-stories"
+
+[[slot]]
+track = "Auditorium"
+start = "10:30"
+end = "10:45"
+type = "LIGHTNING"
+session = "majestic-map-redesign"
+
+[[slot]]
+track = "Auditorium"
+start = "10:45"
+end = "11:15"
+type = "BREAK"
+label = "TEA BREAK"
+description = "Grab a chai and stretch your legs - sessions resume at 11:15. Check out the **book signing by Rohit Saran and Rukmini S**."
+
+[[slot]]
+track = "Auditorium"
+start = "11:15"
+end = "11:45"
+type = "STANDARD"
+session = "esankhyiki-viz-scale"
+
+[[slot]]
+track = "Auditorium"
+start = "11:45"
+end = "12:00"
+type = "LIGHTNING"
+session = "whats-in-your-bag"
+
+[[slot]]
+track = "Auditorium"
+start = "12:00"
+end = "12:30"
+type = "STANDARD"
+session = "dashboards-of-our-discontent"
+
+[[slot]]
+track = "Auditorium"
+start = "12:30"
+end = "14:00"
+type = "BREAK"
+label = "LUNCH"
+description = "Head to the terrace to grab a plate and mingle with fellow data enthusiasts"
+
+[[slot]]
+track = "Auditorium"
+start = "14:00"
+end = "14:15"
+type = "ACTIVITY"
+label = "Afternoon Rhythm"
+speakerLabel = "Ashok Kumar"
+
+[[slot]]
+track = "Auditorium"
+start = "14:15"
+end = "14:30"
+type = "LIGHTNING"
+session = "kuch-kuch-data-hai"
+
+[[slot]]
+track = "Auditorium"
+start = "14:30"
+end = "14:45"
+type = "LIGHTNING"
+session = "atlas-of-intangibles"
+
+[[slot]]
+track = "Auditorium"
+start = "14:45"
+end = "15:15"
+type = "STANDARD"
+session = "data-viz-drift"
+
+[[slot]]
+track = "Auditorium"
+start = "15:15"
+end = "15:45"
+type = "BREAK"
+label = "TEA BREAK"
+description = "Last break of the day - grab a snack before the closing sessions"
+
+[[slot]]
+track = "Auditorium"
+start = "15:45"
+end = "16:00"
+type = "LIGHTNING"
+session = "shape-health-costs"
+
+[[slot]]
+track = "Auditorium"
+start = "16:00"
+end = "16:30"
+type = "STANDARD"
+session = "caption-this"
+
+[[slot]]
+track = "Auditorium"
+start = "16:30"
+end = "17:15"
+type = "KEYNOTE"
+session = "infinite-design-space"
+
+[[slot]]
+track = "Auditorium"
+start = "17:15"
+end = "17:30"
+type = "ADDRESS"
+label = "Data. Seen Differently."
+speakerLabel = "Amit Kapoor"
+
+[[slot]]
+track = "Auditorium"
+start = "17:30"
+end = "18:30"
+type = "BREAK"
+label = "NETWORKING"
+description = "Wind down and connect with the community before you head out"
+
+[[slot]]
+track = "Hall"
+start = "08:30"
+end = "09:30"
+type = "ENTRY"
+label = "REGISTRATIONS"
+
+[[slot]]
+track = "Hall"
+start = "10:45"
+end = "11:15"
+type = "BREAK"
+label = "TEA BREAK"
+
+[[slot]]
+track = "Hall"
+start = "11:15"
+end = "11:45"
+type = "STANDARD"
+session = "dashboards-life-and-death"
+
+[[slot]]
+track = "Hall"
+start = "11:45"
+end = "12:00"
+type = "LIGHTNING"
+session = "viz-speed-trust"
+
+[[slot]]
+track = "Hall"
+start = "12:00"
+end = "12:15"
+type = "LIGHTNING"
+session = "viz-rural-care"
+
+[[slot]]
+track = "Hall"
+start = "12:30"
+end = "14:00"
+type = "BREAK"
+label = "LUNCH"
+
+[[slot]]
+track = "Hall"
+start = "14:00"
+end = "14:30"
+type = "STANDARD"
+session = "bite-sized-views"
+
+[[slot]]
+track = "Hall"
+start = "14:30"
+end = "14:45"
+type = "LIGHTNING"
+session = "no-clean-maps"
+
+[[slot]]
+track = "Hall"
+start = "14:45"
+end = "15:15"
+type = "STANDARD"
+session = "sand-data-wicked-problems"
+
+[[slot]]
+track = "Hall"
+start = "15:15"
+end = "15:45"
+type = "BREAK"
+label = "TEA BREAK"
+
+[[slot]]
+track = "Hall"
+start = "15:45"
+end = "16:30"
+type = "PANEL"
+label = "So You Want to Work With Data"
+speakerLabel = "Sandeep Karmarkar, Areena Arora, Hamsa Ganesh"
+
+[[slot]]
+track = "Hall"
+start = "17:30"
+end = "18:30"
+type = "BREAK"
+label = "NETWORKING"
+
+[[slot]]
+track = "Library"
+start = "08:30"
+end = "09:30"
+type = "ENTRY"
+label = "REGISTRATIONS"
+
+[[slot]]
+track = "Library"
+start = "10:00"
+end = "10:45"
+session = "curators-dilemma"
+
+[[slot]]
+track = "Library"
+start = "10:45"
+end = "11:15"
+type = "BREAK"
+label = "TEA BREAK"
+
+[[slot]]
+track = "Library"
+start = "11:15"
+end = "12:00"
+session = "charts-untold-stories"
+
+[[slot]]
+track = "Library"
+start = "12:30"
+end = "14:00"
+type = "BREAK"
+label = "LUNCH"
+
+[[slot]]
+track = "Library"
+start = "14:00"
+end = "14:45"
+session = "chart-crimes-autopsy"
+
+[[slot]]
+track = "Library"
+start = "15:15"
+end = "15:45"
+type = "BREAK"
+label = "TEA BREAK"
+
+[[slot]]
+track = "Library"
+start = "15:45"
+end = "16:30"
+type = "ACTIVITY"
+label = "Decode the Chart"
+
+[[slot]]
+track = "Library"
+start = "17:30"
+end = "18:30"
+type = "BREAK"
+label = "NETWORKING"
+
+[[slot]]
+track = "Boardroom"
+start = "08:30"
+end = "09:30"
+type = "ENTRY"
+label = "REGISTRATIONS"
+
+[[slot]]
+track = "Boardroom"
+start = "10:45"
+end = "11:15"
+type = "BREAK"
+label = "TEA BREAK"
+
+[[slot]]
+track = "Boardroom"
+start = "11:45"
+end = "12:30"
+type = "SPONSORED"
+label = "City Finance"
+
+[[slot]]
+track = "Boardroom"
+start = "12:30"
+end = "14:00"
+type = "BREAK"
+label = "LUNCH"
+
+[[slot]]
+track = "Boardroom"
+start = "14:15"
+end = "15:00"
+type = "SPONSORED"
+label = "Thurro"
+
+[[slot]]
+track = "Boardroom"
+start = "15:15"
+end = "15:45"
+type = "BREAK"
+label = "TEA BREAK"
+
+[[slot]]
+track = "Boardroom"
+start = "17:30"
+end = "18:30"
+type = "BREAK"
+label = "NETWORKING"
