@@ -5,6 +5,7 @@
 		PatternCircle,
 		PatternStream,
 		PatternArc,
+		PatternMountain,
 		ToolsCard,
 		ToolsHeader,
 		Header
@@ -43,6 +44,11 @@
 	// Arc countdown target date — picker value is treated as IST (UTC+05:30)
 	let arcTargetDateStr = $state('2026-07-03T09:00');
 	let arcTargetDate = $derived(new Date(arcTargetDateStr + ':00+05:30'));
+
+	// Mountain
+	const mountainColors = ['blue', 'teal', 'pink', 'orange', 'yellow'] as const;
+	let mountainColor = $state<'blue' | 'teal' | 'pink' | 'orange' | 'yellow'>('yellow');
+	let mountainVariation = $state(0.5);
 </script>
 
 <Header banner="square" color="grey"></Header>
@@ -251,6 +257,75 @@
 			</div>
 		</ToolsCard>
 	{/each}
+
+	<!-- Mountain card -->
+	<ToolsCard widthClass="w-full" maxWidthClass="max-w-6xl">
+		<div class="mb-4 space-y-3">
+			<div>
+				<h2 class="text-viz-black text-2xl font-bold">Mountain</h2>
+				<p class="text-viz-grey text-sm">
+					Layered mountain silhouette with hatched fill, rendered in VizChitra token colors
+				</p>
+			</div>
+			<div class="flex flex-wrap items-center gap-4">
+				<div class="flex items-center gap-3">
+					<label for="mountainColor" class="text-viz-grey-dark text-sm font-medium">Color</label>
+					<select
+						id="mountainColor"
+						bind:value={mountainColor}
+						class="text-viz-black border-viz-grey-light rounded-md border bg-white px-3 py-1 text-sm"
+					>
+						{#each mountainColors as c}
+							<option value={c}>{c}</option>
+						{/each}
+					</select>
+				</div>
+				<div class="flex items-center gap-3">
+					<label for="mountainVariation" class="text-viz-grey-dark text-sm font-medium"
+						>Variation</label
+					>
+					<input
+						id="mountainVariation"
+						type="range"
+						min="0"
+						max="1"
+						step="0.01"
+						bind:value={mountainVariation}
+						class="h-2 w-32 cursor-pointer appearance-none rounded-lg bg-gray-200 accent-yellow-600"
+					/>
+					<span class="text-viz-black w-8 text-sm font-semibold"
+						>{Number(mountainVariation).toFixed(2)}</span
+					>
+				</div>
+			</div>
+		</div>
+
+		<div class="grid gap-6 md:grid-cols-2">
+			<div class="space-y-2">
+				<p class="text-viz-grey text-xs font-medium tracking-wide uppercase">Generated Pattern</p>
+				<div class="border-viz-grey-light overflow-hidden rounded-xl border bg-white">
+					<PatternMountain
+						tone={mountainColor}
+						variation={mountainVariation}
+						width={400}
+						height={500}
+						class="block h-auto w-full"
+					/>
+				</div>
+			</div>
+
+			<div class="space-y-2">
+				<p class="text-viz-grey text-xs font-medium tracking-wide uppercase">Reference Design</p>
+				<div class="border-viz-grey-light overflow-hidden rounded-xl border bg-gray-50">
+					<img
+						src="/images/patterns/pattern-mountain-plain.png"
+						alt="Reference mountain pattern"
+						class="block h-auto w-full"
+					/>
+				</div>
+			</div>
+		</div>
+	</ToolsCard>
 
 	<!-- Arc countdown card -->
 	<ToolsCard widthClass="w-full" maxWidthClass="max-w-6xl">
