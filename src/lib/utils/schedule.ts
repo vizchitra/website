@@ -229,7 +229,7 @@ export function resolveSlot(
 		kind,
 		color,
 		title: session?.title ?? slot.label ?? 'TBD',
-		speaker: session?.speakerName ?? slot.speakerLabel,
+		speaker: slot.speakerLabel ?? session?.speakerName,
 		role: role || undefined,
 		description: slot.description,
 		href: session ? `/2026/sessions/${session.slug}` : undefined,

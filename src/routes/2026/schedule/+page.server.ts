@@ -53,6 +53,7 @@ export const load: PageServerLoad = async () => {
 			title: 'Schedule | VizChitra 2026',
 			description:
 				'The full schedule for VizChitra 2026 conference day — talks, dialogues, and exhibitions across four parallel tracks.',
+			ogImage: 'https://vizchitra.com/images/preview/preview-2026-schedule.jpg',
 			noSuffix: true
 		}
 	};

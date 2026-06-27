@@ -171,16 +171,6 @@
 			{/each}
 		</div>
 
-		{#if schedule.name === 'Conference'}
-			<a
-				href="/vizchitra-2026-conference-day.ics"
-				download
-				class="ics-download font-display inline-flex items-center gap-2 self-start rounded-full px-4 py-2 text-sm font-bold text-white transition-[filter] hover:brightness-110"
-			>
-				<span aria-hidden="true">🗓️</span> Add the day to your calendar
-			</a>
-		{/if}
-
 		<!-- Legend: one swatch per session type, flows and wraps on narrow screens. -->
 		<div class="legend mx-auto flex flex-wrap items-center gap-x-4 gap-y-2 text-[13px] lg:text-sm">
 			{#each legendItems as item}
@@ -429,10 +419,6 @@
 		border: 2px solid var(--color-viz-pink);
 		color: var(--color-viz-pink-dark);
 	}
-	.ics-download {
-		background-color: var(--color-viz-pink-solid);
-	}
-
 	.slot-color-yellow {
 		background: var(--color-viz-yellow-light);
 		border: 2px solid var(--color-viz-yellow);

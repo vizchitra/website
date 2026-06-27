@@ -52,7 +52,7 @@ start = "10:45"
 end = "11:15"
 type = "BREAK"
 label = "TEA BREAK"
-description = "Grab a chai and stretch your legs - sessions resume at 11:15. Check out the **book signing by Rohit Saran and Rukmini S** in the Foyer on the first floor."
+description = "Grab tea on the first floor and stretch your legs. While you're up, there's plenty to explore: the **sponsor stalls**, the **community art pop-up**, the **book stall**, and the **participatory visualisations**. Don't miss the **book signing by Rohit Saran and Rukmini S** in the Foyer on the first floor."
 
 [[slot]]
 track = "Auditorium"
@@ -81,7 +81,7 @@ start = "12:30"
 end = "14:00"
 type = "BREAK"
 label = "LUNCH @ TERRACE"
-description = "Head to the terrace to grab a plate and mingle with fellow data enthusiasts"
+description = "**Come to the terrace for the group photo**, then grab a bowl and mingle. If you finish your meal early, you can also peek into the **Data, Otherwise** exhibition."
 
 [[slot]]
 track = "Auditorium"
@@ -118,7 +118,7 @@ start = "15:15"
 end = "15:45"
 type = "BREAK"
 label = "TEA BREAK"
-description = "Last break of the day - grab a snack before the closing sessions"
+description = "Grab tea on the first floor, and make time for the **sponsor stalls**, the **community art pop-up**, the **book stall**, and the **participatory visualisations** before the closing sessions."
 
 [[slot]]
 track = "Auditorium"
@@ -155,7 +155,7 @@ start = "17:30"
 end = "18:30"
 type = "BREAK"
 label = "NETWORKING @ TERRACE"
-description = "Wind down and connect with the community before you head out"
+description = "Wind down and connect with the community before you head out. Chat about what you most resonated with."
 
 [[slot]]
 track = "Hall"
@@ -239,8 +239,9 @@ track = "Hall"
 start = "15:45"
 end = "16:30"
 type = "PANEL"
-label = "So You Want to Work With Data"
-speakerLabel = "Sandeep Karmarkar, Areena Arora, Hamsa Ganesh"
+session = "so-you-want-to-work-with-data"
+speakerLabel = ""
+description = "**Sandeep Karmarkar**, Head of Design, Atlassian. **Areena Arora**, Editorial Coder, The Hindu. **Hamsa Ganesh**, Founder, Thoughtput. Moderated by **Anushka Gokhale**, Lead Designer, EPIC World."
 
 [[slot]]
 track = "Hall"

@@ -781,6 +781,7 @@ speakerAbout = "Areena Arora is a journalist who transforms messy data into stor
 speakerImage = "/images/speakers/2026/speaker-areena.avif"
 display = true
 pageReady = true
+soldOut = true
 ticketCode = "workshop_2026_mobile_viz"
 order = 2
 
@@ -804,11 +805,12 @@ speakerImage = ""
 display = true
 pageReady = true
 sponsored = true
+inviteOnly = true
 order = 40
 
 
 [[session]]
-slug = ""
+slug = "so-you-want-to-work-with-data"
 sessionType = "Activities"
 date = "2026-07-04"
 time = "15:45 to 16:30"

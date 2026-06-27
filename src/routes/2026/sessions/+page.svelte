@@ -66,6 +66,14 @@
 			</p>
 		</Prose>
 
+		<a
+			href="/2026/schedule"
+			style="background-color: var(--color-viz-pink-solid);"
+			class="font-display inline-flex items-center gap-2 self-start rounded-full px-5 py-2.5 text-sm font-bold text-white transition-[filter] hover:brightness-110"
+		>
+			<span aria-hidden="true">🗓️</span> Explore the minute-by-minute schedule &rarr;
+		</a>
+
 		<!-- Day filter -->
 		<div class="flex flex-wrap items-center gap-2">
 			{#each days as day}

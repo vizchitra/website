@@ -30,6 +30,7 @@ export interface SessionData {
 	tbd: boolean;
 	soldOut?: boolean;
 	sponsored?: boolean;
+	inviteOnly?: boolean;
 	order?: number;
 	pageReady?: boolean;
 	ticketCode?: string;
