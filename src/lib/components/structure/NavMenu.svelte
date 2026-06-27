@@ -18,6 +18,7 @@
 			subsections: [
 				{ name: 'Event', href: '/2026/' },
 				{ name: 'Get Tickets', href: 'https://tickets.vizchitra.com' },
+				{ name: 'Schedule', href: '/2026/schedule' },
 				{ name: 'Sessions', href: '/2026/sessions' },
 				{ name: 'Exhibition', href: '/2026/exhibition' },
 				{ name: 'Attendee Guide', href: '/2026/attendee-guide' },
