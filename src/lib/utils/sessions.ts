@@ -83,7 +83,7 @@ function withTbd(s: Omit<SessionData, 'tbd'>): SessionData {
 const SESSIONS_FILE_PATH = 'content/2026/data/sessions.toml';
 
 function parseSessions(): Omit<SessionData, 'tbd'>[] {
-	return (parseToml(sessionsRaw) as { session: Omit<SessionData, 'tbd'>[] }).session;
+	return (parseToml(sessionsRaw) as unknown as { session: Omit<SessionData, 'tbd'>[] }).session;
 }
 
 function applyDevOverrides(raw: Omit<SessionData, 'tbd'>[]): Omit<SessionData, 'tbd'>[] {

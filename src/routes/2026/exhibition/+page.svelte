@@ -470,16 +470,6 @@
 		display: block;
 	}
 
-	.artwork-img--detail {
-		aspect-ratio: 1;
-	}
-
-	.artwork-details {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: 0.75rem;
-	}
-
 	.artwork-placeholder {
 		width: 100%;
 		background: var(--color-viz-orange-subtle);
@@ -491,10 +481,6 @@
 
 	.artwork-placeholder--hero {
 		aspect-ratio: 1 / 1;
-	}
-
-	.artwork-placeholder--detail {
-		aspect-ratio: 1;
 	}
 
 	.artwork-placeholder-label {
