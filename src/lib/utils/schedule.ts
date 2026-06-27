@@ -268,3 +268,68 @@ export function dedupeSpanningBreaks(
 		return true;
 	});
 }
+
+const DAY_MONTHS = [
+	'Jan',
+	'Feb',
+	'Mar',
+	'Apr',
+	'May',
+	'Jun',
+	'Jul',
+	'Aug',
+	'Sep',
+	'Oct',
+	'Nov',
+	'Dec'
+];
+
+/** "4 Jul · Conference" label for the day toggle. */
+export function formatDayLabel(day: string, name: string): string {
+	const [, m, date] = day.split('-').map(Number);
+	return `${date} ${DAY_MONTHS[m - 1]} · ${name}`;
+}
+
+export interface LegendEntry {
+	label: string;
+	color: string;
+}
+
+// A few labels are widened where one colour covers more than one slot type
+// (e.g. teal also covers panels).
+const legendLabels: Record<string, string> = { Dialogues: 'Dialogues / Panels' };
+
+/** Session-type → swatch colour, plus a grey catch-all; sourced from the slot colour map. */
+export const scheduleLegend: LegendEntry[] = [
+	...Object.entries(sessionColorMap).map(([label, color]) => ({
+		label: legendLabels[label] ?? label,
+		color
+	})),
+	{ label: 'Other', color: 'grey' }
+];
+
+/** Legend filtered to the colours actually present among the given slots. */
+export function visibleLegend(slots: ResolvedSlot[], hasExhibitions: boolean): LegendEntry[] {
+	const used = new Set<string>(slots.map((r) => r.color));
+	if (hasExhibitions) used.add('orange');
+	return scheduleLegend.filter((item) => used.has(item.color));
+}
+
+/** Whether the time range [start, end) overlaps the window [winStart, winEnd). */
+export function overlapsWindow(
+	start: string,
+	end: string,
+	winStart: string,
+	winEnd: string
+): boolean {
+	return (
+		timeToMinutes(start) < timeToMinutes(winEnd) && timeToMinutes(end) > timeToMinutes(winStart)
+	);
+}
+
+/** Per-15-min row heights (base / ≤1024 / ≤600). Workshops are sparser → shorter rows. */
+export function rowHeightsFor(name: string): { base: string; md: string; sm: string } {
+	return name === 'Workshops'
+		? { base: '3rem', md: '4rem', sm: '5.25rem' }
+		: { base: '7rem', md: '7.5rem', sm: '8rem' };
+}

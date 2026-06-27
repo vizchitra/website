@@ -8,14 +8,16 @@
 		isSpanningBreak,
 		addMinutes,
 		resolveSlot,
-		timeToMinutes,
 		timeToRow,
 		trackColumn,
+		formatDayLabel,
+		visibleLegend,
+		overlapsWindow,
+		rowHeightsFor,
 		exhibitionTrack,
 		exhibitionStart,
 		exhibitionEnd
 	} from '$lib/utils/schedule';
-	import { sessionColorMap } from '$lib/utils/sessions';
 	import type { PageData } from './$types';
 
 	let { data }: { data: PageData } = $props();
@@ -27,38 +29,6 @@
 	const schedule = $derived(data.days[activeDayIndex]);
 	const sessionsBySlug = $derived(data.sessionsBySlug);
 	const exhibitions = $derived(data.exhibitions);
-
-	const MONTHS = [
-		'Jan',
-		'Feb',
-		'Mar',
-		'Apr',
-		'May',
-		'Jun',
-		'Jul',
-		'Aug',
-		'Sep',
-		'Oct',
-		'Nov',
-		'Dec'
-	];
-	const dayLabel = (d: { day: string; name: string }) => {
-		const [, m, date] = d.day.split('-').map(Number);
-		return `${date} ${MONTHS[m - 1]} · ${d.name}`;
-	};
-
-	// Session-type → swatch colour, plus grey for breaks/other. Reuses the same
-	// colour map the slots resolve from, so the legend stays in sync. A few labels
-	// are widened where one colour covers more than one slot type (e.g. teal also
-	// covers panels).
-	const legendLabels: Record<string, string> = { Dialogues: 'Dialogues / Panels' };
-	const legend = [
-		...Object.entries(sessionColorMap).map(([label, color]) => ({
-			label: legendLabels[label] ?? label,
-			color
-		})),
-		{ label: 'Other', color: 'grey' }
-	];
 
 	// Gallery window is per-day (e.g. 10:00–17:00 conference, 15:00–20:00 workshops).
 	const galleryStart = $derived(schedule.galleryStart ?? exhibitionStart);
@@ -86,13 +56,7 @@
 	]);
 
 	// Only surface legend entries whose colour actually appears on the active day.
-	const usedColors = $derived(
-		new Set<string>([
-			...resolvedSlots.map((r) => r.color),
-			...(galleryEntries.length ? ['orange'] : [])
-		])
-	);
-	const visibleLegend = $derived(legend.filter((item) => usedColors.has(item.color)));
+	const legendItems = $derived(visibleLegend(resolvedSlots, galleryEntries.length > 0));
 
 	const sessionTracks = $derived(schedule.tracks.filter((t) => t !== exhibitionTrack));
 	const galleryCol = $derived(trackColumn(schedule.tracks, exhibitionTrack));
@@ -101,8 +65,7 @@
 	// outside the all-day exhibition window (e.g. registration before it opens,
 	// networking after it closes); otherwise it would overlap the exhibition cell.
 	const overlapsGallery = (r: { slot: { start: string; end: string } }) =>
-		timeToMinutes(r.slot.start) < timeToMinutes(galleryEnd) &&
-		timeToMinutes(r.slot.end) > timeToMinutes(galleryStart);
+		overlapsWindow(r.slot.start, r.slot.end, galleryStart, galleryEnd);
 	const galleryRowStart = $derived(timeToRow(galleryStart, bounds.gridStart) + 1);
 	const galleryRowSpan = $derived(
 		timeToRow(galleryEnd, bounds.gridStart) - timeToRow(galleryStart, bounds.gridStart)
@@ -121,13 +84,7 @@
 	// Gutter + one equal column per track on desktop; mobile collapses below.
 	const desktopCols = $derived('3rem ' + schedule.tracks.map(() => 'minmax(0, 1fr)').join(' '));
 
-	// Per-15-min row height (desktop / ≤1024 / ≤600). Workshops have only ~2 slots
-	// per track, so they use shorter rows than the dense conference grid.
-	const rowHeights = $derived(
-		schedule.name === 'Workshops'
-			? { base: '3rem', md: '4rem', sm: '5.25rem' }
-			: { base: '7rem', md: '7.5rem', sm: '8rem' }
-	);
+	const rowHeights = $derived(rowHeightsFor(schedule.name));
 
 	const GUTTER = 'min(8%, 2rem)';
 	const INACTIVE_WIDTH = 'min(5%, 2rem)';
@@ -147,6 +104,29 @@
 	const thumbLeftPct = $derived(
 		maxWindowStart === 0 ? 0 : (windowStart / maxWindowStart) * (100 - thumbPct)
 	);
+
+	// Mobile (<768px): a horizontal swipe on the grid nudges the track window one
+	// step. The distance threshold keeps taps (opening a session) working, and we
+	// ignore mostly-vertical gestures so vertical page scrolling is unaffected.
+	const SWIPE_THRESHOLD = 50;
+	let touchStartX = 0;
+	let touchStartY = 0;
+
+	function onGridTouchStart(e: TouchEvent) {
+		const t = e.changedTouches[0];
+		touchStartX = t.clientX;
+		touchStartY = t.clientY;
+	}
+
+	function onGridTouchEnd(e: TouchEvent) {
+		if (screenWidth >= 768) return;
+		const t = e.changedTouches[0];
+		const dx = t.clientX - touchStartX;
+		const dy = t.clientY - touchStartY;
+		// Tap or mostly-vertical scroll → leave the click/scroll to the browser.
+		if (Math.abs(dx) < SWIPE_THRESHOLD || Math.abs(dx) <= Math.abs(dy)) return;
+		windowStart = dx < 0 ? Math.min(maxWindowStart, windowStart + 1) : Math.max(0, windowStart - 1);
+	}
 </script>
 
 <svelte:window bind:innerWidth={screenWidth} />
@@ -178,14 +158,14 @@
 						? 'bg-viz-grey-dark text-viz-white'
 						: 'text-viz-grey-dark hover:bg-viz-grey-light'}"
 				>
-					{dayLabel(d)}
+					{formatDayLabel(d.day, d.name)}
 				</button>
 			{/each}
 		</div>
 
 		<!-- Legend: one swatch per session type, flows and wraps on narrow screens. -->
 		<div class="legend mx-auto flex flex-wrap items-center gap-x-4 gap-y-2 text-[13px] lg:text-sm">
-			{#each visibleLegend as item}
+			{#each legendItems as item}
 				<span class="text-viz-grey-dark flex items-center gap-1.5">
 					<span class="slot-color-{item.color} inline-block size-4"></span>
 					<span class="text-sm sm:text-[16px] md:text-[18px]"> {item.label}</span>
@@ -196,6 +176,8 @@
 		<div
 			class="schedule-grid relative mt-6 grid gap-0 pb-28 lg:pb-0"
 			style="--total-rows: {bounds.totalRows}; --cols-desktop: {desktopCols}; --cols-mobile: {mobileCols}; --row-h: {rowHeights.base}; --row-h-md: {rowHeights.md}; --row-h-sm: {rowHeights.sm};"
+			ontouchstart={onGridTouchStart}
+			ontouchend={onGridTouchEnd}
 		>
 			{#each schedule.tracks as track, i}
 				<div
