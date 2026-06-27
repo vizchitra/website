@@ -70,6 +70,13 @@
 				url: 'https://pudding.cool',
 				tier: 'Community Sponsor',
 				height: 40
+			},
+			{
+				name: 'TREND @ Youth Ki Awaaz',
+				logo: '/images/logos/trend-yka-logo.png',
+				url: 'https://trend.youthkiawaaz.com/',
+				tier: 'Community Sponsor',
+				height: 50
 			}
 		]
 	}: { heading?: string; sponsors?: Sponsor[] } = $props();
