@@ -241,30 +241,38 @@
 					</a>
 				{/if}
 			{/if}
-			<a
-				href="https://tickets.vizchitra.com/?ticket=conference_practitioner"
-				target="_blank"
-				rel="noopener noreferrer"
-				class="font-display inline-flex items-center gap-2 rounded-full px-5 py-2 text-sm font-bold text-white uppercase transition-colors {ticketBtnClass[
-					color
-				]}"
-			>
-				Get Conference Ticket
-				<svg
-					class="h-4 w-4"
-					fill="none"
-					stroke="currentColor"
-					viewBox="0 0 24 24"
-					aria-hidden="true"
+			{#if session.inviteOnly}
+				<span
+					class="border-viz-grey/30 text-viz-grey font-display inline-flex items-center rounded-full border-2 px-5 py-2 text-sm font-bold tracking-[0.1em] uppercase"
 				>
-					<path
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						stroke-width="2"
-						d="M14 5l7 7m0 0l-7 7m7-7H3"
-					/>
-				</svg>
-			</a>
+					Closed-door · Invite-only session
+				</span>
+			{:else}
+				<a
+					href="https://tickets.vizchitra.com/?ticket=conference_practitioner"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="font-display inline-flex items-center gap-2 rounded-full px-5 py-2 text-sm font-bold text-white uppercase transition-colors {ticketBtnClass[
+						color
+					]}"
+				>
+					Get Conference Ticket
+					<svg
+						class="h-4 w-4"
+						fill="none"
+						stroke="currentColor"
+						viewBox="0 0 24 24"
+						aria-hidden="true"
+					>
+						<path
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							stroke-width="2"
+							d="M14 5l7 7m0 0l-7 7m7-7H3"
+						/>
+					</svg>
+				</a>
+			{/if}
 		</div>
 	</article>
 

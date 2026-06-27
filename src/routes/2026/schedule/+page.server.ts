@@ -30,6 +30,10 @@ export const load: PageServerLoad = async () => {
 			| 'organisation'
 			| 'subtitle'
 			| 'venue'
+			| 'speakers'
+			| 'speaker2Name'
+			| 'speaker2Designation'
+			| 'speaker2Organisation'
 		>
 	> = {};
 	for (const s of sessions) {
@@ -41,7 +45,11 @@ export const load: PageServerLoad = async () => {
 			designation: s.designation,
 			organisation: s.organisation,
 			subtitle: s.subtitle,
-			venue: s.venue
+			venue: s.venue,
+			speakers: s.speakers,
+			speaker2Name: s.speaker2Name,
+			speaker2Designation: s.speaker2Designation,
+			speaker2Organisation: s.speaker2Organisation
 		};
 	}
 
@@ -53,6 +61,7 @@ export const load: PageServerLoad = async () => {
 			title: 'Schedule | VizChitra 2026',
 			description:
 				'The full schedule for VizChitra 2026 conference day — talks, dialogues, and exhibitions across four parallel tracks.',
+			ogImage: 'https://vizchitra.com/images/preview/preview-2026-schedule.jpg',
 			noSuffix: true
 		}
 	};

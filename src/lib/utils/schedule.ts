@@ -34,6 +34,10 @@ export type SessionLookup = Pick<
 	| 'organisation'
 	| 'subtitle'
 	| 'venue'
+	| 'speakers'
+	| 'speaker2Name'
+	| 'speaker2Designation'
+	| 'speaker2Organisation'
 >;
 
 export type SlotKind = 'session' | 'break' | 'address' | 'sponsored' | 'placeholder';
@@ -75,6 +79,7 @@ export interface ResolvedSlot {
 	title: string;
 	speaker?: string;
 	role?: string;
+	speakers?: { name: string; role?: string; moderator?: boolean }[];
 	description?: string;
 	href?: string;
 	rowSpan: number;
@@ -224,13 +229,32 @@ export function resolveSlot(
 		? [session.designation, session.organisation].filter(Boolean).join(', ')
 		: undefined;
 
+	// Multi-speaker display, shared with the session views: panels use an explicit
+	// `speakers[]`; two-speaker sessions derive a list from the speaker2 fields.
+	const speakers =
+		session?.speakers ??
+		(session?.speaker2Name
+			? [
+					{ name: session.speakerName, role: role || undefined },
+					{
+						name: session.speaker2Name,
+						role:
+							[session.speaker2Designation, session.speaker2Organisation]
+								.filter(Boolean)
+								.join(', ') || undefined
+					}
+				]
+			: undefined);
+
 	return {
 		slot,
 		kind,
 		color,
 		title: session?.title ?? slot.label ?? 'TBD',
-		speaker: session?.speakerName ?? slot.speakerLabel,
-		role: role || undefined,
+		// Panels (session.speakers) render the structured list below; suppress the single line.
+		speaker: speakers ? undefined : (session?.speakerName ?? slot.speakerLabel),
+		role: speakers ? undefined : role || undefined,
+		speakers,
 		description: slot.description,
 		href: session ? `/2026/sessions/${session.slug}` : undefined,
 		// Gallery-list entries may omit start/end — they never render as timed cells.
