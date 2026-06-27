@@ -811,7 +811,7 @@ order = 40
 
 [[session]]
 slug = "so-you-want-to-work-with-data"
-sessionType = "Activities"
+sessionType = "Dialogues"
 date = "2026-07-04"
 time = "15:45 to 16:30"
 slot = ""
