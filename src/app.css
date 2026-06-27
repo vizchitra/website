@@ -266,7 +266,8 @@
 @layer base {
 	html {
 		scroll-behavior: smooth;
-		overflow-x: hidden;
+		/* clip (not hidden) avoids a scroll container so position: sticky keeps working */
+		overflow-x: clip;
 
 		/* For OverScroll */
 		background-color: var(--color-viz-white);
@@ -287,8 +288,8 @@
 		/* Reset and Layout */
 		margin: 0;
 		min-height: 100vh;
-		/* Avoid Horizontal Scrolling */
-		overflow-x: hidden;
+		/* Avoid Horizontal Scrolling — clip (not hidden) so position: sticky still works */
+		overflow-x: clip;
 
 		/* Typography & Color */
 		background-color: var(--color-viz-white);
