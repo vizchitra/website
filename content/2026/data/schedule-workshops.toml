@@ -5,20 +5,20 @@
 
 day = "2026-07-03"
 name = "Workshops"
-tracks = ["Underline - FLOOR 2", "Underline - FLOOR 3", "BIC - BOARD ROOM", "BIC - LIBRARY", "Gallery"]
+tracks = ["Underline - FLR 2", "Underline - FLR 3", "BIC - BOARD ROOM", "BIC - LIBRARY", "Gallery"]
 galleryStart = "15:00"
 galleryEnd = "20:00"
 
 # --- Registration (one per room → renders as a single spanning row) ---
 [[slot]]
-track = "Underline - FLOOR 2"
+track = "Underline - FLR 2"
 start = "09:30"
 end = "10:00"
 type = "ENTRY"
 label = "Registration"
 
 [[slot]]
-track = "Underline - FLOOR 3"
+track = "Underline - FLR 3"
 start = "09:30"
 end = "10:00"
 type = "ENTRY"
@@ -40,14 +40,14 @@ label = "Registration"
 
 # --- Registration (one per room → renders as a single spanning row) ---
 [[slot]]
-track = "Underline - FLOOR 2"
+track = "Underline - FLR 2"
 start = "14:00"
 end = "14:30"
 type = "ENTRY"
 label = "Registration"
 
 [[slot]]
-track = "Underline - FLOOR 3"
+track = "Underline - FLR 3"
 start = "14:00"
 end = "14:30"
 type = "ENTRY"
@@ -69,26 +69,26 @@ label = "Registration"
 
 # --- Underline Center, FLOOR 2 ---
 [[slot]]
-track = "Underline - FLOOR 2"
+track = "Underline - FLR 2"
 start = "10:00"
 end = "13:00"
 session = "observe-collect-map"
 
 [[slot]]
-track = "Underline - FLOOR 2"
+track = "Underline - FLR 2"
 start = "14:30"
 end = "17:30"
 session = "from-tables-to-maps"
 
 # --- Underline Center, FLOOR 3 ---
 [[slot]]
-track = "Underline - FLOOR 3"
+track = "Underline - FLR 3"
 start = "10:00"
 end = "13:00"
 session = "draw-with-data"
 
 [[slot]]
-track = "Underline - FLOOR 3"
+track = "Underline - FLR 3"
 start = "14:30"
 end = "17:30"
 session = "agentic-dataviz"

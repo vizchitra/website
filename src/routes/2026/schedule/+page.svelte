@@ -15,6 +15,7 @@
 		exhibitionStart,
 		exhibitionEnd
 	} from '$lib/utils/schedule';
+	import { sessionColorMap } from '$lib/utils/sessions';
 	import type { PageData } from './$types';
 
 	let { data }: { data: PageData } = $props();
@@ -46,6 +47,19 @@
 		return `${date} ${MONTHS[m - 1]} · ${d.name}`;
 	};
 
+	// Session-type → swatch colour, plus grey for breaks/other. Reuses the same
+	// colour map the slots resolve from, so the legend stays in sync. A few labels
+	// are widened where one colour covers more than one slot type (e.g. teal also
+	// covers panels).
+	const legendLabels: Record<string, string> = { Dialogues: 'Dialogues / Panels' };
+	const legend = [
+		...Object.entries(sessionColorMap).map(([label, color]) => ({
+			label: legendLabels[label] ?? label,
+			color
+		})),
+		{ label: 'Other', color: 'grey' }
+	];
+
 	// Gallery window is per-day (e.g. 10:00–17:00 conference, 15:00–20:00 workshops).
 	const galleryStart = $derived(schedule.galleryStart ?? exhibitionStart);
 	const galleryEnd = $derived(schedule.galleryEnd ?? exhibitionEnd);
@@ -70,6 +84,15 @@
 			.filter((r) => r.slot.track === exhibitionTrack)
 			.map((r) => ({ title: r.title, speaker: r.speaker, role: r.role, href: r.href }))
 	]);
+
+	// Only surface legend entries whose colour actually appears on the active day.
+	const usedColors = $derived(
+		new Set<string>([
+			...resolvedSlots.map((r) => r.color),
+			...(galleryEntries.length ? ['orange'] : [])
+		])
+	);
+	const visibleLegend = $derived(legend.filter((item) => usedColors.has(item.color)));
 
 	const sessionTracks = $derived(schedule.tracks.filter((t) => t !== exhibitionTrack));
 	const galleryCol = $derived(trackColumn(schedule.tracks, exhibitionTrack));
@@ -160,13 +183,23 @@
 			{/each}
 		</div>
 
+		<!-- Legend: one swatch per session type, flows and wraps on narrow screens. -->
+		<div class="legend mx-auto flex flex-wrap items-center gap-x-4 gap-y-2 text-[13px] lg:text-sm">
+			{#each visibleLegend as item}
+				<span class="text-viz-grey-dark flex items-center gap-1.5">
+					<span class="slot-color-{item.color} inline-block size-4"></span>
+					<span class="text-sm sm:text-[16px] md:text-[18px]"> {item.label}</span>
+				</span>
+			{/each}
+		</div>
+
 		<div
 			class="schedule-grid relative mt-6 grid gap-0 pb-28 lg:pb-0"
 			style="--total-rows: {bounds.totalRows}; --cols-desktop: {desktopCols}; --cols-mobile: {mobileCols}; --row-h: {rowHeights.base}; --row-h-md: {rowHeights.md}; --row-h-sm: {rowHeights.sm};"
 		>
 			{#each schedule.tracks as track, i}
 				<div
-					class="track-header border-viz-grey-light bg-viz-white font-display text-viz-grey-dark sticky top-[calc(4rem+var(--announcement-bar-height,32px))] z-20 overflow-hidden border-b px-3 py-2 text-sm font-bold tracking-wide whitespace-nowrap uppercase shadow-lg"
+					class="track-header border-viz-grey-light bg-viz-white font-display text-viz-grey-dark sticky top-[calc(4rem+var(--announcement-bar-height,32px))] z-20 overflow-hidden border-b px-3 py-2 text-xs font-bold tracking-wide whitespace-nowrap uppercase shadow-lg sm:text-sm"
 					style="grid-row: 1; grid-column: {i + 2};"
 					class:inactive={isCollapsed(track)}
 				>
