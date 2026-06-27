@@ -262,7 +262,7 @@
 					class:inactive={isCollapsed(exhibitionTrack)}
 				>
 					<span class="font-display block self-center text-sm font-bold uppercase lg:text-[18px]">
-						Exhibition
+						Exhibition: Data, Otherwise
 					</span>
 					<div class="flex flex-1 flex-col justify-evenly gap-3">
 						{#each galleryEntries as ex}
