@@ -71,7 +71,7 @@ export function resolveExhibitions(sessions: SessionData[]): ExhibitionEntry[] {
 export interface ResolvedSlot {
 	slot: ScheduleSlot;
 	kind: SlotKind;
-	color: 'blue' | 'teal' | 'pink' | 'orange' | 'grey';
+	color: 'blue' | 'teal' | 'pink' | 'orange' | 'yellow' | 'grey';
 	title: string;
 	speaker?: string;
 	role?: string;
@@ -198,12 +198,18 @@ export function resolveSlot(
 	} else if (t === 'BREAK' || t === 'ENTRY' || t === 'EXIT') {
 		kind = 'break';
 		color = 'grey';
-	} else if (t === 'STREAM' || t === 'ADDRESS') {
+	} else if (t === 'ADDRESS') {
+		kind = 'address';
+		color = 'blue';
+	} else if (t === 'STREAM') {
 		kind = 'address';
 		color = 'grey';
 	} else if (t === 'SPONSORED') {
 		kind = 'sponsored';
-		color = 'orange';
+		color = 'yellow';
+	} else if (t === 'ACTIVITY') {
+		kind = 'placeholder';
+		color = 'yellow';
 	} else if (t === 'DIALOGUE' || t === 'PANEL') {
 		kind = 'placeholder';
 		color = 'teal';
@@ -305,6 +311,7 @@ export const scheduleLegend: LegendEntry[] = [
 		label: legendLabels[label] ?? label,
 		color
 	})),
+	{ label: 'Activities', color: 'yellow' },
 	{ label: 'Other', color: 'grey' }
 ];
 

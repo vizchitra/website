@@ -30,6 +30,11 @@
 			</p>
 		</Prose>
 
+		<!-- Schedule callout -->
+		<Cluster justify="start">
+			<Button href="/2026/schedule" color="orange">Go see the schedule &rarr;</Button>
+		</Cluster>
+
 		<!-- What this guide covers -->
 		<Prose>
 			<h2>What this guide covers</h2>

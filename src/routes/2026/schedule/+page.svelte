@@ -19,8 +19,16 @@
 		exhibitionEnd
 	} from '$lib/utils/schedule';
 	import type { PageData } from './$types';
+	import { utcParse, utcFormat } from 'd3';
 
 	let { data }: { data: PageData } = $props();
+
+	const parseDay = utcParse('%Y-%m-%d');
+	const formatDay = utcFormat('%B %-d, %Y');
+	const formattedDay = $derived.by(() => {
+		const parsed = parseDay(schedule.day);
+		return parsed ? formatDay(parsed) : schedule.day;
+	});
 
 	// Days are ordered chronologically; default to the last (latest) = Conference.
 	// One-time initial value by design — the day set never changes after load.
@@ -139,9 +147,9 @@
 			<h1>Schedule</h1>
 			<p>
 				{#if schedule.name === 'Workshops'}
-					Hands-on workshops across two venues, {schedule.day}.
+					Hands-on workshops across two venues, {formattedDay}.
 				{:else}
-					Four parallel tracks across the conference day, {schedule.day}.
+					Four parallel tracks across the conference day, {formattedDay}.
 				{/if}
 			</p>
 		</Prose>
@@ -162,6 +170,16 @@
 				</button>
 			{/each}
 		</div>
+
+		{#if schedule.name === 'Conference'}
+			<a
+				href="/vizchitra-2026-conference-day.ics"
+				download
+				class="ics-download font-display inline-flex items-center gap-2 self-start rounded-full px-4 py-2 text-sm font-bold text-white transition-[filter] hover:brightness-110"
+			>
+				<span aria-hidden="true">🗓️</span> Add the day to your calendar
+			</a>
+		{/if}
 
 		<!-- Legend: one swatch per session type, flows and wraps on narrow screens. -->
 		<div class="legend mx-auto flex flex-wrap items-center gap-x-4 gap-y-2 text-[13px] lg:text-sm">
@@ -410,6 +428,15 @@
 		background: var(--color-viz-pink-light);
 		border: 2px solid var(--color-viz-pink);
 		color: var(--color-viz-pink-dark);
+	}
+	.ics-download {
+		background-color: var(--color-viz-pink-solid);
+	}
+
+	.slot-color-yellow {
+		background: var(--color-viz-yellow-light);
+		border: 2px solid var(--color-viz-yellow);
+		color: var(--color-viz-yellow-dark);
 	}
 	.slot-color-orange {
 		background: var(--color-viz-orange-light);
