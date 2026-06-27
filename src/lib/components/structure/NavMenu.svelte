@@ -15,14 +15,24 @@
 			name: '2026',
 			href: '/2026/',
 			accentColor: 'var(--color-viz-orange)',
+			layout: 'mega',
 			subsections: [
-				{ name: 'Event', href: '/2026/' },
-				{ name: 'Sessions', href: '/2026/sessions' },
-				{ name: 'Sponsorship', href: '/2026/sponsorship' },
-				{ name: 'Get Tickets', href: 'https://tickets.vizchitra.com' },
-				{ name: 'Attendee Guide', href: '/2026/attendee-guide' },
-				{ name: 'Scholarships', href: '/2026/scholarships' },
-				{ name: 'Submissions', href: '/2026/submissions' }
+				{
+					name: 'Get Tickets',
+					href: 'https://tickets.vizchitra.com',
+					target: '_blank',
+					group: 'featured',
+					subtitle: 'July 3–4 · BIC',
+					emoji: '🎟️'
+				},
+				{ name: 'Home', href: '/2026/', group: 'primary', emoji: '🏠' },
+				{ name: 'Schedule', href: '/2026/schedule', group: 'primary', emoji: '🗓️' },
+				{ name: 'Sessions', href: '/2026/sessions', group: 'primary', emoji: '🎤' },
+				{ name: 'Exhibition', href: '/2026/exhibition', group: 'primary', emoji: '🖼️' },
+				{ name: 'Attendee Guide', href: '/2026/attendee-guide', group: 'primary', emoji: '🗺️' },
+				{ name: 'Sponsorship', href: '/2026/sponsorship', group: 'secondary' },
+				{ name: 'Scholarships', href: '/2026/scholarships', group: 'secondary' },
+				{ name: 'Submissions', href: '/2026/submissions', group: 'secondary' }
 			],
 			expanded: false
 		},
@@ -136,7 +146,70 @@
 									class="chevron h-2 w-2 translate-y-[25%] rotate-135 rounded-none border-4 border-t-neutral-700 border-r-neutral-700 border-b-transparent border-l-transparent transition-transform"
 								></span>
 							</button>
-							{#if section.expanded}
+							{#if section.expanded && section.layout === 'mega'}
+								<!-- svelte-ignore a11y_click_events_have_key_events -->
+								<div
+									class="dropdown-mega bg-viz-white absolute top-full right-0 z-10 flex w-max flex-col gap-4 rounded-md p-6 shadow-lg"
+									use:clickOutside={handleClickOutside}
+									onclick={stopPropagation(bubble('click'))}
+								>
+									<div class="flex gap-8">
+										{#each section.subsections.filter((s) => (s as any).group === 'featured') as featured}
+											<a
+												href={featured.href}
+												target={(featured as any)?.target || '_self'}
+												class="featured-cta flex w-48 shrink-0 flex-col justify-between rounded-lg p-4 text-white"
+											>
+												<span
+													class="font-display flex items-center gap-2 text-2xl leading-tight font-bold"
+													><span aria-hidden="true">{(featured as any).emoji}</span>
+													<span>{featured.name}</span></span
+												>
+												<span class="mt-6 flex items-center justify-between text-sm font-medium">
+													<span>{(featured as any).subtitle}</span>
+													<span aria-hidden="true">&rarr;</span>
+												</span>
+											</a>
+										{/each}
+
+										<div class="grid flex-1 grid-cols-2 gap-x-6 gap-y-2 self-center">
+											{#each section.subsections.filter((s) => (s as any).group === 'primary') as item}
+												<a
+													href={item.href}
+													class="mega-item flex w-fit items-center gap-2.5 py-1 {currentPath.replace(
+														/\/$/,
+														''
+													) === item.href.replace(/\/$/, '')
+														? 'nav-active'
+														: ''}"
+												>
+													<span class="text-xl leading-none" aria-hidden="true"
+														>{(item as any).emoji}</span
+													>
+													<span class="text-xl font-medium whitespace-nowrap text-neutral-700"
+														>{item.name}</span
+													>
+												</a>
+											{/each}
+										</div>
+									</div>
+
+									<hr class="border-viz-black/15 border-t" />
+
+									<div class="flex flex-wrap items-center gap-x-2 gap-y-1">
+										{#each section.subsections.filter((s) => (s as any).group === 'secondary') as item, i}
+											{#if i > 0}
+												<span class="text-neutral-300" aria-hidden="true">&middot;</span>
+											{/if}
+											<a
+												href={item.href}
+												class="text-sm text-neutral-500 transition-colors hover:text-neutral-800"
+												>{item.name}</a
+											>
+										{/each}
+									</div>
+								</div>
+							{:else if section.expanded}
 								<!-- svelte-ignore a11y_click_events_have_key_events -->
 								<div
 									class="dropdown display-none bg-viz-white absolute top-full right-0 z-10 min-w-37.5 flex-col rounded-md px-3 py-3 shadow-lg transition-all duration-200 ease-in-out {section.expanded
@@ -205,6 +278,23 @@
 	}
 
 	.dropdown a:hover {
+		border-bottom: 3px solid var(--accent-color);
+	}
+
+	.featured-cta {
+		background-color: var(--color-viz-pink-solid);
+		transition: filter 150ms ease;
+	}
+
+	.featured-cta:hover {
+		filter: brightness(1.08);
+	}
+
+	.mega-item {
+		border-bottom: 3px solid transparent;
+	}
+
+	.mega-item:hover {
 		border-bottom: 3px solid var(--accent-color);
 	}
 

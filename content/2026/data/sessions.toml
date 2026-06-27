@@ -1,4 +1,4 @@
-[[session]]
+
 slug = "agentic-dataviz"
 sessionType = "Workshops"
 date = "2026-07-03"
@@ -555,26 +555,6 @@ designation = "Information Designer"
 organisation = "NID Bangalore"
 speakerAbout = "\n"
 speakerImage = ""
-display = true
-pageReady = false
-order = 19
-
-[[session]]
-slug = "two-monsoons"
-sessionType = "Exhibition"
-date = "2026-07-04"
-time = ""
-slot = ""
-venue = "Bangalore International Centre"
-title = "An Ancient River, A Modern Thirst"
-subtitle = "Living through the collapse of a river’s old rhythm"
-shortDescription = ""
-longDescription = ""
-speakerName = "Kuhu Gupta"
-designation = "Data Visualization Engineer\t"
-organisation = "Illumio"
-speakerAbout = "Kuhu Gupta is a data visualization engineer at Illumio, where she designs and builds data visualizations that help make complex cybersecurity systems easier to understand. Her work focuses on network and hierarchical visualizations, cloud security maps, and scalable product visualizations that turn dense technical data into actionable insights. \n\nBeyond her engineering role, Kuhu is passionate about data storytelling, visual metaphors, and exploring how data can be expressed through different mediums. Her work sits at the intersection of code, design, cybersecurity, and storytelling. Outside of work, she experiments with glass fusing, travel-inspired visual ideas, and finding new ways to turn everyday observations into creative projects.\n"
-speakerImage = "/images/speakers/2026/speaker-kuhu.webp"
 display = true
 pageReady = false
 order = 19

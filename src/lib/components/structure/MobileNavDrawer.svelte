@@ -93,33 +93,79 @@
 							>
 						</span>
 						<!-- svelte-ignore a11y_no_static_element_interactions -->
-						<div
-							class="sub-section-list relative flex flex-col rounded-md bg-white px-3 py-3"
-							style:--accent-color={section.accentColor}
-						>
-							{#each section.subsections as subsection}
-								{#if subsection.divider}
-									<hr class="my-2 border-t border-neutral-300" />
-								{:else}
+						{#if section.layout === 'mega'}
+							<div
+								class="sub-section-list relative flex flex-col gap-1 rounded-md bg-white px-3 py-3"
+								style:--accent-color={section.accentColor}
+							>
+								{#each section.subsections.filter((s) => s.group === 'featured') as featured}
 									<a
-										href={subsection.href}
-										class="subsection w-full cursor-pointer py-2"
+										href={featured.href}
+										target={featured.target || '_self'}
+										class="featured-cta-m mb-1 flex items-center justify-between rounded-lg px-4 py-3 text-white"
 										onclick={handleClick}
 									>
+										<span class="flex items-center gap-2 text-xl font-bold">
+											<span aria-hidden="true">{featured.emoji}</span>{featured.name}
+										</span>
+										<span class="text-sm whitespace-nowrap">{featured.subtitle} &rarr;</span>
+									</a>
+								{/each}
+
+								{#each section.subsections.filter((s) => s.group === 'primary') as subsection}
+									<a
+										href={subsection.href}
+										class="subsection flex w-full cursor-pointer items-center gap-2.5 py-2"
+										onclick={handleClick}
+									>
+										<span class="text-xl leading-none" aria-hidden="true">{subsection.emoji}</span>
 										<span class="font-base text-xl whitespace-nowrap text-[#4C4C4C]"
-											>{subsection.name}
-											{#if subsection.isBadge}
-												<span
-													class="ml-1 rounded-full border border-blue-500 bg-linear-to-r from-blue-400 to-blue-600 px-2.5 py-0.5 text-xs font-semibold text-white shadow-sm transition-transform duration-200 hover:scale-105"
-												>
-													{subsection.badgeText}
-												</span>
-											{/if}</span
+											>{subsection.name}</span
 										>
 									</a>
-								{/if}
-							{/each}
-						</div>
+								{/each}
+
+								<hr class="my-1 border-t border-neutral-300" />
+								<div class="flex flex-wrap items-center gap-x-2 gap-y-1 pt-1">
+									{#each section.subsections.filter((s) => s.group === 'secondary') as subsection, i}
+										{#if i > 0}
+											<span class="text-neutral-300" aria-hidden="true">&middot;</span>
+										{/if}
+										<a href={subsection.href} class="text-sm text-neutral-500" onclick={handleClick}
+											>{subsection.name}</a
+										>
+									{/each}
+								</div>
+							</div>
+						{:else}
+							<div
+								class="sub-section-list relative flex flex-col rounded-md bg-white px-3 py-3"
+								style:--accent-color={section.accentColor}
+							>
+								{#each section.subsections as subsection}
+									{#if subsection.divider}
+										<hr class="my-2 border-t border-neutral-300" />
+									{:else}
+										<a
+											href={subsection.href}
+											class="subsection w-full cursor-pointer py-2"
+											onclick={handleClick}
+										>
+											<span class="font-base text-xl whitespace-nowrap text-[#4C4C4C]"
+												>{subsection.name}
+												{#if subsection.isBadge}
+													<span
+														class="ml-1 rounded-full border border-blue-500 bg-linear-to-r from-blue-400 to-blue-600 px-2.5 py-0.5 text-xs font-semibold text-white shadow-sm transition-transform duration-200 hover:scale-105"
+													>
+														{subsection.badgeText}
+													</span>
+												{/if}</span
+											>
+										</a>
+									{/if}
+								{/each}
+							</div>
+						{/if}
 					{:else}
 						<a
 							href={section.href}
@@ -166,6 +212,10 @@
 {/if}
 
 <style>
+	.featured-cta-m {
+		background-color: var(--color-viz-pink-solid);
+	}
+
 	.drawer {
 		top: calc(100% + 2px);
 		transform: translateX(100%);
