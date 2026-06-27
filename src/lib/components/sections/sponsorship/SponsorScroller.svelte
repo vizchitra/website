@@ -228,27 +228,6 @@
 		object-position: left center;
 	}
 
-	/* ── Photos ──────────────────────────────────────── */
-	.sp-photos {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-	}
-
-	.sp-photo,
-	.sp-photo-placeholder {
-		aspect-ratio: 4 / 3;
-		width: 100%;
-		display: block;
-	}
-
-	.sp-photo {
-		object-fit: cover;
-	}
-
-	.sp-photo-placeholder {
-		background: var(--color-viz-grey-subtle);
-	}
-
 	/* ── Quote ───────────────────────────────────────── */
 	.sp-quote-row {
 		background: var(--accent-light);

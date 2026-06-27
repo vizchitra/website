@@ -88,13 +88,13 @@
 		Exhibition: {
 			pattern: 'stream',
 			tone: 'orange',
-			titlePosition: 'pt-4 text-center',
+			titlePosition: 'pt-2 text-center',
 			href: '/2026/exhibition',
 			subtitle: 'The Immersive Journey',
 			description:
 				'Data, Otherwise: a curated gallery on climate & ecology viz. Works that slow you down & feel.',
 			descriptionPosition: 'bottom-2 left-1/2 -translate-x-1/2 text-center',
-			descriptionWidth: '20ch'
+			descriptionWidth: '30ch'
 		}
 	};
 
@@ -134,6 +134,7 @@
 		let startX = 0;
 		let scrollLeft = 0;
 		let hasDragged = false;
+		let snapResetTimer: ReturnType<typeof setTimeout>;
 
 		function onMouseDown(e: MouseEvent) {
 			isDown = true;
@@ -175,12 +176,25 @@
 			handleScroll(type, node);
 		}
 
+		function onWheel(e: WheelEvent) {
+			e.preventDefault();
+			// Disable snap while wheeling so small deltas aren't snapped back.
+			// Re-enable after user stops so cards still snap on rest.
+			node.style.scrollSnapType = 'none';
+			node.scrollLeft += e.deltaX + e.deltaY;
+			clearTimeout(snapResetTimer);
+			snapResetTimer = setTimeout(() => {
+				node.style.scrollSnapType = '';
+			}, 150);
+		}
+
 		node.addEventListener('mousedown', onMouseDown);
 		node.addEventListener('mouseleave', onMouseLeave);
 		node.addEventListener('mouseup', onMouseUp);
 		node.addEventListener('mousemove', onMouseMove);
 		node.addEventListener('click', onClick, true); // capture phase
 		node.addEventListener('scroll', onScroll);
+		node.addEventListener('wheel', onWheel, { passive: false });
 
 		return {
 			destroy() {
@@ -190,6 +204,8 @@
 				node.removeEventListener('mousemove', onMouseMove);
 				node.removeEventListener('click', onClick, true);
 				node.removeEventListener('scroll', onScroll);
+				node.removeEventListener('wheel', onWheel);
+				clearTimeout(snapResetTimer);
 			}
 		};
 	}
@@ -320,6 +336,8 @@
 								venue={session.venue}
 								slug={session.slug}
 								speakerImage={session.speakerImage}
+								speaker2Name={session.speaker2Name}
+								speaker2Image={session.speaker2Image}
 								tbd={session.tbd}
 								soldOut={session.soldOut}
 								isExpanded={true}
@@ -494,12 +512,12 @@
 {#if videoOpen}
 	<div
 		class="video-lightbox"
-		onclick={() => (videoOpen = false)}
+		onclick={(e) => e.target === e.currentTarget && (videoOpen = false)}
 		onkeydown={(e) => e.key === 'Escape' && (videoOpen = false)}
 		role="dialog"
 		tabindex="-1"
 	>
-		<div class="video-lightbox-inner" onclick={(e) => e.stopPropagation()}>
+		<div class="video-lightbox-inner">
 			<button
 				class="video-lightbox-close"
 				onclick={() => (videoOpen = false)}
@@ -658,8 +676,6 @@
 	.type-label {
 		flex: none;
 		width: 360px;
-		position: sticky;
-		left: 0;
 		z-index: 10;
 	}
 
@@ -685,9 +701,10 @@
 	}
 
 	.sessions-scroll {
+		flex: 1;
+		min-width: 0;
 		display: flex;
 		overflow-x: auto;
-		padding-bottom: 0.75rem;
 		padding-left: 16px;
 		padding-right: 2rem;
 		scroll-snap-type: x mandatory;
@@ -930,18 +947,6 @@
 		font-style: italic;
 		color: #eee;
 		margin: 0 0 0.5rem;
-	}
-
-	.quote-rotating-attr {
-		font-family: var(--font-display);
-		font-size: 0.85rem;
-		font-weight: 700;
-		text-transform: uppercase;
-		letter-spacing: 0.08em;
-		opacity: 0.45;
-		margin: 0;
-		color: #ccc;
-		text-align: right;
 	}
 
 	.video-thumbnail {

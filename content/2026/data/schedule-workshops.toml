@@ -5,58 +5,117 @@
 
 day = "2026-07-03"
 name = "Workshops"
-tracks = ["Underline 1", "Underline 2", "BIC 1", "BIC 2", "Gallery"]
+tracks = ["Underline - FLR 2", "Underline - FLR 3", "BIC - BOARD ROOM", "BIC - LIBRARY", "Gallery"]
 galleryStart = "15:00"
 galleryEnd = "20:00"
 
-# --- Underline Center, room 1 ---
+# --- Registration (one per room → renders as a single spanning row) ---
 [[slot]]
-track = "Underline 1"
+track = "Underline - FLR 2"
+start = "09:30"
+end = "10:00"
+type = "ENTRY"
+label = "Registration"
+
+[[slot]]
+track = "Underline - FLR 3"
+start = "09:30"
+end = "10:00"
+type = "ENTRY"
+label = "Registration"
+
+[[slot]]
+track = "BIC - BOARD ROOM"
+start = "09:30"
+end = "10:00"
+type = "ENTRY"
+label = "Registration"
+
+[[slot]]
+track = "BIC - LIBRARY"
+start = "09:30"
+end = "10:00"
+type = "ENTRY"
+label = "Registration"
+
+# --- Registration (one per room → renders as a single spanning row) ---
+[[slot]]
+track = "Underline - FLR 2"
+start = "14:00"
+end = "14:30"
+type = "ENTRY"
+label = "Registration"
+
+[[slot]]
+track = "Underline - FLR 3"
+start = "14:00"
+end = "14:30"
+type = "ENTRY"
+label = "Registration"
+
+[[slot]]
+track = "BIC - BOARD ROOM"
+start = "14:00"
+end = "14:30"
+type = "ENTRY"
+label = "Registration"
+
+[[slot]]
+track = "BIC - LIBRARY"
+start = "14:00"
+end = "14:30"
+type = "ENTRY"
+label = "Registration"
+
+# --- Underline Center, FLOOR 2 ---
+[[slot]]
+track = "Underline - FLR 2"
 start = "10:00"
 end = "13:00"
 session = "observe-collect-map"
 
 [[slot]]
-track = "Underline 1"
+track = "Underline - FLR 2"
 start = "14:30"
 end = "17:30"
-session = "agentic-dataviz"
+session = "from-tables-to-maps"
 
-# --- Underline Center, room 2 ---
+# --- Underline Center, FLOOR 3 ---
 [[slot]]
-track = "Underline 2"
+track = "Underline - FLR 3"
 start = "10:00"
 end = "13:00"
 session = "draw-with-data"
 
 [[slot]]
-track = "Underline 2"
+track = "Underline - FLR 3"
 start = "14:30"
 end = "17:30"
-session = "from-tables-to-maps"
+session = "agentic-dataviz"
 
-# --- Bangalore International Centre, room 1 ---
+# --- Bangalore International Centre, LIBRARY ---
 [[slot]]
-track = "BIC 1"
-start = "10:00"
-end = "13:00"
-session = "designing-data-stories-for-small-screens"
-
-[[slot]]
-track = "BIC 1"
-start = "14:30"
-end = "17:30"
-session = "a-dataviz-crash-course"
-
-# --- Bangalore International Centre, room 2 ---
-[[slot]]
-track = "BIC 2"
+track = "BIC - LIBRARY"
 start = "10:00"
 end = "13:00"
 session = "interactive-dataviz-using-ai-coding"
 
 [[slot]]
-track = "BIC 2"
+track = "BIC - LIBRARY"
 start = "14:30"
 end = "17:30"
 session = "data-rough"
+
+# --- Bangalore International Centre, BOARD ROOM ---
+
+[[slot]]
+track = "BIC - BOARD ROOM"
+start = "10:00"
+end = "13:00"
+session = "designing-data-stories-for-small-screens"
+
+[[slot]]
+track = "BIC - BOARD ROOM"
+start = "14:30"
+end = "17:30"
+session = "a-dataviz-crash-course"

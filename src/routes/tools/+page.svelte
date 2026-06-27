@@ -34,6 +34,12 @@
 			href: '/tools/colors',
 			description:
 				'Complete color palette and usage guidelines including base colors, ramps, and named variants'
+		},
+		{
+			title: 'QR Generator',
+			href: '/tools/qr',
+			description:
+				'Generate print-quality QR codes for any VizChitra URL — download as SVG or 1024×1024 PNG'
 		}
 	];
 </script>

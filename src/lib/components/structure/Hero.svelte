@@ -12,7 +12,7 @@
 		banner?: 'polygon' | 'curve' | 'square' | 'blob' | 'spinner';
 		tagline?: string;
 		color?: 'yellow' | 'teal' | 'blue' | 'orange' | 'pink' | 'grey';
-		targetDate?: Date;
+		startDateTime?: Date;
 		variant?: 'small' | 'large';
 	}
 
@@ -20,7 +20,7 @@
 		banner = 'polygon',
 		tagline = 'A SPACE TO CONNECT AND CREATE WITH DATA',
 		color,
-		targetDate,
+		startDateTime,
 		variant = 'small'
 	}: Props = $props();
 
@@ -103,7 +103,7 @@
 						ontouchstart={handleSpinnerInteract}
 						onmousedown={handleSpinnerInteract}
 					>
-						<PatternArc {targetDate} width={spinnerSize} height={spinnerSize} />
+						<PatternArc {startDateTime} width={spinnerSize} height={spinnerSize} />
 					</a>
 				{:else}
 					<LogoTagline />

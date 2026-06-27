@@ -33,7 +33,7 @@
 		Workshops: 'translate(25%, 25%) scale(1.25)',
 		Talks: 'translate(0%, 15%) scale(1.0)',
 		Dialogues: 'translate(10%, 0%)',
-		Exhibition: 'translate(10%, 15%) scale(1.1)'
+		Exhibition: 'translate(0%, 0%) scale(1.1)'
 	};
 	const patternTransform = $derived(patternTransforms[sessionType] ?? patternTransforms.Talks);
 </script>

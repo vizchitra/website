@@ -25,9 +25,14 @@
 	interface Props {
 		interactive?: boolean;
 		direction?: 'header' | 'footer';
+		colors?: readonly string[];
 	}
 
-	let { interactive = false, direction = 'header' }: Props = $props();
+	let {
+		interactive = false,
+		direction = 'header',
+		colors = DEFAULT_CURVE_COLORS
+	}: Props = $props();
 
 	// Shuffle array using Fisher-Yates algorithm
 	function shuffleArray<T>(array: T[]): T[] {
@@ -39,12 +44,13 @@
 		return shuffled;
 	}
 
-	// Initialize resolved colors from module defaults (SSR-safe)
-	// DEFAULT_CURVE_COLORS is already an array of hex strings from CURVE_PALETTE
-	let resolvedColors: string[] = [...DEFAULT_CURVE_COLORS];
+	// Initialize resolved colors from prop or module defaults (SSR-safe)
+	let resolvedColors: string[] = $derived([...colors]);
 
 	// Randomize color order for each instance
-	let shuffledColorOrder: number[] = shuffleArray([...Array(DEFAULT_CURVE_COLORS.length).keys()]);
+	let shuffledColorOrder: number[] = $derived(
+		shuffleArray([...Array(resolvedColors.length).keys()])
+	);
 
 	let canvas: HTMLCanvasElement = $state();
 	let ctx: CanvasRenderingContext2D;
