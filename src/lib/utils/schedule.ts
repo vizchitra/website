@@ -204,7 +204,7 @@ export function resolveSlot(
 	} else if (t === 'SPONSORED') {
 		kind = 'sponsored';
 		color = 'orange';
-	} else if (t === 'DIALOGUE') {
+	} else if (t === 'DIALOGUE' || t === 'PANEL') {
 		kind = 'placeholder';
 		color = 'teal';
 	} else {
@@ -227,7 +227,8 @@ export function resolveSlot(
 		role: role || undefined,
 		description: slot.description,
 		href: session ? `/2026/sessions/${session.slug}` : undefined,
-		rowSpan: rowSpan(slot)
+		// Gallery-list entries may omit start/end — they never render as timed cells.
+		rowSpan: slot.start && slot.end ? rowSpan(slot) : 1
 	};
 }
 

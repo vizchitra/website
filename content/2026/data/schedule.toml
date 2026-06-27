@@ -6,7 +6,7 @@ day = "2026-07-04"
 name = "Conference"
 tracks = ["Auditorium", "Hall", "Library", "Boardroom", "Gallery"]
 galleryStart = "10:00"
-galleryEnd = "17:00"
+galleryEnd = "17:30"
 
 [[slot]]
 track = "Auditorium"
@@ -52,7 +52,7 @@ start = "10:45"
 end = "11:15"
 type = "BREAK"
 label = "TEA BREAK"
-description = "Grab a chai and stretch your legs - sessions resume at 11:15. Check out the **book signing by Rohit Saran and Rukmini S**."
+description = "Grab a chai and stretch your legs - sessions resume at 11:15. Check out the **book signing by Rohit Saran and Rukmini S** in the Foyer on the first floor."
 
 [[slot]]
 track = "Auditorium"
@@ -80,7 +80,7 @@ track = "Auditorium"
 start = "12:30"
 end = "14:00"
 type = "BREAK"
-label = "LUNCH"
+label = "LUNCH @ TERRACE"
 description = "Head to the terrace to grab a plate and mingle with fellow data enthusiasts"
 
 [[slot]]
@@ -154,7 +154,7 @@ track = "Auditorium"
 start = "17:30"
 end = "18:30"
 type = "BREAK"
-label = "NETWORKING"
+label = "NETWORKING @ TERRACE"
 description = "Wind down and connect with the community before you head out"
 
 [[slot]]
@@ -163,6 +163,13 @@ start = "08:30"
 end = "09:30"
 type = "ENTRY"
 label = "REGISTRATIONS"
+
+[[slot]]
+track = "Hall"
+start = "9:30"
+end = "10:45"
+type = "OTHER"
+label = "Auditorium Live Stream"
 
 [[slot]]
 track = "Hall"
@@ -197,7 +204,7 @@ track = "Hall"
 start = "12:30"
 end = "14:00"
 type = "BREAK"
-label = "LUNCH"
+label = "LUNCH @ TERRACE"
 
 [[slot]]
 track = "Hall"
@@ -237,10 +244,17 @@ speakerLabel = "Sandeep Karmarkar, Areena Arora, Hamsa Ganesh"
 
 [[slot]]
 track = "Hall"
+start = "16:30"
+end = "17:30"
+type = "OTHER"
+label = "Auditorium Live Stream"
+
+[[slot]]
+track = "Hall"
 start = "17:30"
 end = "18:30"
 type = "BREAK"
-label = "NETWORKING"
+label = "NETWORKING @ TERRACE"
 
 [[slot]]
 track = "Library"
@@ -273,7 +287,7 @@ track = "Library"
 start = "12:30"
 end = "14:00"
 type = "BREAK"
-label = "LUNCH"
+label = "LUNCH @ TERRACE"
 
 [[slot]]
 track = "Library"
@@ -300,7 +314,7 @@ track = "Library"
 start = "17:30"
 end = "18:30"
 type = "BREAK"
-label = "NETWORKING"
+label = "NETWORKING @ TERRACE"
 
 [[slot]]
 track = "Boardroom"
@@ -321,21 +335,25 @@ track = "Boardroom"
 start = "11:45"
 end = "12:30"
 type = "SPONSORED"
-label = "City Finance"
+label = "The Cities We Don’t See"
+speakerLabel = "Shobana Venkatasubbu, Tushar Chakrabarty"
+description ="SPONSORED TALK - City Finance"
 
 [[slot]]
 track = "Boardroom"
 start = "12:30"
 end = "14:00"
 type = "BREAK"
-label = "LUNCH"
+label = "LUNCH @ TERRACE"
 
 [[slot]]
 track = "Boardroom"
 start = "14:15"
 end = "15:00"
 type = "SPONSORED"
-label = "Thurro"
+label = "Thurro's Data Playground"
+speakerLabel = "Akhilesh Tilotia"
+description ="SPONSORED TALK - Thurro"
 
 [[slot]]
 track = "Boardroom"
@@ -349,4 +367,4 @@ track = "Boardroom"
 start = "17:30"
 end = "18:30"
 type = "BREAK"
-label = "NETWORKING"
+label = "NETWORKING @ TERRACE"

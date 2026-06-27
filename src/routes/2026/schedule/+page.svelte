@@ -8,6 +8,7 @@
 		isSpanningBreak,
 		addMinutes,
 		resolveSlot,
+		timeToMinutes,
 		timeToRow,
 		trackColumn,
 		exhibitionTrack,
@@ -52,13 +53,33 @@
 	// Fold the Gallery window into the grid bounds so the grid grows to fit it even
 	// when it runs later than every timed slot (e.g. workshops end 17:30, gallery 20:00).
 	const bounds = $derived(
-		computeGridBounds(schedule.slots, [{ start: galleryStart, end: galleryEnd }])
+		computeGridBounds(
+			schedule.slots.filter((s) => s.track !== exhibitionTrack),
+			[{ start: galleryStart, end: galleryEnd }]
+		)
 	);
 	const hourMarks = $derived(computeHourMarks(bounds.gridStart, bounds.gridEnd));
 	const resolvedSlots = $derived(schedule.slots.map((s) => resolveSlot(s, sessionsBySlug)));
 
+	// Gallery-track slots authored in schedule.toml join the all-day Exhibition
+	// list rather than rendering as timed cells; everything else is a timed cell.
+	const timedSlots = $derived(resolvedSlots.filter((r) => r.slot.track !== exhibitionTrack));
+	const galleryEntries = $derived([
+		...exhibitions,
+		...resolvedSlots
+			.filter((r) => r.slot.track === exhibitionTrack)
+			.map((r) => ({ title: r.title, speaker: r.speaker, role: r.role, href: r.href }))
+	]);
+
 	const sessionTracks = $derived(schedule.tracks.filter((t) => t !== exhibitionTrack));
 	const galleryCol = $derived(trackColumn(schedule.tracks, exhibitionTrack));
+
+	// A spanning break can extend over the Gallery column only when it falls
+	// outside the all-day exhibition window (e.g. registration before it opens,
+	// networking after it closes); otherwise it would overlap the exhibition cell.
+	const overlapsGallery = (r: { slot: { start: string; end: string } }) =>
+		timeToMinutes(r.slot.start) < timeToMinutes(galleryEnd) &&
+		timeToMinutes(r.slot.end) > timeToMinutes(galleryStart);
 	const galleryRowStart = $derived(timeToRow(galleryStart, bounds.gridStart) + 1);
 	const galleryRowSpan = $derived(
 		timeToRow(galleryEnd, bounds.gridStart) - timeToRow(galleryStart, bounds.gridStart)
@@ -71,8 +92,8 @@
 
 	const isCollapsed = (track: string) => !isActive(schedule.tracks.indexOf(track));
 
-	const spanningKeys = $derived(computeSpanningBreakKeys(resolvedSlots, sessionTracks.length));
-	const renderSlots = $derived(dedupeSpanningBreaks(resolvedSlots, spanningKeys));
+	const spanningKeys = $derived(computeSpanningBreakKeys(timedSlots, sessionTracks.length));
+	const renderSlots = $derived(dedupeSpanningBreaks(timedSlots, spanningKeys));
 
 	// Gutter + one equal column per track on desktop; mobile collapses below.
 	const desktopCols = $derived('3rem ' + schedule.tracks.map(() => 'minmax(0, 1fr)').join(' '));
@@ -197,7 +218,7 @@
 						: ''} z-10 flex min-h-0 flex-col gap-0.5 overflow-hidden px-2 py-1.5 text-[0.8rem] leading-tight no-underline transition duration-150 md:px-3 md:py-2.5"
 					style="grid-row: {timeToRow(r.slot.start, bounds.gridStart) +
 						1} / span {r.rowSpan}; grid-column: {isSpanningBreak(r, spanningKeys)
-						? `2 / ${galleryCol}`
+						? `2 / ${overlapsGallery(r) ? galleryCol : -1}`
 						: trackColumn(schedule.tracks, r.slot.track)};"
 					class:inactive={!isSpanningBreak(r, spanningKeys) && isCollapsed(r.slot.track)}
 					class:break-row={isSpanningBreak(r, spanningKeys)}
@@ -219,7 +240,7 @@
 					</span>
 					{#if r.description}
 						<span
-							class="block max-w-[80vw] text-[13px] leading-snug font-normal normal-case opacity-80 lg:text-[15px]"
+							class="note-text block text-[13px] leading-snug font-normal normal-case opacity-80 lg:text-[15px]"
 						>
 							{@html r.description}
 						</span>
@@ -234,7 +255,7 @@
 
 			<!-- Gallery: the all-day exhibition column is one cell listing every
 				 exhibition, since they all run simultaneously for the whole day. -->
-			{#if exhibitions.length}
+			{#if galleryEntries.length}
 				<div
 					class="event-slot slot-color-orange z-10 flex min-h-0 flex-col gap-3 overflow-hidden px-3 py-2.5 leading-tight"
 					style="grid-row: {galleryRowStart} / span {galleryRowSpan}; grid-column: {galleryCol};"
@@ -244,10 +265,13 @@
 						Exhibition
 					</span>
 					<div class="flex flex-1 flex-col justify-evenly gap-3">
-						{#each exhibitions as ex}
-							<a
+						{#each galleryEntries as ex}
+							<svelte:element
+								this={ex.href ? 'a' : 'div'}
 								href={ex.href}
-								class="border-viz-orange/30 block pt-3 no-underline transition first:pt-0 hover:opacity-70"
+								class="border-viz-orange/30 block pt-3 no-underline transition first:pt-0 {ex.href
+									? 'hover:opacity-70'
+									: ''}"
 							>
 								<span class="font-display block text-sm font-bold uppercase lg:text-[16px]">
 									{ex.title}
@@ -257,7 +281,7 @@
 										><span class="font-bold">{ex.speaker}</span>{#if ex.role}, {ex.role}{/if}</span
 									>
 								{/if}
-							</a>
+							</svelte:element>
 						{/each}
 					</div>
 				</div>
@@ -321,6 +345,10 @@
 		justify-content: center;
 		text-align: center;
 		border-color: #999;
+	}
+
+	.note-text {
+		max-width: min(80vw, 65ch);
 	}
 
 	@media (max-width: 1024px) {
