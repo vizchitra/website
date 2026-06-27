@@ -119,3 +119,13 @@ track = "BIC - BOARD ROOM"
 start = "14:30"
 end = "17:30"
 session = "a-dataviz-crash-course"
+
+# --- Bangalore International Centre, BOARD ROOM SPONSORED ---
+
+[[slot]]
+track = "BIC - BOARD ROOM"
+type = "SPONSORED"
+start = "18:30"
+end = "20:30"
+description ="SPONSORED | INVITE ONLY"
+session = "public-data-roundtable"
