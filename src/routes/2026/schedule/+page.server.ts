@@ -30,6 +30,10 @@ export const load: PageServerLoad = async () => {
 			| 'organisation'
 			| 'subtitle'
 			| 'venue'
+			| 'speakers'
+			| 'speaker2Name'
+			| 'speaker2Designation'
+			| 'speaker2Organisation'
 		>
 	> = {};
 	for (const s of sessions) {
@@ -41,7 +45,11 @@ export const load: PageServerLoad = async () => {
 			designation: s.designation,
 			organisation: s.organisation,
 			subtitle: s.subtitle,
-			venue: s.venue
+			venue: s.venue,
+			speakers: s.speakers,
+			speaker2Name: s.speaker2Name,
+			speaker2Designation: s.speaker2Designation,
+			speaker2Organisation: s.speaker2Organisation
 		};
 	}
 

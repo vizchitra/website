@@ -273,6 +273,14 @@
 							><span class="font-bold">{r.speaker}</span>{#if r.role}, {r.role}{/if}</span
 						>
 					{/if}
+					{#if r.speakers}
+						{#each r.speakers as sp}
+							<span class="text-[13px] md:text-[14px]"
+								>{#if sp.moderator}Moderated by
+								{/if}<span class="font-bold">{sp.name}</span>{#if sp.role}, {sp.role}{/if}</span
+							>
+						{/each}
+					{/if}
 				</svelte:element>
 			{/each}
 

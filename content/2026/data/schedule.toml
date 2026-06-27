@@ -240,8 +240,6 @@ start = "15:45"
 end = "16:30"
 type = "PANEL"
 session = "so-you-want-to-work-with-data"
-speakerLabel = ""
-description = "**Sandeep Karmarkar**, Head of Design, Atlassian. **Areena Arora**, Editorial Coder, The Hindu. **Hamsa Ganesh**, Founder, Thoughtput. Moderated by **Anushka Gokhale**, Lead Designer, EPIC World."
 
 [[slot]]
 track = "Hall"

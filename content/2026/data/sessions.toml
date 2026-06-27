@@ -829,6 +829,23 @@ display = true
 pageReady = true
 order = 40
 
+[[session.speakers]]
+name = "Sandeep Karmarkar"
+role = "Head of Design, Atlassian"
+
+[[session.speakers]]
+name = "Areena Arora"
+role = "Editorial Coder, The Hindu"
+
+[[session.speakers]]
+name = "Hamsa Ganesh"
+role = "Founder, Thoughtput"
+
+[[session.speakers]]
+name = "Anushka Gokhale"
+role = "Lead Designer, EPIC World"
+moderator = true
+
 
 [[session]]
 slug = "decode-chart-game"
@@ -879,6 +896,7 @@ order = 42
 [[session]]
 slug = "cities-we-dont-see"
 sessionType = "Activities"
+sponsored = true
 date = "2026-07-04"
 time = "11:45 to 12:30"
 slot = ""

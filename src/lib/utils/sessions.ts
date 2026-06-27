@@ -31,6 +31,8 @@ export interface SessionData {
 	soldOut?: boolean;
 	sponsored?: boolean;
 	inviteOnly?: boolean;
+	/** Panel / multi-speaker sessions: structured list shared by the sessions and schedule views. */
+	speakers?: { name: string; role?: string; moderator?: boolean }[];
 	order?: number;
 	pageReady?: boolean;
 	ticketCode?: string;
