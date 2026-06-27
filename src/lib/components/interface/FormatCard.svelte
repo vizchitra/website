@@ -72,7 +72,7 @@
 		<!-- Pattern Background -->
 		<div class="pointer-events-none absolute inset-0 overflow-hidden">
 			<PatternFormats
-				color={formatToColor[format]}
+				tone={formatToColor[format]}
 				class="absolute inset-x-0 bottom-0 h-full opacity-60"
 			/>
 		</div>
