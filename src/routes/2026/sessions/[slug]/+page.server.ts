@@ -34,7 +34,7 @@ export const load: PageServerLoad = async ({ params }) => {
 	}
 
 	const descriptionHtml = await markdownToHtml(session.longDescription);
-	const speakerAboutHtml = await markdownToHtml(session.speakerAbout);
+	const speakerAboutHtml = await markdownToHtml(session.speakers?.[0]?.about ?? '');
 
 	// Related sessions: prioritise same theme (sessionType), then others
 	const relatedSessions = confirmed

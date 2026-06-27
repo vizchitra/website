@@ -153,6 +153,50 @@ export const CURVE_PALETTE_ORANGE = [
 	'#7A2305'
 ] as const;
 
+export const CURVE_PALETTE_BLUE = [
+	'#EFF4FF',
+	'#C8D9FF',
+	'#9FBAFC',
+	'#7099F0',
+	'#4F78E0',
+	'#3158C4',
+	'#1A3AA6',
+	'#0D2478'
+] as const;
+
+export const CURVE_PALETTE_TEAL = [
+	'#E8F9F7',
+	'#BBF0EB',
+	'#88E0D8',
+	'#5CCEC4',
+	'#35BAAE',
+	'#1E9D92',
+	'#107874',
+	'#065255'
+] as const;
+
+export const CURVE_PALETTE_PINK = [
+	'#FEF0F6',
+	'#FAC8E4',
+	'#F49ACC',
+	'#EF75AB',
+	'#E0518B',
+	'#C32F6A',
+	'#9C1549',
+	'#760530'
+] as const;
+
+export const CURVE_PALETTE_YELLOW = [
+	'#FFFBEB',
+	'#FFF3CC',
+	'#FFE899',
+	'#FFD485',
+	'#FFC055',
+	'#E5A800',
+	'#B87D00',
+	'#8A5A00'
+] as const;
+
 /**
  * Get color tokens with fallback to a default color.
  */

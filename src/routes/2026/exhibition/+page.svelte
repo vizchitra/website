@@ -108,7 +108,7 @@
 <div class="w-full">
 	{#each data.exhibitions as exhibit, i}
 		{@const isEven = i % 2 === 0}
-		{@const isDual = !!exhibit.speaker2Name}
+		{@const isDual = (exhibit.speakers?.length ?? 0) > 1}
 
 		<section class="exhibit-section" id={exhibit.slug}>
 			<Container paddingY="2xl">
@@ -147,29 +147,6 @@
 							{/if}
 						</div>
 
-						{#if exhibit.artworkDetail1Image || exhibit.artworkDetail2Image}
-							<div class="artwork-details">
-								{#if exhibit.artworkDetail1Image}
-									<img
-										src={exhibit.artworkDetail1Image}
-										alt="{exhibit.title} — detail 1"
-										class="artwork-img artwork-img--detail"
-									/>
-								{:else}
-									<div class="artwork-placeholder artwork-placeholder--detail"></div>
-								{/if}
-								{#if exhibit.artworkDetail2Image}
-									<img
-										src={exhibit.artworkDetail2Image}
-										alt="{exhibit.title} — detail 2"
-										class="artwork-img artwork-img--detail"
-									/>
-								{:else}
-									<div class="artwork-placeholder artwork-placeholder--detail"></div>
-								{/if}
-							</div>
-						{/if}
-
 						<!-- About the artist(s) — below artwork on desktop -->
 						<section class="artist-section">
 							<Heading tag="h2" align="left" class="pb-4">
@@ -178,26 +155,43 @@
 							<div class="artist-blocks" class:artist-blocks--dual={isDual}>
 								<!-- Artist 1 -->
 								<div class="artist-block">
-									<p class="artist-name">
-										{exhibit.speakerName?.split('//')[0]?.trim() ?? exhibit.speakerName}
-									</p>
-									{#if exhibit.designation || exhibit.organisation}
+									<p class="artist-name">{exhibit.speakers?.[0]?.name ?? ''}</p>
+									{#if exhibit.speakers?.[0]?.designation || exhibit.speakers?.[0]?.organisation}
 										<p class="artist-designation">
-											{[exhibit.designation, exhibit.organisation].filter(Boolean).join(' · ')}
+											{[exhibit.speakers?.[0]?.designation, exhibit.speakers?.[0]?.organisation]
+												.filter(Boolean)
+												.join(' · ')}
 										</p>
+									{/if}
+									<!-- Social icons -->
+									{#if Object.values(exhibit.speakers?.[0]?.social ?? {}).some((u) => u)}
+										<div class="artist-socials">
+											{#each Object.entries(exhibit.speakers?.[0]?.social ?? {}).filter(([, u]) => u) as [platform, url]}
+												{@const icon = `/images/socials/${['twitter', 'instagram', 'linkedin', 'bluesky', 'github', 'youtube'].includes(platform) ? platform : 'website'}.svg`}
+												<a
+													href={url}
+													target="_blank"
+													rel="noopener noreferrer"
+													aria-label="{platform} profile"
+													class="social-icon social-icon--orange"
+												>
+													<img src={icon} alt={platform} width="18" height="18" />
+												</a>
+											{/each}
+										</div>
 									{/if}
 									{#if exhibit.speakerAboutHtml}
 										<div class="artist-bio" class:expanded={expandedBios.has(`${exhibit.slug}-1`)}>
 											<div class="artist-photo-wrap">
-												{#if exhibit.speakerImage}
+												{#if exhibit.speakers?.[0]?.image}
 													<img
 														class="artist-photo"
-														src={exhibit.speakerImage}
-														alt={exhibit.speakerName?.split('//')[0]?.trim() ?? ''}
+														src={exhibit.speakers[0].image}
+														alt={exhibit.speakers[0].name}
 													/>
 												{:else}
 													<div class="artist-photo-placeholder" aria-hidden="true">
-														{(exhibit.speakerName?.split('//')[0]?.trim() ?? '')
+														{(exhibit.speakers?.[0]?.name ?? '')
 															.split(' ')
 															.map((n) => n[0] ?? '')
 															.join('')
@@ -214,43 +208,34 @@
 											{expandedBios.has(`${exhibit.slug}-1`) ? 'Read less ↑' : 'Read more ↓'}
 										</button>
 									{/if}
-									{#if exhibit.speakerSocial}
-										<a
-											href={exhibit.speakerSocial}
-											class="artist-social"
-											target="_blank"
-											rel="noopener noreferrer"
-										>
-											<svg
-												width="14"
-												height="14"
-												viewBox="0 0 24 24"
-												fill="none"
-												stroke="currentColor"
-												stroke-width="2"
-												stroke-linecap="round"
-												stroke-linejoin="round"
-												aria-hidden="true"
-											>
-												<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-												<polyline points="15 3 21 3 21 9" />
-												<line x1="10" y1="14" x2="21" y2="3" />
-											</svg>
-											<span>Website</span>
-										</a>
-									{/if}
 								</div>
 
 								<!-- Artist 2 (dual only) -->
 								{#if isDual}
+									{@const sp1 = exhibit.speakers?.[1]}
 									<div class="artist-block">
-										<p class="artist-name">{exhibit.speaker2Name}</p>
-										{#if exhibit.speaker2Designation || exhibit.speaker2Organisation}
+										<p class="artist-name">{sp1?.name ?? ''}</p>
+										{#if sp1?.designation || sp1?.organisation}
 											<p class="artist-designation">
-												{[exhibit.speaker2Designation, exhibit.speaker2Organisation]
-													.filter(Boolean)
-													.join(' · ')}
+												{[sp1?.designation, sp1?.organisation].filter(Boolean).join(' · ')}
 											</p>
+										{/if}
+										<!-- Social icons -->
+										{#if Object.values(sp1?.social ?? {}).some((u) => u)}
+											<div class="artist-socials">
+												{#each Object.entries(sp1?.social ?? {}).filter(([, u]) => u) as [platform, url]}
+													{@const icon = `/images/socials/${['twitter', 'instagram', 'linkedin', 'bluesky', 'github', 'youtube'].includes(platform) ? platform : 'website'}.svg`}
+													<a
+														href={url}
+														target="_blank"
+														rel="noopener noreferrer"
+														aria-label="{platform} profile"
+														class="social-icon social-icon--orange"
+													>
+														<img src={icon} alt={platform} width="18" height="18" />
+													</a>
+												{/each}
+											</div>
 										{/if}
 										{#if exhibit.speaker2AboutHtml}
 											<div
@@ -258,15 +243,11 @@
 												class:expanded={expandedBios.has(`${exhibit.slug}-2`)}
 											>
 												<div class="artist-photo-wrap">
-													{#if exhibit.speaker2Image}
-														<img
-															class="artist-photo"
-															src={exhibit.speaker2Image}
-															alt={exhibit.speaker2Name ?? ''}
-														/>
+													{#if sp1?.image}
+														<img class="artist-photo" src={sp1.image} alt={sp1?.name ?? ''} />
 													{:else}
 														<div class="artist-photo-placeholder" aria-hidden="true">
-															{(exhibit.speaker2Name ?? '')
+															{(sp1?.name ?? '')
 																.split(' ')
 																.map((n) => n[0] ?? '')
 																.join('')
@@ -282,31 +263,6 @@
 											<button class="read-more-btn" onclick={() => toggleBio(`${exhibit.slug}-2`)}>
 												{expandedBios.has(`${exhibit.slug}-2`) ? 'Read less ↑' : 'Read more ↓'}
 											</button>
-										{/if}
-										{#if exhibit.speaker2Social}
-											<a
-												href={exhibit.speaker2Social}
-												class="artist-social"
-												target="_blank"
-												rel="noopener noreferrer"
-											>
-												<svg
-													width="14"
-													height="14"
-													viewBox="0 0 24 24"
-													fill="none"
-													stroke="currentColor"
-													stroke-width="2"
-													stroke-linecap="round"
-													stroke-linejoin="round"
-													aria-hidden="true"
-												>
-													<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-													<polyline points="15 3 21 3 21 9" />
-													<line x1="10" y1="14" x2="21" y2="3" />
-												</svg>
-												<span>Website</span>
-											</a>
 										{/if}
 									</div>
 								{/if}
@@ -469,22 +425,27 @@
 		letter-spacing: -0.02em;
 	}
 
-	.artist-social {
-		display: inline-flex;
-		align-items: center;
-		gap: 0.375rem;
-		margin-top: 0.5rem;
-		font-family: var(--font-mono);
-		font-size: 0.7rem;
-		letter-spacing: 0.06em;
-		text-transform: uppercase;
-		color: var(--color-viz-orange-solid);
-		text-decoration: none;
-		transition: color 0.15s;
+	.artist-socials {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.625rem;
+		margin-bottom: 0.75rem;
 	}
 
-	.artist-social:hover {
-		color: var(--color-viz-orange);
+	.social-icon {
+		display: inline-flex;
+		opacity: 0.55;
+		transition:
+			opacity 0.15s,
+			filter 0.15s;
+	}
+
+	.social-icon:hover {
+		opacity: 1;
+	}
+
+	.social-icon--orange:hover {
+		filter: invert(55%) sepia(75%) saturate(570%) hue-rotate(346deg);
 	}
 
 	/* ── Artwork column ── */
@@ -496,7 +457,7 @@
 
 	.artwork-hero {
 		width: 100%;
-		aspect-ratio: 4 / 3;
+		aspect-ratio: 1 / 1;
 		overflow: hidden;
 		border-radius: 0.5rem;
 	}
@@ -529,7 +490,7 @@
 	}
 
 	.artwork-placeholder--hero {
-		aspect-ratio: 4 / 3;
+		aspect-ratio: 1 / 1;
 	}
 
 	.artwork-placeholder--detail {

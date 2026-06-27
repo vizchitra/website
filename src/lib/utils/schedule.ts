@@ -1,7 +1,6 @@
 import { parse as parseToml } from 'smol-toml';
 import scheduleRaw from '../../../content/2026/data/schedule.toml?raw';
-import scheduleWorkshopsRaw from '../../../content/2026/data/schedule-workshops.toml?raw';
-import { sessionColorMap, getSessionOrder, type SessionData } from './sessions';
+import { sessionColorMap, getSessionOrder, type SessionData, type Speaker } from './sessions';
 
 export interface ScheduleSlot {
 	track: string;
@@ -26,18 +25,7 @@ export interface ScheduleDay {
 /** Minimal session fields the schedule needs to render a slot. */
 export type SessionLookup = Pick<
 	SessionData,
-	| 'slug'
-	| 'sessionType'
-	| 'title'
-	| 'speakerName'
-	| 'designation'
-	| 'organisation'
-	| 'subtitle'
-	| 'venue'
-	| 'speakers'
-	| 'speaker2Name'
-	| 'speaker2Designation'
-	| 'speaker2Organisation'
+	'slug' | 'sessionType' | 'title' | 'subtitle' | 'venue' | 'speakers'
 >;
 
 export type SlotKind = 'session' | 'break' | 'address' | 'sponsored' | 'placeholder';
@@ -61,14 +49,21 @@ export function resolveExhibitions(sessions: SessionData[]): ExhibitionEntry[] {
 	return sessions
 		.filter((s) => s.sessionType === 'Exhibition' && !s.tbd)
 		.sort((a, b) => getSessionOrder(a) - getSessionOrder(b))
-		.map((s) => ({
-			slug: s.slug,
-			title: s.title,
-			speaker: s.speakerName || undefined,
-			// Same role composition as resolveSlot — drop empty parts to avoid a stray comma.
-			role: [s.designation, s.organisation].filter(Boolean).join(', ') || undefined,
-			href: `/2026/sessions/${s.slug}`
-		}));
+		.map((s) => {
+			const primary = s.speakers?.[0];
+			return {
+				slug: s.slug,
+				title: s.title,
+				speaker: primary?.name || undefined,
+				role: [primary?.designation, primary?.organisation].filter(Boolean).join(', ') || undefined,
+				href: `/2026/sessions/${s.slug}`
+			};
+		});
+}
+
+/** Speaker with a derived role string for schedule display. */
+export interface ResolvedSpeaker extends Speaker {
+	role: string; // derived: "designation, organisation"
 }
 
 /** A slot enriched with everything the renderer needs — no lookups left to do. */
@@ -79,36 +74,32 @@ export interface ResolvedSlot {
 	title: string;
 	speaker?: string;
 	role?: string;
-	speakers?: { name: string; role?: string; moderator?: boolean }[];
+	speakers?: ResolvedSpeaker[];
 	description?: string;
 	href?: string;
 	rowSpan: number;
 }
 
-function parseScheduleDay(raw: string): ScheduleDay {
-	const parsed = parseToml(raw) as unknown as {
-		day: string;
-		name: string;
-		tracks: string[];
-		slot: ScheduleSlot[];
-		galleryStart?: string;
-		galleryEnd?: string;
-	};
-	return {
-		day: parsed.day,
-		name: parsed.name,
-		tracks: parsed.tracks,
-		slots: parsed.slot,
-		galleryStart: parsed.galleryStart,
-		galleryEnd: parsed.galleryEnd
-	};
-}
-
-/** All schedule days (conference + workshops), ordered chronologically. */
+/** All schedule days in file order (workshops Jul 3, conference Jul 4). */
 export function resolveScheduleDays(): ScheduleDay[] {
-	return [parseScheduleDay(scheduleRaw), parseScheduleDay(scheduleWorkshopsRaw)].sort((a, b) =>
-		a.day < b.day ? -1 : a.day > b.day ? 1 : 0
-	);
+	const parsed = parseToml(scheduleRaw) as unknown as {
+		day: Array<{
+			day: string;
+			name: string;
+			tracks: string[];
+			slot: ScheduleSlot[];
+			galleryStart?: string;
+			galleryEnd?: string;
+		}>;
+	};
+	return parsed.day.map((d) => ({
+		day: d.day,
+		name: d.name,
+		tracks: d.tracks,
+		slots: d.slot,
+		galleryStart: d.galleryStart,
+		galleryEnd: d.galleryEnd
+	}));
 }
 
 /** Convert "HH:MM" to minutes since midnight. */
@@ -223,41 +214,31 @@ export function resolveSlot(
 		color = 'grey';
 	}
 
-	// Compose the speaker's role from the cfp/cfe fields; drop empty parts so we
-	// never render a stray comma when only one (or neither) is present.
-	const role = session
-		? [session.designation, session.organisation].filter(Boolean).join(', ')
+	const primarySpeaker = session?.speakers?.[0];
+	const role = primarySpeaker
+		? [primarySpeaker.designation, primarySpeaker.organisation].filter(Boolean).join(', ')
 		: undefined;
 
-	// Multi-speaker display, shared with the session views: panels use an explicit
-	// `speakers[]`; two-speaker sessions derive a list from the speaker2 fields.
-	const speakers =
-		session?.speakers ??
-		(session?.speaker2Name
-			? [
-					{ name: session.speakerName, role: role || undefined },
-					{
-						name: session.speaker2Name,
-						role:
-							[session.speaker2Designation, session.speaker2Organisation]
-								.filter(Boolean)
-								.join(', ') || undefined
-					}
-				]
-			: undefined);
+	// Populate speakers array only when there are multiple speakers (panel/multi display).
+	// Single-speaker sessions use the flat speaker/role strings instead.
+	const speakers: ResolvedSpeaker[] | undefined =
+		(session?.speakers?.length ?? 0) > 1
+			? session!.speakers.map((sp) => ({
+					...sp,
+					role: [sp.designation, sp.organisation].filter(Boolean).join(', ')
+				}))
+			: undefined;
 
 	return {
 		slot,
 		kind,
 		color,
 		title: session?.title ?? slot.label ?? 'TBD',
-		// Panels (session.speakers) render the structured list below; suppress the single line.
-		speaker: speakers ? undefined : (session?.speakerName ?? slot.speakerLabel),
+		speaker: speakers ? undefined : (primarySpeaker?.name ?? slot.speakerLabel),
 		role: speakers ? undefined : role || undefined,
 		speakers,
 		description: slot.description,
 		href: session ? `/2026/sessions/${session.slug}` : undefined,
-		// Gallery-list entries may omit start/end — they never render as timed cells.
 		rowSpan: slot.start && slot.end ? rowSpan(slot) : 1
 	};
 }

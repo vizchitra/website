@@ -18,38 +18,15 @@ export const load: PageServerLoad = async () => {
 	}
 
 	// Index sessions by slug for O(1) lookup at render time.
-	const sessionsBySlug: Record<
-		string,
-		Pick<
-			SessionData,
-			| 'slug'
-			| 'sessionType'
-			| 'title'
-			| 'speakerName'
-			| 'designation'
-			| 'organisation'
-			| 'subtitle'
-			| 'venue'
-			| 'speakers'
-			| 'speaker2Name'
-			| 'speaker2Designation'
-			| 'speaker2Organisation'
-		>
-	> = {};
+	const sessionsBySlug: Record<string, import('$lib/utils/schedule').SessionLookup> = {};
 	for (const s of sessions) {
 		sessionsBySlug[s.slug] = {
 			slug: s.slug,
 			sessionType: s.sessionType,
 			title: s.title,
-			speakerName: s.speakerName,
-			designation: s.designation,
-			organisation: s.organisation,
 			subtitle: s.subtitle,
 			venue: s.venue,
-			speakers: s.speakers,
-			speaker2Name: s.speaker2Name,
-			speaker2Designation: s.speaker2Designation,
-			speaker2Organisation: s.speaker2Organisation
+			speakers: s.speakers
 		};
 	}
 

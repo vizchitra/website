@@ -38,20 +38,23 @@
 
 	const period = $derived(session.time === '10:00 - 13:00' ? 'Morning' : 'Afternoon');
 
+	const allSocials = $derived(
+		(session.speakers ?? [])
+			.flatMap((sp) => Object.entries(sp.social ?? {}))
+			.filter(([, url]) => url)
+			.filter(([, url], i, arr) => arr.findIndex(([, u]) => u === url) === i)
+	);
+
 	// ── Studio panel state ────────────────────────────────────────────────────
 	let isStudioUser = $state(false);
 	let isEditing = $state(false);
 
 	// Live-editable fields — untrack() marks intentional one-time init from props
 	let liveType = $state(untrack(() => session.sessionType));
-	let liveTime = $state(untrack(() => session.time));
 	let liveVenue = $state(untrack(() => session.venue));
-	let liveSpeaker = $state(untrack(() => session.speakerName));
-	let liveDesignation = $state(untrack(() => session.designation));
-	let liveOrganisation = $state(untrack(() => session.organisation));
 	let liveShortDescription = $state(untrack(() => session.shortDescription ?? ''));
 	let liveDescription = $state(untrack(() => session.longDescription ?? ''));
-	let liveSpeakerAbout = $state(untrack(() => session.speakerAbout ?? ''));
+	let liveSpeakerAbout = $state(untrack(() => session.speakers?.[0]?.about ?? ''));
 	let liveDescriptionHtml = $state(untrack(() => data.descriptionHtml));
 	let liveSpeakerAboutHtml = $state(untrack(() => data.speakerAboutHtml));
 
@@ -70,11 +73,7 @@
 	function startEdit() {
 		savedFields = {
 			sessionType: liveType,
-			time: liveTime,
 			venue: liveVenue,
-			speakerName: liveSpeaker,
-			designation: liveDesignation,
-			organisation: liveOrganisation,
 			shortDescription: liveShortDescription,
 			longDescription: liveDescription,
 			speakerAbout: liveSpeakerAbout
@@ -88,24 +87,16 @@
 
 	function cancelEdit() {
 		liveType = savedFields.sessionType ?? session.sessionType;
-		liveTime = savedFields.time ?? session.time;
 		liveVenue = savedFields.venue ?? session.venue;
-		liveSpeaker = savedFields.speakerName ?? session.speakerName;
-		liveDesignation = savedFields.designation ?? session.designation;
-		liveOrganisation = savedFields.organisation ?? session.organisation;
 		liveShortDescription = savedFields.shortDescription ?? session.shortDescription ?? '';
 		liveDescription = savedFields.longDescription ?? session.longDescription ?? '';
-		liveSpeakerAbout = savedFields.speakerAbout ?? session.speakerAbout ?? '';
+		liveSpeakerAbout = savedFields.speakerAbout ?? session.speakers?.[0]?.about ?? '';
 		isEditing = false;
 	}
 
 	function handleFieldChange(field: string, value: string) {
 		if (field === 'sessionType') liveType = value;
-		else if (field === 'time') liveTime = value;
 		else if (field === 'venue') liveVenue = value;
-		else if (field === 'speakerName') liveSpeaker = value;
-		else if (field === 'designation') liveDesignation = value;
-		else if (field === 'organisation') liveOrganisation = value;
 	}
 </script>
 
@@ -114,18 +105,13 @@
 	<SessionPanel
 		slug={session.slug}
 		sessionType={liveType}
-		date={session.date}
-		time={liveTime}
-		slot={session.slot}
 		venue={liveVenue}
 		order={session.order}
 		display={session.display}
 		soldOut={session.soldOut}
 		title={session.title}
 		subtitle={session.subtitle}
-		speakerName={liveSpeaker}
-		designation={liveDesignation}
-		organisation={liveOrganisation}
+		speakers={session.speakers}
 		shortDescription={liveShortDescription}
 		longDescription={liveDescription}
 		speakerAbout={liveSpeakerAbout}
@@ -138,7 +124,7 @@
 	/>
 {/if}
 
-<Header banner="curve" />
+<Header banner="curve" {color} />
 
 <Container>
 	<article class="max-w-3xl pt-14 pb-6 md:pt-16">
@@ -192,14 +178,35 @@
 		{/if}
 
 		<!-- Speaker -->
-		<div class="border-viz-grey/10 mt-6 space-y-1 border-t pt-6">
+		<div class="border-viz-grey/10 mt-6 border-t pt-6">
 			<p class="font-display-sans text-viz-{color}-dark text-lg font-semibold">
-				{session.speakerName}
+				{session.speakers
+					?.map((sp) => sp.name)
+					.filter(Boolean)
+					.join(' // ') ?? ''}
 			</p>
 			<p class="text-viz-grey-dark/70 text-base">
-				{session.designation}{#if session.organisation}<span class="mx-1.5 opacity-40">·</span
-					>{session.organisation}{/if}
+				{session.speakers?.[0]?.designation ?? ''}{#if session.speakers?.[0]?.organisation}<span
+						class="mx-1.5 opacity-40">·</span
+					>{session.speakers?.[0]?.organisation}{/if}
 			</p>
+			<!-- Social links -->
+			{#if allSocials.length > 0}
+				<div class="mt-3 flex flex-wrap gap-3">
+					{#each allSocials as [platform, url]}
+						{@const iconPath = `/images/socials/${platform === 'twitter' ? 'twitter' : platform === 'instagram' ? 'instagram' : platform === 'linkedin' ? 'linkedin' : platform === 'bluesky' ? 'bluesky' : platform === 'github' ? 'github' : platform === 'youtube' ? 'youtube' : 'website'}.svg`}
+						<a
+							href={url}
+							target="_blank"
+							rel="noopener noreferrer"
+							aria-label="{platform} profile"
+							class="social-icon social-icon--{color}"
+						>
+							<img src={iconPath} alt={platform} width="20" height="20" />
+						</a>
+					{/each}
+				</div>
+			{/if}
 		</div>
 
 		<!-- Tickets -->
@@ -365,3 +372,32 @@
 		</div>
 	</div>
 </Container>
+
+<style>
+	.social-icon {
+		display: inline-flex;
+		opacity: 0.55;
+		transition:
+			opacity 0.15s,
+			filter 0.15s;
+	}
+	.social-icon:hover {
+		opacity: 1;
+	}
+
+	.social-icon--blue:hover {
+		filter: invert(46%) sepia(60%) saturate(550%) hue-rotate(195deg);
+	}
+	.social-icon--teal:hover {
+		filter: invert(58%) sepia(40%) saturate(500%) hue-rotate(148deg);
+	}
+	.social-icon--pink:hover {
+		filter: invert(45%) sepia(60%) saturate(700%) hue-rotate(302deg);
+	}
+	.social-icon--orange:hover {
+		filter: invert(55%) sepia(75%) saturate(570%) hue-rotate(346deg);
+	}
+	.social-icon--yellow:hover {
+		filter: invert(60%) sepia(70%) saturate(700%) hue-rotate(5deg);
+	}
+</style>

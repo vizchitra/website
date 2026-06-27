@@ -7,12 +7,11 @@
 	import { sessionColorMap } from '$lib/utils/sessions';
 	import { themeTokens, colorTokens } from '$lib/tokens';
 	import { buildSpeakerImageTransform } from './speakerConfig.js';
+	import type { Speaker } from '$lib/utils/sessions';
 
 	interface Props {
 		title: string;
-		speakerName?: string;
-		designation?: string;
-		organisation?: string;
+		speakers?: Speaker[];
 		sessionType: string;
 		subtitle?: string;
 		date?: string;
@@ -20,9 +19,6 @@
 		slot?: string;
 		venue?: string;
 		slug?: string;
-		speakerImage?: string;
-		speaker2Name?: string;
-		speaker2Image?: string;
 		tbd?: boolean;
 		soldOut?: boolean;
 		sponsored?: boolean;
@@ -34,9 +30,7 @@
 
 	let {
 		title,
-		speakerName,
-		designation,
-		organisation,
+		speakers = [],
 		sessionType,
 		subtitle,
 		date,
@@ -44,9 +38,6 @@
 		slot,
 		venue,
 		slug,
-		speakerImage,
-		speaker2Name,
-		speaker2Image,
 		tbd = false,
 		soldOut = false,
 		sponsored = false,
@@ -57,12 +48,20 @@
 	}: Props = $props();
 
 	const effectiveSpeakerName = $derived(
-		speaker2Name ? `${speakerName ?? ''} // ${speaker2Name}` : (speakerName ?? '')
+		speakers
+			.map((sp) => sp.name)
+			.filter(Boolean)
+			.join(' // ')
 	);
 	const effectiveSpeakerImage = $derived(
-		speaker2Image ? `${speakerImage ?? ''} // ${speaker2Image}` : (speakerImage ?? '')
+		speakers
+			.map((sp) => sp.image)
+			.filter(Boolean)
+			.join(' // ')
 	);
-	const isDual = $derived(effectiveSpeakerName.includes('//'));
+	const designation = $derived(speakers[0]?.designation ?? '');
+	const organisation = $derived(speakers[0]?.organisation ?? '');
+	const isDual = $derived(speakers.length > 1);
 
 	const textLayouts: Record<
 		string,
@@ -599,13 +598,17 @@
 						{:else}
 							<div
 								class="speaker-image pointer-events-none absolute right-5 bottom-0 origin-center transition-transform duration-300 group-hover:scale-104 group-hover:rotate-1"
-								style:transform={buildSpeakerImageTransform(speakerName, screenWidth, sessionType)}
+								style:transform={buildSpeakerImageTransform(
+									effectiveSpeakerName,
+									screenWidth,
+									sessionType
+								)}
 							>
 								<img
 									class="relative z-10 h-auto w-full"
 									style="filter: drop-shadow(0px 8px 16px {shadowColor}cc)"
 									src="/images/speakers/2026/speaker-placeholder.avif"
-									alt={speakerName ?? ''}
+									alt={effectiveSpeakerName ?? ''}
 								/>
 							</div>
 						{/each}

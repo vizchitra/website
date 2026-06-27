@@ -1,14 +1,146 @@
-# Conference Day schedule for 4 July 2026
-# Generated from 'Lineup _ VizChitra 2026.xlsx' → sheet
-# '4th July - Conference Day'. Hand-edit as needed.
+# VizChitra 2026 — full two-day schedule
+# Workshops Day (3 Jul) first, Conference Day (4 Jul) second.
+# Each [[day]] block owns its [[day.slot]] entries.
 
+# ── Workshops Day ──────────────────────────────────────────────────────────────
+
+[[day]]
+day = "2026-07-03"
+name = "Workshops"
+tracks = ["Underline - FLR 2", "Underline - FLR 3", "BIC - BOARD ROOM", "BIC - LIBRARY", "Gallery"]
+galleryStart = "15:00"
+galleryEnd = "20:00"
+
+# --- Registration (one per room → renders as a single spanning row) ---
+[[day.slot]]
+track = "Underline - FLR 2"
+start = "09:30"
+end = "10:00"
+type = "ENTRY"
+label = "Registration"
+
+[[day.slot]]
+track = "Underline - FLR 3"
+start = "09:30"
+end = "10:00"
+type = "ENTRY"
+label = "Registration"
+
+[[day.slot]]
+track = "BIC - BOARD ROOM"
+start = "09:30"
+end = "10:00"
+type = "ENTRY"
+label = "Registration"
+
+[[day.slot]]
+track = "BIC - LIBRARY"
+start = "09:30"
+end = "10:00"
+type = "ENTRY"
+label = "Registration"
+
+# --- Afternoon registration ---
+[[day.slot]]
+track = "Underline - FLR 2"
+start = "14:00"
+end = "14:30"
+type = "ENTRY"
+label = "Registration"
+
+[[day.slot]]
+track = "Underline - FLR 3"
+start = "14:00"
+end = "14:30"
+type = "ENTRY"
+label = "Registration"
+
+[[day.slot]]
+track = "BIC - BOARD ROOM"
+start = "14:00"
+end = "14:30"
+type = "ENTRY"
+label = "Registration"
+
+[[day.slot]]
+track = "BIC - LIBRARY"
+start = "14:00"
+end = "14:30"
+type = "ENTRY"
+label = "Registration"
+
+# --- Underline Center, FLOOR 2 ---
+[[day.slot]]
+track = "Underline - FLR 2"
+start = "10:00"
+end = "13:00"
+session = "observe-collect-map"
+
+[[day.slot]]
+track = "Underline - FLR 2"
+start = "14:30"
+end = "17:30"
+session = "from-tables-to-maps"
+
+# --- Underline Center, FLOOR 3 ---
+[[day.slot]]
+track = "Underline - FLR 3"
+start = "10:00"
+end = "13:00"
+session = "draw-with-data"
+
+[[day.slot]]
+track = "Underline - FLR 3"
+start = "14:30"
+end = "17:30"
+session = "agentic-dataviz"
+
+# --- Bangalore International Centre, LIBRARY ---
+[[day.slot]]
+track = "BIC - LIBRARY"
+start = "10:00"
+end = "13:00"
+session = "interactive-dataviz-using-ai-coding"
+
+[[day.slot]]
+track = "BIC - LIBRARY"
+start = "14:30"
+end = "17:30"
+session = "data-rough"
+
+# --- Bangalore International Centre, BOARD ROOM ---
+[[day.slot]]
+track = "BIC - BOARD ROOM"
+start = "10:00"
+end = "13:00"
+session = "designing-data-stories-for-small-screens"
+
+[[day.slot]]
+track = "BIC - BOARD ROOM"
+start = "14:30"
+end = "17:30"
+session = "a-dataviz-crash-course"
+
+# --- Bangalore International Centre, BOARD ROOM SPONSORED ---
+[[day.slot]]
+track = "BIC - BOARD ROOM"
+type = "SPONSORED"
+start = "18:30"
+end = "20:30"
+description = "SPONSORED | INVITE ONLY"
+session = "public-data-roundtable"
+
+# ── Conference Day ─────────────────────────────────────────────────────────────
+
+[[day]]
 day = "2026-07-04"
 name = "Conference"
 tracks = ["Auditorium", "Hall", "Library", "Boardroom", "Gallery"]
 galleryStart = "10:00"
 galleryEnd = "17:30"
 
-[[slot]]
+# --- Auditorium ---
+[[day.slot]]
 track = "Auditorium"
 start = "08:30"
 end = "09:30"
@@ -16,7 +148,7 @@ type = "ENTRY"
 label = "REGISTRATIONS"
 description = "Scan your QR code and grab your goodie bag at the entrance booth"
 
-[[slot]]
+[[day.slot]]
 track = "Auditorium"
 start = "09:30"
 end = "09:45"
@@ -24,7 +156,7 @@ type = "ACTIVITIES"
 label = "Morning Melody"
 session = "morning-melody"
 
-[[slot]]
+[[day.slot]]
 track = "Auditorium"
 start = "09:45"
 end = "10:00"
@@ -32,21 +164,21 @@ type = "ADDRESS"
 label = "This is VizChitra"
 speakerLabel = "Gurman Bhatia"
 
-[[slot]]
+[[day.slot]]
 track = "Auditorium"
 start = "10:00"
 end = "10:30"
 type = "STANDARD"
 session = "timely-timeless-stories"
 
-[[slot]]
+[[day.slot]]
 track = "Auditorium"
 start = "10:30"
 end = "10:45"
 type = "LIGHTNING"
 session = "majestic-map-redesign"
 
-[[slot]]
+[[day.slot]]
 track = "Auditorium"
 start = "10:45"
 end = "11:15"
@@ -54,28 +186,28 @@ type = "BREAK"
 label = "TEA BREAK"
 description = "Grab tea on the first floor and stretch your legs. While you're up, there's plenty to explore: the **sponsor stalls**, the **community art pop-up**, the **book stall**, and the **participatory visualisations**. Don't miss the **book signing by Rohit Saran and Rukmini S** in the Foyer on the first floor."
 
-[[slot]]
+[[day.slot]]
 track = "Auditorium"
 start = "11:15"
 end = "11:45"
 type = "STANDARD"
 session = "esankhyiki-viz-scale"
 
-[[slot]]
+[[day.slot]]
 track = "Auditorium"
 start = "11:45"
 end = "12:00"
 type = "LIGHTNING"
 session = "whats-in-your-bag"
 
-[[slot]]
+[[day.slot]]
 track = "Auditorium"
 start = "12:00"
 end = "12:30"
 type = "STANDARD"
 session = "dashboards-of-our-discontent"
 
-[[slot]]
+[[day.slot]]
 track = "Auditorium"
 start = "12:30"
 end = "14:00"
@@ -83,7 +215,7 @@ type = "BREAK"
 label = "LUNCH @ TERRACE"
 description = "**Come to the terrace for the group photo**, then grab a bowl and mingle. If you finish your meal early, you can also peek into the **Data, Otherwise** exhibition."
 
-[[slot]]
+[[day.slot]]
 track = "Auditorium"
 start = "14:00"
 end = "14:15"
@@ -91,28 +223,28 @@ type = "ACTIVITIES"
 label = "Afternoon Rhythm"
 speakerLabel = "Ashok Kumar"
 
-[[slot]]
+[[day.slot]]
 track = "Auditorium"
 start = "14:15"
 end = "14:30"
 type = "LIGHTNING"
 session = "kuch-kuch-data-hai"
 
-[[slot]]
+[[day.slot]]
 track = "Auditorium"
 start = "14:30"
 end = "14:45"
 type = "LIGHTNING"
 session = "atlas-of-intangibles"
 
-[[slot]]
+[[day.slot]]
 track = "Auditorium"
 start = "14:45"
 end = "15:15"
 type = "STANDARD"
 session = "data-viz-drift"
 
-[[slot]]
+[[day.slot]]
 track = "Auditorium"
 start = "15:15"
 end = "15:45"
@@ -120,28 +252,28 @@ type = "BREAK"
 label = "TEA BREAK"
 description = "Grab tea on the first floor, and make time for the **sponsor stalls**, the **community art pop-up**, the **book stall**, and the **participatory visualisations** before the closing sessions."
 
-[[slot]]
+[[day.slot]]
 track = "Auditorium"
 start = "15:45"
 end = "16:00"
 type = "LIGHTNING"
 session = "shape-health-costs"
 
-[[slot]]
+[[day.slot]]
 track = "Auditorium"
 start = "16:00"
 end = "16:30"
 type = "STANDARD"
 session = "caption-this"
 
-[[slot]]
+[[day.slot]]
 track = "Auditorium"
 start = "16:30"
 end = "17:15"
 type = "KEYNOTE"
 session = "infinite-design-space"
 
-[[slot]]
+[[day.slot]]
 track = "Auditorium"
 start = "17:15"
 end = "17:30"
@@ -149,7 +281,7 @@ type = "ADDRESS"
 label = "Data. Seen Differently."
 speakerLabel = "Amit Kapoor"
 
-[[slot]]
+[[day.slot]]
 track = "Auditorium"
 start = "17:30"
 end = "18:30"
@@ -157,151 +289,153 @@ type = "BREAK"
 label = "NETWORKING @ TERRACE"
 description = "Wind down and connect with the community before you head out. Chat about what you most resonated with."
 
-[[slot]]
+# --- Hall ---
+[[day.slot]]
 track = "Hall"
 start = "08:30"
 end = "09:30"
 type = "ENTRY"
 label = "REGISTRATIONS"
 
-[[slot]]
+[[day.slot]]
 track = "Hall"
 start = "9:30"
 end = "10:45"
 type = "OTHER"
 label = "Auditorium Live Stream"
 
-[[slot]]
+[[day.slot]]
 track = "Hall"
 start = "10:45"
 end = "11:15"
 type = "BREAK"
 label = "TEA BREAK"
 
-[[slot]]
+[[day.slot]]
 track = "Hall"
 start = "11:15"
 end = "11:45"
 type = "STANDARD"
 session = "dashboards-life-and-death"
 
-[[slot]]
+[[day.slot]]
 track = "Hall"
 start = "11:45"
 end = "12:00"
 type = "LIGHTNING"
 session = "viz-speed-trust"
 
-[[slot]]
+[[day.slot]]
 track = "Hall"
 start = "12:00"
 end = "12:15"
 type = "LIGHTNING"
 session = "viz-rural-care"
 
-[[slot]]
+[[day.slot]]
 track = "Hall"
 start = "12:30"
 end = "14:00"
 type = "BREAK"
 label = "LUNCH @ TERRACE"
 
-[[slot]]
+[[day.slot]]
 track = "Hall"
 start = "14:00"
 end = "14:30"
 type = "STANDARD"
 session = "bite-sized-views"
 
-[[slot]]
+[[day.slot]]
 track = "Hall"
 start = "14:30"
 end = "14:45"
 type = "LIGHTNING"
 session = "no-clean-maps"
 
-[[slot]]
+[[day.slot]]
 track = "Hall"
 start = "14:45"
 end = "15:15"
 type = "STANDARD"
 session = "sand-data-wicked-problems"
 
-[[slot]]
+[[day.slot]]
 track = "Hall"
 start = "15:15"
 end = "15:45"
 type = "BREAK"
 label = "TEA BREAK"
 
-[[slot]]
+[[day.slot]]
 track = "Hall"
 start = "15:45"
 end = "16:30"
 type = "PANEL"
 session = "so-you-want-to-work-with-data"
 
-[[slot]]
+[[day.slot]]
 track = "Hall"
 start = "16:30"
 end = "17:30"
 type = "OTHER"
 label = "Auditorium Live Stream"
 
-[[slot]]
+[[day.slot]]
 track = "Hall"
 start = "17:30"
 end = "18:30"
 type = "BREAK"
 label = "NETWORKING @ TERRACE"
 
-[[slot]]
+# --- Library ---
+[[day.slot]]
 track = "Library"
 start = "08:30"
 end = "09:30"
 type = "ENTRY"
 label = "REGISTRATIONS"
 
-[[slot]]
+[[day.slot]]
 track = "Library"
 start = "10:00"
 end = "10:45"
 session = "curators-dilemma"
 
-[[slot]]
+[[day.slot]]
 track = "Library"
 start = "10:45"
 end = "11:15"
 type = "BREAK"
 label = "TEA BREAK"
 
-[[slot]]
+[[day.slot]]
 track = "Library"
 start = "11:15"
 end = "12:00"
 session = "charts-untold-stories"
 
-[[slot]]
+[[day.slot]]
 track = "Library"
 start = "12:30"
 end = "14:00"
 type = "BREAK"
 label = "LUNCH @ TERRACE"
 
-[[slot]]
+[[day.slot]]
 track = "Library"
 start = "14:00"
 end = "14:45"
 session = "chart-crimes-autopsy"
 
-[[slot]]
+[[day.slot]]
 track = "Library"
 start = "15:15"
 end = "15:45"
 type = "BREAK"
 label = "TEA BREAK"
 
-[[slot]]
+[[day.slot]]
 track = "Library"
 start = "15:45"
 end = "16:30"
@@ -309,61 +443,62 @@ type = "ACTIVITIES"
 label = "Decode the Chart Game"
 session = "decode-chart-game"
 
-[[slot]]
+[[day.slot]]
 track = "Library"
 start = "17:30"
 end = "18:30"
 type = "BREAK"
 label = "NETWORKING @ TERRACE"
 
-[[slot]]
+# --- Boardroom ---
+[[day.slot]]
 track = "Boardroom"
 start = "08:30"
 end = "09:30"
 type = "ENTRY"
 label = "REGISTRATIONS"
 
-[[slot]]
+[[day.slot]]
 track = "Boardroom"
 start = "10:45"
 end = "11:15"
 type = "BREAK"
 label = "TEA BREAK"
 
-[[slot]]
+[[day.slot]]
 track = "Boardroom"
 start = "11:45"
 end = "12:30"
 type = "SPONSORED"
-label = "The Cities We Don’t See"
+label = "The Cities We Don't See"
 # speakerLabel = "Shobana Venkatasubbu, Tushar Chakrabarty"
-description ="SPONSORED | City Finance"
+description = "SPONSORED | City Finance"
 session = "cities-we-dont-see"
 
-[[slot]]
+[[day.slot]]
 track = "Boardroom"
 start = "12:30"
 end = "14:00"
 type = "BREAK"
 label = "LUNCH @ TERRACE"
 
-[[slot]]
+[[day.slot]]
 track = "Boardroom"
 start = "14:15"
 end = "15:00"
 type = "SPONSORED"
 label = "Thurro's Data Playground"
-description ="SPONSORED | Thurro"
+description = "SPONSORED | Thurro"
 session = "data-playground"
 
-[[slot]]
+[[day.slot]]
 track = "Boardroom"
 start = "15:15"
 end = "15:45"
 type = "BREAK"
 label = "TEA BREAK"
 
-[[slot]]
+[[day.slot]]
 track = "Boardroom"
 start = "17:30"
 end = "18:30"
