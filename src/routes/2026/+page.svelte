@@ -397,9 +397,9 @@
 				<span class="hero-btn-icon">🎟️</span>
 				<span class="hero-btn-text">Get Tickets →</span>
 			</a>
-			<a href="/2026/sessions" class="hero-btn hero-btn-blue">
-				<span class="hero-btn-icon">🎤</span>
-				<span class="hero-btn-text">See all Sessions →</span>
+			<a href="/2026/schedule" class="hero-btn hero-btn-blue">
+				<span class="hero-btn-icon">🗓️</span>
+				<span class="hero-btn-text">See the Schedule →</span>
 			</a>
 		</div>
 

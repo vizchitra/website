@@ -1,0 +1,760 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//VizChitra//Conference Day 2026//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:VizChitra 2026 — Conference Day
+X-WR-TIMEZONE:Asia/Kolkata
+BEGIN:VTIMEZONE
+TZID:Asia/Kolkata
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZOFFSETFROM:+0530
+TZOFFSETTO:+0530
+TZNAME:IST
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:registrations-0830@vizchitra.com
+DTSTAMP:20260627T000000Z
+DTSTART;TZID=Asia/Kolkata:20260704T083000
+DTEND;TZID=Asia/Kolkata:20260704T093000
+SUMMARY:REGISTRATIONS
+DESCRIPTION:Scan your QR code and grab your goodie bag at the entrance boot
+ h
+LOCATION:Auditorium
+END:VEVENT
+BEGIN:VEVENT
+UID:morning-melody-0930@vizchitra.com
+DTSTAMP:20260627T000000Z
+DTSTART;TZID=Asia/Kolkata:20260704T093000
+DTEND;TZID=Asia/Kolkata:20260704T094500
+SUMMARY:Morning Melody
+DESCRIPTION:Nikita Deshpande
+LOCATION:Auditorium
+END:VEVENT
+BEGIN:VEVENT
+UID:this-is-vizchitra-0945@vizchitra.com
+DTSTAMP:20260627T000000Z
+DTSTART;TZID=Asia/Kolkata:20260704T094500
+DTEND;TZID=Asia/Kolkata:20260704T100000
+SUMMARY:This is VizChitra
+DESCRIPTION:Gurman Bhatia
+LOCATION:Auditorium
+END:VEVENT
+BEGIN:VEVENT
+UID:timely-timeless-stories-1000@vizchitra.com
+DTSTAMP:20260627T000000Z
+DTSTART;TZID=Asia/Kolkata:20260704T100000
+DTEND;TZID=Asia/Kolkata:20260704T103000
+SUMMARY:Telling Timely & Timeless Stories with Data
+DESCRIPTION:Rohit Saran — Managing Editor\, The Times of India\n\nEvery I
+ ndian can fit in Kerala if we all lived as densely as northeast Delhi. Fif
+ ty-six mother tongues are officially classified as Hindi. Almost nobody in
+  India is unemployed after the age of 29.\n\nThese are not the facts that 
+ make headlines. They are the facts that make you stop and think differentl
+ y about the country you live in.\n\n100 Ways to See India started the way 
+ most good journalism does: out of professional need\, occasional curiosity
+ \, and a stubborn refusal to let interesting numbers stay buried in PDFs. 
+ Over years of hunting elusive data across India's sprawling statistical ju
+ ngle\, Rohit Saran and Sajeev Kumarapuram found themselves sitting on some
+ thing bigger than a series of stories. They found a portrait.\n\nThis talk
+  traces the making of that portrait. What it took to turn India's bewilder
+ ing diversity into accessible visuals. Which questions led somewhere surpr
+ ising and which promising threads dissolved into data gaps. How you decide
+ \, from a country that could fill a thousand books\, which hundred ways ar
+ e worth seeing.\n\nUnderneath the book journey is a longer conversation ab
+ out the craft of data storytelling: what makes a story timely\, what makes
+  it timeless\, and what it takes to tell the difference before you start b
+ uilding the chart.
+LOCATION:Auditorium
+END:VEVENT
+BEGIN:VEVENT
+UID:majestic-map-redesign-1030@vizchitra.com
+DTSTAMP:20260627T000000Z
+DTSTART;TZID=Asia/Kolkata:20260704T103000
+DTEND;TZID=Asia/Kolkata:20260704T104500
+SUMMARY:A Majestic Map Redesign: Data\, Design & Government
+DESCRIPTION:Shubhra Agarwal — Creative Lead\, Bengawalk\n\nMajestic is th
+ e heart of Bengaluru's transit system. Over 3 lakh people pass through it 
+ every day\, navigating 300+ bus routes\, 36 platforms\, a railway station\
+ , and now a metro interchange. For twenty years\, the maps guiding them ha
+ d not changed.\n\nShubhra worked with BMTC\, WRI India\, and Villgro at Be
+ ngawalk to change that. This talk traces the full process behind the redes
+ ign: from user research and site analysis to categorising public data\, bu
+ ilding a design system\, gathering feedback across multiple iterations\, a
+ nd finally implementing it on-site.\n\nBefore any of that could happen\, 1
+ 50+ routes had to be made skimmable in seconds. Relationships between plat
+ forms and their directions across the city had to be made visible for the 
+ first time. And the people who actually use the station\, not designers\, 
+ not planners\, had to be the starting point.\n\nThe talk also covers the p
+ art that rarely gets discussed: working with government. Getting civic bod
+ ies to see the value of user-centric design\, to invest in a pilot\, and t
+ o trust that good wayfinding is worth the effort. The argument is simple b
+ ut not easy to make: cities that work for people start with design that st
+ arts with people. And that can begin with one map at one station.
+LOCATION:Auditorium
+END:VEVENT
+BEGIN:VEVENT
+UID:tea-break-1045@vizchitra.com
+DTSTAMP:20260627T000000Z
+DTSTART;TZID=Asia/Kolkata:20260704T104500
+DTEND;TZID=Asia/Kolkata:20260704T111500
+SUMMARY:TEA BREAK
+DESCRIPTION:Grab a chai and stretch your legs - sessions resume at 11:15. C
+ heck out the **book signing by Rohit Saran and Rukmini S** in the Foyer on
+  the first floor.
+LOCATION:Auditorium
+END:VEVENT
+BEGIN:VEVENT
+UID:esankhyiki-viz-scale-1115@vizchitra.com
+DTSTAMP:20260627T000000Z
+DTSTART;TZID=Asia/Kolkata:20260704T111500
+DTEND;TZID=Asia/Kolkata:20260704T114500
+SUMMARY:eSankhyiki: Visualization at Scale
+DESCRIPTION:Rohit Bhardwaj — Addl. Director General\, MoSPI\n\nIndia's of
+ ficial statistical system produces an enormous volume of data across hundr
+ eds of ministries and departments. Most of it has been difficult to find\,
+  harder to compare\, and nearly impossible to use without specialist knowl
+ edge.\n\neSankhyiki is MoSPI's attempt to change that. A unified digital p
+ latform bringing together over 700 datasets and 136 million records into a
+  single accessible interface. It is built on a core premise: visualization
+  is not a presentation layer added at the end. It is part of the data life
+ cycle itself\, from discovery and validation through to interpretation and
+  policy action.\n\nThis talk walks through the design\, development\, and 
+ deployment of the portal. Rohit covers how user research shaped the visual
+ ization choices\, how thematic dashboards and interactive filtering tools 
+ help users move from broad questions to specific insights\, and how metada
+ ta-driven interfaces make complex socio-economic data navigable for audien
+ ces ranging from policymakers and researchers to journalists and citizens.
+ \n\nYou will hear about the constraints that shape visualization in govern
+ ment and public sector environments: scale\, data sensitivity\, accessibil
+ ity standards\, and the need for long-term sustainability. And you will he
+ ar how those constraints were balanced against clarity\, transparency\, an
+ d trust\, values that the team treated as non-negotiable.\n\nThe talk also
+  touches on AI-enabled semantic search and how it complements visualizatio
+ n by improving data discovery before a user even reaches a chart.\n\nFor a
+ nyone building visualization systems at scale\, or trying to make public d
+ ata genuinely useful to the people it describes\, this is a rare inside ac
+ count of what that work actually involves.
+LOCATION:Auditorium
+END:VEVENT
+BEGIN:VEVENT
+UID:whats-in-your-bag-1145@vizchitra.com
+DTSTAMP:20260627T000000Z
+DTSTART;TZID=Asia/Kolkata:20260704T114500
+DTEND;TZID=Asia/Kolkata:20260704T120000
+SUMMARY:What's in Your Bag? Really!
+DESCRIPTION:Sneha Kaul — Statistics Analyst\, UN Women Asia-Pacific\n\nDa
+ ta only gains value when it is used. That sounds obvious. In practice\, it
+  almost never happens by default.\n\nNational Statistical Offices across A
+ sia and the Pacific produce enormous volumes of data. The assumption is th
+ at dissemination leads to uptake\, and uptake leads to impact. Sneha's wor
+ k has shown that this chain breaks down almost immediately\, long before d
+ ata reaches a policy decision.\n\nTo understand why\, she asks government 
+ officials a simple question: what's in your bag? Participants pull out cur
+ rency notes\, house keys\, umbrellas\, whatever they happen to be carrying
+ \, and use those objects to construct data stories. The exercise is delibe
+ rately low-stakes and physical. It reveals something fundamental: data doe
+ s not communicate itself. Meaning is built by the people in the system\, s
+ haped by context\, institutional culture\, and whether anyone ever made ev
+ idence feel accessible in the first place.\n\nThis talk draws on that work
+  to explore what it actually takes to shift institutional appetite for evi
+ dence. Not better dashboards or longer reports\, but a different understan
+ ding of how meaning travels through a system and who is responsible for ca
+ rrying it.\n\nYou will leave with a clearer picture of how national statis
+ tical systems operate\, where the chain from data production to policy act
+ ion breaks down\, and what practitioners\, journalists\, researchers\, and
+  community advocates can do to strengthen it.
+LOCATION:Auditorium
+END:VEVENT
+BEGIN:VEVENT
+UID:dashboards-of-our-discontent-1200@vizchitra.com
+DTSTAMP:20260627T000000Z
+DTSTART;TZID=Asia/Kolkata:20260704T120000
+DTEND;TZID=Asia/Kolkata:20260704T123000
+SUMMARY:Dashboards of our Discontent
+DESCRIPTION:Aman Bhargava — Developer\, Diagram Chasing\n\nThe tooling ha
+ s never been better. Drag-and-drop builders\, low-code platforms\, LLMs\, 
+ chart libraries\, templates for every use case. Government departments\, N
+ GOs\, and civic tech projects are all shipping public data dashboards now.
+  On the surface\, this looks like progress.\n\nAman thinks most of it is t
+ he wrong kind of progress.\n\nThe problem is not technical skill or bad in
+ tentions. It is inherited assumptions: ideas about what a dashboard should
+  be\, absorbed from enterprise BI tools and never questioned for public co
+ ntexts. The Big Ass Number. The Donut. The Bars. The download button. The 
+ assumption that if the data is visible\, it is accessible.\n\nMost public 
+ dashboards get built\, launched\, maybe written about\, and then sit there
+  waiting for the next person to come along and build the same thing again.
+  They look helpful. Put them through their paces and the complexity turns 
+ out to be shallow.\n\nThis talk is about the gap between the dashboards we
+  keep building and the public data infrastructure we actually need. Drawin
+ g on experiments at Diagram Chasing and a survey of interfaces from nation
+ al portals to scrappy civic tech projects\, Aman walks through a critique 
+ of the current landscape\, the design assumptions worth questioning specif
+ ically for public contexts\, and the technical possibilities that are not 
+ being used nearly enough.\n\nThe FOSS ecosystem is better than ever. DuckD
+ B WASM\, PMTiles\, MapLibre\, parquets in the browser\, webR. What would i
+ t look like to build public dashboards that cost nothing to host and outpe
+ rform enterprise tools? What are the small but consequential decisions tha
+ t shape whether a data interface actually serves the people it is built fo
+ r?
+LOCATION:Auditorium
+END:VEVENT
+BEGIN:VEVENT
+UID:lunch-1230@vizchitra.com
+DTSTAMP:20260627T000000Z
+DTSTART;TZID=Asia/Kolkata:20260704T123000
+DTEND;TZID=Asia/Kolkata:20260704T140000
+SUMMARY:LUNCH
+DESCRIPTION:Head to the terrace to grab a plate and mingle with fellow data
+  enthusiasts
+LOCATION:Terrace
+END:VEVENT
+BEGIN:VEVENT
+UID:afternoon-rhythm-1400@vizchitra.com
+DTSTAMP:20260627T000000Z
+DTSTART;TZID=Asia/Kolkata:20260704T140000
+DTEND;TZID=Asia/Kolkata:20260704T141500
+SUMMARY:Afternoon Rhythm
+DESCRIPTION:Ashok Kumar
+LOCATION:Auditorium
+END:VEVENT
+BEGIN:VEVENT
+UID:kuch-kuch-data-hai-1415@vizchitra.com
+DTSTAMP:20260627T000000Z
+DTSTART;TZID=Asia/Kolkata:20260704T141500
+DTEND;TZID=Asia/Kolkata:20260704T143000
+SUMMARY:Kuch Kuch Data Hai: Bollywood\, Visualised
+DESCRIPTION:Surbhi Bhatia — Independent Data Journalist\n\nEveryone has o
+ pinions about Bollywood. Movies are getting longer. Actresses have a shelf
+  life. Everything is a remake. Audiences don't go to theatres anymore.\n\n
+ Surbhi spent the last few years asking what happens when you stop repeatin
+ g the chatter and start plotting it.\n\nWhat followed is a series of visua
+ l stories about the economics of movie-making in Bollywood: the risk-rewar
+ d dynamics of production and distribution\, on and off-screen representati
+ on\, box office patterns\, and how audience tastes have shifted over decad
+ es. Each project starts with the long data trail a film leaves behind afte
+ r the opening-weekend noise fades\, and ends with a chart that says someth
+ ing the gossip never quite could.\n\nThis lightning talk walks through tho
+ se projects and the process behind them. Using her own work and the visual
+ izations that inspired it\, Surbhi shows how pop culture we already obsess
+  over can be a rich and surprisingly rigorous ground for visual exploratio
+ n.\n\nYou will leave with a fresh way of looking at Bollywood\, and hopefu
+ lly\, a few ideas for the data trails hiding in the culture you care about
+  most.
+LOCATION:Auditorium
+END:VEVENT
+BEGIN:VEVENT
+UID:atlas-of-intangibles-1430@vizchitra.com
+DTSTAMP:20260627T000000Z
+DTSTART;TZID=Asia/Kolkata:20260704T143000
+DTEND;TZID=Asia/Kolkata:20260704T144500
+SUMMARY:Atlas of Intangibles
+DESCRIPTION:Priti Pandurangan — Information Experience Designer\n\nWe kno
+ w a place through our senses before we know it through any map. The waft o
+ f petrichor after rain. Bird songs in the background. The sound of traffic
+ \, the rhythm of footfalls\, the marks left on walls by time and human act
+ ivity. These fleeting encounters are the actual fabric of a place\, and tr
+ aditional cartography has no vocabulary for any of them.\n\nAtlas of Intan
+ gibles is Priti's attempt to build that vocabulary.\n\nThe project begins 
+ on foot. Using score-based data walks\, Priti collects sensory data throug
+ h two lenses: Witness Marks\, observations of wear\, weathering\, and the 
+ signs cities accumulate over time\, and Sonic Shifts\, the dynamic\, layer
+ ed soundscape of urban life. Each data point is rich in context\, pairing 
+ field notes and sketches with photography\, audio recordings\, and video.\
+ nThe digital experience built from this data invites viewers to choose the
+ mes and explore the collected observations as three distinct views: journe
+ ys through the walk\, connections between related data points\, and typolo
+ gies across the gathered material. The work asks what it looks like to pre
+ serve ambiguity and affect in a data experience rather than resolve them i
+ nto a clean layer on a map.\n\nTo extend the experience into the physical\
+ , Priti built a tangible interface: a set of cards\, each embodying a spec
+ ific recollection\, that navigate the viewer to its associated data and co
+ nnections when tapped on a reader. A keepsake box\, not a database.\n\nThi
+ s talk walks through the full process behind the work\, examining alternat
+ e forms of data collection\, the iterative design decisions\, and the thin
+ king behind data experiences that encourage a deeper connection with the p
+ laces we inhabit.
+LOCATION:Auditorium
+END:VEVENT
+BEGIN:VEVENT
+UID:data-viz-drift-1445@vizchitra.com
+DTSTAMP:20260627T000000Z
+DTSTART;TZID=Asia/Kolkata:20260704T144500
+DTEND;TZID=Asia/Kolkata:20260704T151500
+SUMMARY:The Data Viz Drift: What Nobody Tells You
+DESCRIPTION:Sandeep Karmarkar — Head of Design\, Atlassian\n\nHere is som
+ ething the data visualization community rarely says out loud: most data vi
+ z practitioners don't end up doing data viz. They drift into UX. Not becau
+ se they failed\, but because that is how most product organisations are st
+ ructured\, and because the skills transfer well enough that the drift feel
+ s natural until you look back and notice what got left behind.\n\nSandeep 
+ has spent years hiring\, mentoring\, and working with designers across exp
+ erience levels. This talk is the honest conversation he keeps having with 
+ early-career practitioners who are trying to figure out where data visuali
+ zation actually fits in the real world.\n\nThe first part is a reality che
+ ck. Why does the drift happen? What does the career landscape actually loo
+ k like\, versus how it is described in job postings and course syllabuses?
+  Is data visualization a destination role or a gateway skill in most produ
+ ct organisations?\n\nThe second part is about what compounds. Curiosity\, 
+ fast domain learning\, comfort with ambiguity\, the ability to frame data 
+ in context: these are the skills that travel well across the drift and gro
+ w more valuable over time. Tool mastery is not on that list.\n\nThe third 
+ part looks forward. As AI automates chart selection\, visualization genera
+ tion\, and interaction patterns\, the traditional data viz skill set is be
+ ing commoditised. Knowing which chart to use will matter less than knowing
+  why it works\, when it fails\, and how to shape meaning\, narrative\, and
+  clarity. The practitioners who differentiate themselves will do so throug
+ h taste and judgment\, not through tool fluency.\n\nThe talk closes with a
+  call to leaders and organisations to think harder about what they are act
+ ually asking data visualization designers to do\, and whether they are cre
+ ating the conditions for that work to matter.
+LOCATION:Auditorium
+END:VEVENT
+BEGIN:VEVENT
+UID:tea-break-1515@vizchitra.com
+DTSTAMP:20260627T000000Z
+DTSTART;TZID=Asia/Kolkata:20260704T151500
+DTEND;TZID=Asia/Kolkata:20260704T154500
+SUMMARY:TEA BREAK
+DESCRIPTION:Last break of the day - grab a snack before the closing session
+ s
+LOCATION:Auditorium
+END:VEVENT
+BEGIN:VEVENT
+UID:shape-health-costs-1545@vizchitra.com
+DTSTAMP:20260627T000000Z
+DTSTART;TZID=Asia/Kolkata:20260704T154500
+DTEND;TZID=Asia/Kolkata:20260704T160000
+SUMMARY:The Shape of Health Costs
+DESCRIPTION:Saurabh Arora — Chief Technology Officer\, Plum\n\nEvery char
+ t simplifies. The question is whether the simplification serves the reader
+  or obscures what they most need to know.\n\nHealthcare data in India is a
+  black box. The cost of chronic disease is buried in claims forms and scie
+ ntific reports most people will never read. And even when data is availabl
+ e\, the language tends to be cold\, clinical\, and shot through with fear 
+ mongering that makes people look away rather than engage.\n\nPlum processe
+ s over 125\,000 health insurance claims\, 100\,000 tele health consultatio
+ ns\, and 25\,000 health checkups every year. That is a lot of data. DataLa
+ bs is their attempt to turn that into something the people it is actually 
+ about can use.\n\nThis talk is about the craft behind that work. Saurabh w
+ ill walk through the full editorial and design process: how they decide wh
+ ich stories to tell from a dataset full of possibilities\, which chart typ
+ es carry complexity without overwhelming\, and where a simple table does t
+ he job better than any visualization.\n\nYou will hear why they chose hori
+ zon charts over bar charts\, why violin charts work for length-of-stay dat
+ a\, and what interactive elements help readers who have never encountered 
+ certain chart types before. You will also hear about the quieter decisions
+ : qualitative research to catch narrative bias before it reaches the reade
+ r\, privacy guardrails when working with real patient data\, and the edito
+ rial calls about which data points to cut because they would overwhelm rat
+ her than illuminate.\n\nDataLabs is not a dashboard. It is an editorial in
+ itiative built on the belief that health data should serve the people it d
+ escribes. The craft is in making complexity feel human rather than intimid
+ ating.
+LOCATION:Auditorium
+END:VEVENT
+BEGIN:VEVENT
+UID:caption-this-1600@vizchitra.com
+DTSTAMP:20260627T000000Z
+DTSTART;TZID=Asia/Kolkata:20260704T160000
+DTEND;TZID=Asia/Kolkata:20260704T163000
+SUMMARY:Caption This: Teaching Machines to Narrate Charts
+DESCRIPTION:Jaidev Deshpande — Senior Software Engineer\, Aftershoot\n\nE
+ very chart is a chain of compressions. A dataset becomes a visual. A visua
+ l becomes an insight. Each step throws away information deliberately\, kee
+ ping only what matters. The last step\, turning a chart into a caption wor
+ th reading\, is the hardest. And it is the one that language models handle
+  worst.\n\nJaidev has spent the last year trying to fix that. Not by gener
+ ating more captions\, which turns out to be straightforward\, but by figur
+ ing out how to curate the right one. The problem is that a model can produ
+ ce dozens of plausible captions for any chart. Knowing which one is accura
+ te\, useful\, and meant for this audience\, in this context\, still takes 
+ a human.\n\nHis response is an extended PlotCaptions: an open dataset of o
+ ver 150\,000 charts with accompanying captions\, built to serve two purpos
+ es. First\, as a retrieval corpus to ground generation\, giving models pre
+ cedent rather than asking them to guess. Second\, as a record of human jud
+ gment about what good captions look like\, used to train ranking.\n\nThe p
+ ipeline that emerges is straightforward: retrieve similar charts and their
+  best captions\, generate candidates\, rank against what humans have consi
+ stently preferred. This talk walks through what that system gets right\, w
+ hat it still gets wrong\, and where the curation gap remains open.\n\nThe 
+ dataset\, code\, and trained models will be released before the talk. The 
+ audience is invited to use them\, test them\, and beat the benchmarks.
+LOCATION:Auditorium
+END:VEVENT
+BEGIN:VEVENT
+UID:infinite-design-space-1630@vizchitra.com
+DTSTAMP:20260627T000000Z
+DTSTART;TZID=Asia/Kolkata:20260704T163000
+DTEND;TZID=Asia/Kolkata:20260704T171500
+SUMMARY:The Infinite Graphic Space: Beyond Grammar
+DESCRIPTION:Arvind Satyanarayan — Associate Professor\, MIT CSAIL\n\nEver
+ y tool encodes a theory of what visualization is.\n\nThe Grammar of Graphi
+ cs\, gave the visualisation field a shared vocabulary: data\, aesthetics\,
+  marks\, scales. That declarative grammar drove a generation of authoring 
+ tools: ggplot2\, Tableau\, and Vega-Lite\, bringing rigour to chart-making
+  and making it possible\, for the first time\, to talk about visualization
+  in a common language. Arvind was part of building that future. Vega & Veg
+ a-Lite are his work.\n\nThat was a profound shift. And it came with a quie
+ t cost.\n\nThe grammar that liberated visualization from fixed chart types
+  also became its own kind of ceiling. The design space has surprising limi
+ ts\, inconsistencies\, and cliffs. Seemingly simple charts like mosaics\, 
+ waffles\, and ribbons fall outside the scope of most implementations. The 
+ most expressive\, unconventional visualization work often happens in spite
+  of the grammar\, not because of it.\n\nExpanding what practitioners can m
+ ake means expanding the grammar itself.\n\nGoFish is Arvind's current answ
+ er to that problem: a declarative grammar built on Gestalt principles that
+  enables recursive composition. Operators that can be nested and overlappe
+ d arbitrarily and opening a design space that the Grammar of Graphics coul
+ d not reach. A step toward an updated theory of data visualization\, one o
+ pen to an infinite space of graphic representations rather than a finite s
+ et of design configurations.\n\nThe future is less settled. LLMs have ente
+ red the authoring loop. Generation is cheap. The boundary between the tool
+  and the author is blurring in ways that could  either democratize express
+ ive visualization\, or make us stop caring about expression altogether.\n\
+ nThis keynote traces the full arc: the grammars that gave our field its fo
+ undations\, the limits those grammars impose today\, and the open question
+  of what visualization authoring needs to become. What would authoring too
+ ls look like that keeps expanding rather than narrowing expressive range? 
+ And what do we lose if we let ease of generation replace intentionality of
+  authoring?
+LOCATION:Auditorium
+END:VEVENT
+BEGIN:VEVENT
+UID:data-seen-differently--1715@vizchitra.com
+DTSTAMP:20260627T000000Z
+DTSTART;TZID=Asia/Kolkata:20260704T171500
+DTEND;TZID=Asia/Kolkata:20260704T173000
+SUMMARY:Data. Seen Differently.
+DESCRIPTION:Amit Kapoor
+LOCATION:Auditorium
+END:VEVENT
+BEGIN:VEVENT
+UID:networking-1730@vizchitra.com
+DTSTAMP:20260627T000000Z
+DTSTART;TZID=Asia/Kolkata:20260704T173000
+DTEND;TZID=Asia/Kolkata:20260704T183000
+SUMMARY:NETWORKING
+DESCRIPTION:Wind down and connect with the community before you head out
+LOCATION:Terrace
+END:VEVENT
+BEGIN:VEVENT
+UID:dashboards-life-and-death-1115@vizchitra.com
+DTSTAMP:20260627T000000Z
+DTSTART;TZID=Asia/Kolkata:20260704T111500
+DTEND;TZID=Asia/Kolkata:20260704T114500
+SUMMARY:Designing Dashboards for Life and Death
+DESCRIPTION:Tony Joy — Senior Product Designer\, Resolve to Save Lives\n\
+ nPublic health dashboards are political tools. The numbers at the top beco
+ me the north star for the system. They shape what leaders are praised for\
+ , what gets funded\, and what problems are considered urgent. Design a das
+ hboard badly and the right problems stay invisible. Design it well and you
+  can shift what a ministry pays attention to.\n\nIn 2018\, Resolve to Save
+  Lives partnered with Bangladesh's National Heart Foundation to pilot a na
+ tional hypertension management program. Around 30 million people in Bangla
+ desh live with high blood pressure. When the program started\, only 20% ha
+ d it under control. As of February 2026\, more than 400\,000 patients are 
+ enrolled and control rates have reached 60%.\n\nThis talk traces the dashb
+ oard design decisions behind that shift\, across three areas.\n\nThe first
+  is shared vocabulary. Scientists\, bureaucrats\, and frontline health wor
+ kers do not naturally speak the same language of data. Tony's team tested 
+ and refined every metric definition and dashboard label until a ministry o
+ fficial could interpret and explain the numbers as confidently as a public
+  health expert.\n\nThe second is essential data only. Medical officers in 
+ Bangladesh see 100 to 200 patients a day. That is roughly two minutes per 
+ patient. Data entry cannot take more than 20 seconds. The talk covers how 
+ to decide on the bare minimum needed to monitor program performance withou
+ t breaking the clinical workflow.\n\nThe third is making the invisible vis
+ ible. A small change in numerator or denominator can completely change wha
+ t a decision-maker sees\, surfacing patients at high risk\, identifying li
+ kely returnees\, catching emerging drug shortages before they become crise
+ s.\n\n7.8 million patients across 7 countries are now managed with a nearl
+ y identical dashboard. Some countries use it to surface bad numbers transp
+ arently. Others tweak definitions to look better. The design is the same. 
+ The choices around it are not.
+LOCATION:Hall
+END:VEVENT
+BEGIN:VEVENT
+UID:viz-speed-trust-1145@vizchitra.com
+DTSTAMP:20260627T000000Z
+DTSTART;TZID=Asia/Kolkata:20260704T114500
+DTEND;TZID=Asia/Kolkata:20260704T120000
+SUMMARY:Design for Speed and Trust\, Together.
+DESCRIPTION:Bargava Subramanian — Founder & AI Builder\n\nRadiology is on
+ e of the most data-dense\, high-stakes environments for visualization. The
+  input is a medical image. The output is a diagnosis. And now\, somewhere 
+ in between\, there is an AI making predictions that the radiologist has to
+  act on\, fast.\n\nThe problem is not whether the AI is accurate. It is wh
+ ether the radiologist can trust it without abandoning their own judgment\,
+  and without losing time they do not have.\n\nThis talk is about resolving
+  that tension through design. Bargava shares his journey building visualiz
+ ation interfaces for radiologists: what failed\, what worked\, and the spe
+ cific techniques that made AI feel like a collaborator rather than a black
+  box demanding compliance.\n\nYou will see how spatial anchoring grounds a
+ bstract AI predictions in familiar anatomy\, how non-destructive uncertain
+ ty layers let radiologists interrogate model confidence without losing sig
+ ht of the underlying scan\, and how progressive disclosure interfaces redu
+ ce cognitive load while keeping the human firmly in control.\n\nThe domain
+  is radiology. The problems are universal: trust\, uncertainty\, cognitive
+  load\, and the question of how much agency to hand to an algorithm. If yo
+ u design dashboards\, data tools\, or any interface where AI and human jud
+ gment have to coexist\, the framework here is directly transferable.\n\nNo
+  medical background required.
+LOCATION:Hall
+END:VEVENT
+BEGIN:VEVENT
+UID:viz-rural-care-1200@vizchitra.com
+DTSTAMP:20260627T000000Z
+DTSTART;TZID=Asia/Kolkata:20260704T120000
+DTEND;TZID=Asia/Kolkata:20260704T121500
+SUMMARY:Visualising care in rural healthcare
+DESCRIPTION:Abhiram Jois — Creative Technologist\n\nData in rural healthc
+ are moves in one direction. It is collected on the ground\, travels upward
+  for analysis\, and returns\, if it returns at all\, as lengthy reports\, 
+ templated dashboards\, and messy Excel files that serve bureaucratic accou
+ ntability rather than local decision-making.\n\nAbhiram's work starts from
+  a different question: what would visualization look like if it was design
+ ed as care infrastructure\, built alongside the people who actually use it
+ ?\n\nThis talk presents the Decision Support System (DSS) developed with a
+  Community Palliative Care initiative across seven Gram Panchayats in Kund
+ apura\, Karnataka. Co-designed with frontline workers\, mobile care teams\
+ , volunteer doctors\, and Gram Panchayat officers\, the DSS is decentraliz
+ ed\, offline-first\, and built around three core artefacts. The DSS is a 
+ joint effort between Aruvu Collaboratory\, KHPT\, RDPR - Government of Kar
+ nataka and Niramaya Society Udupi.\n\nPhygital care profiles give care tea
+ ms and volunteer doctors a way to design and monitor individualised care p
+ lans across medical\, emotional\, and psychosocial domains. Visualizations
+  include family trees to map caregiving patterns\, hand-drawn route maps w
+ here geospatial data does not exist\, and pain assessment scales built on 
+ the visual language of the care teams themselves.\n\nCare seeker booklets 
+ are physical books given directly to each patient: no-tech interfaces for 
+ tracking conditions\, monitoring daily care\, logging visits\, and carryin
+ g tear-off referral slips to hospitals and PHCs.\n\nA data atlas gives Gra
+ m Panchayats\, PHCs\, and the taskforce a customisable spatial view of com
+ munity-level insights\, supporting everything from medical consultations t
+ o scheme allotment to infrastructure decisions.\n\nThe talk surfaces what 
+ it actually takes to build visualisation systems for contexts with varying
+  literacy\, low connectivity\, and multilingual needs\, and what it means 
+ to prioritise people and decisions over features and numbers.
+LOCATION:Hall
+END:VEVENT
+BEGIN:VEVENT
+UID:bite-sized-views-1400@vizchitra.com
+DTSTAMP:20260627T000000Z
+DTSTART;TZID=Asia/Kolkata:20260704T140000
+DTEND;TZID=Asia/Kolkata:20260704T143000
+SUMMARY:Bite-Sized Views\, Crore-Sized Backlog
+DESCRIPTION:Shalaka Shinde — Independent Data Journalist\n\nIndia's distr
+ ict courts have 4.82 crore pending cases. That number surfaces briefly whe
+ n an exceptionally old case concludes\, or when an annual report lands. Th
+ en it disappears again into the background hum of a system everyone knows 
+ is overwhelmed and almost no one can write about specifically.\n\nShalaka 
+ built Justice Delayed out of that frustration. As a court and crime report
+ er for Hindustan Times Pune\, she had ground-level intuition about the bac
+ klog but nothing she could quantify\, localize\, or turn into a story. Off
+ icial data was too aggregated to be useful. A district total tells you not
+ hing about which courts\, which case types\, or which hearings have been p
+ ending the longest.\n\nJustice Delayed\, developed with support from the B
+ rown Institute for Media Innovation's Magic Grant\, restructures district 
+ court data using individual case hearings as the smallest unit of analysis
+ . That shift\, from aggregated numbers to individual hearings\, is what ma
+ de exploratory visualization possible and useful.\n\nThis talk walks throu
+ gh what that looks like in practice: identifying courts with disproportion
+ ately old cases\, spotting patterns in hearing schedules\, and localizing 
+ pendency in ways that a ground reporter can actually act on. It also cover
+ s the gap between a large\, messy dataset and a publishable insight\, and 
+ how visualization helped bridge it.\n\nThe deeper argument is about method
+ . Visualization here is not the end product of an investigation. It is the
+  tool for figuring out where to look. If you work with large public datase
+ ts and spend more time lost in them than reporting from them\, this talk i
+ s for you.
+LOCATION:Hall
+END:VEVENT
+BEGIN:VEVENT
+UID:no-clean-maps-1430@vizchitra.com
+DTSTAMP:20260627T000000Z
+DTSTART;TZID=Asia/Kolkata:20260704T143000
+DTEND;TZID=Asia/Kolkata:20260704T144500
+SUMMARY:There Are No Clean Maps
+DESCRIPTION:Supriya Joshi — Senior Data Analyst\, EPIC World\n\nWe talk a
+ bout \\"putting data on a map\\" as if geography were stable. Crisp bounda
+ ries. Clear hierarchies. Agreed definitions. In practice\, none of that ex
+ ists.\n\nEvery map is a reconciliation. Between data sources collected at 
+ different times\, administrative boundaries that have been redrawn\, spati
+ al units that refuse to nest cleanly into each other\, and datasets whose 
+ geographic provenance is simply unknown.\n\nThis talk is about that invisi
+ ble work. Drawing from real spatial analysis across village\, pincode\, he
+ x and district-level data in India\, Supriya walks through five situations
+  where geographies break down: hierarchies that are conceptually nested bu
+ t spatially inconsistent\, parallel units like districts and pincodes that
+  neither align nor exclude each other\, granularity that has to be constru
+ cted from scratch\, spatial logics that fundamentally conflict (raster gri
+ ds versus hex systems)\, and survey data that arrives at the district leve
+ l without clarity on which boundary definition was used.\n\nFor each case\
+ , the talk surfaces the analytical decisions involved\, what gets assumed\
+ , what gets lost\, and how much uncertainty gets quietly carried forward i
+ nto the final visualisation.\n\nThe argument is not that clean maps are im
+ possible. It is that spatial visualisation begins long before design\, in 
+ decisions most practitioners never make visible. The question is not wheth
+ er trade-offs exist. It is whether we acknowledge and communicate them.\n\
+ nIf you work with geographic data at any level of granularity\, this talk 
+ will change how you think about the map you are building.
+LOCATION:Hall
+END:VEVENT
+BEGIN:VEVENT
+UID:sand-data-wicked-problems-1445@vizchitra.com
+DTSTAMP:20260627T000000Z
+DTSTART;TZID=Asia/Kolkata:20260704T144500
+DTEND;TZID=Asia/Kolkata:20260704T151500
+SUMMARY:Sand\, Data\, and Wicked Problems
+DESCRIPTION:Siddharth Agarwal — Founder\, Veditum India Foundation\n\nWic
+ ked problems do not yield to data alone. The data is missing\, the sources
+  do not exist\, the structures for implementation are absent\, and the wil
+ l to collaborate has not yet been built. Identifying the problem is nowher
+ e near enough.\n\nWhen Veditum picked up the issue of illegal and destruct
+ ive sand mining in India's rivers\, they started with a reasonable assumpt
+ ion: use machine learning to identify illegal activity\, and that would be
+  enough to drive action. It was not.\n\nWhat they needed to build first wa
+ s intention. And that required reimagining the entire response\, with coll
+ aborators across NGOs\, academia\, the judiciary\, media\, private citizen
+ s\, and state actors all in mind.\n\nThis talk traces what followed. India
+  Sand Watch is now an open-data archive with over 50\,000 data points\, bu
+ ilt on a Sites of Violence framework that maps the sand mining sector as a
+  series of interconnected violations rather than isolated incidents. Getti
+ ng there required data pipelines built through scaled volunteering\, data 
+ sprints\, and partnerships\, each with its own visualization component.\n\
+ nThe artefacts that came out of this work are as varied as the audiences t
+ hey serve. Zines and sprint report cards for community volunteers. GIS map
+ s for researchers and journalists. Visual evidence packages for court case
+ s. And a physical flipbook that translates a machine learning model detect
+ ing mining activity from satellite imagery into something a non-technical 
+ audience can follow and act on.\n\nThe talk is about what it actually take
+ s to use open data and visualization on problems that resist easy solution
+ s: building the dataset\, building the coalition\, and building the case i
+ n forms that reach people with the power to change something.
+LOCATION:Hall
+END:VEVENT
+BEGIN:VEVENT
+UID:so-you-want-to-work-with-data-1545@vizchitra.com
+DTSTAMP:20260627T000000Z
+DTSTART;TZID=Asia/Kolkata:20260704T154500
+DTEND;TZID=Asia/Kolkata:20260704T163000
+SUMMARY:So You Want to Work With Data
+DESCRIPTION:Sandeep Karmarkar\, Areena Arora\, Hamsa Ganesh
+LOCATION:Hall
+END:VEVENT
+BEGIN:VEVENT
+UID:curators-dilemma-1000@vizchitra.com
+DTSTAMP:20260627T000000Z
+DTSTART;TZID=Asia/Kolkata:20260704T100000
+DTEND;TZID=Asia/Kolkata:20260704T104500
+SUMMARY:The Curator's Dilemma
+DESCRIPTION:Anand S — LLM Psychologist\, Straive\n\nMy team creates 9 var
+ iations of a chart in 15 minutes. All defensible. None of them are wrong o
+ r bad charts. My afternoon is spent staring at them\, trying to figure out
+  which one is actually good!\n\nAfter decades of building data viz\, the m
+ aking part is easy and fast now. What's slow is the choosing. And most of 
+ us haven't developed the muscles for that yet. This dialogue is about that
+  shift happening right now\, from construction to curation. The much harde
+ r skill of selecting\, refining and deciding from abundance rather than bu
+ ilding from scratch.\n\nYou'll start by ranking five visualisations of the
+  same dataset on a wall\, dot stickers in hand\, before anyone speaks. The
+ n small groups dig into the why\, using prompt cards to surface the criter
+ ia people use\, often without knowing they use them.\n\nThen comes the rev
+ eal: which charts were AI-generated\, and which were human-made. Rankings 
+ can get revisited and our own biases can surface. The conversation in the 
+ dialogue can get honest about what craft actually means for us now.\n\nThe
+  session closes with the room building a shared curator's checklist togeth
+ er. The  practitioner questions you can ask the next time you're staring a
+ t a wall of plausible visualisation options.\n\nYou'll leave with that che
+ cklist\, a sharper sense of your own evaluation instincts\, and a clearer 
+ picture of where your defaults might be leading you astray.
+LOCATION:Library
+END:VEVENT
+BEGIN:VEVENT
+UID:charts-untold-stories-1115@vizchitra.com
+DTSTAMP:20260627T000000Z
+DTSTART;TZID=Asia/Kolkata:20260704T111500
+DTEND;TZID=Asia/Kolkata:20260704T120000
+SUMMARY:The Stories our Charts don't Tell (yet)
+DESCRIPTION:Lakshmi Chockalingam — Doctor of Education Candidate\, Bath\n
+ \nEvery chart highlights something. Every dashboard prioritises something.
+  Every metric leaves something out.\n\nThis dialogue starts from that disc
+ omfort. Before colour palettes and chart types\, there are deeper choices:
+  what counts as success\, what gets measured and what does not\, what assu
+ mptions are built into our models and proxies\, and what forms of value ge
+ t reduced to a number because they are easier to plot.\n\nThe session open
+ s with a few real-world chart examples that look correct but embed strong 
+ assumptions. What story does each visualisation make obvious? What alterna
+ tive stories disappear?\n\nSmall groups then dig into those questions thro
+ ugh their own practice\, using prompts like: a time when a visualisation c
+ hanged a decision\, a metric you felt uneasy about using\, something impor
+ tant that could not be visualised. The goal is not consensus but surfacing
+  the interpretive frames practitioners carry into their work\, often witho
+ ut examining them.\n\nThe session closes with the room building a shared r
+ eflective toolkit together: a short checklist of questions to ask before t
+ he chart gets made\, not after.\n\nData visualisation is powerful because 
+ it simplifies complexity. But simplification is never neutral. This dialog
+ ue is for anyone who wants to ask not just \\"is this chart clear?\\" but 
+ \\"what worldview does this chart assume?\\"\n\n##
+LOCATION:Library
+END:VEVENT
+BEGIN:VEVENT
+UID:chart-crimes-autopsy-1400@vizchitra.com
+DTSTAMP:20260627T000000Z
+DTSTART;TZID=Asia/Kolkata:20260704T140000
+DTEND;TZID=Asia/Kolkata:20260704T144500
+SUMMARY:A Collective Autopsy of Chart Crimes
+DESCRIPTION:Agriya Khetarpal — Software Engineer\, Quansight\n\nBar chart
+ s with truncated axes. Correlations that vanish when you break the data do
+ wn. Trend lines that hide more than they reveal. Most misleading charts ar
+ en't made with bad intent. They come from well-meaning people making commo
+ n mistakes. But intent doesn't change impact.\n\nCharts are persuasive pre
+ cisely because they appear rigorous. When data is visualised\, we assume s
+ omeone has done the work and checked the numbers. That assumption makes mi
+ sleading visualisations dangerous\, especially in public health\, climate 
+ reporting\, and policy debates where most readers won't scrutinise every p
+ lot they encounter.\n\nThis session takes the contrarian view. While much 
+ of the conversation in data visualisation focuses on how to make better ch
+ arts\, this dialogue asks the inverse: what makes charts fail? What are th
+ e systematic ways visualisations mislead\, and how do we spot them?\n\nWe'
+ ll build a shared vocabulary around patterns like Simpson's paradox\, base
+  rate neglect\, ecological fallacy\, survivorship bias\, and cherry-pickin
+ g. For each concept\, you'll see what it looks like visually\, why it happ
+ ens\, and what cues to look for. Then the room works together\, examining 
+ real visualisations from news\, research\, and reports to put that vocabul
+ ary into practice.\n\nYou'll leave not as a cynic\, but as an informed sce
+ ptic. Sharper questions. Better pattern recognition. And a clearer sense o
+ f the pitfalls worth watching for in your own work.
+LOCATION:Library
+END:VEVENT
+BEGIN:VEVENT
+UID:decode-the-chart-1545@vizchitra.com
+DTSTAMP:20260627T000000Z
+DTSTART;TZID=Asia/Kolkata:20260704T154500
+DTEND;TZID=Asia/Kolkata:20260704T163000
+SUMMARY:Decode the Chart
+LOCATION:Library
+END:VEVENT
+BEGIN:VEVENT
+UID:the-cities-we-don-t-see-1145@vizchitra.com
+DTSTAMP:20260627T000000Z
+DTSTART;TZID=Asia/Kolkata:20260704T114500
+DTEND;TZID=Asia/Kolkata:20260704T123000
+SUMMARY:The Cities We Don’t See
+DESCRIPTION:Shobana Venkatasubbu\, Tushar Chakrabarty\n\nSPONSORED TALK - C
+ ity Finance
+LOCATION:Boardroom
+END:VEVENT
+BEGIN:VEVENT
+UID:thurro-s-data-playground-1415@vizchitra.com
+DTSTAMP:20260627T000000Z
+DTSTART;TZID=Asia/Kolkata:20260704T141500
+DTEND;TZID=Asia/Kolkata:20260704T150000
+SUMMARY:Thurro's Data Playground
+DESCRIPTION:Akhilesh Tilotia\n\nSPONSORED TALK - Thurro
+LOCATION:Boardroom
+END:VEVENT
+END:VCALENDAR
