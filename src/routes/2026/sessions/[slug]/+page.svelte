@@ -120,6 +120,7 @@
 		venue={liveVenue}
 		order={session.order}
 		display={session.display}
+		soldOut={session.soldOut}
 		title={session.title}
 		subtitle={session.subtitle}
 		speakerName={liveSpeaker}

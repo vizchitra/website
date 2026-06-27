@@ -17,10 +17,11 @@
 			accentColor: 'var(--color-viz-orange)',
 			subsections: [
 				{ name: 'Event', href: '/2026/' },
-				{ name: 'Sessions', href: '/2026/sessions' },
-				{ name: 'Sponsorship', href: '/2026/sponsorship' },
 				{ name: 'Get Tickets', href: 'https://tickets.vizchitra.com' },
+				{ name: 'Sessions', href: '/2026/sessions' },
+				{ name: 'Exhibition', href: '/2026/exhibition' },
 				{ name: 'Attendee Guide', href: '/2026/attendee-guide' },
+				{ name: 'Sponsorship', href: '/2026/sponsorship' },
 				{ name: 'Scholarships', href: '/2026/scholarships' },
 				{ name: 'Submissions', href: '/2026/submissions' }
 			],
@@ -92,7 +93,7 @@
 	<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 		<div class="flex h-16 justify-between">
 			<div class="flex">
-				<a href="/" class="flex items-center text-3xl">
+				<a href="/2026/" class="flex items-center text-3xl">
 					<VizChitraLogoType year={null} />
 				</a>
 			</div>

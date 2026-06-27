@@ -283,7 +283,7 @@
 				<p class="text-viz-grey text-xs font-medium tracking-wide uppercase">Generated Pattern</p>
 				<div class="border-viz-grey-light overflow-hidden rounded-xl border bg-white">
 					<PatternArc
-						targetDate={arcTargetDate}
+						startDateTime={arcTargetDate}
 						width={500}
 						height={500}
 						class="block h-auto w-full"

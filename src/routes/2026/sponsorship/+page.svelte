@@ -107,6 +107,7 @@
 			tier: 'Silver',
 			price: '₹2,50,000 + GST',
 			slots: '3 slots',
+			slotsLeft: 0,
 			color: 'blue',
 			purpose: 'Strengthen the core program and community experience.',
 			what: 'Significant presence with booth and branding across the conference print, venue and communication.',
@@ -137,6 +138,7 @@
 			tier: 'Bronze',
 			price: '₹1,00,000 + GST',
 			slots: '5 slots',
+			slotsLeft: 1,
 			color: 'pink',
 			purpose: 'Participate and support the conference ecosystem.',
 			what: 'Entry-level partnership with stall, logo and inclusion across conference communications.',
@@ -162,6 +164,7 @@
 			tier: 'Community',
 			price: '₹50,000 + GST',
 			slots: '10 slots',
+			slotsLeft: 9,
 			color: 'teal',
 			purpose: 'Strengthen and sustain the data viz community.',
 			what: 'Contribute as a values-aligned partner with light branding and meaningful participation.',
@@ -558,7 +561,7 @@
 		<div class="edition-photos">
 			<img
 				src="/images/photos/group-photo.jpg"
-				alt="VizChitra 2025 group photo"
+				alt="VizChitra 2025 attendees gathered together"
 				class="edition-photo"
 			/>
 			<img
