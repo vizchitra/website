@@ -28,22 +28,18 @@
 			<h1>Data, Otherwise</h1>
 			<p>An exhibition on climate, through data you can experience</p>
 			<p>
-				We have more climate data than ever before. Enough to track glaciers retreating and monsoons
-				shifting, to tell fishermen what they already know about their changing coastline. And yet
-				the reality of it often stays at a distance. Feeling it, though, takes something else.
+				We have more climate data than ever before. Enough to track glaciers retreating, oceans
+				warming and monsoons shifting. Our narratives often arrive at realizations that are already
+				felt viscerally by the communities most exposed. Facts and numbers of this reality rarely
+				move us. But can art step in where charts fail to communicate?
 			</p>
 			<p>
-				<em>Data, Otherwise</em> is a tangible data visualisation exhibition on climate and ecological
-				change. It brings data out of the chart and into the room, through experiences you can walk through,
-				listen to, sit with, hold. The works draw from more-than-human worlds and from climate as lived
-				experience, from the ways people and places have found to keep going. Treating data as something
-				felt as much as read. Because if data can be felt, it has a better chance of being understood.
-			</p>
-
-			<p>
-				In this exhbition, eight works explore how people, communities, and environments cope,
-				adjust, and rebuild, and what stays out of view when resilience gets counted. These are not
-				definitive answers. They are eight ways of looking.
+				Data, Otherwise is an exhibition on climate and ecological change that brings data out of
+				graphs and into the room, through experiences you walk through, listen to, sit with, hold
+				and smell. In this exhibition, eight works explore how people, communities, and environments
+				cope with, adjust to, and rebuild in the midst of an exasperating crisis. There are no
+				definitive answers, rather, they offer us ways to cope with truth without burying it in
+				numbers.
 			</p>
 
 			<p>
