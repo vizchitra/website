@@ -80,7 +80,7 @@
 	> = {
 		Talks: { titleMaxWidth: '100%', descriptionTop: '28%', floatWidth: '70%', floatHeight: '12em' },
 		Dialogues: {
-			titlePaddingRatio: 0.1,
+			titlePaddingRatio: 0.05,
 			titleMaxWidth: '60%',
 			descriptionTop: '15%',
 			floatWidth: '75%',
@@ -555,7 +555,7 @@
 				{/if} -->
 						</div>
 
-						{#if isExpanded}
+						{#if isExpanded && !(sessionType === 'Dialogues' && speakerCount >= 4)}
 							<div class="short-description-container relative z-10 p-3 pt-0 md:p-4 md:pt-1">
 								<!-- float pushes text away from the photo/pattern on the right -->
 								<div

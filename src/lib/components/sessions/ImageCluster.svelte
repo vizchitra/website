@@ -32,7 +32,7 @@
 	const gap = $derived(gapProp ?? 0.75);
 	const backBaseline = $derived(backBaselineProp ?? 0.3);
 	const backHShift = $derived(backHShiftProp ?? 0);
-	const backGap = $derived(backGapProp ?? 0.6);
+	const backGap = $derived(backGapProp ?? 0.7);
 
 	type Pos = { left: number; bottom: number; z: number };
 
@@ -66,8 +66,8 @@
 		return [
 			{ left: -gap, bottom: 0, z: 3 }, // front-left
 			{ left: 0, bottom: 0, z: 4 }, // anchor
-			{ left: backR, bottom: backBaseline, z: 2 }, // back-right
-			{ left: backR - backGap, bottom: backBaseline, z: 1 } // back-left
+			{ left: backR, bottom: backBaseline, z: 2 }, // back-left
+			{ left: backR + backGap, bottom: backBaseline, z: 1 } // back-right (right of centre)
 		];
 	});
 
@@ -84,6 +84,8 @@
 	{#each speakers.slice(0, 4) as sp, i}
 		{@const pos = preset[i]}
 		{#if sp.image && pos}
+			{@const isBack = pos.bottom > 0}
+			{@const fadeStop = Math.round((pos.bottom + 0.15) * 100)}
 			<img
 				src={sp.image}
 				alt={sp.name ?? ''}
@@ -97,6 +99,12 @@
 				style:transform-origin="bottom center"
 				style:pointer-events="none"
 				style:user-select="none"
+				style:mask-image={isBack
+					? `linear-gradient(to top, transparent 0%, black ${fadeStop}%)`
+					: undefined}
+				style:-webkit-mask-image={isBack
+					? `linear-gradient(to top, transparent 0%, black ${fadeStop}%)`
+					: undefined}
 			/>
 		{/if}
 	{/each}

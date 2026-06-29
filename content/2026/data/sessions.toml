@@ -935,6 +935,14 @@ image = "/images/speakers/2026/speaker-sandeep-karmarkar.webp"
 social = {instagram = "https://www.instagram.com/sandeep.karmarkar", linkedin = "https://www.linkedin.com/in/smkarmarkar/"}
 
 [[session.speakers]]
+name = "Hamsa Ganesh"
+designation = "Founder"
+organisation = "Thoughtput"
+about = "Hamsa is a designer and independent web practitioner interested in how institutions organise, preserve, and communicate knowledge online."
+image = "/images/speakers/2026/speaker-hamsa.webp"
+social = {instagram = "https://www.instagram.com/36truths/", twitter = "https://x.com/hamganesh"}
+
+[[session.speakers]]
 name = "Areena Arora"
 designation = "Editorial Coder"
 organisation = "The Hindu"
@@ -942,13 +950,7 @@ about = "Areena Arora is a journalist who transforms messy data into stories tha
 image = "/images/speakers/2026/speaker-areena.webp"
 social = {website = "https://areenaarora.com", instagram = "https://www.instagram.com/areena_news", linkedin = "https://www.linkedin.com/in/areena-arora/", twitter = "https://x.com/AreenaArora"}
 
-[[session.speakers]]
-name = "Hamsa Ganesh"
-designation = "Founder"
-organisation = "Thoughtput"
-about = "Hamsa is a designer and independent web practitioner interested in how institutions organise, preserve, and communicate knowledge online."
-image = "/images/speakers/2026/speaker-hamsa.png"
-social = {instagram = "https://www.instagram.com/36truths/", twitter = "https://x.com/hamganesh"}
+
 
 
 # ACTIVITY | DECODE THE CHART GAME | ARSHI

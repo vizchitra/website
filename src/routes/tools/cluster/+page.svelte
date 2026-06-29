@@ -19,7 +19,7 @@
 	let gap = $state(0.75); // step between front images
 	let backBaseline = $state(0.3); // back row vertical lift
 	let backHShift = $state(0); // back row horizontal shift
-	let backGap = $state(0.6); // step between the two back images (4-speaker)
+	let backGap = $state(0.7); // step between the two back images (4-speaker)
 
 	// Wave colour
 	const overlayOptions = [
