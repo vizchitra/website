@@ -101,10 +101,10 @@
 			tone: 'yellow',
 			titlePosition: 'pt-2 text-left',
 			href: '/2026/sessions?type=Activities',
-			subtitle: 'The Community Journey',
+			subtitle: 'The Participative Journey',
 			description:
-				'Hands-on playgrounds, open forums, and sponsored sessions. Community experiences beyond the stage.',
-			descriptionPosition: 'bottom-5 left-5 md:left-8 text-left',
+				'A game, a playground, a city deep-dive, two energisers. Five ways to be in it, not watch it.',
+			descriptionPosition: 'bottom-5 right-5 md:right-5 text-right',
 			descriptionWidth: '28ch'
 		}
 	};

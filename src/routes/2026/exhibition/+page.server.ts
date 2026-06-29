@@ -14,13 +14,12 @@ export const load: PageServerLoad = async () => {
 	const enriched = await Promise.all(
 		exhibitions.map(async (s) => {
 			const longDescriptionHtml = s.longDescription ? await markdownToHtml(s.longDescription) : '';
-			const speakerAboutHtml = s.speakers?.[0]?.about?.trim()
-				? await markdownToHtml(s.speakers[0].about)
-				: '';
-			const speaker2AboutHtml = s.speakers?.[1]?.about?.trim()
-				? await markdownToHtml(s.speakers[1].about)
-				: '';
-			return { ...s, longDescriptionHtml, speakerAboutHtml, speaker2AboutHtml };
+			const speakersAboutHtml = await Promise.all(
+				(s.speakers ?? []).map((sp) =>
+					sp.about?.trim() ? markdownToHtml(sp.about) : Promise.resolve('')
+				)
+			);
+			return { ...s, longDescriptionHtml, speakersAboutHtml };
 		})
 	);
 

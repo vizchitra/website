@@ -41,7 +41,7 @@ name = "Saurabh Arora"
 designation = "Chief Technology Officer"
 organisation = "Plum"
 about = "Saurabh is the cofounder and CTO of Plum, where he leads Engineering, Product, and Design. Plum processes over 125,000 health insurance claims every year — and Saurabh wanted that data to do more than sit in spreadsheets. He created Datalabs, an initiative that turns claims data into interactive visual investigations about cost of healthcare. Their stories on cancer costs and heart disease burden have combined rigorous analysis with accessible narrative design to make complex health economics legible to anyone. Saurabh is interested in the craft of making the intimidating feel approachable, and the invisible feel urgent."
-image = "/images/speakers/2026/speaker-saurabh.avif"
+image = "/images/speakers/2026/speaker-saurabh.webp"
 social = {website = "https://playtime.sh", linkedin = "https://www.linkedin.com/in/saurabhplum/", twitter = "https://x.com/tanish2k"}
 
 # TALK | A MAJESTIC MAP REDESIGN | SHUBHRA
@@ -63,7 +63,7 @@ name = "Shubhra Agarwal"
 designation = "Creative Lead"
 organisation = "Bengawalk"
 about = "Shubhra Agarwal is a multidisciplinary designer and filmmaker working at the intersection of people, culture and planet. Shubhra graduated from the National Institute of Design, Ahmedabad, India and works on visual design, web design, data viz and filmmaking projects.\n\nTheir award-winning short film '火焰山的人们 People of the Flaming Mountain', one of the only films on Chinese Uighur Muslims, is recognised and celebrated across the globe. Shubhra believes that the goal informs medium, not the other way around, and uses both design and film to achieve it. Their recent interests include public transit signage, birding and travel-food memoirs.\n"
-image = "/images/speakers/2026/speaker-shubhra.avif"
+image = "/images/speakers/2026/speaker-shubhra.webp"
 social = {website = "https://designbyshubhra.framer.website/", instagram = "https://www.instagram.com/octopies_", linkedin = "https://www.linkedin.com/in/shubhragarwal/"}
 
 # TALK | DESIGN FOR SPEED AND TRUST, | BARGAVA
@@ -85,7 +85,7 @@ name = "Bargava Subramanian"
 designation = "Founder & AI Builder"
 organisation = ""
 about = "Bargava is an experienced AI leader with over 20 years of experience building and architecting cutting-edge data and AI products. A three-time founder, he blends technical depth with an entrepreneurial spirit. For the past five years, Bargava has been focused on building in the Healthcare AI sector, developing solutions that bridge the gap between complex technology and patient care. He is a strong believer in the power of small teams."
-image = "/images/speakers/2026/speaker-bargava.avif"
+image = "/images/speakers/2026/speaker-bargava.webp"
 social = {linkedin = "https://www.linkedin.com/in/bargava/", twitter = "https://x.com/bargava"}
 
 # TALK | THERE ARE NO CLEAN MAPS | SUPRIYA
@@ -107,7 +107,7 @@ name = "Supriya Joshi"
 designation = "Senior Data Analyst"
 organisation = "EPIC World"
 about = "Supriya is a Data Analyst and Researcher with 4+ years of experience in translating complex datasets into actionable insights. Primarily in the impact space, she has led field research, conducted analysis, and developed data models. Her work spans a broad variety of data - survey, geospatial, government and modelled. This breadth of experience has given her the ability to see data not just as numbers, but as stories with real-world consequences.\n\nCurrently at EPIC World. Previously at J-PAL and Datarivu."
-image = "/images/speakers/2026/speaker-supriya.avif"
+image = "/images/speakers/2026/speaker-supriya.webp"
 social = {linkedin = "https://www.linkedin.com/in/supriya-j99/"}
 
 # TALK | BITE-SIZED VIEWS, CRORE-SIZED BACKLOG | SHALAKA
@@ -129,7 +129,7 @@ name = "Shalaka Shinde"
 designation = "Independent Data Journalist"
 organisation = ""
 about = "Shalaka is a journalist and founder of Justice Delayed, a court data resource built to facilitate journalistic inquiry of the Indian district court network. Her work as a data journalist is informed by her experience as a newspaper reporter in the early years of her career. Her passion project, Justice Delayed, provides data solutions for challenges that crime and court reporters face regularly. She is a graduate of the MS (data journalism) program at Columbia Journalism School, recipient of the Magic Grant by the Brown Institute of Media Innovation, and winner of the Tow/Brown Award for Excellence in Computational Journalism and Columbia Venture Competition. She has previously written for Bellingcat, The Quint, Hindustan Times and works freelance as a live data scraper for AP's election result database. Besides data democracy, her favourite topics are the untapped potential of remote sensing data for journalism and how underappreciated elephants are."
-image = "/images/speakers/2026/speaker-shalaka.avif"
+image = "/images/speakers/2026/speaker-shalaka.webp"
 social = {website = "https://shalakas.github.io", instagram = "https://www.instagram.com/shalakashinde1", linkedin = "https://www.linkedin.com/in/shalaka-shinde-80285457/"}
 
 # TALK | CAPTION THIS | JAIDEV
@@ -151,7 +151,7 @@ name = "Jaidev Deshpande"
 designation = "Senior Software Engineer"
 organisation = "Aftershoot"
 about = "For years, Jaidev has been trying to find the best way to narrate charts. He writes a newsletter called Being Bayesian, which uses statistics and dataviz to critique outrageous opinions on tech, economy and culture.\n\nHe currently works at Aftershoot, a SaaS startup where he leads the MLOps effort. You're likely to run into him at tech events."
-image = "/images/speakers/2026/speaker-jaidev.avif"
+image = "/images/speakers/2026/speaker-jaidev.webp"
 social = {website = "https://beingbayesian.in", linkedin = "https://www.linkedin.com/in/jaidevd/", twitter = "https://x.com/jaidevd"}
 
 # TALK | WHAT'S IN YOUR BAG? REALLY! | SNEHA
@@ -173,7 +173,7 @@ name = "Sneha Kaul"
 designation = "Statistics Analyst"
 organisation = "UN Women Asia-Pacific"
 about = "Sneha is a Statistics Analyst at UN Women's Asia-Pacific Regional Office in Bangkok, where she supports the global flagship program Women Count. Over seven years across the UN system, she has worked with government statisticians from 40+ national statistical offices on gender statistics and statistical literacy.\n\nHer analytical work brings together survey microdata, geospatial data, and non-traditional sources to produce evidence that gets used. This work has shaped UN flagship publications including the ASEAN Gender Outlook 2022 and 2024 and several gender-environment publications, presented at the UN General Assembly and have informed intergovernmental processes including the climate COPs.\n\nSneha holds a master's in behavioral science and public policy from the London School of Economics, where she studied how policy design and communication can nudge communities toward better outcomes. That lens shapes how she thinks about data communication, and what makes public data legible, participatory, and actionable.\n"
-image = "/images/speakers/2026/speaker-sneha.avif"
+image = "/images/speakers/2026/speaker-sneha.webp"
 social = {instagram = "https://www.instagram.com/sanehakaul", linkedin = "https://www.linkedin.com/in/sneha-kaul-b6a73212b/"}
 
 # TALK | VISUALISING CARE IN RURAL HEALTHCARE | ABHIRAM
@@ -195,7 +195,7 @@ name = "Abhiram Jois"
 designation = "Creative Technologist"
 organisation = ""
 about = "Abhiram is a creative technologist who is interested in anything creative and anything technology currently working as a GIS developer at WELL Labs. His work largely encompasses imagining, challenging and building technology with communities. He has worked with organisations like Aruvu Collaboratory, Design Beku and Janastu. He has worked with communities in Kundapura, Bidar, Channapatna etc.\n\nHe graduated in human centered design from Srishti Manipal institute and did a semester of exchange with the interaction design studio at Glasgow School of Art. In what feels like a parallel life he dapples with Kannada theatre, film and art direction as an artist in Danka Art Collective. If you spot him in the wild feel free to stop and tell him about your favourite short film or video essay available on YouTube.\n"
-image = "/images/speakers/2026/speaker-abhiram.avif"
+image = "/images/speakers/2026/speaker-abhiram.webp"
 social = {website = "https://abhiramjois.github.io"}
 
 # TALK | ATLAS OF INTANGIBLES | PRITI
@@ -217,7 +217,7 @@ name = "Priti Pandurangan"
 designation = "Information Experience Designer"
 organisation = ""
 about = "Priti is a creative practitioner working globally across digital humanities, data, and computational futures through research, facilitation, and critical inquiry. Her personal practice explores pluralistic approaches to data and technology, focusing on forms of knowledge and epistemologies that resist quantification while holding space for lived experience, ambiguity, and affect.\n\nShe is also a data walker and facilitates data walks in cities around the world, enabling participants to engage with urban environments through situated and embodied interpretations.\n\nCentral to her work is how culture is held, transmitted, and reconfigured across contexts and temporalities, and the structures through which it is preserved and interpreted."
-image = "/images/speakers/2026/speaker-priti.avif"
+image = "/images/speakers/2026/speaker-priti.webp"
 social = {website = "https://priti.is/here", instagram = "https://www.instagram.com/wherepritiis", linkedin = "https://www.linkedin.com/in/priti-pandurangan/", twitter = "https://x.com/wherepritiis"}
 
 # TALK | SAND, DATA, AND WICKED PROBLEMS | SIDDHARTH
@@ -239,7 +239,7 @@ name = "Siddharth Agarwal"
 designation = "Founder"
 organisation = "Veditum India Foundation"
 about = "Siddharth Agarwal has been walking across India and along India's rivers, attempting to document and bring stories of marginalised communities and the environment into the mainstream.\n\nSince 2014, he has walked 6000+ kms, including the lengths of the rivers Ganga and Ken. He is the founder of Veditum India Foundation where he is working to transform the environmental governance landscape in India.\n\nThe organisation - Veditum, has overseen long documentation and sensing expeditions of over 7000kms along 7 different rivers in India. These stories, captured as part of the Moving Upstream project and Fellowship have been distributed widely, and brought significant attention to the cause of these rivers.\n\nThrough the India Sand Watch project, Veditum is introducing accountability in the river sand mining sector in India. And through the Kolkata Change Makers initiative, they are creating a space for deep explorations in change making for and from the city.\n"
-image = "/images/speakers/2026/speaker-siddharth.avif"
+image = "/images/speakers/2026/speaker-siddharth.webp"
 social = {website = "https://www.sidagarwal.in", instagram = "https://www.instagram.com/dreamersid", linkedin = "https://www.linkedin.com/in/agarwalsid/", twitter = "https://x.com/sidagarwal"}
 
 # TALK | ESANKHYIKI | ROHIT
@@ -261,7 +261,7 @@ name = "Rohit Bhardwaj"
 designation = "Addl. Director General"
 organisation = "MoSPI"
 about = "Rohit Bhardwaj is an Indian Statistical Service (ISS) officer of the 1998 batch. As Additional Director General, he is currently leading innovation and informatics initiatives at the National Statistical Office (NSO), India.\n\n Rohit initiated the development of eSankhyiki and dynamic visualizations to enhance data accessibility and user engagement in official statistics. He has been instrumental in identifying and initiating POCs and Pilots for use cases of emerging technologies in official statistics. He has successfully operationalized an innovation scheme that fosters collaboration with startups and academia to co-create data-driven solutions.\n\n His paper on creating a network of institutions for innovation in official statistics was recently accepted for presentation at the UNECE Conference on the Use of Generative AI in Official Statistics. His efforts have also led to the development of the data portal of MoSPI, resulting in tangible improvements in data dissemination and innovation."
-image = "/images/speakers/2026/speaker-rohit.avif"
+image = "/images/speakers/2026/speaker-rohit.webp"
 social = {}
 
 # TALK | KUCH KUCH DATA HAI | SURBHI
@@ -415,7 +415,7 @@ name = "Anand S"
 designation = "LLM Psychologist"
 organisation = "Straive"
 about = "Anand is an LLM psychologist at Straive, where he researches AI and publishes demos. Earlier, he co-founded Gramener, a data storytelling company. He's listed among India's top 10 data scientists and AI influencers and is a regular TEDx/Pycon speaker.\n\nAnand is an alumnus of IIM Bangalore, IIT Madras, London Business School, IBM, Infosys Consulting, Lehman Brothers, and BCG.\n\nMore importantly, he hand-transcribed every Calvin & Hobbes strip ever, is addicted to Minecraft & Anime (thanks to his daughter), and dreams of watching every film on the IMDb Top 250 (except The Shining)."
-image = "/images/speakers/2026/speaker-anand.avif"
+image = "/images/speakers/2026/speaker-anand.webp"
 social = {website = "https://www.s-anand.net/", linkedin = "https://www.linkedin.com/in/sanand0/"}
 
 # DIALOGUE | A COLLECTIVE AUTOPSY OF CHART | AGRIYA
@@ -437,7 +437,7 @@ name = "Agriya Khetarpal"
 designation = "Software Engineer"
 organisation = "Quansight"
 about = "Agriya is a software engineer at Quansight, where he works on scientific open source software in the Scientific Python and Jupyter ecosystems. He is passionate about advancing science policy in India and believes that data, communicated honestly and rigorously, is one of its most powerful tools, a conviction that keeps him equally at home, whether in a terminal or in a policy debate."
-image = "/images/speakers/2026/speaker-agriya.avif"
+image = "/images/speakers/2026/speaker-agriya.webp"
 social = {website = "https://linkedin.com/in/agriyakhetarpal", linkedin = "https://www.linkedin.com/in/agriyakhetarpal/"}
 
 # DIALOGUE | THE STORIES OUR CHARTS DON'T | LAKSHMI
@@ -459,7 +459,7 @@ name = "Lakshmi Chockalingam"
 designation = "Doctor of Education Candidate"
 organisation = "Bath"
 about = "Lakshmi is a software engineer turned social impact professional whose work sits at the intersection of data, technology, education, and entrepreneurship. Having worked across India and the UK with government and third sector organisations, she brings a systems lens to questions of development and representation.\n\nNow as a doctoral researcher, Lakshmi engages deeply with what data gets measured and whose knowledge counts. Her work attempts to interrogate (if not at least acknowledge) what is left out and whose realities are flattened in the process. Through this, she nudges toward more reflective, responsible, and context-sensitive approaches to both data and development, inviting researchers and practitioners to rethink (or at least surface) the assumptions embedded in how we see and shape the world."
-image = "/images/speakers/2026/speaker-lakshmi.avif"
+image = "/images/speakers/2026/speaker-lakshmi.webp"
 social = {linkedin = "https://www.linkedin.com/in/lakshmic135/"}
 
 # EXHIBITION | PUDDLE BENEATH THE PLATE | SHREYA
@@ -503,14 +503,6 @@ exhibitNumber = 7
 artworkHeroImage = "/images/exhibition/PanesHeat.jpg"
 
 [[session.speakers]]
-name = "Kashvi Bansal"
-designation = "Editorial Designer"
-organisation = "The Ken"
-about = "Kashvi is an editorial designer at The Ken, turning complex ideas into data visuals. Based in Bangalore, she is a data enthusiast with a love for print media and human experiences. Although her work spans brand development, web design, print, publication, and data visualization, she is currently focusing on weaving together research, data, and design to build richer narratives.\n\nShe is also the author of Missing in Action, a self-driven design research project unpacking gender disparity in Indian cinema. It explores the systemic ways women's presence and contributions in the industry are limited, rooted in a belief that art and media can be powerful catalysts for social change."
-image = "/images/speakers/2026/speaker-kashvi.webp"
-social = {website = "https://kashvibansal.blog", instagram = "https://www.instagram.com/kashvi_bansal", linkedin = "https://www.linkedin.com/in/kashvibansal/", twitter = "https://x.com/kashviibansal"}
-
-[[session.speakers]]
 name = "Surbhi Bhatia"
 designation = "Data Journalist"
 organisation = ""
@@ -518,12 +510,23 @@ about = "Surbhi is a data journalist, and has spent many years searching for ins
 image = "/images/speakers/2026/speaker-surbhi.webp"
 social = {website = "https://surbhibhatia.com/", instagram = "https://www.instagram.com/surbhibhatia", linkedin = "https://www.linkedin.com/in/surbhi-bhatia/", twitter = "https://x.com/surbhaai"}
 
+
+[[session.speakers]]
+name = "Kashvi Bansal"
+designation = "Editorial Designer"
+organisation = "The Ken"
+about = "Kashvi is an editorial designer at The Ken, turning complex ideas into data visuals. Based in Bangalore, she is a data enthusiast with a love for print media and human experiences. Although her work spans brand development, web design, print, publication, and data visualization, she is currently focusing on weaving together research, data, and design to build richer narratives.\n\nShe is also the author of Missing in Action, a self-driven design research project unpacking gender disparity in Indian cinema. It explores the systemic ways women's presence and contributions in the industry are limited, rooted in a belief that art and media can be powerful catalysts for social change."
+image = "/images/speakers/2026/speaker-kashvi.webp"
+social = {website = "https://kashvibansal.blog", instagram = "https://www.instagram.com/kashvi_bansal", linkedin = "https://www.linkedin.com/in/kashvibansal/", twitter = "https://x.com/kashviibansal"}
+
+
+
 [[session.speakers]]
 name = "Parth Bisen"
 designation = "Software Engineer"
 organisation = "CRED"
 about = "Parth is an engineer by trade and a serial disassembler of electronics in his free time. He loves tinkering with both the digital and analog sides of things, whether that's building, fixing, or figuring out how something works. He currently works at CRED as a software engineer, where he focuses on large-scale production engineering and helps build the company's foundational AI platform. Outside of work, he's a big public transport enthusiast and collects metro cards from every city he visits."
-image = ""
+image = "/images/speakers/2026/speaker-parth.webp"
 social = {website = "https://pbisen.github.io", linkedin = "https://www.linkedin.com/in/pbisen/"}
 
 # EXHIBITION | THE SCENT OF GROUNDED CHANGE | SADHANA
@@ -625,7 +628,7 @@ artworkHeroImage = "/images/exhibition/VanishingWings.jpg"
 [[session.speakers]]
 name = "Meghana Singh"
 designation = "Professor"
-organisation = "Shrishti Manipal Institute"
+organisation = "Srishti Manipal Institute"
 about = "Meghana Singh is a design educator and textile practitioner whose work explores sustainability, material narratives, and craft-based learning. Her practice engages with textiles as a medium for storytelling, ecological reflection, and participatory engagement. Drawing from traditional craft knowledge, collaborative processes, and material experimentation, she creates tactile experiences that encourage audiences to engage with environmental concerns in embodied and accessible ways. \n\nWith experience across design education, grassroots initiatives, and interdisciplinary practice, her work often bridges research, making, and community-based learning. Deeply interested in slow processes, repair cultures, and regenerative approaches to design, she uses textiles to translate complex ecological ideas into sensory and spatial encounters that invite reflection, dialogue, and collective awareness.\n"
 image = "/images/speakers/2026/speaker-meghana.webp"
 social = {instagram = "https://www.instagram.com/meghanajainsingh", linkedin = "https://www.linkedin.com/in/meghanasingh05/"}
@@ -671,28 +674,33 @@ exhibitNumber = 3
 artworkHeroImage = "/images/exhibition/PollutionWasnt.jpg"
 
 [[session.speakers]]
-name = "Aditya Jain"
-designation = "Diagram Chasing"
-organisation = ""
-about = "Aditya is a designer and new media astro-nut who enjoys building immersive experiences, that emerge from sound, data and projection mapping. \n\n Aman and Vivek started Diagram Chasing in 2024 to build data-driven stories for India that they wished existed, every project begins as a question or annoyance…Aman and Vivek started Diagram Chasing in 2024 to build data-driven stories for India that they wished existed, every project begins as a question or annoyance chased down through data and design. They work full-stack, from raw datasets to final story, release everything under open licenses, and take deliberately slow, boring topics like elections, climate, and bureaucracy and make them visually irresistible."
-image = ""
-social = {website = "https://newmediadreamlib.framer.website/", linkedin = "https://www.linkedin.com/in/adityajain-ux/"}
-
-[[session.speakers]]
 name = "Aman Bhargava"
-designation = "Diagram Chasing"
-organisation = ""
-about = ""
-image = ""
+designation = "Developer"
+organisation = "Diagram Chasing"
+about = "Aman Bhargava is a developer and independent researcher. He is interested in public-interest technology and making charts, with his work appearing in Reuters, Rest of World, and Unearthed by Greenpeace.\n\nHe co-runs Diagram Chasing, an independent publication dedicated to turning public data into compelling, accessible visual stories and tools."
+image = "/images/speakers/2026/speaker-aman.webp"
 social = {website = "https://aman.bh", instagram = "https://www.instagram.com/thedivtagguy", linkedin = "https://www.linkedin.com/in/amnbh/", twitter = "https://x.com/thedivtagguy"}
 
 [[session.speakers]]
-name = "Vivek Matthew"
-designation = "Diagram Chasing"
+name = "Aditya Jain"
+designation = "Designer & Technologist"
 organisation = ""
-about = ""
-image = ""
+about = "Aditya is a new media artist who works with projection, sound and interfacing to build reactive experiences, blurring the lines between speculative fiction and reality."
+image = "/images/speakers/2026/speaker-aditya.webp"
+social = {website = "https://newmediadreamlib.framer.website/", linkedin = "https://www.linkedin.com/in/adityajain-ux/"}
+
+[[session.speakers]]
+name = "Vivek Matthew"
+designation = "Engineer"
+organisation = "Diagram Chasing"
+about = "Vivek is an Open data hobbyist. Government website collector. Occasional mapmaker. He co-runs Diagram Chasing, an independent publication dedicated to turning public data into compelling, accessible visual stories and tools."
+image = "/images/speakers/2026/speaker-vivek.webp"
 social = {linkedin = "https://www.linkedin.com/in/vivek-m-92818riri/", twitter = "https://x.com/Vonterinon"}
+
+
+
+
+
 
 # WORKSHOP | FROM TABLES TO MAPS WITH | PRASANTA
 [[session]]
@@ -715,7 +723,7 @@ name = "Prasanta Kumar Dutta"
 designation = "DataViz Developer"
 organisation = "Reuters"
 about = "Prasanta Kumar Dutta is an award-winning Information Experience Designer from India, working at the intersection of design, code, and journalism at Reuters. With a background in engineering and design, he crafts data-driven pieces that visually narrate important stories and solve problems in an aesthetically engaging way. Outside the newsroom, Prasanta writes and performs poetry and comedy, and dabbles in generative art, photography, and zine-making. He co-hosts a creative coding meetup in London that brings together artists, technologists, and enthusiasts. He also teaches and speaks on data visualisation, design, and narrative cartography at leading institutions across India."
-image = "/images/speakers/2026/speaker-prasanta.avif"
+image = "/images/speakers/2026/speaker-prasanta.webp"
 social = {website = "https://www.prasantakrdutta.com/", instagram = "https://www.instagram.com/pkd_da_pacific", linkedin = "https://www.linkedin.com/in/pkddapacific/", twitter = "https://x.com/Da_Pacific"}
 
 # WORKSHOP | DRAW WITH DATA | SCHUBERT
@@ -738,7 +746,7 @@ name = "Schubert de Abreu"
 designation = "DataViz Developer"
 organisation = "Revisual Labs"
 about = "Schubert is a frontend and dataviz developer at Revisual Labs. He spends much of his time building charts, scrollytelling pieces and interactives on the web. His work was among the winners of last year's Pudding Cup. He enjoys experimenting with design, motion and interaction to bring data and stories to life. Outside of work, you can find him on the losing side of a daily sketching habit."
-image = "/images/speakers/2026/speaker-schubert.avif"
+image = "/images/speakers/2026/speaker-schubert.webp"
 social = {website = "https://schubertcreates.xyz/", instagram = "https://www.instagram.com/schu.draws.stuff", linkedin = "https://www.linkedin.com/in/schubert-de-abreu-47a56037/", twitter = "https://x.com/schubertda1"}
 
 # WORKSHOP | A DATAVIZ CRASH COURSE (WITHOUT | PRAKRITI
@@ -762,7 +770,7 @@ name = "Prakriti Bakshi"
 designation = "Data Storyteller"
 organisation = "Independent"
 about = "Prakriti is an independent data storyteller. She uses words, numbers, and visuals to clearly communicate complexity. \n\nMost recently, she worked as a data journalist at The Secretariat, where she wrote stories that analysed the impact of policies on people, profit, and planet. She has also worked as a data storyteller with Revisual Labs, an information design agency, translating dense information and messy ideas into sharp narratives. \n\nPrakriti earned an MSc in Computational and Data Journalism from Cardiff University and trained in slow, thoughtful journalism with Tortoise Media (now The Observer). She believes data storytelling is a necessary skill in an era of 47-second attention spans and has honed her craft by obsessing over the many small decisions that make a good data story."
-image = "/images/speakers/2026/speaker-prakriti.avif"
+image = "/images/speakers/2026/speaker-prakriti.webp"
 social = {website = "https://linktr.ee/prakriti.bakshi", instagram = "https://www.instagram.com/prakriti.bakshi", linkedin = "https://www.linkedin.com/in/prakriti-bakshi-data/", twitter = "https://x.com/bakshi_prakriti"}
 
 # WORKSHOP | DATA ROUGH | ADOLFO
@@ -786,7 +794,7 @@ name = "Adolfo Arranz"
 designation = "Senior Graphics Editor"
 organisation = "Reuters"
 about = "Adolfo is a Spaniard based in Hong Kong that helps to create visual explanations across a spectrum of topics, supporting the drive at Reuters to present new ways to present news. He likes to use handcrafted illustrations to approach the subject and create appealing visual stories. Adolfo Arranz previously worked as a creative director at South China Morning Post in Hong Kong and Mediacorp in Singapore. He has won multiple prestigious awards in visual communication."
-image = "/images/speakers/2026/speaker-adolfo.avif"
+image = "/images/speakers/2026/speaker-adolfo.webp"
 social = {website = "https://www.perdigallos.com", instagram = "https://www.instagram.com/adolfux", linkedin = "https://www.linkedin.com/in/adolfo-arranz-0536569/", twitter = "https://x.com/adolfux"}
 
 # WORKSHOP | OBSERVE, COLLECT, MAP | PRITI
@@ -810,7 +818,7 @@ name = "Priti Pandurangan"
 designation = "Information Experience Designer"
 organisation = ""
 about = "Priti is a creative practitioner working globally across digital humanities, data, and computational futures through research, facilitation, and critical inquiry. Her personal practice explores pluralistic approaches to data and technology, focusing on forms of knowledge and epistemologies that resist quantification while holding space for lived experience, ambiguity, and affect.\n\nShe is also a data walker who facilitates data walks in cities around the world, enabling participants to engage with urban environments through situated and embodied interpretations.\n\nCentral to her work is how culture is held, transmitted, and reconfigured across contexts and temporalities, and the structures through which it is preserved and interpreted."
-image = "/images/speakers/2026/speaker-priti.avif"
+image = "/images/speakers/2026/speaker-priti.webp"
 social = {website = "https://priti.is/here", instagram = "https://www.instagram.com/wherepritiis", linkedin = "https://www.linkedin.com/in/priti-pandurangan/", twitter = "https://x.com/wherepritiis"}
 
 # WORKSHOP | INTERACTIVE DATAVIZ USING AI CODING | KENNETH
@@ -832,17 +840,17 @@ order = 6
 [[session.speakers]]
 name = "Kenneth Dsouza"
 designation = "Designer"
-organisation = ""
-about = "Kenneth Dsouza is an experienced product designer with a Master's from NID and 12+ years of experience working at companies like Practo, Gojek, and Jiva.ag, building multi-market products and running design teams. Currently on a sabbatical, tinkering with making apps and exploring AI-native design tools.\n\nYou can find his AI projects at: <https://kenneth.dsouza.im/ai/>\n\n\n\nRasagy Sharma loves making data meaningful. He is an Information Designer, Design Educator, Data Artist & compulsive Sketchnoter.\n\nHe currently heads the design team for DataLabs at Capital One and has spent 13+ years leading teams & designing data-heavy products at Microsoft, Sundial, Barclays, Mapbox, Capillary & Gramener.\n\nIn his free time, he creates art using data and code, which has been exhibited at Berlin, Swiss Embassy in Delhi, NGMA Bangalore & Goethe Institute, Bangalore.\n\nHe also teaches at design schools like NID & IDC, IIT Bombay, and supports design communities like DesignUp, VizChitra & Creative Coding Sante.\n"
-image = "/images/speakers/2026/speaker-kenneth.avif"
+organisation = "Independent"
+about = "Kenneth Dsouza is an experienced product designer with a Master's from NID and 12+ years of experience working at companies like Practo, Gojek, and Jiva.ag, building multi-market products and running design teams. Currently on a sabbatical, tinkering with making apps and exploring AI-native design tools.\n\nYou can find his AI projects at: <https://kenneth.dsouza.im/ai/>."
+image = "/images/speakers/2026/speaker-kenneth.webp"
 social = {website = "https://kenneth.dsouza.im/", instagram = "https://www.instagram.com/kennethmdesouza", twitter = "https://x.com/kenneth"}
 
 [[session.speakers]]
 name = "Rasagy Sharma"
 designation = "Head of Design"
 organisation = "Capital One"
-about = ""
-image = ""
+about = "Rasagy Sharma loves making data meaningful. He is an Information Designer, Design Educator, Data Artist & compulsive Sketchnoter.\n\nHe currently heads the design team for DataLabs at Capital One and has spent 13+ years leading teams & designing data-heavy products at Microsoft, Sundial, Barclays, Mapbox, Capillary & Gramener.\n\nIn his free time, he creates art using data and code, which has been exhibited at Berlin, Swiss Embassy in Delhi, NGMA Bangalore & Goethe Institute, Bangalore.\n\nHe also teaches at design schools like NID & IDC, IIT Bombay, and supports design communities like DesignUp, VizChitra & Creative Coding Sante"
+image = "/images/speakers/2026/speaker-rasagy.webp"
 social = {website = "https://rasagy.in/", instagram = "https://www.instagram.com/rasagy.sharma", linkedin = "https://www.linkedin.com/in/rasagy/", twitter = "https://x.com/rasagy"}
 
 # WORKSHOP | DESIGNING DATA STORIES FOR SMALL | AREENA
@@ -866,7 +874,7 @@ name = "Areena Arora"
 designation = "Editorial Coder"
 organisation = "The Hindu"
 about = "Areena Arora is a journalist who transforms messy data into stories that matter. She uncovers patterns hidden in datasets, then designs how people encounter and understand those stories.\n\nHer work sits at the intersection of rigorous reporting and intentional design. She asks: What is the data trying to tell us? How do we present it such that people actually listen and grasp its intricacies? Before finding her way to this unique blend as The Hindu's first-ever Editorial Coder, she reported on public education and local governance in Tennessee, U.S.\n\nShe's obsessed with making complexity accessible. When she's not chasing stories in data, she's cooking up a storm, always up for feeding an army."
-image = "/images/speakers/2026/speaker-areena.avif"
+image = "/images/speakers/2026/speaker-areena.webp"
 social = {website = "https://areenaarora.com", instagram = "https://www.instagram.com/areena_news", linkedin = "https://www.linkedin.com/in/areena-arora/", twitter = "https://x.com/AreenaArora"}
 
 # DIALOGUE | UNLOCKING PUBLIC SECTOR DATA & | ANUPAMA
@@ -912,33 +920,36 @@ name = "Anushka Gokhale"
 designation = "Lead Designer"
 organisation = "EPIC World"
 about = "Anushka Gokhale is a Product Designer and number-crunching storyteller. In her 5+ years of experience, she has collaborated with mission-driven teams and designed data-heavy products across govtech, conservation tech, fintech, and spatial intelligence — bridging the gap between data and people.\n\n Currently Lead Designer at EPIC World. Previously Senior Product Designer at Parallel HQ and CivicDataLab, and  Visiting Faculty at SMI."
-image = ""
+image = "/images/speakers/2026/speaker-anushka.webp"
 social = {website = "https://www.anushkagokhale.com", instagram = "https://www.instagram.com/anushahahaka", linkedin = "https://www.linkedin.com/in/anushkaag/", twitter = "https://x.com/GokhaleAnushka"}
 moderator = true
+
+
 
 [[session.speakers]]
 name = "Sandeep Karmarkar"
 designation = "Head of Design"
 organisation = "Atlassian"
-about = ""
-image = ""
+about = "Sandeep Karmarkar is a design leader with over two decades of experience spanning visual design, UX, product strategy, and team leadership across global technology companies. He currently serves as the Head of Design for the IT Operations portfolio at Atlassian, where he leads teams focused on building effective experiences for managing complex systems at scale. He has previously held leadership roles at Uber, Google, and Nutanix.\n\nOver the years, he has worked on products used by millions across mobility, cloud platforms, security, and public transport experiences in India. Deeply passionate about data visualization and information design, Sandeep has actively hired, mentored, and supported many young designers from Information Design backgrounds throughout his career. He is equally passionate about building high-performing teams and bridging industry with education through talks, workshops, mentorship, and teaching engagements.\n\nA marathon runner, trekker, and digital artist, he brings the same curiosity and endurance from the mountains into the world of design leadership, innovation, and storytelling.\n"
+image = "/images/speakers/2026/speaker-sandeep-karmarkar.webp"
 social = {instagram = "https://www.instagram.com/sandeep.karmarkar", linkedin = "https://www.linkedin.com/in/smkarmarkar/"}
 
 [[session.speakers]]
 name = "Areena Arora"
 designation = "Editorial Coder"
 organisation = "The Hindu"
-about = ""
-image = ""
+about = "Areena Arora is a journalist who transforms messy data into stories that matter. She uncovers patterns hidden in datasets, then designs how people encounter and understand those stories.\n\nHer work sits at the intersection of rigorous reporting and intentional design. She asks: What is the data trying to tell us? How do we present it such that people actually listen and grasp its intricacies? Before finding her way to this unique blend as The Hindu's first-ever Editorial Coder, she reported on public education and local governance in Tennessee, U.S.\n\nShe's obsessed with making complexity accessible. When she's not chasing stories in data, she's cooking up a storm, always up for feeding an army."
+image = "/images/speakers/2026/speaker-areena.webp"
 social = {website = "https://areenaarora.com", instagram = "https://www.instagram.com/areena_news", linkedin = "https://www.linkedin.com/in/areena-arora/", twitter = "https://x.com/AreenaArora"}
 
 [[session.speakers]]
 name = "Hamsa Ganesh"
 designation = "Founder"
 organisation = "Thoughtput"
-about = ""
-image = ""
-social = {}
+about = "Hamsa is a designer and independent web practitioner interested in how institutions organise, preserve, and communicate knowledge online."
+image = "/images/speakers/2026/speaker-hamsa.png"
+social = {instagram = "https://www.instagram.com/36truths/", twitter = "https://x.com/hamganesh"}
+
 
 # ACTIVITY | DECODE THE CHART GAME | ARSHI
 [[session]]
@@ -959,7 +970,7 @@ name = "Arshi Saleh"
 designation = "Tableau Developer"
 organisation = "Data Visual Designer"
 about = "Arshi Saleh is a freelance Tableau Developer and Data Visual Designer. She serves as Community & Events Coordinator for DVS GeoIG, is Bengaluru TUG Co‑Lead and Tableau Ambassador (2025–2026). Her work has been recognized with two Viz of the Day features, a 2nd‑place finish in the DataViz Competition organized by WIA, and three entries showcased in the Information is Beautiful Longlist.\n\n Focused on creating data stories with social impact, Arshi is passionate about community‑led learning. She actively contributes to initiatives that make data literacy more accessible while fostering collaboration, mentorship, and knowledge sharing within the global data visualization community."
-image = ""
+image = "/images/speakers/2026/speaker-arshi.webp"
 social = {website = "https://public.tableau.com/app/profile/arshisaleh", instagram = "https://www.instagram.com/arshisaleh", linkedin = "https://www.linkedin.com/in/arshisaleh/", twitter = "https://x.com/SalehArshi"}
 
 # ACTIVITY | THURRO'S DATA PLAYGROUND | AKHILESH
@@ -982,8 +993,16 @@ name = "Akhilesh Tilotia"
 designation = "Co-founder"
 organisation = "Thurro"
 about = "Akhilesh has a unique perspective in his commentary as he views the world through the various lenses of an entreprenuer, government officer, an economist, a banker, and a strategist. These multiple world-views have shaped him as a dot-joiner and has powered his two books on India's macroeconomy and administration."
-image = ""
+image = "/images/speakers/2026/speaker-akhilesh.webp"
 social = {website = "https://www.thurro.com", linkedin = "https://www.linkedin.com/in/atilotia/", twitter = "https://x.com/atilotia"}
+
+[[session.speakers]]
+name = "Aarushi Shah"
+designation = "Stem Cell"
+organisation = "Thurro"
+about = "Aarushi likes to do a little bit of everything. Primarily a cognitive scientist by training, she earned her data chops at Cambridge, creating useful dataviz and stats for UK's public health system.  At Thurro, she helps in external relations (mainly because she enjoys being a chatterbox). She likes drawing parallels, which she finds all the everywhere, all the time."
+image = "/images/speakers/2026/speaker-aarushi.webp"
+social = {instagram = "https://www.instagram.com/aaruembroiders/", linkedin = "https://www.linkedin.com/in/aarushi-shah-232961a7/"}
 
 # ACTIVITY | THE CITIES WE DON’T SEE | SHOBANA
 [[session]]
@@ -1001,20 +1020,22 @@ pageReady = true
 order = 43
 
 [[session.speakers]]
-name = "Shobana Venkatasubbu"
-designation = "Senior Manager"
-organisation = "Janaagraha"
-about = "Shobana took every traditional route her engineering, MBA and accounting degrees told her to, and then went looking for work that actually meant something. So she took a turn. She now spends her time with city balance sheets and looking for stories they tell. At Janaagraha, she leads CityFinance, the national platform for municipal financial data built in partnership with the Ministry of Housing and Urban Affairs. She also works with the Comptroller and Auditor General on revising the National Municipal Accounting Manual, which is the kind of sentence that clears a room at parties but is genuinely one of the most important things happening in urban fiscal governance right now. A thought she cannot stop returning to: India's cities have some of the most interesting data in the country,and not nearly enough stories to show for it. "
-image = ""
-social = {linkedin = "https://www.linkedin.com/in/shobana-subbu-3259737/"}
-
-[[session.speakers]]
 name = "Tushar Chakrabarty"
 designation = "Associate Manager"
 organisation = "Janaagraha"
 about = "Tushar is a public finance professional with experience ofworking across union, state, and municipal finances. He has authored multiple publications analysing the finances of union and state governments. He began his career as a journalist, covering events and telling stories impacting India's economy. At Janaagraha, he works towards making urban finance data more accessible for various stakeholders."
-image = ""
+image = "/images/speakers/2026/speaker-tushar.webp"
 social = {website = "https://tusharchakrabarty.substack.com/?utm_campaign=profile_chips"}
+
+[[session.speakers]]
+name = "Shobana Venkatasubbu"
+designation = "Senior Manager"
+organisation = "Janaagraha"
+about = "Shobana took every traditional route her engineering, MBA and accounting degrees told her to, and then went looking for work that actually meant something. So she took a turn. She now spends her time with city balance sheets and looking for stories they tell. At Janaagraha, she leads CityFinance, the national platform for municipal financial data built in partnership with the Ministry of Housing and Urban Affairs. She also works with the Comptroller and Auditor General on revising the National Municipal Accounting Manual, which is the kind of sentence that clears a room at parties but is genuinely one of the most important things happening in urban fiscal governance right now. A thought she cannot stop returning to: India's cities have some of the most interesting data in the country,and not nearly enough stories to show for it. "
+image = "/images/speakers/2026/speaker-shobana.webp"
+social = {linkedin = "https://www.linkedin.com/in/shobana-subbu-3259737/"}
+
+
 
 # ACTIVITY | MORNING MELODY | NIKITA
 [[session]]
@@ -1032,16 +1053,16 @@ order = 44
 
 [[session.speakers]]
 name = "Nikita Deshpande"
-designation = ""
+designation = "Art & Animation Director, Illustrator"
 organisation = ""
 about = "Nikita is an Art & Animation Director and illustrator with over 12 years of experience bringing stories to life through expressive, concept-driven visuals. Her work spans editorial, animation, games, music videos, and brand identity, and is rooted in clarity, emotion, and atmosphere. \n She spent seven years as a Visual Artist and Designer at BBC News, where she created illustrations, animations, infographics, and motion graphics for digital, social, and broadcast platforms, helping audiences better understand complex stories through authentic and impactful design. As an independent creative, she has collaborated with clients including BBC Media Action, Purpose Global, Unbias the News, Revisual Labs, and Collective Newsroom, among others. \n Since childhood, Nikita has felt a pull towards listening to and learning Indian classical music. Under the guidance of Hindustani classical vocalist Nirali Kartik, she continues to nurture this lifelong passion alongside her visual practice."
-image = ""
+image = "/images/speakers/2026/speaker-nikita.webp"
 social = {website = "https://www.behance.net/nikita_deshpande", instagram = "https://www.instagram.com/we_oink", linkedin = "https://www.linkedin.com/in/nikitadeshpande/"}
 
 # ACTIVITY | AFTERNOON RHYTHM | ASHOK
 [[session]]
 
-slug = ""
+slug = "afternoon-rhythm"
 sessionType = "Activities"
 venue = "Bangalore International Centre"
 title = "Afternoon Rhythm"
@@ -1054,8 +1075,8 @@ order = 45
 
 [[session.speakers]]
 name = "Ashok Kumar"
-designation = ""
+designation = "Djembe. Artist. Actor."
 organisation = ""
-about = ""
-image = ""
-social = {}
+about = "Ashok Kumar is a musician, actor, and coach, who is a renowned Djembe percussion player. He is also an accomplished theatre actor with over 30 years of experience. Most recently, he can be seen on the small and big screen in Kannada television and film productions."
+image = "/images/speakers/2026/speaker-ashok.webp"
+social = {website = "https://jembeashok.com"}

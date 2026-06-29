@@ -108,7 +108,6 @@
 <div class="w-full">
 	{#each data.exhibitions as exhibit, i}
 		{@const isEven = i % 2 === 0}
-		{@const isDual = (exhibit.speakers?.length ?? 0) > 1}
 
 		<section class="exhibit-section" id={exhibit.slug}>
 			<Container paddingY="2xl">
@@ -150,80 +149,26 @@
 						<!-- About the artist(s) — below artwork on desktop -->
 						<section class="artist-section">
 							<Heading tag="h2" align="left" class="pb-4">
-								About the artist{isDual ? 's' : ''}
+								About the artist{(exhibit.speakers?.length ?? 0) > 1 ? 's' : ''}
 							</Heading>
-							<div class="artist-blocks" class:artist-blocks--dual={isDual}>
-								<!-- Artist 1 -->
-								<div class="artist-block">
-									<p class="artist-name">{exhibit.speakers?.[0]?.name ?? ''}</p>
-									{#if exhibit.speakers?.[0]?.designation || exhibit.speakers?.[0]?.organisation}
-										<p class="artist-designation">
-											{[exhibit.speakers?.[0]?.designation, exhibit.speakers?.[0]?.organisation]
-												.filter(Boolean)
-												.join(' · ')}
-										</p>
-									{/if}
-									<!-- Social icons -->
-									{#if Object.values(exhibit.speakers?.[0]?.social ?? {}).some((u) => u)}
-										<div class="artist-socials">
-											{#each Object.entries(exhibit.speakers?.[0]?.social ?? {}).filter(([, u]) => u) as [platform, url]}
-												{@const icon = `/images/socials/${['twitter', 'instagram', 'linkedin', 'bluesky', 'github', 'youtube'].includes(platform) ? platform : 'website'}.svg`}
-												<a
-													href={url}
-													target="_blank"
-													rel="noopener noreferrer"
-													aria-label="{platform} profile"
-													class="social-icon social-icon--orange"
-												>
-													<img src={icon} alt={platform} width="18" height="18" />
-												</a>
-											{/each}
-										</div>
-									{/if}
-									{#if exhibit.speakerAboutHtml}
-										<div class="artist-bio" class:expanded={expandedBios.has(`${exhibit.slug}-1`)}>
-											<div class="artist-photo-wrap">
-												{#if exhibit.speakers?.[0]?.image}
-													<img
-														class="artist-photo"
-														src={exhibit.speakers[0].image}
-														alt={exhibit.speakers[0].name}
-													/>
-												{:else}
-													<div class="artist-photo-placeholder" aria-hidden="true">
-														{(exhibit.speakers?.[0]?.name ?? '')
-															.split(' ')
-															.map((n) => n[0] ?? '')
-															.join('')
-															.slice(0, 2)
-															.toUpperCase()}
-													</div>
-												{/if}
-											</div>
-											<Prose>
-												{@html exhibit.speakerAboutHtml}
-											</Prose>
-										</div>
-										<button class="read-more-btn" onclick={() => toggleBio(`${exhibit.slug}-1`)}>
-											{expandedBios.has(`${exhibit.slug}-1`) ? 'Read less ↑' : 'Read more ↓'}
-										</button>
-									{/if}
-								</div>
-
-								<!-- Artist 2 (dual only) -->
-								{#if isDual}
-									{@const sp1 = exhibit.speakers?.[1]}
+							<div
+								class="artist-blocks"
+								class:artist-blocks--multi={(exhibit.speakers?.length ?? 0) > 1}
+							>
+								{#each exhibit.speakers ?? [] as sp, si}
+									{@const bioKey = `${exhibit.slug}-${si + 1}`}
+									{@const bioHtml = exhibit.speakersAboutHtml?.[si] ?? ''}
 									<div class="artist-block">
-										<p class="artist-name">{sp1?.name ?? ''}</p>
-										{#if sp1?.designation || sp1?.organisation}
+										<p class="artist-name">{sp.name ?? ''}</p>
+										{#if sp.designation || sp.organisation}
 											<p class="artist-designation">
-												{[sp1?.designation, sp1?.organisation].filter(Boolean).join(' · ')}
+												{[sp.designation, sp.organisation].filter(Boolean).join(' · ')}
 											</p>
 										{/if}
 										<!-- Social icons -->
-										{#if Object.values(sp1?.social ?? {}).some((u) => u)}
+										{#if Object.values(sp.social ?? {}).some((u) => u)}
 											<div class="artist-socials">
-												{#each Object.entries(sp1?.social ?? {}).filter(([, u]) => u) as [platform, url]}
+												{#each Object.entries(sp.social ?? {}).filter(([, u]) => u) as [platform, url]}
 													{@const icon = `/images/socials/${['twitter', 'instagram', 'linkedin', 'bluesky', 'github', 'youtube'].includes(platform) ? platform : 'website'}.svg`}
 													<a
 														href={url}
@@ -237,17 +182,14 @@
 												{/each}
 											</div>
 										{/if}
-										{#if exhibit.speaker2AboutHtml}
-											<div
-												class="artist-bio"
-												class:expanded={expandedBios.has(`${exhibit.slug}-2`)}
-											>
+										{#if bioHtml}
+											<div class="artist-bio" class:expanded={expandedBios.has(bioKey)}>
 												<div class="artist-photo-wrap">
-													{#if sp1?.image}
-														<img class="artist-photo" src={sp1.image} alt={sp1?.name ?? ''} />
+													{#if sp.image}
+														<img class="artist-photo" src={sp.image} alt={sp.name ?? ''} />
 													{:else}
 														<div class="artist-photo-placeholder" aria-hidden="true">
-															{(sp1?.name ?? '')
+															{(sp.name ?? '')
 																.split(' ')
 																.map((n) => n[0] ?? '')
 																.join('')
@@ -257,15 +199,15 @@
 													{/if}
 												</div>
 												<Prose>
-													{@html exhibit.speaker2AboutHtml}
+													{@html bioHtml}
 												</Prose>
 											</div>
-											<button class="read-more-btn" onclick={() => toggleBio(`${exhibit.slug}-2`)}>
-												{expandedBios.has(`${exhibit.slug}-2`) ? 'Read less ↑' : 'Read more ↓'}
+											<button class="read-more-btn" onclick={() => toggleBio(bioKey)}>
+												{expandedBios.has(bioKey) ? 'Read less ↑' : 'Read more ↓'}
 											</button>
 										{/if}
 									</div>
-								{/if}
+								{/each}
 							</div>
 						</section>
 					</div>
@@ -340,7 +282,7 @@
 		gap: 2rem;
 	}
 
-	.artist-blocks--dual {
+	.artist-blocks--multi {
 		gap: 2.5rem;
 	}
 
