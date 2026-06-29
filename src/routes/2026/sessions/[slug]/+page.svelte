@@ -36,7 +36,15 @@
 		return { href: '/2026/sessions', label: 'Back to All Sessions' };
 	});
 
-	const period = $derived(session.time === '10:00 - 13:00' ? 'Morning' : 'Afternoon');
+	// Room label for display: workshop tracks are "Venue - Room" (e.g. "Underline - FLR 3"),
+	// which repeats the venue shown below — so strip the venue prefix and tidy "FLR" → "Floor".
+	const roomLabel = $derived.by(() => {
+		if (!session.room) return '';
+		const r = session.room.includes(' - ')
+			? session.room.split(' - ').slice(1).join(' - ')
+			: session.room;
+		return r.replace(/\bFLR\b/i, 'Floor');
+	});
 
 	// ── Studio panel state ────────────────────────────────────────────────────
 	let isStudioUser = $state(false);
@@ -157,7 +165,10 @@
 		<!-- Time + venue -->
 		<div class="text-viz-black font-display mb-8 space-y-1 text-base tracking-wide uppercase">
 			{#if session.time}
-				<p><span class="font-semibold">{session.time}</span> ⋅ {period}</p>
+				<p>
+					<span class="font-semibold">{session.time}</span>{#if roomLabel}
+						⋅ {roomLabel}{/if}
+				</p>
 			{/if}
 			{#if session.venue}
 				<p>{session.venue}</p>

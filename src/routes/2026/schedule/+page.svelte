@@ -14,6 +14,7 @@
 		visibleLegend,
 		overlapsWindow,
 		rowHeightsFor,
+		splitTrack,
 		exhibitionTrack,
 		exhibitionStart,
 		exhibitionEnd
@@ -82,7 +83,9 @@
 	let windowStart = $state(0);
 	const maxWindowStart = $derived(Math.max(0, schedule.tracks.length - 2));
 	const isActive = (i: number) => i === windowStart || i === windowStart + 1;
-	const activeTrackNames = $derived(schedule.tracks.filter((_, i) => isActive(i)));
+	const activeTrackNames = $derived(
+		schedule.tracks.filter((_, i) => isActive(i)).map((t) => splitTrack(t).room)
+	);
 
 	const isCollapsed = (track: string) => !isActive(schedule.tracks.indexOf(track));
 
@@ -188,12 +191,15 @@
 			ontouchend={onGridTouchEnd}
 		>
 			{#each schedule.tracks as track, i}
+				{@const t = splitTrack(track)}
 				<div
-					class="track-header border-viz-grey-light bg-viz-white font-display text-viz-grey-dark sticky top-[calc(4rem+var(--announcement-bar-height,32px))] z-20 overflow-hidden border-b px-3 py-2 text-xs font-bold tracking-wide whitespace-nowrap uppercase shadow-lg sm:text-sm"
+					class="track-header border-viz-grey-light bg-viz-white font-display text-viz-grey-dark sticky top-[calc(4rem+var(--announcement-bar-height,32px))] z-20 overflow-hidden border-b px-3 py-2 text-xs leading-tight font-bold tracking-wide uppercase shadow-lg sm:text-sm"
 					style="grid-row: 1; grid-column: {i + 2};"
 					class:inactive={isCollapsed(track)}
 				>
-					{track}
+					{t.room}{#if t.venue}<span
+							class="mt-0.5 block text-[10px] font-normal normal-case opacity-65">{t.venue}</span
+						>{/if}
 				</div>
 			{/each}
 
@@ -288,19 +294,24 @@
 				 exhibition, since they all run simultaneously for the whole day. -->
 			{#if galleryEntries.length}
 				<div
-					class="event-slot slot-color-orange z-10 flex min-h-0 flex-col gap-3 overflow-hidden px-3 py-2.5 leading-tight"
+					class="event-slot slot-color-orange relative z-10 flex min-h-0 flex-col gap-3 overflow-hidden px-3 py-2.5 leading-tight"
 					style="grid-row: {galleryRowStart} / span {galleryRowSpan}; grid-column: {galleryCol};"
 					class:inactive={isCollapsed(exhibitionTrack)}
 				>
-					<span class="font-display block self-center text-sm font-bold uppercase lg:text-[18px]">
+					<!-- Cell-wide default link: clicking anywhere outside a specific exhibit
+						 (header, gaps) goes to the exhibition page via the stretched ::after. -->
+					<a
+						href="/2026/exhibition"
+						class="font-display block self-center text-sm font-bold uppercase no-underline transition after:absolute after:inset-0 hover:opacity-70 lg:text-[18px]"
+					>
 						Exhibition: Data, Otherwise
-					</span>
+					</a>
 					<div class="flex flex-1 flex-col justify-evenly gap-3">
 						{#each galleryEntries as ex}
 							<svelte:element
 								this={ex.href ? 'a' : 'div'}
 								href={ex.href}
-								class="border-viz-orange/30 block pt-3 no-underline transition first:pt-0 {ex.href
+								class="border-viz-orange/30 relative z-10 block pt-3 no-underline transition first:pt-0 {ex.href
 									? 'hover:opacity-70'
 									: ''}"
 							>

@@ -42,6 +42,7 @@
 				<li><a href="/2026/attendee-guide#venue">Venue &amp; How to Get There</a></li>
 				<li><a href="/2026/attendee-guide#whatsapp">Attendee WhatsApp Group</a></li>
 				<li><a href="/2026/attendee-guide#registration">Registration</a></li>
+				<li><a href="/2026/attendee-guide#food">Food &amp; Refreshments</a></li>
 				<li><a href="/2026/attendee-guide#workshops">Workshops</a></li>
 				<li><a href="/2026/attendee-guide#conduct">Code of Conduct</a></li>
 				<li><a href="/2026/attendee-guide#accommodation">Accommodation</a></li>
@@ -142,6 +143,57 @@
 
 		<DividerCurves />
 
+		<!-- Food & Refreshments -->
+		<Prose color="yellow" id="food">
+			<h2>Food &amp; Refreshments</h2>
+			<p>
+				<strong>There is no breakfast on site</strong>, so eat before you arrive or grab something
+				nearby on your way in. Once you are here, chai and kaapi run all day on the
+				<strong>1st floor</strong> — help yourself between sessions.
+			</p>
+			<p>
+				Lunch is complimentary build-your-own <strong>burrito bowls</strong> with a choice of protein,
+				both vegetarian and non-vegetarian, plus nachos and cold drinks on the side.
+			</p>
+		</Prose>
+
+		<Grid minWidth="28ch" maxColumns={2} gap={6}>
+			<Card variant="bordered" color="teal" title="Vegetarian Bowls 🌱">
+				<p>Pick your protein:</p>
+				<ul>
+					<li>Mexican Paneer</li>
+					<li>Mushroom</li>
+				</ul>
+			</Card>
+			<Card variant="bordered" color="orange" title="Non-Vegetarian Bowls 🍗">
+				<p>Pick your protein:</p>
+				<ul>
+					<li>Crispy Chicken</li>
+					<li>BBQ Chicken</li>
+				</ul>
+			</Card>
+		</Grid>
+
+		<Prose>
+			<h3>Every bowl comes loaded with</h3>
+			<p>Whichever protein you choose, your bowl is built on:</p>
+			<ul>
+				<li>Cilantro lime rice</li>
+				<li>Black beans or pinto beans</li>
+				<li>Fajita veggies</li>
+				<li>Lettuce</li>
+				<li>Tomato salsa, corn salsa, hot salsa &amp; mild salsa</li>
+				<li>Sour cream</li>
+			</ul>
+			<h3>On the side</h3>
+			<ul>
+				<li>Plain nachos</li>
+				<li>Cold drinks &mdash; peach iced tea &amp; pink lemonade</li>
+			</ul>
+		</Prose>
+
+		<DividerCurves />
+
 		<!-- Workshops -->
 		<Prose color="orange" id="workshops">
 			<h2>Workshops // 3rd July</h2>
@@ -165,7 +217,10 @@
 				>
 			</Card>
 			<Card variant="bordered" color="orange" title="Underline Center">
-				<p>Indiranagar, Bengaluru</p>
+				<p>
+					2nd Floor, Indiranagar,<br />
+					Bengaluru, Karnataka
+				</p>
 				<Button
 					href="https://maps.app.goo.gl/ZcNqMtmzmqV4tcnd9"
 					color="orange"
