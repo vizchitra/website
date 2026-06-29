@@ -1,965 +1,1084 @@
 
+# WORKSHOP | AGENTIC DATAVIZ | KARTHIK
 [[session]]
+
 slug = "agentic-dataviz"
 sessionType = "Workshops"
-date = "2026-07-03"
-time = "14:30 - 17:30"
-slot = "afternoon"
 venue = "Underline Center"
 title = "Agentic DataViz: Build Systems, Not Charts"
 subtitle = "Find the Story. Teach the Agent. Run It Again."
 shortDescription = "It is now easy to ask an LLM to make a good-looking chart once. The harder problem is getting it to find the right hypotheses / story, use the right data, match your taste, and do it again tomorrow without everything becoming a fresh act of faith. This hands-on workshop teaches a practical workflow for building repeatable AI-assisted dataviz systems"
 longDescription = "LLMs can now produce surprisingly good charts, dashboards, and data stories. The awkward bit is that most of this work still has a demo problem: it works once, on one dataset, with one lucky prompt. The moment the data changes, the story changes, or another person has to run it, the whole thing becomes fragile.\n\nA useful correction is to remember that visualisation follows the same basic process as data science. You start with a question or hypothesis. You inspect whether the data can actually answer it. You iterate when the first answer is not quite right. The chart comes at the end, as the communication layer. AI does not remove this process. If anything, it makes the process more important, because the first generated chart can look plausible even when the underlying story is weak.\n\nThis workshop is about turning that old craft process into a repeatable AI-assisted workflow. We will define the job, inspect the data, create a context pack, ask the model to find candidate stories before charting, generate a visual, critique it, and add simple reproducibility checks. The examples draw on my work at Babbage Insight, where we tried to monitor business metrics and surface stories automatically, and on my more recent AI-generated weather visualisations and narrative posts.\n\nParticipants will leave with a small reusable system: input data, context, story-finding prompt, visual-generation prompt, generated output, review checklist, and next-run instructions.\n"
-speakerName = "Karthik Shashidhar"
-designation = "Data & AI Consultant"
-organisation = ""
-speakerAbout = "Karthik Shashidhar is a fractional data and AI consultant based in Bangalore. Prior to this, he was founder and CEO of Babbage Insight, and SVP of Data at Delhivery.\n\nHe has written about data, analytics, and AI on his Substack The Art of Data Science since 2022 (before that, on a personal blog since the mid-2000s). He writes a column for Mint and is the author of Between the Buyer and the Seller. He holds a BTech in Computer Science from IIT Madras and an MBA from IIM Bangalore"
-speakerImage = "/images/speakers/2026/speaker-karthik.webp"
 display = true
 pageReady = true
 ticketCode = "agentic_dataviz"
 order = 1
 
+[[session.speakers]]
+name = "Karthik Shashidhar"
+designation = "Data & AI Consultant"
+organisation = ""
+about = "Karthik Shashidhar is a fractional data and AI consultant based in Bangalore. Prior to this, he was founder and CEO of Babbage Insight, and SVP of Data at Delhivery.\n\nHe has written about data, analytics, and AI on his Substack The Art of Data Science since 2022 (before that, on a personal blog since the mid-2000s). He writes a column for Mint and is the author of Between the Buyer and the Seller. He holds a BTech in Computer Science from IIT Madras and an MBA from IIM Bangalore"
+image = "/images/speakers/2026/speaker-karthik.webp"
+social = {website = "https://karthiks.co", instagram = "https://www.instagram.com/skthewimp", linkedin = "https://www.linkedin.com/in/karthikshashidhar/", twitter = "https://x.com/karthiks"}
+
+# TALK | THE SHAPE OF HEALTH COSTS | SAURABH
 [[session]]
+
 slug = "shape-health-costs"
 sessionType = "Talks"
-date = "2026-07-04"
-time = "15:45 - 16:00"
-slot = "afternoon"
 venue = "Bangalore International Centre"
 title = "The Shape of Health Costs"
 subtitle = "Every chart simplifies reality. The best ones carry complexity with care."
 shortDescription = "Healthcare data is buried in jargon, fear, and asymmetry. This talk is about the craft of making it human: the editorial decisions, chart choices, and design guardrails behind DataLabs, Plum's initiative on making explainers on the real cost of health in India."
 longDescription = "Every chart simplifies. The question is whether the simplification serves the reader or obscures what they most need to know.\n\nHealthcare data in India is a black box. The cost of chronic disease is buried in claims forms and scientific reports most people will never read. And even when data is available, the language tends to be cold, clinical, and shot through with fear mongering that makes people look away rather than engage.\n\nPlum processes over 125,000 health insurance claims, 100,000 tele health consultations, and 25,000 health checkups every year. That is a lot of data. DataLabs is their attempt to turn that into something the people it is actually about can use.\n\nThis talk is about the craft behind that work. Saurabh will walk through the full editorial and design process: how they decide which stories to tell from a dataset full of possibilities, which chart types carry complexity without overwhelming, and where a simple table does the job better than any visualization.\n\nYou will hear why they chose horizon charts over bar charts, why violin charts work for length-of-stay data, and what interactive elements help readers who have never encountered certain chart types before. You will also hear about the quieter decisions: qualitative research to catch narrative bias before it reaches the reader, privacy guardrails when working with real patient data, and the editorial calls about which data points to cut because they would overwhelm rather than illuminate.\n\nDataLabs is not a dashboard. It is an editorial initiative built on the belief that health data should serve the people it describes. The craft is in making complexity feel human rather than intimidating.\n"
-speakerName = "Saurabh Arora"
-designation = "Chief Technology Officer"
-organisation = "Plum"
-speakerAbout = "Saurabh is the cofounder and CTO of Plum, where he leads Engineering, Product, and Design. Plum processes over 125,000 health insurance claims every year — and Saurabh wanted that data to do more than sit in spreadsheets. He created Datalabs, an initiative that turns claims data into interactive visual investigations about cost of healthcare. Their stories on cancer costs and heart disease burden have combined rigorous analysis with accessible narrative design to make complex health economics legible to anyone. Saurabh is interested in the craft of making the intimidating feel approachable, and the invisible feel urgent."
-speakerImage = "/images/speakers/2026/speaker-saurabh.avif"
 display = true
 pageReady = true
 order = 6
 
+[[session.speakers]]
+name = "Saurabh Arora"
+designation = "Chief Technology Officer"
+organisation = "Plum"
+about = "Saurabh is the cofounder and CTO of Plum, where he leads Engineering, Product, and Design. Plum processes over 125,000 health insurance claims every year — and Saurabh wanted that data to do more than sit in spreadsheets. He created Datalabs, an initiative that turns claims data into interactive visual investigations about cost of healthcare. Their stories on cancer costs and heart disease burden have combined rigorous analysis with accessible narrative design to make complex health economics legible to anyone. Saurabh is interested in the craft of making the intimidating feel approachable, and the invisible feel urgent."
+image = "/images/speakers/2026/speaker-saurabh.webp"
+social = {website = "https://playtime.sh", linkedin = "https://www.linkedin.com/in/saurabhplum/", twitter = "https://x.com/tanish2k"}
+
+# TALK | A MAJESTIC MAP REDESIGN | SHUBHRA
 [[session]]
+
 slug = "majestic-map-redesign"
 sessionType = "Talks"
-date = "2026-07-04"
-time = "10:30 - 10:45"
-slot = "morning"
 venue = "Bangalore International Centre"
 title = "A Majestic Map Redesign: Data, Design & Government"
 subtitle = "Maps shape how cities feel. One bus station showed it."
 shortDescription = "Majestic in Bengalure handles 3 lakh daily commuters, 300+ routes and 36 platforms. Its maps hadn't changed in 20 years. This talk traces what it took to redesign them."
 longDescription = "Majestic is the heart of Bengaluru's transit system. Over 3 lakh people pass through it every day, navigating 300+ bus routes, 36 platforms, a railway station, and now a metro interchange. For twenty years, the maps guiding them had not changed.\n\nShubhra worked with BMTC, WRI India, and Villgro at Bengawalk to change that. This talk traces the full process behind the redesign: from user research and site analysis to categorising public data, building a design system, gathering feedback across multiple iterations, and finally implementing it on-site.\n\nBefore any of that could happen, 150+ routes had to be made skimmable in seconds. Relationships between platforms and their directions across the city had to be made visible for the first time. And the people who actually use the station, not designers, not planners, had to be the starting point.\n\nThe talk also covers the part that rarely gets discussed: working with government. Getting civic bodies to see the value of user-centric design, to invest in a pilot, and to trust that good wayfinding is worth the effort. The argument is simple but not easy to make: cities that work for people start with design that starts with people. And that can begin with one map at one station.\n"
-speakerName = "Shubhra Agarwal"
-designation = "Creative Lead"
-organisation = "Bengawalk"
-speakerAbout = "Shubhra Agarwal is a multidisciplinary designer and filmmaker working at the intersection of people, culture and planet. Shubhra graduated from the National Institute of Design, Ahmedabad, India and works on visual design, web design, data viz and filmmaking projects.\n\nTheir award-winning short film '火焰山的人们 People of the Flaming Mountain', one of the only films on Chinese Uighur Muslims, is recognised and celebrated across the globe. Shubhra believes that the goal informs medium, not the other way around, and uses both design and film to achieve it. Their recent interests include public transit signage, birding and travel-food memoirs.\n"
-speakerImage = "/images/speakers/2026/speaker-shubhra.avif"
 display = true
 pageReady = true
 order = 2
 
+[[session.speakers]]
+name = "Shubhra Agarwal"
+designation = "Creative Lead"
+organisation = "Bengawalk"
+about = "Shubhra Agarwal is a multidisciplinary designer and filmmaker working at the intersection of people, culture and planet. Shubhra graduated from the National Institute of Design, Ahmedabad, India and works on visual design, web design, data viz and filmmaking projects.\n\nTheir award-winning short film '火焰山的人们 People of the Flaming Mountain', one of the only films on Chinese Uighur Muslims, is recognised and celebrated across the globe. Shubhra believes that the goal informs medium, not the other way around, and uses both design and film to achieve it. Their recent interests include public transit signage, birding and travel-food memoirs.\n"
+image = "/images/speakers/2026/speaker-shubhra.webp"
+social = {website = "https://designbyshubhra.framer.website/", instagram = "https://www.instagram.com/octopies_", linkedin = "https://www.linkedin.com/in/shubhragarwal/"}
+
+# TALK | DESIGN FOR SPEED AND TRUST, | BARGAVA
 [[session]]
+
 slug = "viz-speed-trust"
 sessionType = "Talks"
-date = "2026-07-04"
-time = "11:45 - 12:00"
-slot = "morning"
 venue = "Bangalore International Centre"
 title = "Design for Speed and Trust, Together."
 subtitle = "AI in radiology creates high-stakes decisions. Good viz helps people make them thoughtfully."
 shortDescription = "When AI reads a scan, clinicians face a dangerous choice: trust the algorithm blindly or slow down to verify it. This talk shares a framework for designing interfaces that earn trust without sacrificing speed, with lessons that transfer well beyond healthcare."
 longDescription = "Radiology is one of the most data-dense, high-stakes environments for visualization. The input is a medical image. The output is a diagnosis. And now, somewhere in between, there is an AI making predictions that the radiologist has to act on, fast.\n\nThe problem is not whether the AI is accurate. It is whether the radiologist can trust it without abandoning their own judgment, and without losing time they do not have.\n\nThis talk is about resolving that tension through design. Bargava shares his journey building visualization interfaces for radiologists: what failed, what worked, and the specific techniques that made AI feel like a collaborator rather than a black box demanding compliance.\n\nYou will see how spatial anchoring grounds abstract AI predictions in familiar anatomy, how non-destructive uncertainty layers let radiologists interrogate model confidence without losing sight of the underlying scan, and how progressive disclosure interfaces reduce cognitive load while keeping the human firmly in control.\n\nThe domain is radiology. The problems are universal: trust, uncertainty, cognitive load, and the question of how much agency to hand to an algorithm. If you design dashboards, data tools, or any interface where AI and human judgment have to coexist, the framework here is directly transferable.\n\nNo medical background required.\n"
-speakerName = "Bargava Subramanian"
-designation = "Founder & AI Builder"
-organisation = ""
-speakerAbout = "Bargava is an experienced AI leader with over 20 years of experience building and architecting cutting-edge data and AI products. A three-time founder, he blends technical depth with an entrepreneurial spirit. For the past five years, Bargava has been focused on building in the Healthcare AI sector, developing solutions that bridge the gap between complex technology and patient care. He is a strong believer in the power of small teams."
-speakerImage = "/images/speakers/2026/speaker-bargava.avif"
 display = true
 pageReady = true
 order = 10
 
+[[session.speakers]]
+name = "Bargava Subramanian"
+designation = "Founder & AI Builder"
+organisation = ""
+about = "Bargava is an experienced AI leader with over 20 years of experience building and architecting cutting-edge data and AI products. A three-time founder, he blends technical depth with an entrepreneurial spirit. For the past five years, Bargava has been focused on building in the Healthcare AI sector, developing solutions that bridge the gap between complex technology and patient care. He is a strong believer in the power of small teams."
+image = "/images/speakers/2026/speaker-bargava.webp"
+social = {linkedin = "https://www.linkedin.com/in/bargava/", twitter = "https://x.com/bargava"}
+
+# TALK | THERE ARE NO CLEAN MAPS | SUPRIYA
 [[session]]
+
 slug = "no-clean-maps"
 sessionType = "Talks"
-date = "2026-07-04"
-time = "15:45 - 16:00"
-slot = "afternoon"
 venue = "Bangalore International Centre"
 title = "There Are No Clean Maps"
 subtitle = "Maps look certain. The hidden work behind every one of them is not."
 shortDescription = "Every map is a negotiation. District boundaries shift, pincodes don't nest into districts, village data from 2011 sits inside boundaries redrawn in 2022. This talk unpacks the invisible analytical work that happens before any map gets made."
 longDescription = "We talk about \"putting data on a map\" as if geography were stable. Crisp boundaries. Clear hierarchies. Agreed definitions. In practice, none of that exists.\n\nEvery map is a reconciliation. Between data sources collected at different times, administrative boundaries that have been redrawn, spatial units that refuse to nest cleanly into each other, and datasets whose geographic provenance is simply unknown.\n\nThis talk is about that invisible work. Drawing from real spatial analysis across village, pincode, hex and district-level data in India, Supriya walks through five situations where geographies break down: hierarchies that are conceptually nested but spatially inconsistent, parallel units like districts and pincodes that neither align nor exclude each other, granularity that has to be constructed from scratch, spatial logics that fundamentally conflict (raster grids versus hex systems), and survey data that arrives at the district level without clarity on which boundary definition was used.\n\nFor each case, the talk surfaces the analytical decisions involved, what gets assumed, what gets lost, and how much uncertainty gets quietly carried forward into the final visualisation.\n\nThe argument is not that clean maps are impossible. It is that spatial visualisation begins long before design, in decisions most practitioners never make visible. The question is not whether trade-offs exist. It is whether we acknowledge and communicate them.\n\nIf you work with geographic data at any level of granularity, this talk will change how you think about the map you are building.\n"
-speakerName = "Supriya Joshi"
-designation = "Senior Data Analyst"
-organisation = "EPIC World"
-speakerAbout = "Supriya is a Data Analyst and Researcher with 4+ years of experience in translating complex datasets into actionable insights. Primarily in the impact space, she has led field research, conducted analysis, and developed data models. Her work spans a broad variety of data - survey, geospatial, government and modelled. This breadth of experience has given her the ability to see data not just as numbers, but as stories with real-world consequences.\n\nCurrently at EPIC World. Previously at J-PAL and Datarivu."
-speakerImage = "/images/speakers/2026/speaker-supriya.avif"
 display = true
 pageReady = true
 order = 5
 
+[[session.speakers]]
+name = "Supriya Joshi"
+designation = "Senior Data Analyst"
+organisation = "EPIC World"
+about = "Supriya is a Data Analyst and Researcher with 4+ years of experience in translating complex datasets into actionable insights. Primarily in the impact space, she has led field research, conducted analysis, and developed data models. Her work spans a broad variety of data - survey, geospatial, government and modelled. This breadth of experience has given her the ability to see data not just as numbers, but as stories with real-world consequences.\n\nCurrently at EPIC World. Previously at J-PAL and Datarivu."
+image = "/images/speakers/2026/speaker-supriya.webp"
+social = {linkedin = "https://www.linkedin.com/in/supriya-j99/"}
+
+# TALK | BITE-SIZED VIEWS, CRORE-SIZED BACKLOG | SHALAKA
 [[session]]
+
 slug = "bite-sized-views"
 sessionType = "Talks"
-date = "2026-07-04"
-time = "14:00 - 14:30"
-slot = "afternoon"
 venue = "Bangalore International Centre"
 title = "Bite-Sized Views, Crore-Sized Backlog"
 subtitle = "One number tells you nothing. One hearing tells you everything."
 shortDescription = "India has 4.82 crore pending court cases. The number is staggering and, on its own, useless for a reporter. This talk is about breaking that backlog down to individual hearings and using exploratory visualization to find the stories hiding inside."
 longDescription = "India's district courts have 4.82 crore pending cases. That number surfaces briefly when an exceptionally old case concludes, or when an annual report lands. Then it disappears again into the background hum of a system everyone knows is overwhelmed and almost no one can write about specifically.\n\nShalaka built Justice Delayed out of that frustration. As a court and crime reporter for Hindustan Times Pune, she had ground-level intuition about the backlog but nothing she could quantify, localize, or turn into a story. Official data was too aggregated to be useful. A district total tells you nothing about which courts, which case types, or which hearings have been pending the longest.\n\nJustice Delayed, developed with support from the Brown Institute for Media Innovation's Magic Grant, restructures district court data using individual case hearings as the smallest unit of analysis. That shift, from aggregated numbers to individual hearings, is what made exploratory visualization possible and useful.\n\nThis talk walks through what that looks like in practice: identifying courts with disproportionately old cases, spotting patterns in hearing schedules, and localizing pendency in ways that a ground reporter can actually act on. It also covers the gap between a large, messy dataset and a publishable insight, and how visualization helped bridge it.\n\nThe deeper argument is about method. Visualization here is not the end product of an investigation. It is the tool for figuring out where to look. If you work with large public datasets and spend more time lost in them than reporting from them, this talk is for you.\n"
-speakerName = "Shalaka Shinde"
-designation = "Independent Data Journalist"
-organisation = ""
-speakerAbout = "Shalaka is a journalist and founder of Justice Delayed, a court data resource built to facilitate journalistic inquiry of the Indian district court network. Her work as a data journalist is informed by her experience as a newspaper reporter in the early years of her career. Her passion project, Justice Delayed, provides data solutions for challenges that crime and court reporters face regularly. She is a graduate of the MS (data journalism) program at Columbia Journalism School, recipient of the Magic Grant by the Brown Institute of Media Innovation, and winner of the Tow/Brown Award for Excellence in Computational Journalism and Columbia Venture Competition. She has previously written for Bellingcat, The Quint, Hindustan Times and works freelance as a live data scraper for AP's election result database. Besides data democracy, her favourite topics are the untapped potential of remote sensing data for journalism and how underappreciated elephants are."
-speakerImage = "/images/speakers/2026/speaker-shalaka.avif"
 display = true
 pageReady = true
 order = 8
 
+[[session.speakers]]
+name = "Shalaka Shinde"
+designation = "Independent Data Journalist"
+organisation = ""
+about = "Shalaka is a journalist and founder of Justice Delayed, a court data resource built to facilitate journalistic inquiry of the Indian district court network. Her work as a data journalist is informed by her experience as a newspaper reporter in the early years of her career. Her passion project, Justice Delayed, provides data solutions for challenges that crime and court reporters face regularly. She is a graduate of the MS (data journalism) program at Columbia Journalism School, recipient of the Magic Grant by the Brown Institute of Media Innovation, and winner of the Tow/Brown Award for Excellence in Computational Journalism and Columbia Venture Competition. She has previously written for Bellingcat, The Quint, Hindustan Times and works freelance as a live data scraper for AP's election result database. Besides data democracy, her favourite topics are the untapped potential of remote sensing data for journalism and how underappreciated elephants are."
+image = "/images/speakers/2026/speaker-shalaka.webp"
+social = {website = "https://shalakas.github.io", instagram = "https://www.instagram.com/shalakashinde1", linkedin = "https://www.linkedin.com/in/shalaka-shinde-80285457/"}
+
+# TALK | CAPTION THIS | JAIDEV
 [[session]]
+
 slug = "caption-this"
 sessionType = "Talks"
-date = "2026-07-04"
-time = "11:15 - 11:45"
-slot = "morning"
 venue = "Bangalore International Centre"
 title = "Caption This: Teaching Machines to Narrate Charts"
 subtitle = "Generating captions is easy. Curating the right one is not. Can machines learn the difference?"
 shortDescription = "A chart compresses data. A caption compresses the chart. This talk explores whether machines can learn that second compression well, and why generation turns out to be the easy part."
 longDescription = "Every chart is a chain of compressions. A dataset becomes a visual. A visual becomes an insight. Each step throws away information deliberately, keeping only what matters. The last step, turning a chart into a caption worth reading, is the hardest. And it is the one that language models handle worst.\n\nJaidev has spent the last year trying to fix that. Not by generating more captions, which turns out to be straightforward, but by figuring out how to curate the right one. The problem is that a model can produce dozens of plausible captions for any chart. Knowing which one is accurate, useful, and meant for this audience, in this context, still takes a human.\n\nHis response is an extended PlotCaptions: an open dataset of over 150,000 charts with accompanying captions, built to serve two purposes. First, as a retrieval corpus to ground generation, giving models precedent rather than asking them to guess. Second, as a record of human judgment about what good captions look like, used to train ranking.\n\nThe pipeline that emerges is straightforward: retrieve similar charts and their best captions, generate candidates, rank against what humans have consistently preferred. This talk walks through what that system gets right, what it still gets wrong, and where the curation gap remains open.\n\nThe dataset, code, and trained models will be released before the talk. The audience is invited to use them, test them, and beat the benchmarks.\n"
-speakerName = "Jaidev Deshpande"
-designation = "Senior Software Engineer"
-organisation = "Aftershoot"
-speakerAbout = "For years, Jaidev has been trying to find the best way to narrate charts. He writes a newsletter called Being Bayesian, which uses statistics and dataviz to critique outrageous opinions on tech, economy and culture.\n\nHe currently works at Aftershoot, a SaaS startup where he leads the MLOps effort. You're likely to run into him at tech events."
-speakerImage = "/images/speakers/2026/speaker-jaidev.avif"
 display = true
 pageReady = true
 order = 6
 
+[[session.speakers]]
+name = "Jaidev Deshpande"
+designation = "Senior Software Engineer"
+organisation = "Aftershoot"
+about = "For years, Jaidev has been trying to find the best way to narrate charts. He writes a newsletter called Being Bayesian, which uses statistics and dataviz to critique outrageous opinions on tech, economy and culture.\n\nHe currently works at Aftershoot, a SaaS startup where he leads the MLOps effort. You're likely to run into him at tech events."
+image = "/images/speakers/2026/speaker-jaidev.webp"
+social = {website = "https://beingbayesian.in", linkedin = "https://www.linkedin.com/in/jaidevd/", twitter = "https://x.com/jaidevd"}
+
+# TALK | WHAT'S IN YOUR BAG? REALLY! | SNEHA
 [[session]]
+
 slug = "whats-in-your-bag"
 sessionType = "Talks"
-date = "2026-07-04"
-time = "14:30 - 14:45"
-slot = "afternoon"
 venue = "Bangalore International Centre"
 title = "What's in Your Bag? Really!"
 subtitle = "Data does not travel on its own. You have to construct the meaning."
 shortDescription = "National statistical offices produce mountains of data that rarely reach the people making decisions. This talk shares an unconventional method for changing that: asking government officials to build data stories from whatever is in their bag."
 longDescription = "Data only gains value when it is used. That sounds obvious. In practice, it almost never happens by default.\n\nNational Statistical Offices across Asia and the Pacific produce enormous volumes of data. The assumption is that dissemination leads to uptake, and uptake leads to impact. Sneha's work has shown that this chain breaks down almost immediately, long before data reaches a policy decision.\n\nTo understand why, she asks government officials a simple question: what's in your bag? Participants pull out currency notes, house keys, umbrellas, whatever they happen to be carrying, and use those objects to construct data stories. The exercise is deliberately low-stakes and physical. It reveals something fundamental: data does not communicate itself. Meaning is built by the people in the system, shaped by context, institutional culture, and whether anyone ever made evidence feel accessible in the first place.\n\nThis talk draws on that work to explore what it actually takes to shift institutional appetite for evidence. Not better dashboards or longer reports, but a different understanding of how meaning travels through a system and who is responsible for carrying it.\n\nYou will leave with a clearer picture of how national statistical systems operate, where the chain from data production to policy action breaks down, and what practitioners, journalists, researchers, and community advocates can do to strengthen it.\n"
-speakerName = "Sneha Kaul"
-designation = "Statistics Analyst"
-organisation = "UN Women Asia-Pacific"
-speakerAbout = "Sneha is a Statistics Analyst at UN Women's Asia-Pacific Regional Office in Bangkok, where she supports the global flagship program Women Count. Over seven years across the UN system, she has worked with government statisticians from 40+ national statistical offices on gender statistics and statistical literacy.\n\nHer analytical work brings together survey microdata, geospatial data, and non-traditional sources to produce evidence that gets used. This work has shaped UN flagship publications including the ASEAN Gender Outlook 2022 and 2024 and several gender-environment publications, presented at the UN General Assembly and have informed intergovernmental processes including the climate COPs.\n\nSneha holds a master's in behavioral science and public policy from the London School of Economics, where she studied how policy design and communication can nudge communities toward better outcomes. That lens shapes how she thinks about data communication, and what makes public data legible, participatory, and actionable.\n"
-speakerImage = "/images/speakers/2026/speaker-sneha.avif"
 display = true
 pageReady = true
 order = 5
 
+[[session.speakers]]
+name = "Sneha Kaul"
+designation = "Statistics Analyst"
+organisation = "UN Women Asia-Pacific"
+about = "Sneha is a Statistics Analyst at UN Women's Asia-Pacific Regional Office in Bangkok, where she supports the global flagship program Women Count. Over seven years across the UN system, she has worked with government statisticians from 40+ national statistical offices on gender statistics and statistical literacy.\n\nHer analytical work brings together survey microdata, geospatial data, and non-traditional sources to produce evidence that gets used. This work has shaped UN flagship publications including the ASEAN Gender Outlook 2022 and 2024 and several gender-environment publications, presented at the UN General Assembly and have informed intergovernmental processes including the climate COPs.\n\nSneha holds a master's in behavioral science and public policy from the London School of Economics, where she studied how policy design and communication can nudge communities toward better outcomes. That lens shapes how she thinks about data communication, and what makes public data legible, participatory, and actionable.\n"
+image = "/images/speakers/2026/speaker-sneha.webp"
+social = {instagram = "https://www.instagram.com/sanehakaul", linkedin = "https://www.linkedin.com/in/sneha-kaul-b6a73212b/"}
+
+# TALK | VISUALISING CARE IN RURAL HEALTHCARE | ABHIRAM
 [[session]]
+
 slug = "viz-rural-care"
 sessionType = "Talks"
-date = "2026-07-04"
-time = "10:30 - 10:45"
-slot = "morning"
 venue = "Bangalore International Centre"
 title = "Visualising care in rural healthcare"
 subtitle = "Data should serve the people it's about. This is what that looks like in practice."
 shortDescription = "In rural healthcare, data travels upward and rarely comes back useful. This talk shares what happens when visualization is reimagined as care infrastructure, co-designed with frontline workers, volunteer doctors, and Gram Panchayat officers in Kundapura, Karnatak"
 longDescription = "Data in rural healthcare moves in one direction. It is collected on the ground, travels upward for analysis, and returns, if it returns at all, as lengthy reports, templated dashboards, and messy Excel files that serve bureaucratic accountability rather than local decision-making.\n\nAbhiram's work starts from a different question: what would visualization look like if it was designed as care infrastructure, built alongside the people who actually use it?\n\nThis talk presents the Decision Support System (DSS) developed with a Community Palliative Care initiative across seven Gram Panchayats in Kundapura, Karnataka. Co-designed with frontline workers, mobile care teams, volunteer doctors, and Gram Panchayat officers, the DSS is decentralized, offline-first, and built around three core artefacts. The DSS is a joint effort between Aruvu Collaboratory, KHPT, RDPR - Government of Karnataka and Niramaya Society Udupi.\n\nPhygital care profiles give care teams and volunteer doctors a way to design and monitor individualised care plans across medical, emotional, and psychosocial domains. Visualizations include family trees to map caregiving patterns, hand-drawn route maps where geospatial data does not exist, and pain assessment scales built on the visual language of the care teams themselves.\n\nCare seeker booklets are physical books given directly to each patient: no-tech interfaces for tracking conditions, monitoring daily care, logging visits, and carrying tear-off referral slips to hospitals and PHCs.\n\nA data atlas gives Gram Panchayats, PHCs, and the taskforce a customisable spatial view of community-level insights, supporting everything from medical consultations to scheme allotment to infrastructure decisions.\n\nThe talk surfaces what it actually takes to build visualisation systems for contexts with varying literacy, low connectivity, and multilingual needs, and what it means to prioritise people and decisions over features and numbers.\n"
-speakerName = "Abhiram Jois"
-designation = "Creative Technologist"
-organisation = ""
-speakerAbout = "Abhiram is a creative technologist who is interested in anything creative and anything technology currently working as a GIS developer at WELL Labs. His work largely encompasses imagining, challenging and building technology with communities. He has worked with organisations like Aruvu Collaboratory, Design Beku and Janastu. He has worked with communities in Kundapura, Bidar, Channapatna etc.\n\nHe graduated in human centered design from Srishti Manipal institute and did a semester of exchange with the interaction design studio at Glasgow School of Art. In what feels like a parallel life he dapples with Kannada theatre, film and art direction as an artist in Danka Art Collective. If you spot him in the wild feel free to stop and tell him about your favourite short film or video essay available on YouTube.\n"
-speakerImage = "/images/speakers/2026/speaker-abhiram.avif"
 display = true
 pageReady = true
 order = 9
 
+[[session.speakers]]
+name = "Abhiram Jois"
+designation = "Creative Technologist"
+organisation = ""
+about = "Abhiram is a creative technologist who is interested in anything creative and anything technology currently working as a GIS developer at WELL Labs. His work largely encompasses imagining, challenging and building technology with communities. He has worked with organisations like Aruvu Collaboratory, Design Beku and Janastu. He has worked with communities in Kundapura, Bidar, Channapatna etc.\n\nHe graduated in human centered design from Srishti Manipal institute and did a semester of exchange with the interaction design studio at Glasgow School of Art. In what feels like a parallel life he dapples with Kannada theatre, film and art direction as an artist in Danka Art Collective. If you spot him in the wild feel free to stop and tell him about your favourite short film or video essay available on YouTube.\n"
+image = "/images/speakers/2026/speaker-abhiram.webp"
+social = {website = "https://abhiramjois.github.io"}
+
+# TALK | ATLAS OF INTANGIBLES | PRITI
 [[session]]
+
 slug = "atlas-of-intangibles"
 sessionType = "Talks"
-date = "2026-07-04T11:45"
-time = "11:45 - 12:00"
-slot = "morning"
 venue = "Bangalore International Centre"
 title = "Atlas of Intangibles"
 subtitle = "The senses hold data too. Mapped across cities, one walk at a time."
 shortDescription = "A place is not just its coordinates. It is the waft of petrichor, the sonic shifts of a street, the wear and tear of walls that have witnessed decades. Atlas of Intangibles is a data experience built from score-based walks, making the sensory legible through images, audio, and interconnected views."
 longDescription = "We know a place through our senses before we know it through any map. The waft of petrichor after rain. Bird songs in the background. The sound of traffic, the rhythm of footfalls, the marks left on walls by time and human activity. These fleeting encounters are the actual fabric of a place, and traditional cartography has no vocabulary for any of them.\n\nAtlas of Intangibles is Priti's attempt to build that vocabulary.\n\nThe project begins on foot. Using score-based data walks, Priti collects sensory data through two lenses: Witness Marks, observations of wear, weathering, and the signs cities accumulate over time, and Sonic Shifts, the dynamic, layered soundscape of urban life. Each data point is rich in context, pairing field notes and sketches with photography, audio recordings, and video.\nThe digital experience built from this data invites viewers to choose themes and explore the collected observations as three distinct views: journeys through the walk, connections between related data points, and typologies across the gathered material. The work asks what it looks like to preserve ambiguity and affect in a data experience rather than resolve them into a clean layer on a map.\n\nTo extend the experience into the physical, Priti built a tangible interface: a set of cards, each embodying a specific recollection, that navigate the viewer to its associated data and connections when tapped on a reader. A keepsake box, not a database.\n\nThis talk walks through the full process behind the work, examining alternate forms of data collection, the iterative design decisions, and the thinking behind data experiences that encourage a deeper connection with the places we inhabit.\n"
-speakerName = "Priti Pandurangan"
-designation = "Information Experience Designer"
-organisation = ""
-speakerAbout = "Priti is a creative practitioner working globally across digital humanities, data, and computational futures through research, facilitation, and critical inquiry. Her personal practice explores pluralistic approaches to data and technology, focusing on forms of knowledge and epistemologies that resist quantification while holding space for lived experience, ambiguity, and affect.\n\nShe is also a data walker and facilitates data walks in cities around the world, enabling participants to engage with urban environments through situated and embodied interpretations.\n\nCentral to her work is how culture is held, transmitted, and reconfigured across contexts and temporalities, and the structures through which it is preserved and interpreted."
-speakerImage = "/images/speakers/2026/speaker-priti.avif"
 display = true
 pageReady = true
 order = 9
 
+[[session.speakers]]
+name = "Priti Pandurangan"
+designation = "Information Experience Designer"
+organisation = ""
+about = "Priti is a creative practitioner working globally across digital humanities, data, and computational futures through research, facilitation, and critical inquiry. Her personal practice explores pluralistic approaches to data and technology, focusing on forms of knowledge and epistemologies that resist quantification while holding space for lived experience, ambiguity, and affect.\n\nShe is also a data walker and facilitates data walks in cities around the world, enabling participants to engage with urban environments through situated and embodied interpretations.\n\nCentral to her work is how culture is held, transmitted, and reconfigured across contexts and temporalities, and the structures through which it is preserved and interpreted."
+image = "/images/speakers/2026/speaker-priti.webp"
+social = {website = "https://priti.is/here", instagram = "https://www.instagram.com/wherepritiis", linkedin = "https://www.linkedin.com/in/priti-pandurangan/", twitter = "https://x.com/wherepritiis"}
+
+# TALK | SAND, DATA, AND WICKED PROBLEMS | SIDDHARTH
 [[session]]
+
 slug = "sand-data-wicked-problems"
 sessionType = "Talks"
-date = "2026-07-04"
-time = "14:45 - 15:15"
-slot = "afternoon"
 venue = "Bangalore International Centre"
 title = "Sand, Data, and Wicked Problems"
 subtitle = "Open data alone does not build intention. You have to redirect the river."
 shortDescription = "Illegal sand mining is destroying India's rivers. This talk traces how India Sand Watch uses open data, community building, and data visualization, from zines to court evidence to ML flipbooks, to build the intention needed to actually address it."
 longDescription = "Wicked problems do not yield to data alone. The data is missing, the sources do not exist, the structures for implementation are absent, and the will to collaborate has not yet been built. Identifying the problem is nowhere near enough.\n\nWhen Veditum picked up the issue of illegal and destructive sand mining in India's rivers, they started with a reasonable assumption: use machine learning to identify illegal activity, and that would be enough to drive action. It was not.\n\nWhat they needed to build first was intention. And that required reimagining the entire response, with collaborators across NGOs, academia, the judiciary, media, private citizens, and state actors all in mind.\n\nThis talk traces what followed. India Sand Watch is now an open-data archive with over 50,000 data points, built on a Sites of Violence framework that maps the sand mining sector as a series of interconnected violations rather than isolated incidents. Getting there required data pipelines built through scaled volunteering, data sprints, and partnerships, each with its own visualization component.\n\nThe artefacts that came out of this work are as varied as the audiences they serve. Zines and sprint report cards for community volunteers. GIS maps for researchers and journalists. Visual evidence packages for court cases. And a physical flipbook that translates a machine learning model detecting mining activity from satellite imagery into something a non-technical audience can follow and act on.\n\nThe talk is about what it actually takes to use open data and visualization on problems that resist easy solutions: building the dataset, building the coalition, and building the case in forms that reach people with the power to change something.\n"
-speakerName = "Siddharth Agarwal"
-designation = "Founder"
-organisation = "Veditum India Foundation"
-speakerAbout = "Siddharth Agarwal has been walking across India and along India's rivers, attempting to document and bring stories of marginalised communities and the environment into the mainstream.\n\nSince 2014, he has walked 6000+ kms, including the lengths of the rivers Ganga and Ken. He is the founder of Veditum India Foundation where he is working to transform the environmental governance landscape in India.\n\nThe organisation - Veditum, has overseen long documentation and sensing expeditions of over 7000kms along 7 different rivers in India. These stories, captured as part of the Moving Upstream project and Fellowship have been distributed widely, and brought significant attention to the cause of these rivers.\n\nThrough the India Sand Watch project, Veditum is introducing accountability in the river sand mining sector in India. And through the Kolkata Change Makers initiative, they are creating a space for deep explorations in change making for and from the city.\n"
-speakerImage = "/images/speakers/2026/speaker-siddharth.avif"
 display = true
 pageReady = true
 order = 10
 
+[[session.speakers]]
+name = "Siddharth Agarwal"
+designation = "Founder"
+organisation = "Veditum India Foundation"
+about = "Siddharth Agarwal has been walking across India and along India's rivers, attempting to document and bring stories of marginalised communities and the environment into the mainstream.\n\nSince 2014, he has walked 6000+ kms, including the lengths of the rivers Ganga and Ken. He is the founder of Veditum India Foundation where he is working to transform the environmental governance landscape in India.\n\nThe organisation - Veditum, has overseen long documentation and sensing expeditions of over 7000kms along 7 different rivers in India. These stories, captured as part of the Moving Upstream project and Fellowship have been distributed widely, and brought significant attention to the cause of these rivers.\n\nThrough the India Sand Watch project, Veditum is introducing accountability in the river sand mining sector in India. And through the Kolkata Change Makers initiative, they are creating a space for deep explorations in change making for and from the city.\n"
+image = "/images/speakers/2026/speaker-siddharth.webp"
+social = {website = "https://www.sidagarwal.in", instagram = "https://www.instagram.com/dreamersid", linkedin = "https://www.linkedin.com/in/agarwalsid/", twitter = "https://x.com/sidagarwal"}
+
+# TALK | ESANKHYIKI | ROHIT
 [[session]]
+
 slug = "esankhyiki-viz-scale"
 sessionType = "Talks"
-date = "2026-07-04"
-time = "11:15 - 11:45"
-slot = "morning"
 venue = "Bangalore International Centre"
 title = "eSankhyiki: Visualization at Scale"
 subtitle = "Public data should serve the public. The journey of doing it at India's scale."
 shortDescription = "India's official statistics have never been easy to use. This talk shares how eSankhyiki, the NSO's unified data portal, embeds visualization into the full data lifecycle, from discovery to policy action, and what it took to build it at that scale."
 longDescription = "India's official statistical system produces an enormous volume of data across hundreds of ministries and departments. Most of it has been difficult to find, harder to compare, and nearly impossible to use without specialist knowledge.\n\neSankhyiki is MoSPI's attempt to change that. A unified digital platform bringing together over 700 datasets and 136 million records into a single accessible interface. It is built on a core premise: visualization is not a presentation layer added at the end. It is part of the data lifecycle itself, from discovery and validation through to interpretation and policy action.\n\nThis talk walks through the design, development, and deployment of the portal. Rohit covers how user research shaped the visualization choices, how thematic dashboards and interactive filtering tools help users move from broad questions to specific insights, and how metadata-driven interfaces make complex socio-economic data navigable for audiences ranging from policymakers and researchers to journalists and citizens.\n\nYou will hear about the constraints that shape visualization in government and public sector environments: scale, data sensitivity, accessibility standards, and the need for long-term sustainability. And you will hear how those constraints were balanced against clarity, transparency, and trust, values that the team treated as non-negotiable.\n\nThe talk also touches on AI-enabled semantic search and how it complements visualization by improving data discovery before a user even reaches a chart.\n\nFor anyone building visualization systems at scale, or trying to make public data genuinely useful to the people it describes, this is a rare inside account of what that work actually involves.\n"
-speakerName = "Rohit Bhardwaj"
-designation = "Addl. Director General"
-organisation = "MoSPI"
-speakerAbout = "Rohit Bhardwaj is an Indian Statistical Service (ISS) officer of the 1998 batch. As Additional Director General, he is currently leading innovation and informatics initiatives at the National Statistical Office (NSO), India.\n\n Rohit initiated the development of eSankhyiki and dynamic visualizations to enhance data accessibility and user engagement in official statistics. He has been instrumental in identifying and initiating POCs and Pilots for use cases of emerging technologies in official statistics. He has successfully operationalized an innovation scheme that fosters collaboration with startups and academia to co-create data-driven solutions.\n\n His paper on creating a network of institutions for innovation in official statistics was recently accepted for presentation at the UNECE Conference on the Use of Generative AI in Official Statistics. His efforts have also led to the development of the data portal of MoSPI, resulting in tangible improvements in data dissemination and innovation."
-speakerImage = "/images/speakers/2026/speaker-rohit.avif"
 display = true
 pageReady = true
 order = 4
 
+[[session.speakers]]
+name = "Rohit Bhardwaj"
+designation = "Addl. Director General"
+organisation = "MoSPI"
+about = "Rohit Bhardwaj is an Indian Statistical Service (ISS) officer of the 1998 batch. As Additional Director General, he is currently leading innovation and informatics initiatives at the National Statistical Office (NSO), India.\n\n Rohit initiated the development of eSankhyiki and dynamic visualizations to enhance data accessibility and user engagement in official statistics. He has been instrumental in identifying and initiating POCs and Pilots for use cases of emerging technologies in official statistics. He has successfully operationalized an innovation scheme that fosters collaboration with startups and academia to co-create data-driven solutions.\n\n His paper on creating a network of institutions for innovation in official statistics was recently accepted for presentation at the UNECE Conference on the Use of Generative AI in Official Statistics. His efforts have also led to the development of the data portal of MoSPI, resulting in tangible improvements in data dissemination and innovation."
+image = "/images/speakers/2026/speaker-rohit.webp"
+social = {}
+
+# TALK | KUCH KUCH DATA HAI | SURBHI
 [[session]]
+
 slug = "kuch-kuch-data-hai"
 sessionType = "Talks"
-date = "2026-07-04"
-time = "14:00 - 14:15"
-slot = "afternoon"
 venue = "Bangalore International Centre"
 title = "Kuch Kuch Data Hai: Bollywood, Visualised"
 subtitle = "First-day. Matinee show. In the Audi. Opening 04 July."
 shortDescription = "We say movies are getting longer, louder, and running out of ideas. This  talk follows the data trail Bollywood leaves behind, charting the economics, representation, and changing tastes of the our movie-obsessed nation."
 longDescription = "Everyone has opinions about Bollywood. Movies are getting longer. Actresses have a shelf life. Everything is a remake. Audiences don't go to theatres anymore.\n\nSurbhi spent the last few years asking what happens when you stop repeating the chatter and start plotting it.\n\nWhat followed is a series of visual stories about the economics of movie-making in Bollywood: the risk-reward dynamics of production and distribution, on and off-screen representation, box office patterns, and how audience tastes have shifted over decades. Each project starts with the long data trail a film leaves behind after the opening-weekend noise fades, and ends with a chart that says something the gossip never quite could.\n\nThis lightning talk walks through those projects and the process behind them. Using her own work and the visualizations that inspired it, Surbhi shows how pop culture we already obsess over can be a rich and surprisingly rigorous ground for visual exploration.\n\nYou will leave with a fresh way of looking at Bollywood, and hopefully, a few ideas for the data trails hiding in the culture you care about most.\n"
-speakerName = "Surbhi Bhatia"
-designation = "Independent Data Journalist"
-organisation = ""
-speakerAbout = "Surbhi is a data journalist, and has spent many years searching for insights and composing stories that are coded and designed to turn numbers into striking and memorable visuals. She loves working on diverse topics to uncover what really may be happening in the boundless worlds of bollywood movies, digital commerce, climate change, urbanisation, and chocolates!\n\nShe has worked with different mindsets across many settings like: urgency in newsrooms, immersion in academia, clarity in communications, and creativity in design studios. She agrees that correlation is not causation, but believes strongly that walkable cities make for a better life. She has worked with xKDR Forum, Mint, World Bank, Thibi, Open Network for Digital Commerce, and written for Kontinentalist, Nikkei Asia, Indiaspend, The Hindu, and more. Her work has been recognised by the Society for Advancing Business Editing and Writing (SABEW), Festival de Datos, and The Pudding."
-speakerImage = "/images/speakers/2026/speaker-surbhi.webp"
 display = true
 pageReady = true
 order = 5
 
+[[session.speakers]]
+name = "Surbhi Bhatia"
+designation = "Independent Data Journalist"
+organisation = ""
+about = "Surbhi is a data journalist, and has spent many years searching for insights and composing stories that are coded and designed to turn numbers into striking and memorable visuals. She loves working on diverse topics to uncover what really may be happening in the boundless worlds of bollywood movies, digital commerce, climate change, urbanisation, and chocolates!\n\nShe has worked with different mindsets across many settings like: urgency in newsrooms, immersion in academia, clarity in communications, and creativity in design studios. She agrees that correlation is not causation, but believes strongly that walkable cities make for a better life. She has worked with xKDR Forum, Mint, World Bank, Thibi, Open Network for Digital Commerce, and written for Kontinentalist, Nikkei Asia, Indiaspend, The Hindu, and more. Her work has been recognised by the Society for Advancing Business Editing and Writing (SABEW), Festival de Datos, and The Pudding."
+image = "/images/speakers/2026/speaker-surbhi.webp"
+social = {website = "https://surbhibhatia.com/", instagram = "https://www.instagram.com/surbhibhatia", linkedin = "https://www.linkedin.com/in/surbhi-bhatia/", twitter = "https://x.com/surbhaai"}
+
+# TALK | TELLING TIMELY & TIMELESS STORIES | ROHIT
 [[session]]
+
 slug = "timely-timeless-stories"
 sessionType = "Talks"
-date = "2026-07-04"
-time = "10:00 - 10:30"
-slot = "morning"
 venue = "Bangalore International Centre"
 title = "Telling Timely & Timeless Stories with Data"
 subtitle = "A hundred ways to see India. Learning to see the difference."
 shortDescription = "India's data jungle is vast, unruly, and full of surprises. This talk traces the making of 100 Ways to See India and the craft of turning elusive numbers into stories that are both timely and timeless."
 longDescription = "Every Indian can fit in Kerala if we all lived as densely as northeast Delhi. Fifty-six mother tongues are officially classified as Hindi. Almost nobody in India is unemployed after the age of 29.\n\nThese are not the facts that make headlines. They are the facts that make you stop and think differently about the country you live in.\n\n100 Ways to See India started the way most good journalism does: out of professional need, occasional curiosity, and a stubborn refusal to let interesting numbers stay buried in PDFs. Over years of hunting elusive data across India's sprawling statistical jungle, Rohit Saran and Sajeev Kumarapuram found themselves sitting on something bigger than a series of stories. They found a portrait.\n\nThis talk traces the making of that portrait. What it took to turn India's bewildering diversity into accessible visuals. Which questions led somewhere surprising and which promising threads dissolved into data gaps. How you decide, from a country that could fill a thousand books, which hundred ways are worth seeing.\n\nUnderneath the book journey is a longer conversation about the craft of data storytelling: what makes a story timely, what makes it timeless, and what it takes to tell the difference before you start building the chart.\n"
-speakerName = "Rohit Saran"
-designation = "Managing Editor"
-organisation = "The Times of India"
-speakerAbout = "Rohit Saran is the Managing Editor of The Times of India. He has served as Executive Editor of The Times of India, The Economic Times, and India Today, and was Editor-in-Chief of Business Today and Khaleej Times. Since the 1990s, he has practised data and visual journalism across leading newsrooms — blending numbers, visuals, and text to tell richer stories and to create enduring news products.\n\nRohit teamed up with Sajeev Kumarapuram, Design Editor of The Times of India to author '100 Ways to See India -- Stats, Stories and Surprises' which was published by Harper Collins India earlier this year. Rohit and Sajeev have spent years exploring India's data jungle—mostly out of professional need, at times out of curiosity. Along the way, they've hunted elusive numbers, dodged PDF traps, and found joy in telling stories through charts."
-speakerImage = "/images/speakers/2026/speaker-rohit-saran.webp"
 display = true
 pageReady = true
 order = 3
 
+[[session.speakers]]
+name = "Rohit Saran"
+designation = "Managing Editor"
+organisation = "The Times of India"
+about = "Rohit Saran is the Managing Editor of The Times of India. He has served as Executive Editor of The Times of India, The Economic Times, and India Today, and was Editor-in-Chief of Business Today and Khaleej Times. Since the 1990s, he has practised data and visual journalism across leading newsrooms — blending numbers, visuals, and text to tell richer stories and to create enduring news products.\n\nRohit teamed up with Sajeev Kumarapuram, Design Editor of The Times of India to author '100 Ways to See India -- Stats, Stories and Surprises' which was published by Harper Collins India earlier this year. Rohit and Sajeev have spent years exploring India's data jungle—mostly out of professional need, at times out of curiosity. Along the way, they've hunted elusive numbers, dodged PDF traps, and found joy in telling stories through charts."
+image = "/images/speakers/2026/speaker-rohit-saran.webp"
+social = {linkedin = "https://www.linkedin.com/in/rohitsaran/", twitter = "https://x.com/indianeconomy"}
+
+# TALK | THE DATA VIZ DRIFT | SANDEEP
 [[session]]
+
 slug = "data-viz-drift"
 sessionType = "Talks"
-date = "2026-07-04"
-time = "14:45 - 15:15"
-slot = "afternoon"
 venue = "Bangalore International Centre"
 title = "The Data Viz Drift: What Nobody Tells You"
 subtitle = "Data viz rarely stays data viz. An honest reckoning with the careers behind the craft."
 shortDescription = "Many data viz practitioners don't end up doing data viz. They drift into UX. This talk names that pattern honestly, explores what transfers and what gets left behind, and asks what a data viz career actually looks like as AI commoditises the craft."
 longDescription = "Here is something the data visualization community rarely says out loud: most data viz practitioners don't end up doing data viz. They drift into UX. Not because they failed, but because that is how most product organisations are structured, and because the skills transfer well enough that the drift feels natural until you look back and notice what got left behind.\n\nSandeep has spent years hiring, mentoring, and working with designers across experience levels. This talk is the honest conversation he keeps having with early-career practitioners who are trying to figure out where data visualization actually fits in the real world.\n\nThe first part is a reality check. Why does the drift happen? What does the career landscape actually look like, versus how it is described in job postings and course syllabuses? Is data visualization a destination role or a gateway skill in most product organisations?\n\nThe second part is about what compounds. Curiosity, fast domain learning, comfort with ambiguity, the ability to frame data in context: these are the skills that travel well across the drift and grow more valuable over time. Tool mastery is not on that list.\n\nThe third part looks forward. As AI automates chart selection, visualization generation, and interaction patterns, the traditional data viz skill set is being commoditised. Knowing which chart to use will matter less than knowing why it works, when it fails, and how to shape meaning, narrative, and clarity. The practitioners who differentiate themselves will do so through taste and judgment, not through tool fluency.\n\nThe talk closes with a call to leaders and organisations to think harder about what they are actually asking data visualization designers to do, and whether they are creating the conditions for that work to matter.\n"
-speakerName = "Sandeep Karmarkar"
-designation = "Head of Design"
-organisation = "Atlassian"
-speakerAbout = "Sandeep Karmarkar is a design leader with over two decades of experience spanning visual design, UX, product strategy, and team leadership across global technology companies. He currently serves as the Head of Design for the IT Operations portfolio at Atlassian, where he leads teams focused on building effective experiences for managing complex systems at scale. He has previously held leadership roles at Uber, Google, and Nutanix.\n\nOver the years, he has worked on products used by millions across mobility, cloud platforms, security, and public transport experiences in India. Deeply passionate about data visualization and information design, Sandeep has actively hired, mentored, and supported many young designers from Information Design backgrounds throughout his career. He is equally passionate about building high-performing teams and bridging industry with education through talks, workshops, mentorship, and teaching engagements.\n\nA marathon runner, trekker, and digital artist, he brings the same curiosity and endurance from the mountains into the world of design leadership, innovation, and storytelling.\n"
-speakerImage = "/images/speakers/2026/speaker-sandeep-karmarkar.webp"
 display = true
 pageReady = true
 order = 3
 
+[[session.speakers]]
+name = "Sandeep Karmarkar"
+designation = "Head of Design"
+organisation = "Atlassian"
+about = "Sandeep Karmarkar is a design leader with over two decades of experience spanning visual design, UX, product strategy, and team leadership across global technology companies. He currently serves as the Head of Design for the IT Operations portfolio at Atlassian, where he leads teams focused on building effective experiences for managing complex systems at scale. He has previously held leadership roles at Uber, Google, and Nutanix.\n\nOver the years, he has worked on products used by millions across mobility, cloud platforms, security, and public transport experiences in India. Deeply passionate about data visualization and information design, Sandeep has actively hired, mentored, and supported many young designers from Information Design backgrounds throughout his career. He is equally passionate about building high-performing teams and bridging industry with education through talks, workshops, mentorship, and teaching engagements.\n\nA marathon runner, trekker, and digital artist, he brings the same curiosity and endurance from the mountains into the world of design leadership, innovation, and storytelling.\n"
+image = "/images/speakers/2026/speaker-sandeep-karmarkar.webp"
+social = {instagram = "https://www.instagram.com/sandeep.karmarkar", linkedin = "https://www.linkedin.com/in/smkarmarkar/"}
+
+# TALK | DESIGNING DASHBOARDS FOR LIFE AND | TONY
 [[session]]
+
 slug = "dashboards-life-and-death"
 sessionType = "Talks"
-date = "2026-07-04"
-time = ""
-slot = "morning"
 venue = "Bangalore International Centre"
 title = "Designing Dashboards for Life and Death"
 subtitle = "Every dashboard has a north star. Choose it wisely and the system follows."
 shortDescription = "30 million people in Bangladesh live with high blood pressure. Only 11% had it under control. This talk traces how dashboard design, specifically which numbers are made visible and how they are defined, helped shift that to 60% across 400,000 patients"
 longDescription = "Public health dashboards are political tools. The numbers at the top become the north star for the system. They shape what leaders are praised for, what gets funded, and what problems are considered urgent. Design a dashboard badly and the right problems stay invisible. Design it well and you can shift what a ministry pays attention to.\n\nIn 2018, Resolve to Save Lives partnered with Bangladesh's National Heart Foundation to pilot a national hypertension management program. Around 30 million people in Bangladesh live with high blood pressure. When the program started, only 20% had it under control. As of February 2026, more than 400,000 patients are enrolled and control rates have reached 60%.\n\nThis talk traces the dashboard design decisions behind that shift, across three areas.\n\nThe first is shared vocabulary. Scientists, bureaucrats, and frontline health workers do not naturally speak the same language of data. Tony's team tested and refined every metric definition and dashboard label until a ministry official could interpret and explain the numbers as confidently as a public health expert.\n\nThe second is essential data only. Medical officers in Bangladesh see 100 to 200 patients a day. That is roughly two minutes per patient. Data entry cannot take more than 20 seconds. The talk covers how to decide on the bare minimum needed to monitor program performance without breaking the clinical workflow.\n\nThe third is making the invisible visible. A small change in numerator or denominator can completely change what a decision-maker sees, surfacing patients at high risk, identifying likely returnees, catching emerging drug shortages before they become crises.\n\n7.8 million patients across 7 countries are now managed with a nearly identical dashboard. Some countries use it to surface bad numbers transparently. Others tweak definitions to look better. The design is the same. The choices around it are not.\n"
-speakerName = "Tony Joy"
-designation = "Senior Product Designer"
-organisation = "Resolve to Save Lives"
-speakerAbout = "Tony Joy is a Senior Product Designer at Resolve to Save Lives (RTSL), where he works on public health dashboards and digital systems for hypertension and diabetes programs. He helps ministries and public health teams collect and make sense of large-scale healthcare data. A lot of this work happens far away from air-conditioned offices, inside hot and busy government clinics where a single healthcare worker sees up to 200 patients a day. \n He has worked with the World Health Organisation, World Diabetes Foundation, University of Oslo, and multiple Ministries of Health to build dashboards used to monitor millions of hypertension and diabetes patients across low and middle income countries. He's especially interested in how data visualisation shapes incentives, priorities, and decision-making inside public health systems."
-speakerImage = "/images/speakers/2026/speaker-tony-joy.webp"
 display = true
 pageReady = true
 order = 13
 
+[[session.speakers]]
+name = "Tony Joy"
+designation = "Senior Product Designer"
+organisation = "Resolve to Save Lives"
+about = "Tony Joy is a Senior Product Designer at Resolve to Save Lives (RTSL), where he works on public health dashboards and digital systems for hypertension and diabetes programs. He helps ministries and public health teams collect and make sense of large-scale healthcare data. A lot of this work happens far away from air-conditioned offices, inside hot and busy government clinics where a single healthcare worker sees up to 200 patients a day. \n He has worked with the World Health Organisation, World Diabetes Foundation, University of Oslo, and multiple Ministries of Health to build dashboards used to monitor millions of hypertension and diabetes patients across low and middle income countries. He's especially interested in how data visualisation shapes incentives, priorities, and decision-making inside public health systems."
+image = "/images/speakers/2026/speaker-tony-joy.webp"
+social = {instagram = "https://www.instagram.com/tonyjoyoye", linkedin = "https://www.linkedin.com/in/tony-joy/", bluesky = "https://bsky.app/profile/publicjoy.bsky.social"}
+
+# TALK | THE INFINITE GRAPHIC SPACE | ARVIND
 [[session]]
+
 slug = "infinite-design-space"
 sessionType = "Talks"
-date = "2026-07-04"
-time = "16:00 - 17:15"
-slot = "afternoon"
 venue = "Bangalore International Centre"
 title = "The Infinite Graphic Space: Beyond Grammar"
 subtitle = "Every grammar is a map with edges. This keynote charts what lies beyond them."
 shortDescription = "From the Grammar of Graphics to Vega-Lite to Go Fish to what comes next, every authoring tool encodes a theory of what visualization can be. This keynote traces that arc, confronts the limits of our inherited grammars, and asks what it means to design expressive authoring tools for visualization in an age when LLMs are rewriting the rules"
 longDescription = "Every tool encodes a theory of what visualization is.\n\nThe Grammar of Graphics, gave the visualisation field a shared vocabulary: data, aesthetics, marks, scales. That declarative grammar drove a generation of authoring tools: ggplot2, Tableau, and Vega-Lite, bringing rigour to chart-making and making it possible, for the first time, to talk about visualization in a common language. Arvind was part of building that future. Vega & Vega-Lite are his work.\n\nThat was a profound shift. And it came with a quiet cost.\n\nThe grammar that liberated visualization from fixed chart types also became its own kind of ceiling. The design space has surprising limits, inconsistencies, and cliffs. Seemingly simple charts like mosaics, waffles, and ribbons fall outside the scope of most implementations. The most expressive, unconventional visualization work often happens in spite of the grammar, not because of it.\n\nExpanding what practitioners can make means expanding the grammar itself.\n\nGoFish is Arvind's current answer to that problem: a declarative grammar built on Gestalt principles that enables recursive composition. Operators that can be nested and overlapped arbitrarily and opening a design space that the Grammar of Graphics could not reach. A step toward an updated theory of data visualization, one open to an infinite space of graphic representations rather than a finite set of design configurations.\n\nThe future is less settled. LLMs have entered the authoring loop. Generation is cheap. The boundary between the tool and the author is blurring in ways that could  either democratize expressive visualization, or make us stop caring about expression altogether.\n\nThis keynote traces the full arc: the grammars that gave our field its foundations, the limits those grammars impose today, and the open question of what visualization authoring needs to become. What would authoring tools look like that keeps expanding rather than narrowing expressive range? And what do we lose if we let ease of generation replace intentionality of authoring?\n"
-speakerName = "Arvind Satyanarayan"
-designation = "Associate Professor"
-organisation = "MIT CSAIL"
-speakerAbout = "Arvind Satyanarayan is an Associate Professor of Computer Science at MIT EECS, and leads the Visualization Group at the MIT Computer Science and Artificial Intelligence Lab (CSAIL). His group uses data visualization as a petri dish to study intelligence augmentation, or how computational representations can help amplify human cognition and creativity.\n\nThis work has received awards at premier academic venues (including ACM CHI, IEEE VIS, and EuroVis), and honors including the Alfred P. Sloan Fellowship (2024), the IEEE VGTC Significant New Visualization Researcher Award (2022), a Google Research Scholar Award (2021), and a Kavli Frontiers of Science Fellow (2020). The visualization tools developed by Arvind and his collaborators, including Vega and Vega-Lite, are widely used in industry (including at Apple, Google, and Microsoft), on Wikipedia, and in the Jupyter data science community.\n"
-speakerImage = "/images/speakers/2026/speaker-arvind-s.webp"
 display = true
 pageReady = true
 order = 1
 
+[[session.speakers]]
+name = "Arvind Satyanarayan"
+designation = "Associate Professor"
+organisation = "MIT CSAIL"
+about = "Arvind Satyanarayan is an Associate Professor of Computer Science at MIT EECS, and leads the Visualization Group at the MIT Computer Science and Artificial Intelligence Lab (CSAIL). His group uses data visualization as a petri dish to study intelligence augmentation, or how computational representations can help amplify human cognition and creativity.\n\nThis work has received awards at premier academic venues (including ACM CHI, IEEE VIS, and EuroVis), and honors including the Alfred P. Sloan Fellowship (2024), the IEEE VGTC Significant New Visualization Researcher Award (2022), a Google Research Scholar Award (2021), and a Kavli Frontiers of Science Fellow (2020). The visualization tools developed by Arvind and his collaborators, including Vega and Vega-Lite, are widely used in industry (including at Apple, Google, and Microsoft), on Wikipedia, and in the Jupyter data science community.\n"
+image = "/images/speakers/2026/speaker-arvind-s.webp"
+social = {website = "https://arvindsatya.com", linkedin = "https://www.linkedin.com/in/arvindsatya1/", twitter = "https://x.com/arvindsatya1"}
+
+# TALK | DASHBOARDS OF OUR DISCONTENT | AMAN
 [[session]]
+
 slug = "dashboards-of-our-discontent"
 sessionType = "Talks"
-date = "2026-07-04"
-time = "16:00 - 16:30"
-slot = "afternoon"
 venue = "Bangalore International Centre"
 title = "Dashboards of our Discontent"
 subtitle = "More dashboards than ever. Still waiting for ones that actually work."
 shortDescription = "Building a dashboard has never been easier. Shipping one that actually serves people is a different problem. This talk critiques the inherited assumptions behind public data dashboards and asks what it would take to build them as infrastructure instead."
 longDescription = "The tooling has never been better. Drag-and-drop builders, low-code platforms, LLMs, chart libraries, templates for every use case. Government departments, NGOs, and civic tech projects are all shipping public data dashboards now. On the surface, this looks like progress.\n\nAman thinks most of it is the wrong kind of progress.\n\nThe problem is not technical skill or bad intentions. It is inherited assumptions: ideas about what a dashboard should be, absorbed from enterprise BI tools and never questioned for public contexts. The Big Ass Number. The Donut. The Bars. The download button. The assumption that if the data is visible, it is accessible.\n\nMost public dashboards get built, launched, maybe written about, and then sit there waiting for the next person to come along and build the same thing again. They look helpful. Put them through their paces and the complexity turns out to be shallow.\n\nThis talk is about the gap between the dashboards we keep building and the public data infrastructure we actually need. Drawing on experiments at Diagram Chasing and a survey of interfaces from national portals to scrappy civic tech projects, Aman walks through a critique of the current landscape, the design assumptions worth questioning specifically for public contexts, and the technical possibilities that are not being used nearly enough.\n\nThe FOSS ecosystem is better than ever. DuckDB WASM, PMTiles, MapLibre, parquets in the browser, webR. What would it look like to build public dashboards that cost nothing to host and outperform enterprise tools? What are the small but consequential decisions that shape whether a data interface actually serves the people it is built for?\n"
-speakerName = "Aman Bhargava"
-designation = "Developer"
-organisation = "Diagram Chasing"
-speakerAbout = "Aman Bhargava is a developer and independent researcher. He is interested in public-interest technology and making charts, with his work appearing in Reuters, Rest of World, and Unearthed by Greenpeace.\n\nHe co-runs Diagram Chasing, an independent publication dedicated to turning public data into compelling, accessible visual stories and tools.\n"
-speakerImage = "/images/speakers/2026/speaker-aman.webp"
 display = true
 pageReady = true
 order = 4
 
+[[session.speakers]]
+name = "Aman Bhargava"
+designation = "Developer"
+organisation = "Diagram Chasing"
+about = "Aman Bhargava is a developer and independent researcher. He is interested in public-interest technology and making charts, with his work appearing in Reuters, Rest of World, and Unearthed by Greenpeace.\n\nHe co-runs Diagram Chasing, an independent publication dedicated to turning public data into compelling, accessible visual stories and tools.\n"
+image = "/images/speakers/2026/speaker-aman.webp"
+social = {website = "https://aman.bh", instagram = "https://www.instagram.com/thedivtagguy", linkedin = "https://www.linkedin.com/in/amnbh/", twitter = "https://x.com/thedivtagguy"}
+
+# DIALOGUE | THE CURATOR'S DILEMMA | ANAND
 [[session]]
+
 slug = "curators-dilemma"
 sessionType = "Dialogues"
-date = "2026-07-04"
-time = "Library"
-slot = "morning"
 venue = "Bangalore International Centre"
 title = "The Curator's Dilemma"
 subtitle = "When making is easy, choosing is the craft."
 shortDescription = "When making is easy, choosing is the craft. This hands-on dialogue explores what good judgment looks like when AI hands you five defensible charts and you need to ship one."
 longDescription = "My team creates 9 variations of a chart in 15 minutes. All defensible. None of them are wrong or bad charts. My afternoon is spent staring at them, trying to figure out which one is actually good!\n\nAfter decades of building data viz, the making part is easy and fast now. What's slow is the choosing. And most of us haven't developed the muscles for that yet. This dialogue is about that shift happening right now, from construction to curation. The much harder skill of selecting, refining and deciding from abundance rather than building from scratch.\n\nYou'll start by ranking five visualisations of the same dataset on a wall, dot stickers in hand, before anyone speaks. Then small groups dig into the why, using prompt cards to surface the criteria people use, often without knowing they use them.\n\nThen comes the reveal: which charts were AI-generated, and which were human-made. Rankings can get revisited and our own biases can surface. The conversation in the dialogue can get honest about what craft actually means for us now.\n\nThe session closes with the room building a shared curator's checklist together. The  practitioner questions you can ask the next time you're staring at a wall of plausible visualisation options.\n\nYou'll leave with that checklist, a sharper sense of your own evaluation instincts, and a clearer picture of where your defaults might be leading you astray.\n"
-speakerName = "Anand S"
-designation = "LLM Psychologist"
-organisation = "Straive"
-speakerAbout = "Anand is an LLM psychologist at Straive, where he researches AI and publishes demos. Earlier, he co-founded Gramener, a data storytelling company. He's listed among India's top 10 data scientists and AI influencers and is a regular TEDx/Pycon speaker.\n\nAnand is an alumnus of IIM Bangalore, IIT Madras, London Business School, IBM, Infosys Consulting, Lehman Brothers, and BCG.\n\nMore importantly, he hand-transcribed every Calvin & Hobbes strip ever, is addicted to Minecraft & Anime (thanks to his daughter), and dreams of watching every film on the IMDb Top 250 (except The Shining)."
-speakerImage = "/images/speakers/2026/speaker-anand.avif"
 display = true
 pageReady = true
 order = 5
 
+[[session.speakers]]
+name = "Anand S"
+designation = "LLM Psychologist"
+organisation = "Straive"
+about = "Anand is an LLM psychologist at Straive, where he researches AI and publishes demos. Earlier, he co-founded Gramener, a data storytelling company. He's listed among India's top 10 data scientists and AI influencers and is a regular TEDx/Pycon speaker.\n\nAnand is an alumnus of IIM Bangalore, IIT Madras, London Business School, IBM, Infosys Consulting, Lehman Brothers, and BCG.\n\nMore importantly, he hand-transcribed every Calvin & Hobbes strip ever, is addicted to Minecraft & Anime (thanks to his daughter), and dreams of watching every film on the IMDb Top 250 (except The Shining)."
+image = "/images/speakers/2026/speaker-anand.webp"
+social = {website = "https://www.s-anand.net/", linkedin = "https://www.linkedin.com/in/sanand0/"}
+
+# DIALOGUE | A COLLECTIVE AUTOPSY OF CHART | AGRIYA
 [[session]]
+
 slug = "chart-crimes-autopsy"
 sessionType = "Dialogues"
-date = "2026-07-04"
-time = "library"
-slot = "afternoon"
 venue = "Bangalore International Centre"
 title = "A Collective Autopsy of Chart Crimes"
 subtitle = "Charts look objective. That's what makes them dangerous."
 shortDescription = "Charts look objective. That's what makes them dangerous. This dialogue builds your pattern recognition for the systematic ways visualisations mislead, and the questions to ask before you  trust what you see."
 longDescription = "Bar charts with truncated axes. Correlations that vanish when you break the data down. Trend lines that hide more than they reveal. Most misleading charts aren't made with bad intent. They come from well-meaning people making common mistakes. But intent doesn't change impact.\n\nCharts are persuasive precisely because they appear rigorous. When data is visualised, we assume someone has done the work and checked the numbers. That assumption makes misleading visualisations dangerous, especially in public health, climate reporting, and policy debates where most readers won't scrutinise every plot they encounter.\n\nThis session takes the contrarian view. While much of the conversation in data visualisation focuses on how to make better charts, this dialogue asks the inverse: what makes charts fail? What are the systematic ways visualisations mislead, and how do we spot them?\n\nWe'll build a shared vocabulary around patterns like Simpson's paradox, base rate neglect, ecological fallacy, survivorship bias, and cherry-picking. For each concept, you'll see what it looks like visually, why it happens, and what cues to look for. Then the room works together, examining real visualisations from news, research, and reports to put that vocabulary into practice.\n\nYou'll leave not as a cynic, but as an informed sceptic. Sharper questions. Better pattern recognition. And a clearer sense of the pitfalls worth watching for in your own work.\n"
-speakerName = "Agriya Khetarpal"
-designation = "Software Engineer"
-organisation = "Quansight"
-speakerAbout = "Agriya is a software engineer at Quansight, where he works on scientific open source software in the Scientific Python and Jupyter ecosystems. He is passionate about advancing science policy in India and believes that data, communicated honestly and rigorously, is one of its most powerful tools, a conviction that keeps him equally at home, whether in a terminal or in a policy debate."
-speakerImage = "/images/speakers/2026/speaker-agriya.avif"
 display = true
 pageReady = true
 order = 17
 
+[[session.speakers]]
+name = "Agriya Khetarpal"
+designation = "Software Engineer"
+organisation = "Quansight"
+about = "Agriya is a software engineer at Quansight, where he works on scientific open source software in the Scientific Python and Jupyter ecosystems. He is passionate about advancing science policy in India and believes that data, communicated honestly and rigorously, is one of its most powerful tools, a conviction that keeps him equally at home, whether in a terminal or in a policy debate."
+image = "/images/speakers/2026/speaker-agriya.webp"
+social = {website = "https://linkedin.com/in/agriyakhetarpal", linkedin = "https://www.linkedin.com/in/agriyakhetarpal/"}
+
+# DIALOGUE | THE STORIES OUR CHARTS DON'T | LAKSHMI
 [[session]]
+
 slug = "charts-untold-stories"
 sessionType = "Dialogues"
-date = "2026-07-04"
-time = "library"
-slot = "afternoon"
 venue = "Bangalore International Centre"
 title = "The Stories our Charts don't Tell (yet)"
 subtitle = "Every dashboard assumes a worldview. This dialogue asks what yours is."
 shortDescription = "Every chart highlights something. Every dashboard prioritises something. Every metric leaves something out. This dialogue asks the uncomfortable question behind all of it: what worldview are you building into your visualisation, and what are you nudging decision-makers to ignore?"
 longDescription = "Every chart highlights something. Every dashboard prioritises something. Every metric leaves something out.\n\nThis dialogue starts from that discomfort. Before colour palettes and chart types, there are deeper choices: what counts as success, what gets measured and what does not, what assumptions are built into our models and proxies, and what forms of value get reduced to a number because they are easier to plot.\n\nThe session opens with a few real-world chart examples that look correct but embed strong assumptions. What story does each visualisation make obvious? What alternative stories disappear?\n\nSmall groups then dig into those questions through their own practice, using prompts like: a time when a visualisation changed a decision, a metric you felt uneasy about using, something important that could not be visualised. The goal is not consensus but surfacing the interpretive frames practitioners carry into their work, often without examining them.\n\nThe session closes with the room building a shared reflective toolkit together: a short checklist of questions to ask before the chart gets made, not after.\n\nData visualisation is powerful because it simplifies complexity. But simplification is never neutral. This dialogue is for anyone who wants to ask not just \"is this chart clear?\" but \"what worldview does this chart assume?\"\n\n##\n"
-speakerName = "Lakshmi Chockalingam"
-designation = "Doctor of Education Candidate"
-organisation = "Bath"
-speakerAbout = "Lakshmi is a software engineer turned social impact professional whose work sits at the intersection of data, technology, education, and entrepreneurship. Having worked across India and the UK with government and third sector organisations, she brings a systems lens to questions of development and representation.\n\nNow as a doctoral researcher, Lakshmi engages deeply with what data gets measured and whose knowledge counts. Her work attempts to interrogate (if not at least acknowledge) what is left out and whose realities are flattened in the process. Through this, she nudges toward more reflective, responsible, and context-sensitive approaches to both data and development, inviting researchers and practitioners to rethink (or at least surface) the assumptions embedded in how we see and shape the world."
-speakerImage = "/images/speakers/2026/speaker-lakshmi.avif"
 display = true
 pageReady = true
 order = 11
 
+[[session.speakers]]
+name = "Lakshmi Chockalingam"
+designation = "Doctor of Education Candidate"
+organisation = "Bath"
+about = "Lakshmi is a software engineer turned social impact professional whose work sits at the intersection of data, technology, education, and entrepreneurship. Having worked across India and the UK with government and third sector organisations, she brings a systems lens to questions of development and representation.\n\nNow as a doctoral researcher, Lakshmi engages deeply with what data gets measured and whose knowledge counts. Her work attempts to interrogate (if not at least acknowledge) what is left out and whose realities are flattened in the process. Through this, she nudges toward more reflective, responsible, and context-sensitive approaches to both data and development, inviting researchers and practitioners to rethink (or at least surface) the assumptions embedded in how we see and shape the world."
+image = "/images/speakers/2026/speaker-lakshmi.webp"
+social = {linkedin = "https://www.linkedin.com/in/lakshmic135/"}
+
+# EXHIBITION | PUDDLE BENEATH THE PLATE | SHREYA
 [[session]]
+
 slug = "puddle-beneath-the-plate"
 sessionType = "Exhibition"
-date = "2026-07-04"
-time = ""
-slot = ""
 venue = "Bangalore International Centre"
 title = "Puddle Beneath the Plate"
 subtitle = "What if the water behind our food sat visibly at the table with us?"
 shortDescription = ""
 longDescription = "Puddle Beneath the Plate is a tangible data visualization that uncovers the hidden water footprint embedded in the food we consume. Taking the form of a puddle-shaped placemat, the artifact translates water consumption data into a physical and interactive dining experience. Ripple patterns engraved within the placemat represent the amount of water required by the most water-intensive ingredients in a meal, making an otherwise invisible resource visible at the point of consumption. By bringing data to the dining table, the project invites reflection on everyday food choices and their environmental impact, fostering greater awareness of water use and sustainability."
-speakerName = "Shreya Dan"
-designation = "Information Designer"
-organisation = "NID Bengaluru"
-speakerAbout = "Shreya is an Information Design student at the National Institute of Design with a background in Fashion Design from the National Institute of Fashion Technology. Originally trained as a fashion designer, her shift towards information design began after two years of working with data, visual communication, and research-driven storytelling.\n\nShe loves to explore the intersection of fashion, materiality, and data visualization by translating complex datasets into tactile and experiential forms that can be shaped, layered, and physically experienced. She aims to make abstract information more human, intuitive, and engaging for wider audiences.\n\nHer work explores storytelling through metaphors, analogies and to create experiences that feel more personal, relatable, and easy to understand."
-speakerImage = "/images/speakers/2026/speaker-shreya.webp"
 display = true
 pageReady = true
 order = 18
 exhibitNumber = 4
-speakerSocial = ""
-artworkHeroImage = ""
-artworkDetail1Image = ""
-artworkDetail2Image = ""
+artworkHeroImage = "/images/exhibition/PuddlePlate.jpg"
 
+[[session.speakers]]
+name = "Shreya Dan"
+designation = "Information Designer"
+organisation = "NID Bengaluru"
+about = "Shreya is an Information Design student at the National Institute of Design with a background in Fashion Design from the National Institute of Fashion Technology. Originally trained as a fashion designer, her shift towards information design began after two years of working with data, visual communication, and research-driven storytelling.\n\nShe loves to explore the intersection of fashion, materiality, and data visualization by translating complex datasets into tactile and experiential forms that can be shaped, layered, and physically experienced. She aims to make abstract information more human, intuitive, and engaging for wider audiences.\n\nHer work explores storytelling through metaphors, analogies and to create experiences that feel more personal, relatable, and easy to understand."
+image = "/images/speakers/2026/speaker-shreya.webp"
+social = {website = "https://shreyadan.com/dataviz", instagram = "https://www.instagram.com/_pragmaticdreamer_", linkedin = "https://www.linkedin.com/in/danshreya/"}
+
+# EXHIBITION | PANES OF HEAT | KASHVI
 [[session]]
+
 slug = "panes-of-heat"
 sessionType = "Exhibition"
-date = "2026-07-04"
-time = ""
-slot = ""
 venue = "Bangalore International Centre"
 title = "Panes of Heat"
 subtitle = "Windows into a future too hot to step outside"
 shortDescription = ""
 longDescription = "A summer afternoon in Delhi reads 42°C on the weather app. For a street vendor selling fruit by the roadside, the experience of heat is closer to 50°C. \n\n As the world warms, this gap between heat data and lived experience of heat continues to widen. Days feel hotter, nights offer less relief, and prolonged heat impairs the body's ability to step outdoors, work, travel, rest, and recover.  \n\n Panes of Heat translates a year of urban heat into architectural form. Two skyscrapers stand side by side: one records air temperature, the other shows felt temperature. Each window is a day in 2024, the hottest year on record globally. Each passing hour on the clock points to two different realities of the same day.  \n\n The towers are reflective of concrete spaces that hold heat long into the night. Viewers are invited to feel the contrast between recorded temperatures and what the body endures: a dynamic, uneven, and unequally distributed experience of heat. \n\n We would like to thank Parth Bisen and Aditi Bhatt for their help in building this project."
-speakerName = "Kashvi Bansal"
-designation = "Editorial Designer"
-organisation = "The Ken"
-speakerAbout = "Kashvi is an editorial designer at The Ken, turning complex ideas into data visuals. Based in Bangalore, she is a data enthusiast with a love for print media and human experiences. Although her work spans brand development, web design, print, publication, and data visualization, she is currently focusing on weaving together research, data, and design to build richer narratives.\n\nShe is also the author of Missing in Action, a self-driven design research project unpacking gender disparity in Indian cinema. It explores the systemic ways women's presence and contributions in the industry are limited, rooted in a belief that art and media can be powerful catalysts for social change."
-speakerImage = "/images/speakers/2026/speaker-kashvi.webp"
 display = true
 pageReady = true
 order = 19
 exhibitNumber = 7
-speakerSocial = ""
-artworkHeroImage = ""
-artworkDetail1Image = ""
-artworkDetail2Image = ""
-speaker2Name = "Surbhi Bhatia"
-speaker2Designation = "Data Journalist"
-speaker2Organisation = ""
-speaker2About = "Surbhi is a data journalist, and has spent many years searching for insights and composing stories that are coded and designed to turn numbers into striking and memorable visuals. She loves working on diverse topics to uncover what really may be happening in the boundless worlds of bollywood movies, digital commerce, climate change, urbanisation, and chocolates!\n\nShe has worked with different mindsets across many settings like: urgency in newsrooms, immersion in academia, clarity in communications, and creativity in design studios. She agrees that correlation is not causation, but believes strongly that walkable cities make for a better life. She has worked with xKDR Forum, Mint, World Bank, Thibi, Open Network for Digital Commerce, and written for Kontinentalist, Nikkei Asia, Indiaspend, The Hindu, and more. Her work has been recognised by the Society for Advancing Business Editing and Writing (SABEW), Festival de Datos, and The Pudding."
-speaker2Image = "/images/speakers/2026/speaker-surbhi.webp"
-speaker2Social = ""
+artworkHeroImage = "/images/exhibition/PanesHeat.jpg"
 
+[[session.speakers]]
+name = "Surbhi Bhatia"
+designation = "Data Journalist"
+organisation = ""
+about = "Surbhi is a data journalist, and has spent many years searching for insights and composing stories that are coded and designed to turn numbers into striking and memorable visuals. She loves working on diverse topics to uncover what really may be happening in the boundless worlds of bollywood movies, digital commerce, climate change, urbanisation, and chocolates!\n\nShe has worked with different mindsets across many settings like: urgency in newsrooms, immersion in academia, clarity in communications, and creativity in design studios. She agrees that correlation is not causation, but believes strongly that walkable cities make for a better life. She has worked with xKDR Forum, Mint, World Bank, Thibi, Open Network for Digital Commerce, and written for Kontinentalist, Nikkei Asia, Indiaspend, The Hindu, and more. Her work has been recognised by the Society for Advancing Business Editing and Writing (SABEW), Festival de Datos, and The Pudding."
+image = "/images/speakers/2026/speaker-surbhi.webp"
+social = {website = "https://surbhibhatia.com/", instagram = "https://www.instagram.com/surbhibhatia", linkedin = "https://www.linkedin.com/in/surbhi-bhatia/", twitter = "https://x.com/surbhaai"}
+
+
+[[session.speakers]]
+name = "Kashvi Bansal"
+designation = "Editorial Designer"
+organisation = "The Ken"
+about = "Kashvi is an editorial designer at The Ken, turning complex ideas into data visuals. Based in Bangalore, she is a data enthusiast with a love for print media and human experiences. Although her work spans brand development, web design, print, publication, and data visualization, she is currently focusing on weaving together research, data, and design to build richer narratives.\n\nShe is also the author of Missing in Action, a self-driven design research project unpacking gender disparity in Indian cinema. It explores the systemic ways women's presence and contributions in the industry are limited, rooted in a belief that art and media can be powerful catalysts for social change."
+image = "/images/speakers/2026/speaker-kashvi.webp"
+social = {website = "https://kashvibansal.blog", instagram = "https://www.instagram.com/kashvi_bansal", linkedin = "https://www.linkedin.com/in/kashvibansal/", twitter = "https://x.com/kashviibansal"}
+
+
+
+[[session.speakers]]
+name = "Parth Bisen"
+designation = "Software Engineer"
+organisation = "CRED"
+about = "Parth is an engineer by trade and a serial disassembler of electronics in his free time. He loves tinkering with both the digital and analog sides of things, whether that's building, fixing, or figuring out how something works. He currently works at CRED as a software engineer, where he focuses on large-scale production engineering and helps build the company's foundational AI platform. Outside of work, he's a big public transport enthusiast and collects metro cards from every city he visits."
+image = "/images/speakers/2026/speaker-parth.webp"
+social = {website = "https://pbisen.github.io", linkedin = "https://www.linkedin.com/in/pbisen/"}
+
+# EXHIBITION | THE SCENT OF GROUNDED CHANGE | SADHANA
 [[session]]
+
 slug = "scent-of-grounded-change"
 sessionType = "Exhibition"
-date = "2026-07-04"
-time = ""
-slot = ""
 venue = "Bangalore International Centre"
 title = "The Scent of Grounded Change"
 subtitle = "An olfactory archive of rain, land, and urban change"
 shortDescription = ""
 longDescription = "In Bengaluru, every new road, metro line, or construction project often begins by disrupting the ecology of the city. Yet many of these interventions have also sparked protests, legal challenges, and collective acts of resistance that sought to protect the living systems that sustain it. \n\n This project maps ecological disruptions across Bengaluru's zones alongside the pushbacks that emerged in response to them. It asks a simple question: how often did collective action succeed in protecting the city's ecology, and how often was the soil allowed to breathe? \n\n Within the exhibition, petrichor, the smell of rain on earth, marks places where these pushbacks succeeded. In zones where ecological loss prevailed, visitors encounter contrasting smell of tar, burning, and synthetic materials."
-speakerName = "Sadhana Lokesh"
-designation = "UX Designer"
-organisation = "Health Care Organisation"
-speakerAbout = "Sadhana is a transdisciplinary designer guided by curiosity and a love for exploring the spaces between people, science, design, and technology. With a background in computer science and design, she combines technical thinking with creativity to build experiences that feel thoughtful and engaging.\n\nShe is especially drawn to tangible work and enjoys creating experiences that people can physically move through, interact with, and connect to. Her practice focuses on storytelling, spatial experiences, and emotional connection. More than anything, Sadhana loves seeing people respond to and enjoy the experiences she creates, finding meaning or curiosity within them."
-speakerImage = "/images/speakers/2026/speaker-sadhana.webp"
 display = true
 pageReady = true
 order = 20
 exhibitNumber = 5
-speakerSocial = ""
-artworkHeroImage = ""
-artworkDetail1Image = ""
-artworkDetail2Image = ""
+artworkHeroImage = "/images/exhibition/ScentGrounded.jpg"
 
+[[session.speakers]]
+name = "Sadhana Lokesh"
+designation = "UX Designer"
+organisation = "Health Care Organisation"
+about = "Sadhana is a transdisciplinary designer guided by curiosity and a love for exploring the spaces between people, science, design, and technology. With a background in computer science and design, she combines technical thinking with creativity to build experiences that feel thoughtful and engaging.\n\nShe is especially drawn to tangible work and enjoys creating experiences that people can physically move through, interact with, and connect to. Her practice focuses on storytelling, spatial experiences, and emotional connection. More than anything, Sadhana loves seeing people respond to and enjoy the experiences she creates, finding meaning or curiosity within them."
+image = "/images/speakers/2026/speaker-sadhana.webp"
+social = {instagram = "https://www.instagram.com/sadhana_lokesh", linkedin = "https://www.linkedin.com/in/sadhana-lokesh-a4087214b/"}
+
+# EXHIBITION | KLIMATE KUNDLI | NITHYA
 [[session]]
+
 slug = "klimate-kundli"
 sessionType = "Exhibition"
-date = "2026-07-04"
-time = ""
-slot = ""
 venue = "Bangalore International Centre"
 title = "Klimate Kundli"
 subtitle = "A personal horoscope for a planet in transition"
 shortDescription = ""
 longDescription = "Klimate Kundli is an interactive exhibit that generates a takeaway, personalised climate horoscope based on a visitor’s inputs of their birth year and the places they have lived. It seeks to reframe climate data away from abstraction and toward memory, place, and everyday life by inviting visitors to encounter and reflect on their data as personal and generational climate experiences. \n\n A Klimate Kundli simulates the act of interpreting a birth chart by an astrologer through data visualisations of climate change that visitors have likely lived through and also suggests some remedies, inviting reflections on the gap between personal gestures and planetary-scale climate action."
-speakerName = "Nithya Kirti"
-designation = "Designer"
-organisation = "ShikshaLokam"
-speakerAbout = "Nithya is a creative practitioner with an evolving practice spanning visual design, illustration and digital product design. She is currently working as a design generalist shaping the narrative, product and visual design of a non-profit impacting 200,000+ public schools in India through open-source technology.\n\nWith a background in Experience Design and Humanities, she aims to bring transdisciplinary approaches and humour to shape projects into moments of critical reflection on technology and culture.\n\nThis exhibit marks Nithya's first foray into dataviz after a longstanding love-hate relationship with numbers."
-speakerImage = "/images/speakers/2026/speaker-nithya.webp"
 display = true
 pageReady = true
 order = 21
 exhibitNumber = 2
-speakerSocial = ""
-artworkHeroImage = ""
-artworkDetail1Image = ""
-artworkDetail2Image = ""
-speaker2Name = "Arkoprabho Bhattacharjee"
-speaker2Designation = "Senior Product Designer"
-speaker2Organisation = "VuNet Systems"
-speaker2About = "Arko is a Senior Product Designer at VuNet Systems, where he's spent nearly three years in a small, fast-moving team, shaping product strategy across data retention, log analytics, and platform monitoring for some of the biggest banks in India.\n\nHis background blends product design and engineering, with his work building data-dense interfaces, design systems, and writing Agent skills to sharpen AI-assisted development workflows. Alongside his job, he loves tinkering with and building silly websites that bring joy to people through interactions. He believes good designers stay close to how things actually get built.\n\nHe also enjoys endurance running, writing poetry, and trekking among other things."
-speaker2Image = "/images/speakers/2026/speaker-arko.webp"
-speaker2Social = ""
+artworkHeroImage = "/images/exhibition/KlimateKundli.jpg"
 
+[[session.speakers]]
+name = "Nithya Kirti"
+designation = "Designer"
+organisation = "ShikshaLokam"
+about = "Nithya is a creative practitioner with an evolving practice spanning visual design, illustration and digital product design. She is currently working as a design generalist shaping the narrative, product and visual design of a non-profit impacting 200,000+ public schools in India through open-source technology.\n\nWith a background in Experience Design and Humanities, she aims to bring transdisciplinary approaches and humour to shape projects into moments of critical reflection on technology and culture.\n\nThis exhibit marks Nithya's first foray into dataviz after a longstanding love-hate relationship with numbers."
+image = "/images/speakers/2026/speaker-nithya.webp"
+social = {website = "https://nithyakirti.com", instagram = "https://www.instagram.com/nithyart_", linkedin = "https://www.linkedin.com/in/nithyakirti/"}
+
+[[session.speakers]]
+name = "Arkoprabho Bhattacharjee"
+designation = "Senior Product Designer"
+organisation = "VuNet Systems"
+about = "Arko is a Senior Product Designer at VuNet Systems, where he's spent nearly three years in a small, fast-moving team, shaping product strategy across data retention, log analytics, and platform monitoring for some of the biggest banks in India.\n\nHis background blends product design and engineering, with his work building data-dense interfaces, design systems, and writing Agent skills to sharpen AI-assisted development workflows. Alongside his job, he loves tinkering with and building silly websites that bring joy to people through interactions. He believes good designers stay close to how things actually get built.\n\nHe also enjoys endurance running, writing poetry, and trekking among other things."
+image = "/images/speakers/2026/speaker-arko.webp"
+social = {website = "https://arccc.co", instagram = "https://www.instagram.com/arccc_co", linkedin = "https://www.linkedin.com/in/arkoprabho-bhattacharjee/"}
+
+# EXHIBITION | SILENT CITIES | VISHAL
 [[session]]
+
 slug = "silent-cities"
 sessionType = "Exhibition"
-date = "2026-07-04"
-time = ""
-slot = ""
 venue = "Bangalore International Centre"
 title = "Silent Cities"
 subtitle = "The city sounds different when sparrows disappear"
 shortDescription = ""
 longDescription = "The house sparrow was once the most common bird in Indian cities. It is now largely absent. Silent Cities asks why, tracing 45 years of urban ecological data across three canvases. Sparrow population, nesting availability, insect abundance, and urbanisation pressure are rendered through physical material rather than graphs, making an invisible collapse visible and countable. Bengaluru's own transformation from green city to sealed concrete provides the backdrop."
-speakerName = "Vishal Garg"
-designation = "Data Risk Leader"
-organisation = "Visual Storyteller"
-speakerAbout = "Vishal Garg is a Singapore-based data governance and risk professional with more than 17 years of experience in global banking, specialising in risk data, governance frameworks, and enterprise-scale data transformation. \n\nAlongside his professional work, he explores the intersection of data, creativity, and human stories through visual storytelling. His work blends structured analytical thinking with artistic expression, demonstrating how data can communicate environmental and social narratives in deeply human ways.\n"
-speakerImage = "/images/speakers/2026/speaker-vishal.webp"
 display = true
 pageReady = true
 order = 19
 exhibitNumber = 6
-speakerSocial = ""
-artworkHeroImage = ""
-artworkDetail1Image = ""
-artworkDetail2Image = ""
+artworkHeroImage = "/images/exhibition/SilentCities.jpg"
 
+[[session.speakers]]
+name = "Vishal Garg"
+designation = "Data Risk Leader"
+organisation = "Visual Storyteller"
+about = "Vishal Garg is a Singapore-based data governance and risk professional with more than 17 years of experience in global banking, specialising in risk data, governance frameworks, and enterprise-scale data transformation. \n\nAlongside his professional work, he explores the intersection of data, creativity, and human stories through visual storytelling. His work blends structured analytical thinking with artistic expression, demonstrating how data can communicate environmental and social narratives in deeply human ways.\n"
+image = "/images/speakers/2026/speaker-vishal.webp"
+social = {website = "https://vishalgarg.carrd.co/", linkedin = "https://www.linkedin.com/in/vishalgarg-sgp/"}
+
+# EXHIBITION | VANISHING WINGS | MEGHANA
 [[session]]
+
 slug = "vanishing-wings"
 sessionType = "Exhibition"
-date = "2026-07-04"
-time = ""
-slot = ""
 venue = "Bangalore International Centre"
 title = "Vanishing Wings"
 subtitle = "Threads that trace the disappearance of insects"
 shortDescription = ""
 longDescription = "Vanishing Wings is an immersive walk-through textile installation that visualizes the decline of insect populations as a consequence of anthropocentric development and ecological disruption. Through layered translucent textiles, embroidered insect forms, shifting stitch densities, and material transparency, the work translates biodiversity data into a sensory experience of abundance, fragmentation, and disappearance. Drawing on entomological research, species diversity records, and citizen-science datasets, the installation invites viewers to recognize insects as foundational agents of pollination, soil health, food systems, and ecological balance. Situated within urban and peri-urban landscapes, Vanishing Wings transforms more-than-human data into a contemplative encounter with climate change, interdependence, and loss."
-speakerName = "Meghana Singh"
-designation = "Professor"
-organisation = "Shrishti Manipal Institute"
-speakerAbout = "Meghana Singh is a design educator and textile practitioner whose work explores sustainability, material narratives, and craft-based learning. Her practice engages with textiles as a medium for storytelling, ecological reflection, and participatory engagement. Drawing from traditional craft knowledge, collaborative processes, and material experimentation, she creates tactile experiences that encourage audiences to engage with environmental concerns in embodied and accessible ways. \n\nWith experience across design education, grassroots initiatives, and interdisciplinary practice, her work often bridges research, making, and community-based learning. Deeply interested in slow processes, repair cultures, and regenerative approaches to design, she uses textiles to translate complex ecological ideas into sensory and spatial encounters that invite reflection, dialogue, and collective awareness.\n"
-speakerImage = "/images/speakers/2026/speaker-meghana.webp"
 display = true
 pageReady = true
 order = 19
 exhibitNumber = 8
-speakerSocial = ""
-artworkHeroImage = ""
-artworkDetail1Image = ""
-artworkDetail2Image = ""
+artworkHeroImage = "/images/exhibition/VanishingWings.jpg"
 
+[[session.speakers]]
+name = "Meghana Singh"
+designation = "Professor"
+organisation = "Srishti Manipal Institute"
+about = "Meghana Singh is a design educator and textile practitioner whose work explores sustainability, material narratives, and craft-based learning. Her practice engages with textiles as a medium for storytelling, ecological reflection, and participatory engagement. Drawing from traditional craft knowledge, collaborative processes, and material experimentation, she creates tactile experiences that encourage audiences to engage with environmental concerns in embodied and accessible ways. \n\nWith experience across design education, grassroots initiatives, and interdisciplinary practice, her work often bridges research, making, and community-based learning. Deeply interested in slow processes, repair cultures, and regenerative approaches to design, she uses textiles to translate complex ecological ideas into sensory and spatial encounters that invite reflection, dialogue, and collective awareness.\n"
+image = "/images/speakers/2026/speaker-meghana.webp"
+social = {instagram = "https://www.instagram.com/meghanajainsingh", linkedin = "https://www.linkedin.com/in/meghanasingh05/"}
+
+# EXHIBITION | FADING OUT TO EXTINCTION | ASWANTH
 [[session]]
+
 slug = "fading-out"
 sessionType = "Exhibition"
-date = "2026-07-04"
-time = ""
-slot = ""
 venue = "Bangalore International Centre"
 title = "Fading Out to Extinction"
 subtitle = "When species disappear, the data fades with them."
 shortDescription = ""
 longDescription = "Fading Out to Extinction is a data-driven lightbox installation mapping the population trajectories of 25 IUCN-listed Indian species across four temporal scenarios: 1970, 2020, and two alternate futures projected to 2070. Each box holds 25 translucent layers, one per species, arranged by Red List Assessment order. As populations decline, layers recede toward the light source, producing a spectral fade that mirrors the logic of extinction: the closer to the light, the closer to gone. The fourth box presents a conservation-based utopian scenario, asking whether a different future is still within reach."
-speakerName = "Aswanth Choyan"
-designation = "Information Designer"
-organisation = "NID Bangalore"
-speakerAbout = "Aswanth is an information and experience designer working and trying to find his on space between systems thinking, cultural research, and visual storytelling. His work focuses on transforming complex ideas, public systems, and human behaviours into clear, engaging, and meaningful experiences across digital and physical mediums. With a strong interest in data visualization, interface design, iconography, and narrative-led design, he approaches projects through research-driven inquiry and structured storytelling."
-speakerImage = "/images/speakers/2026/speaker-aswanth.webp"
 display = true
 pageReady = true
 order = 19
 exhibitNumber = 1
-speakerSocial = ""
-artworkHeroImage = ""
-artworkDetail1Image = ""
-artworkDetail2Image = ""
+artworkHeroImage = "/images/exhibition/FadingOut.jpg"
 
+[[session.speakers]]
+name = "Aswanth Choyan"
+designation = "Information Designer"
+organisation = "NID Bangalore"
+about = "Aswanth is an information and experience designer working and trying to find his on space between systems thinking, cultural research, and visual storytelling. His work focuses on transforming complex ideas, public systems, and human behaviours into clear, engaging, and meaningful experiences across digital and physical mediums. With a strong interest in data visualization, interface design, iconography, and narrative-led design, he approaches projects through research-driven inquiry and structured storytelling."
+image = "/images/speakers/2026/speaker-aswanth.webp"
+social = {website = "https://aswanthchoyan.com", instagram = "https://www.instagram.com/aswanthchoyan", linkedin = "https://www.linkedin.com/in/aswanthchoyan/"}
+
+# EXHIBITION | THE POLLUTION THAT WASN'T | ADITYA
 [[session]]
+
 slug = "pollution-that-wasnt"
 sessionType = "Exhibition"
-date = "2026-07-04"
-time = ""
-slot = ""
 venue = "Bangalore International Centre"
 title = "The Pollution That Wasn't"
 subtitle = "A portrait of emissions prevented through public transit"
 shortDescription = ""
 longDescription = "One person choosing the metro or the bus over a cab or auto seems to change nothing. But these choices accumulate, and in aggregate they reach the air all of us breathe. To show you how, we'll ask you a few questions about your regular trip and plot it on a map alongside everyone else's. Then, you'll get a personal receipt showing how much carbon and fine particulate your way of getting around produces in a year and how much shifting some of that travel to transit would save. \n\n One person choosing the metro or the bus over a cab or auto seems to change nothing. But these choices accumulate, and in aggregate they reach the air all of us breathe. To show you how, we'll ask you a few questions about your regular trip and plot it on a map alongside everyone else's. Then, you'll get a personal receipt showing how much carbon and fine particulate your way of getting around produces in a year and how much shifting some of that travel to transit would save."
-speakerName = "Aditya Jain // Aman Bhargava // Vivek Matthew"
-designation = "Diagram Chasing"
-organisation = ""
-speakerAbout = "Aditya is a designer and new media astro-nut who enjoys building immersive experiences, that emerge from sound, data and projection mapping. \n\n Aman and Vivek started Diagram Chasing in 2024 to build data-driven stories for India that they wished existed, every project begins as a question or annoyance…Aman and Vivek started Diagram Chasing in 2024 to build data-driven stories for India that they wished existed, every project begins as a question or annoyance chased down through data and design. They work full-stack, from raw datasets to final story, release everything under open licenses, and take deliberately slow, boring topics like elections, climate, and bureaucracy and make them visually irresistible."
-speakerImage = ""
 display = true
 pageReady = true
 order = 19
 exhibitNumber = 3
-speakerSocial = ""
-artworkHeroImage = ""
-artworkDetail1Image = ""
-artworkDetail2Image = ""
+artworkHeroImage = "/images/exhibition/PollutionWasnt.jpg"
 
+[[session.speakers]]
+name = "Aman Bhargava"
+designation = "Developer"
+organisation = "Diagram Chasing"
+about = "Aman Bhargava is a developer and independent researcher. He is interested in public-interest technology and making charts, with his work appearing in Reuters, Rest of World, and Unearthed by Greenpeace.\n\nHe co-runs Diagram Chasing, an independent publication dedicated to turning public data into compelling, accessible visual stories and tools."
+image = "/images/speakers/2026/speaker-aman.webp"
+social = {website = "https://aman.bh", instagram = "https://www.instagram.com/thedivtagguy", linkedin = "https://www.linkedin.com/in/amnbh/", twitter = "https://x.com/thedivtagguy"}
+
+[[session.speakers]]
+name = "Aditya Jain"
+designation = "Designer & Technologist"
+organisation = ""
+about = "Aditya is a new media artist who works with projection, sound and interfacing to build reactive experiences, blurring the lines between speculative fiction and reality."
+image = "/images/speakers/2026/speaker-aditya.webp"
+social = {website = "https://newmediadreamlib.framer.website/", linkedin = "https://www.linkedin.com/in/adityajain-ux/"}
+
+[[session.speakers]]
+name = "Vivek Matthew"
+designation = "Engineer"
+organisation = "Diagram Chasing"
+about = "Vivek is an Open data hobbyist. Government website collector. Occasional mapmaker. He co-runs Diagram Chasing, an independent publication dedicated to turning public data into compelling, accessible visual stories and tools."
+image = "/images/speakers/2026/speaker-vivek.webp"
+social = {linkedin = "https://www.linkedin.com/in/vivek-m-92818riri/", twitter = "https://x.com/Vonterinon"}
+
+
+
+
+
+
+# WORKSHOP | FROM TABLES TO MAPS WITH | PRASANTA
 [[session]]
+
 slug = "from-tables-to-maps"
 sessionType = "Workshops"
-date = "2026-07-03"
-time = "14:30 - 17:30"
-slot = "afternoon"
 venue = "Underline Center"
 title = "From Tables to Maps with Datawrapper"
 subtitle = "No GIS software needed. Just your data & browser to make it a publish-ready map."
 shortDescription = "Load geographic data, pick the right map type, and style clear, publish-ready maps without any GIS software."
 longDescription = "If you already live in spreadsheets, this workshop is a practical introduction to turning tables into clear, data-driven maps without needing heavy GIS tools. Using the free version of Datawrapper, it shows how maps function as information graphics and storytelling devices in real use. You will work through locator, symbol and choropleth maps and learn how to bring in geographic data from simple sources while also understanding how to style and export clean, publish-ready maps.\n\nIt's for anyone who works with data and wants to quickly make maps for a corporate presentation, a news story or a school project using just a browser and curiosity. You will know when each map type fits, how to size and color symbols correctly and how to match regions including how to avoid common design mistakes.. The workshop will be conducted by Prasanta Kumar Dutta, a Data Visualisation Developer at Reuters Graphics who regularly works with geographic data on award-winning data stories."
-speakerName = "Prasanta Kumar Dutta"
-designation = "DataViz Developer"
-organisation = "Reuters"
-speakerAbout = "Prasanta Kumar Dutta is an award-winning Information Experience Designer from India, working at the intersection of design, code, and journalism at Reuters. With a background in engineering and design, he crafts data-driven pieces that visually narrate important stories and solve problems in an aesthetically engaging way. Outside the newsroom, Prasanta writes and performs poetry and comedy, and dabbles in generative art, photography, and zine-making. He co-hosts a creative coding meetup in London that brings together artists, technologists, and enthusiasts. He also teaches and speaks on data visualisation, design, and narrative cartography at leading institutions across India."
-speakerImage = "/images/speakers/2026/speaker-prasanta.avif"
 display = true
 pageReady = true
 ticketCode = "workshop_2026_maps"
 soldOut = true
 order = 5
 
+[[session.speakers]]
+name = "Prasanta Kumar Dutta"
+designation = "DataViz Developer"
+organisation = "Reuters"
+about = "Prasanta Kumar Dutta is an award-winning Information Experience Designer from India, working at the intersection of design, code, and journalism at Reuters. With a background in engineering and design, he crafts data-driven pieces that visually narrate important stories and solve problems in an aesthetically engaging way. Outside the newsroom, Prasanta writes and performs poetry and comedy, and dabbles in generative art, photography, and zine-making. He co-hosts a creative coding meetup in London that brings together artists, technologists, and enthusiasts. He also teaches and speaks on data visualisation, design, and narrative cartography at leading institutions across India."
+image = "/images/speakers/2026/speaker-prasanta.webp"
+social = {website = "https://www.prasantakrdutta.com/", instagram = "https://www.instagram.com/pkd_da_pacific", linkedin = "https://www.linkedin.com/in/pkddapacific/", twitter = "https://x.com/Da_Pacific"}
+
+# WORKSHOP | DRAW WITH DATA | SCHUBERT
 [[session]]
+
 slug = "draw-with-data"
 sessionType = "Workshops"
-date = "2026-07-03"
-time = "10:00 - 13:00"
-slot = "morning"
 venue = "Underline Center"
 title = "Draw with Data: Custom Dataviz Using D3"
 subtitle = "Go from basic shapes to custom, interactive viz you always imagined in code"
 shortDescription = "Start with basic shapes and build up to custom, interactive, and code-driven charts in this beginner-friendly D3 and Svelte workshop."
 longDescription = "Have you ever hit the limits of chart plugins and wanted to draw exactly what you imagine? This workshop shows how to build charts directly in code. Instead of moving between tools, you will break charts into simple shapes, map data to SVG elements and let D3 handle the math and layout, while Svelte helps assemble interactive, responsive views. You will move from basic bars and scatter plots to more custom chart ideas through clear, hands-on examples.\n\nThis workshop is designed for designers, creatives and visual storytellers who are curious about custom dataviz but do not want a full web development course. You will pick up enough HTML, CSS and JavaScript to keep experimenting beyond the session, with no prior coding experience required. The workshop is conducted by Schubert de Abreu, an award winning data visualisation developer at Revisual Labs who uses D3 and Svelte in his everyday projects."
-speakerName = "Schubert de Abreu"
-designation = "DataViz Developer"
-organisation = "Revisual Labs"
-speakerAbout = "Schubert is a frontend and dataviz developer at Revisual Labs. He spends much of his time building charts, scrollytelling pieces and interactives on the web. His work was among the winners of last year's Pudding Cup. He enjoys experimenting with design, motion and interaction to bring data and stories to life. Outside of work, you can find him on the losing side of a daily sketching habit."
-speakerImage = "/images/speakers/2026/speaker-schubert.avif"
 display = true
 pageReady = true
 ticketCode = "workshop_2026_d3_viz"
 order = 3
 
+[[session.speakers]]
+name = "Schubert de Abreu"
+designation = "DataViz Developer"
+organisation = "Revisual Labs"
+about = "Schubert is a frontend and dataviz developer at Revisual Labs. He spends much of his time building charts, scrollytelling pieces and interactives on the web. His work was among the winners of last year's Pudding Cup. He enjoys experimenting with design, motion and interaction to bring data and stories to life. Outside of work, you can find him on the losing side of a daily sketching habit."
+image = "/images/speakers/2026/speaker-schubert.webp"
+social = {website = "https://schubertcreates.xyz/", instagram = "https://www.instagram.com/schu.draws.stuff", linkedin = "https://www.linkedin.com/in/schubert-de-abreu-47a56037/", twitter = "https://x.com/schubertda1"}
+
+# WORKSHOP | A DATAVIZ CRASH COURSE (WITHOUT | PRAKRITI
 [[session]]
+
 slug = "a-dataviz-crash-course"
 sessionType = "Workshops"
-date = "2026-07-03"
-time = "14:30 - 17:30"
-slot = "afternoon"
 venue = "Bangalore International Centre"
 title = "A Dataviz Crash Course (Without The Crash Out)"
 subtitle = "Learn the decisions behind good charts and leave with a framework to make them yourself."
 shortDescription = "Move from overwhelmed beginner to confident chart-maker with a practical decision path from question to chart, plus a reusable decision guide."
 longDescription = "Data visualization is not a mysterious talent but a series of decisions. This session focuses on when you actually need a chart, what to visualize, how to frame a title and how choices around chart type and colour shape what people take away. You will sketch quick first-pass visuals on paper so the emphasis stays on questions, relationships and intent and not software.\n\nIt's designed for anyone new to the skill who wants to include charts in their work but feels stuck or overwhelmed ranging from students and early career professionals to journalists and researchers. Through real examples, \"make your worst chart\" exercises and a shared critique, you will build a practical decision checklist you can carry back into your own workflow.\n"
-speakerName = "Prakriti Bakshi"
-designation = "Data Storyteller"
-organisation = "Independent"
-speakerAbout = "Prakriti is an independent data storyteller. She uses words, numbers, and visuals to clearly communicate complexity. \n\nMost recently, she worked as a data journalist at The Secretariat, where she wrote stories that analysed the impact of policies on people, profit, and planet. She has also worked as a data storyteller with Revisual Labs, an information design agency, translating dense information and messy ideas into sharp narratives. \n\nPrakriti earned an MSc in Computational and Data Journalism from Cardiff University and trained in slow, thoughtful journalism with Tortoise Media (now The Observer). She believes data storytelling is a necessary skill in an era of 47-second attention spans and has honed her craft by obsessing over the many small decisions that make a good data story."
-speakerImage = "/images/speakers/2026/speaker-prakriti.avif"
 display = true
 pageReady = true
 ticketCode = "workshop_2026_datavix_course"
 order = 3
 soldOut = true
 
+[[session.speakers]]
+name = "Prakriti Bakshi"
+designation = "Data Storyteller"
+organisation = "Independent"
+about = "Prakriti is an independent data storyteller. She uses words, numbers, and visuals to clearly communicate complexity. \n\nMost recently, she worked as a data journalist at The Secretariat, where she wrote stories that analysed the impact of policies on people, profit, and planet. She has also worked as a data storyteller with Revisual Labs, an information design agency, translating dense information and messy ideas into sharp narratives. \n\nPrakriti earned an MSc in Computational and Data Journalism from Cardiff University and trained in slow, thoughtful journalism with Tortoise Media (now The Observer). She believes data storytelling is a necessary skill in an era of 47-second attention spans and has honed her craft by obsessing over the many small decisions that make a good data story."
+image = "/images/speakers/2026/speaker-prakriti.webp"
+social = {website = "https://linktr.ee/prakriti.bakshi", instagram = "https://www.instagram.com/prakriti.bakshi", linkedin = "https://www.linkedin.com/in/prakriti-bakshi-data/", twitter = "https://x.com/bakshi_prakriti"}
+
+# WORKSHOP | DATA ROUGH | ADOLFO
 [[session]]
+
 slug = "data-rough"
 sessionType = "Workshops"
-date = "2026-07-03"
-time = "14:30 - 17:30"
-slot = "afternoon"
 venue = "Bangalore International Centre"
 title = "Data Rough: Sketching the Foundations of Data Stories"
 subtitle = "Learn to sketch your way to stronger visual data stories, whatever your drawing ability"
 shortDescription = "Learn to sketch your data stories from the ground up, using simple pencil-and-paper techniques to shape clearer, more engaging and evocative visual narratives."
 longDescription = "Whether you are an experienced artist or have never picked up a pencil, this workshop introduces sketching as a practical starting point for building data stories. Led by Adolfo Arranz, an award-winning Senior Graphics Editor at Reuters Graphics, it walks through how simple, loose sketches can help you explore ideas, structure narratives and shape visual direction before moving to software. You will learn how to create story layouts with just pencil and paper, using sketching as a tool for thinking rather than drawing perfectly.\n\nThis is primarily designed for anyone looking to translate ideas, journalistic research or complex explanations into clear visual formats. By focusing on paper first, you stay anchored in meaning, structure and intent rather than only execution. You will leave with a stronger understanding of how sketching supports the full design process, along with practical techniques, tools and a repeatable approach to create more engaging and memorable visual stories from one of the best in the industry."
 soldOut = true
-speakerName = "Adolfo Arranz"
-designation = "Senior Graphics Editor"
-organisation = "Reuters"
-speakerAbout = "Adolfo is a Spaniard based in Hong Kong that helps to create visual explanations across a spectrum of topics, supporting the drive at Reuters to present new ways to present news. He likes to use handcrafted illustrations to approach the subject and create appealing visual stories. Adolfo Arranz previously worked as a creative director at South China Morning Post in Hong Kong and Mediacorp in Singapore. He has won multiple prestigious awards in visual communication."
-speakerImage = "/images/speakers/2026/speaker-adolfo.avif"
 display = true
 pageReady = true
 ticketCode = "workshop_2026_data_rough"
 order = 6
 
+[[session.speakers]]
+name = "Adolfo Arranz"
+designation = "Senior Graphics Editor"
+organisation = "Reuters"
+about = "Adolfo is a Spaniard based in Hong Kong that helps to create visual explanations across a spectrum of topics, supporting the drive at Reuters to present new ways to present news. He likes to use handcrafted illustrations to approach the subject and create appealing visual stories. Adolfo Arranz previously worked as a creative director at South China Morning Post in Hong Kong and Mediacorp in Singapore. He has won multiple prestigious awards in visual communication."
+image = "/images/speakers/2026/speaker-adolfo.webp"
+social = {website = "https://www.perdigallos.com", instagram = "https://www.instagram.com/adolfux", linkedin = "https://www.linkedin.com/in/adolfo-arranz-0536569/", twitter = "https://x.com/adolfux"}
+
+# WORKSHOP | OBSERVE, COLLECT, MAP | PRITI
 [[session]]
+
 slug = "observe-collect-map"
 sessionType = "Workshops"
-date = "2026-07-03"
-time = "10:00 - 13:00"
-slot = "morning"
 venue = "Underline Center"
 title = "Observe, Collect, Map: A Sensory Data Walkshop"
 subtitle = "Expand what counts as data. Learn to map it. Outside. Walking. Together."
 shortDescription = "Join a guided \"walkshop\" and co-create a collective map of sights, sounds, smells, and feelings of the local neighbourhood."
 longDescription = "Data visualization does not have to live on screens. This session takes you outside on a data walk through the neighbourhood, using visual ethnography and score-based prompts to notice and record sights, smells, sounds and feelings that usually blur into the background. Back indoors, you will map these observations together and build a shared picture of the local sensory environment.\n\nDesigned for beginners, educators and community members who may not see themselves as \"data people\" but are curious about making data feel more human and local. You will leave with a collective map, a few simple techniques for running your own data walks and a broader sense of what counts as data. The workshop is conducted by Priti Pandurangan, an information experience designer who experiments with data walking and community-focused visualization."
-speakerName = "Priti Pandurangan"
-designation = "Information Experience Designer"
-organisation = ""
-speakerAbout = "Priti is a creative practitioner working globally across digital humanities, data, and computational futures through research, facilitation, and critical inquiry. Her personal practice explores pluralistic approaches to data and technology, focusing on forms of knowledge and epistemologies that resist quantification while holding space for lived experience, ambiguity, and affect.\n\nShe is also a data walker who facilitates data walks in cities around the world, enabling participants to engage with urban environments through situated and embodied interpretations.\n\nCentral to her work is how culture is held, transmitted, and reconfigured across contexts and temporalities, and the structures through which it is preserved and interpreted."
-speakerImage = "/images/speakers/2026/speaker-priti.avif"
 display = true
 pageReady = true
 ticketCode = "workshop_2026_datawalk"
 order = 1
 soldOut = true
 
+[[session.speakers]]
+name = "Priti Pandurangan"
+designation = "Information Experience Designer"
+organisation = ""
+about = "Priti is a creative practitioner working globally across digital humanities, data, and computational futures through research, facilitation, and critical inquiry. Her personal practice explores pluralistic approaches to data and technology, focusing on forms of knowledge and epistemologies that resist quantification while holding space for lived experience, ambiguity, and affect.\n\nShe is also a data walker who facilitates data walks in cities around the world, enabling participants to engage with urban environments through situated and embodied interpretations.\n\nCentral to her work is how culture is held, transmitted, and reconfigured across contexts and temporalities, and the structures through which it is preserved and interpreted."
+image = "/images/speakers/2026/speaker-priti.webp"
+social = {website = "https://priti.is/here", instagram = "https://www.instagram.com/wherepritiis", linkedin = "https://www.linkedin.com/in/priti-pandurangan/", twitter = "https://x.com/wherepritiis"}
+
+# WORKSHOP | INTERACTIVE DATAVIZ USING AI CODING | KENNETH
 [[session]]
+
 slug = "interactive-dataviz-using-ai-coding"
 sessionType = "Workshops"
-date = "2026-07-03"
-time = "10:00 - 13:00"
-slot = "morning"
 venue = "Bangalore International Centre"
 title = "Interactive DataViz using AI Coding"
 subtitle = "Ship a live, interactive web visualisation from your own dataset."
 shortDescription = "Use AI coding tools to go from raw dataset to a live, interactive web visualization, even as a non-coder."
 longDescription = "You have a dataset and an idea, but turning that into a working interactive chart can feel like too much code. This workshop is a practical, hands-on introduction to using AI coding tools to go from raw data to a live web visualization. You will use tools like Claude, Codex and Google AI Studio as collaborators that help you clean, structure and explore data while you stay focused on the story.\n\nThis session is designed for designers and non-engineers who want to visualize data but may feel intimidated by code or are curious about vibe coding. You will set up a basic tech stack and build an interactive prototype and deploy it to a public URL you can share.\n"
-speakerName = "Kenneth Dsouza // Rasagy Sharma"
-designation = "Designer // Head of Design"
-organisation = "Capital One"
-speakerAbout = "Kenneth Dsouza is an experienced product designer with a Master's from NID and 12+ years of experience working at companies like Practo, Gojek, and Jiva.ag, building multi-market products and running design teams. Currently on a sabbatical, tinkering with making apps and exploring AI-native design tools.\n\nYou can find his AI projects at: <https://kenneth.dsouza.im/ai/>\n\n\n\nRasagy Sharma loves making data meaningful. He is an Information Designer, Design Educator, Data Artist & compulsive Sketchnoter.\n\nHe currently heads the design team for DataLabs at Capital One and has spent 13+ years leading teams & designing data-heavy products at Microsoft, Sundial, Barclays, Mapbox, Capillary & Gramener.\n\nIn his free time, he creates art using data and code, which has been exhibited at Berlin, Swiss Embassy in Delhi, NGMA Bangalore & Goethe Institute, Bangalore.\n\nHe also teaches at design schools like NID & IDC, IIT Bombay, and supports design communities like DesignUp, VizChitra & Creative Coding Sante.\n"
-speakerImage = "/images/speakers/2026/speaker-kenneth.avif"
 display = true
 pageReady = true
 ticketCode = "workshop_2026_ai_data_vix"
 soldOut = true
 order = 6
 
+[[session.speakers]]
+name = "Kenneth Dsouza"
+designation = "Designer"
+organisation = "Independent"
+about = "Kenneth Dsouza is an experienced product designer with a Master's from NID and 12+ years of experience working at companies like Practo, Gojek, and Jiva.ag, building multi-market products and running design teams. Currently on a sabbatical, tinkering with making apps and exploring AI-native design tools.\n\nYou can find his AI projects at: <https://kenneth.dsouza.im/ai/>."
+image = "/images/speakers/2026/speaker-kenneth.webp"
+social = {website = "https://kenneth.dsouza.im/", instagram = "https://www.instagram.com/kennethmdesouza", twitter = "https://x.com/kenneth"}
+
+[[session.speakers]]
+name = "Rasagy Sharma"
+designation = "Head of Design"
+organisation = "Capital One"
+about = "Rasagy Sharma loves making data meaningful. He is an Information Designer, Design Educator, Data Artist & compulsive Sketchnoter.\n\nHe currently heads the design team for DataLabs at Capital One and has spent 13+ years leading teams & designing data-heavy products at Microsoft, Sundial, Barclays, Mapbox, Capillary & Gramener.\n\nIn his free time, he creates art using data and code, which has been exhibited at Berlin, Swiss Embassy in Delhi, NGMA Bangalore & Goethe Institute, Bangalore.\n\nHe also teaches at design schools like NID & IDC, IIT Bombay, and supports design communities like DesignUp, VizChitra & Creative Coding Sante"
+image = "/images/speakers/2026/speaker-rasagy.webp"
+social = {website = "https://rasagy.in/", instagram = "https://www.instagram.com/rasagy.sharma", linkedin = "https://www.linkedin.com/in/rasagy/", twitter = "https://x.com/rasagy"}
+
+# WORKSHOP | DESIGNING DATA STORIES FOR SMALL | AREENA
 [[session]]
+
 slug = "designing-data-stories-for-small-screens"
 sessionType = "Workshops"
-date = "2026-07-03"
-time = "10:00 - 13:00"
-slot = "morning"
 venue = "Bangalore International Centre"
 title = "Designing Data Stories for Small Screens"
 subtitle = "Redesign your visualisation for the six-inch screen most of your audience actually uses."
 shortDescription = "Redesign desktop data stories for six-inch screens using paper prototypes and mobile-first constraints that prioritise clarity, interaction and attention."
 longDescription = "Most of your audience reads on a phone, not a big monitor. This workshop focuses on redesigning desktop data stories for a six-inch screen using paper prototypes and clear mobile-first constraints. You will work with concepts like thumb zones, the first scroll, interaction cost and cognitive load to understand what actually works on small screens and why.\n\nIt is designed for data journalists, visual designers, product teams and editors who want their stories to hold their audiences attention on mobile. You will leave with a practical mobile data story checklist, a way to spot what breaks on smaller screens and a set of paper sketches you can take back to your team. The workshop is conducted by Areena Arora, an editorial coder at The Hindu who builds investigative data stories for phone-first audiences."
-speakerName = "Areena Arora"
-designation = "Editorial Coder"
-organisation = "The Hindu"
-speakerAbout = "Areena Arora is a journalist who transforms messy data into stories that matter. She uncovers patterns hidden in datasets, then designs how people encounter and understand those stories.\n\nHer work sits at the intersection of rigorous reporting and intentional design. She asks: What is the data trying to tell us? How do we present it such that people actually listen and grasp its intricacies? Before finding her way to this unique blend as The Hindu's first-ever Editorial Coder, she reported on public education and local governance in Tennessee, U.S.\n\nShe's obsessed with making complexity accessible. When she's not chasing stories in data, she's cooking up a storm, always up for feeding an army."
-speakerImage = "/images/speakers/2026/speaker-areena.avif"
 display = true
 pageReady = true
 soldOut = true
 ticketCode = "workshop_2026_mobile_viz"
 order = 2
 
+[[session.speakers]]
+name = "Areena Arora"
+designation = "Editorial Coder"
+organisation = "The Hindu"
+about = "Areena Arora is a journalist who transforms messy data into stories that matter. She uncovers patterns hidden in datasets, then designs how people encounter and understand those stories.\n\nHer work sits at the intersection of rigorous reporting and intentional design. She asks: What is the data trying to tell us? How do we present it such that people actually listen and grasp its intricacies? Before finding her way to this unique blend as The Hindu's first-ever Editorial Coder, she reported on public education and local governance in Tennessee, U.S.\n\nShe's obsessed with making complexity accessible. When she's not chasing stories in data, she's cooking up a storm, always up for feeding an army."
+image = "/images/speakers/2026/speaker-areena.webp"
+social = {website = "https://areenaarora.com", instagram = "https://www.instagram.com/areena_news", linkedin = "https://www.linkedin.com/in/areena-arora/", twitter = "https://x.com/AreenaArora"}
 
+# DIALOGUE | UNLOCKING PUBLIC SECTOR DATA & | ANUPAMA
 [[session]]
+
 slug = "public-data-roundtable"
 sessionType = "Dialogues"
-date = "2026-07-03"
-time = "18:30 to 20:30 "
-slot = ""
 venue = "Bangalore International Centre"
 title = "Unlocking Public Sector Data & its Value"
 subtitle = "Public data holds enormous promise. This roundtable asks what actually stands in the way."
 shortDescription = "India's public data problem is no longer about whether datasets exist. It's about whether organisations can actually use them. This session brings 8 to 10 organisations building on public and administrative data into one room to test where the value is real, where it's overstated, and what keeps breaking. It closes with the raw material for a short, co-authored piece that puts concrete use cases on record."
 longDescription = "The case for opening public and administrative data is usually made in the abstract. If the data existed in usable form, value would follow. The organisations actually building on public data know the gap between that assumption and reality. They keep solving the same problems through their own ingenuity: broken discovery, machine-unreadable formats, mismatched identifiers, missing metadata. Problems that arguably should not need private ingenuity to solve. \n This roundtable is for organisations that work directly with public and administrative datasets: researchers, builders, analysts, and policy practitioners who have gone from 'the dataset exists' to 'we built something useful' and know exactly where that path broke. A smaller, focused room serves this topic better than a panel. The goal is candid accounts, not polished positions. \n The conversation will move through three questions. Where has using public data produced something genuinely valuable, and what made that possible? Where is the value overstated, and what honest caveats does the room raise? And which break-points matter most: discovery, machine-readability, common identifiers, harmonised definitions, trust? The session will not attempt to produce policy recommendations or consensus positions. \n Participants leave with a shared account of what India's public data is actually good for, and their name on a short, co-authored piece that puts those use cases on record. This is an invite-only session, kept small so the conversation can go somewhere."
-speakerName = "Anupama Kashyap"
-designation = ""
-organisation = "People + AI"
-speakerAbout = ""
-speakerImage = ""
 display = true
 pageReady = true
 sponsored = true
 inviteOnly = true
 order = 40
 
+[[session.speakers]]
+name = "Anupama Kashyap"
+designation = ""
+organisation = "People + AI"
+about = ""
+image = ""
+social = {}
 
+# DIALOGUE | AMA | ANUSHKA
 [[session]]
+
 slug = "so-you-want-to-work-with-data"
 sessionType = "Dialogues"
-date = "2026-07-04"
-time = "15:45 to 16:30"
-slot = ""
 venue = "Bangalore International Centre"
 title = "AMA: So You Want to Work with Data."
 subtitle = "A career in data viz is less a path and more a series of educated guesses. Three practitioners on theirs."
 shortDescription = "Data visualization has no single entry point. People arrive from journalism, design, engineering, social science, and places that have otherwise little to do with charts. If you're trying to figure out how to actually get into this field, what to learn, what kind of work exists, whether it pays — this is for you. A panel discussion with three practitioners who talk honestly about the work, the career, and how they found their way in."
 longDescription = "Data visualization sits at an uncomfortable intersection;  part design, part journalism, part engineering, part storytelling. Nobody arrives fully prepared and everyone spends at least some time feeling like an imposter. If you're early in your journey and wondering whether a career in data viz is for you — and where you'd even begin — this session is for you. \n\n What do you actually need to know before you touch a tool? What does a typical workday or a real project look like? What are the career structures that exist in this field in India, and what does compensation actually look like across them? Three practitioners — Sandeep Karmarkar, Hamsa Ganesh, and Areena Arora — with varying experiences, will address these questions from three different vantage points. Between them, they represent the corporate design track, the independent studio track, and the newsroom track. The conversation will be structured, yet informal. \n\n No one usually has it all charted out. No maps for a career in this field. But by the end of the session, you'll leave with a clearer picture of where you might fit, a more honest sense of what the work actually demands, and at least one answer to a question you've been carrying around for a while. Where your path goes from here is still yours to figure out. But you'll have a better sense of the terrain."
-speakerName = "Anushka Gokhale"
-designation = "Lead Designer"
-organisation = "EPIC World"
-speakerAbout = "Anushka Gokhale is a Product Designer and number-crunching storyteller. In her 5+ years of experience, she has collaborated with mission-driven teams and designed data-heavy products across govtech, conservation tech, fintech, and spatial intelligence — bridging the gap between data and people.\n\n Currently Lead Designer at EPIC World. Previously Senior Product Designer at Parallel HQ and CivicDataLab, and  Visiting Faculty at SMI."
-speakerImage = ""
 display = true
 pageReady = true
 order = 40
 
 [[session.speakers]]
-name = "Sandeep Karmarkar"
-role = "Head of Design, Atlassian"
-
-[[session.speakers]]
-name = "Areena Arora"
-role = "Editorial Coder, The Hindu"
-
-[[session.speakers]]
-name = "Hamsa Ganesh"
-role = "Founder, Thoughtput"
-
-[[session.speakers]]
 name = "Anushka Gokhale"
-role = "Lead Designer, EPIC World"
+designation = "Lead Designer"
+organisation = "EPIC World"
+about = "Anushka Gokhale is a Product Designer and number-crunching storyteller. In her 5+ years of experience, she has collaborated with mission-driven teams and designed data-heavy products across govtech, conservation tech, fintech, and spatial intelligence — bridging the gap between data and people.\n\n Currently Lead Designer at EPIC World. Previously Senior Product Designer at Parallel HQ and CivicDataLab, and  Visiting Faculty at SMI."
+image = "/images/speakers/2026/speaker-anushka.webp"
+social = {website = "https://www.anushkagokhale.com", instagram = "https://www.instagram.com/anushahahaka", linkedin = "https://www.linkedin.com/in/anushkaag/", twitter = "https://x.com/GokhaleAnushka"}
 moderator = true
 
 
+
+[[session.speakers]]
+name = "Sandeep Karmarkar"
+designation = "Head of Design"
+organisation = "Atlassian"
+about = "Sandeep Karmarkar is a design leader with over two decades of experience spanning visual design, UX, product strategy, and team leadership across global technology companies. He currently serves as the Head of Design for the IT Operations portfolio at Atlassian, where he leads teams focused on building effective experiences for managing complex systems at scale. He has previously held leadership roles at Uber, Google, and Nutanix.\n\nOver the years, he has worked on products used by millions across mobility, cloud platforms, security, and public transport experiences in India. Deeply passionate about data visualization and information design, Sandeep has actively hired, mentored, and supported many young designers from Information Design backgrounds throughout his career. He is equally passionate about building high-performing teams and bridging industry with education through talks, workshops, mentorship, and teaching engagements.\n\nA marathon runner, trekker, and digital artist, he brings the same curiosity and endurance from the mountains into the world of design leadership, innovation, and storytelling.\n"
+image = "/images/speakers/2026/speaker-sandeep-karmarkar.webp"
+social = {instagram = "https://www.instagram.com/sandeep.karmarkar", linkedin = "https://www.linkedin.com/in/smkarmarkar/"}
+
+[[session.speakers]]
+name = "Hamsa Ganesh"
+designation = "Founder"
+organisation = "Thoughtput"
+about = "Hamsa is a designer and independent web practitioner interested in how institutions organise, preserve, and communicate knowledge online."
+image = "/images/speakers/2026/speaker-hamsa.webp"
+social = {instagram = "https://www.instagram.com/36truths/", twitter = "https://x.com/hamganesh"}
+
+[[session.speakers]]
+name = "Areena Arora"
+designation = "Editorial Coder"
+organisation = "The Hindu"
+about = "Areena Arora is a journalist who transforms messy data into stories that matter. She uncovers patterns hidden in datasets, then designs how people encounter and understand those stories.\n\nHer work sits at the intersection of rigorous reporting and intentional design. She asks: What is the data trying to tell us? How do we present it such that people actually listen and grasp its intricacies? Before finding her way to this unique blend as The Hindu's first-ever Editorial Coder, she reported on public education and local governance in Tennessee, U.S.\n\nShe's obsessed with making complexity accessible. When she's not chasing stories in data, she's cooking up a storm, always up for feeding an army."
+image = "/images/speakers/2026/speaker-areena.webp"
+social = {website = "https://areenaarora.com", instagram = "https://www.instagram.com/areena_news", linkedin = "https://www.linkedin.com/in/areena-arora/", twitter = "https://x.com/AreenaArora"}
+
+
+
+
+# ACTIVITY | DECODE THE CHART GAME | ARSHI
 [[session]]
+
 slug = "decode-chart-game"
 sessionType = "Activities"
-date = "2026-07-0t"
-time = "15:45 to 16:30"
-slot = ""
 venue = "Bangalore International Centre"
 title = "Decode the Chart Game"
 subtitle = "Follow the clues. Uncover the story."
 shortDescription = "Step into the world of visual puzzles with Decode the Chart! In this interactive game, participants are presented with charts stripped of labels and context. The challenge? To uncover the hidden story behind the visuals using only patterns and intuition. Blending playful competition with serious data literacy, this session sparks curiosity, sharpens analytical thinking, and emphasizes the art of storytelling in visualizations."
 longDescription = "We often say that data speaks for itself. This session challenges that assumption. By removing titles, annotations, labels, and context from carefully selected visualizations, participants experience what happens when a chart is left to speak on its own. \n The session opens with a fast-paced visual challenge: participants are shown several well-known visualizations with key contextual elements removed (e.g, climate strips) and asked to infer what they represent, setting the stage for a deeper exploration of how we interpret visual information. Sounds easy enough! \n\n Next comes the main challenge. Participants are divided into small teams of 3–4 and introduced to the rules of the game. Each team receives a visualization where the visual marks, colors, chart structure, and creator credits remain intact, but all contextual clues including the title, subtitle, annotations, legend labels, and source narrative have been removed. Working together as data detectives, teams must determine what the chart represents, what the colors or categories signify, the key insight being communicated, and how confident they are in their interpretation on a scale of 1 to 5. (1 = least confident, 5 = most confident). Armed only with visual clues, they observe patterns, develop theories, debate interpretations, and defend their reasoning before the original chart and story are revealed. \n \n With each reveal, the room explores how context changes understanding. Which assumptions were correct? Which were completely off? What role did titles, annotations, and storytelling play in guiding interpretation? The focus is not on getting the right answer, but on uncovering how people make sense of visual information. \n\n By the end of the session, participants will have sharpened their visual literacy, challenged their assumptions, and gained a deeper appreciation for the design choices that transform data into understanding. The result is a lively, discussion-driven experience that turns attendees from chart readers into data detectives."
-speakerName = "Arshi Saleh"
-designation = "Tableau Developer"
-organisation = "Data Visual Designer"
-speakerAbout = "Arshi Saleh is a freelance Tableau Developer and Data Visual Designer. She serves as Community & Events Coordinator for DVS GeoIG, is Bengaluru TUG Co‑Lead and Tableau Ambassador (2025–2026). Her work has been recognized with two Viz of the Day features, a 2nd‑place finish in the DataViz Competition organized by WIA, and three entries showcased in the Information is Beautiful Longlist.\n\n Focused on creating data stories with social impact, Arshi is passionate about community‑led learning. She actively contributes to initiatives that make data literacy more accessible while fostering collaboration, mentorship, and knowledge sharing within the global data visualization community."
-speakerImage = ""
 display = true
 pageReady = true
 order = 41
 
+[[session.speakers]]
+name = "Arshi Saleh"
+designation = "Tableau Developer"
+organisation = "Data Visual Designer"
+about = "Arshi Saleh is a freelance Tableau Developer and Data Visual Designer. She serves as Community & Events Coordinator for DVS GeoIG, is Bengaluru TUG Co‑Lead and Tableau Ambassador (2025–2026). Her work has been recognized with two Viz of the Day features, a 2nd‑place finish in the DataViz Competition organized by WIA, and three entries showcased in the Information is Beautiful Longlist.\n\n Focused on creating data stories with social impact, Arshi is passionate about community‑led learning. She actively contributes to initiatives that make data literacy more accessible while fostering collaboration, mentorship, and knowledge sharing within the global data visualization community."
+image = "/images/speakers/2026/speaker-arshi.webp"
+social = {website = "https://public.tableau.com/app/profile/arshisaleh", instagram = "https://www.instagram.com/arshisaleh", linkedin = "https://www.linkedin.com/in/arshisaleh/", twitter = "https://x.com/SalehArshi"}
 
+# ACTIVITY | THURRO'S DATA PLAYGROUND | AKHILESH
 [[session]]
+
 slug = "data-playground"
 sessionType = "Activities"
-date = "2026-07-04"
-time = "1415 to 1500"
-slot = ""
 venue = "Bangalore International Centre"
 title = "Thurro's Data Playground"
 subtitle = "You bring the question and the craft. Thurro brings updated, clean, verified data to match."
 shortDescription = "If you work with data, the hardest part is often the data itself: finding reliable, trustworthy, and updated sources, or the dataset you need in your workflow but cannot easily get. Visualisers are artists: Thurro offers you tools. In this hands-on playground, you bring the questions and the curiosity on India, and Thurro will surface the data from 800+ sources immediately. On our connectors, let’s explore together. Where we may not yet have data, your asks shape what Thurro ingests next."
 longDescription = "If you make data visualisations, you know the hardest part is often the data itself. Reliable, trustworthy, updated Indian datasets are scattered, gated, or simply missing. You are often left with only half the equation: a sharp question or a story you want to tell, but not the data to ground it. Thurro is a structured intelligence platform that helps you build on your curiosity by surfacing the data you need in the work environment where you need it. Thurro's Data Playground puts that to work live, with the audience's asks driving what happens on screen. \n\n Before the session, attendees submit the craziest data questions they have always wanted to ask but never had the data access for: come in through social channels and physical question boards at the venue. A curated set of those questions anchors the live segment. In the room, Akhilesh and Aarushi open up ThurroConnect and build alongside you. \n\n The 45 minutes feature a short framing, a quick look at how Thurro works, and collaborative play. Attendees’ queries power Thurro’s responses served with real, updated, verified data. To take part fully, bring your question. If you can, do latch on to ThurroConnect via our custom MCP. Markets, tolls, ports, exports, companies, Vahan, pollution - you name it. \n\n You leave with a data tool you will actually want to keep using, a clear sense of what to ask it and how, and direct access to the people building it. The session is honest about its limits too: it is a shared room, not a one-to-one consult, the team will hear what Thurro does not yet cover or capabilities that they should build. The questions this room raises feed directly into what Thurro indexes, models, and ships next."
-speakerName = "Akhilesh Tilotia"
-designation = "Co-founder"
-organisation = "Thurro"
-speakerAbout = "Akhilesh has a unique perspective in his commentary as he views the world through the various lenses of an entreprenuer, government officer, an economist, a banker, and a strategist. These multiple world-views have shaped him as a dot-joiner and has powered his two books on India's macroeconomy and administration."
-speakerImage = ""
 display = true
 pageReady = true
 sponsored = true
 order = 42
 
+[[session.speakers]]
+name = "Akhilesh Tilotia"
+designation = "Co-founder"
+organisation = "Thurro"
+about = "Akhilesh has a unique perspective in his commentary as he views the world through the various lenses of an entreprenuer, government officer, an economist, a banker, and a strategist. These multiple world-views have shaped him as a dot-joiner and has powered his two books on India's macroeconomy and administration."
+image = "/images/speakers/2026/speaker-akhilesh.webp"
+social = {website = "https://www.thurro.com", linkedin = "https://www.linkedin.com/in/atilotia/", twitter = "https://x.com/atilotia"}
 
+[[session.speakers]]
+name = "Aarushi Shah"
+designation = "Stem Cell"
+organisation = "Thurro"
+about = "Aarushi likes to do a little bit of everything. Primarily a cognitive scientist by training, she earned her data chops at Cambridge, creating useful dataviz and stats for UK's public health system.  At Thurro, she helps in external relations (mainly because she enjoys being a chatterbox). She likes drawing parallels, which she finds all the everywhere, all the time."
+image = "/images/speakers/2026/speaker-aarushi.webp"
+social = {instagram = "https://www.instagram.com/aaruembroiders/", linkedin = "https://www.linkedin.com/in/aarushi-shah-232961a7/"}
 
-
-
+# ACTIVITY | THE CITIES WE DON’T SEE | SHOBANA
 [[session]]
+
 slug = "cities-we-dont-see"
 sessionType = "Activities"
 sponsored = true
-date = "2026-07-04"
-time = "11:45 to 12:30"
-slot = ""
 venue = "Bangalore International Centre"
 title = "The Cities We Don’t See"
 subtitle = "The numbers are there. The narratives are not."
 shortDescription = "Urban India is one of the most data-rich, story-poor subjects in the country. While around 95% of cities regularly submit audited financial data, almost nobody outside the government has done anything interesting with it. This session will put the spotlight on urban financial datasets in front of the people most equipped to do something with it.   "
 longDescription = "Your street has a pothole you navigate every day. You may have complained about it — tagged someone, filed a request, waited. And if you live in an Indian city, you already know how that story ends. But has it ever occurred to you that this is, at its core, a financial problem? That somewhere in a budget, a line item either exists for your street or it doesn't — and that this information is, in theory, public? \n Urban India has always had a data problem. Not a shortage of it, but a shortage of data that is consistent, accessible, and presented in a form that means anything to the people it concerns. CityFinance was built to change that. As the national platform for municipal finance data, it tracks how India's cities raise money and where they spend it — cutting through the opacity that has long made urban governance feel like something that happens to citizens rather than for them. \n The session opens with a few questions about how cities are actually funded. The room will quickly discover how much or how little, most of us know about the financial machinery behind the places we live in. From there, we walk one city's financial story end to end. How much of what it spends comes from its own resources, and how much is simply waiting for a transfer from above? What share of every rupee is already committed before a single discretionary decision gets made? These are uncomfortable questions. The data has answers. \n We then open the floor. Call out any city in India and we pull it up live. Tell us what you see, what surprises you, what a better visualisation would look like, what story you would tell with this if you had a week and a deadline. You leave with a sharper financial lens on urban India — and with a clearer sense of the stories this data is still waiting for someone in this room to tell."
-speakerName = "Shobana Venkatasubbu"
-designation = "Senior Manager"
-organisation = "Janaagraha"
-speakerAbout = "Shobana took every traditional route her engineering, MBA and accounting degrees told her to, and then went looking for work that actually meant something. So she took a turn. She now spends her time with city balance sheets and looking for stories they tell. At Janaagraha, she leads CityFinance, the national platform for municipal financial data built in partnership with the Ministry of Housing and Urban Affairs. She also works with the Comptroller and Auditor General on revising the National Municipal Accounting Manual, which is the kind of sentence that clears a room at parties but is genuinely one of the most important things happening in urban fiscal governance right now. A thought she cannot stop returning to: India's cities have some of the most interesting data in the country,and not nearly enough stories to show for it. "
-speakerImage = ""
-speakerSocial = ""
 display = true
 pageReady = true
 order = 43
-speaker2Name = "Tushar Chakrabarty"
-speaker2Designation = "Associate Manager"
-speaker2Organisation = "Janaagraha"
-speaker2About = "Tushar is a public finance professional with experience ofworking across union, state, and municipal finances. He has authored multiple publications analysing the finances of union and state governments. He began his career as a journalist, covering events and telling stories impacting India's economy. At Janaagraha, he works towards making urban finance data more accessible for various stakeholders."
-speaker2Image = ""
-speaker2Social = ""
+
+[[session.speakers]]
+name = "Tushar Chakrabarty"
+designation = "Associate Manager"
+organisation = "Janaagraha"
+about = "Tushar is a public finance professional with experience ofworking across union, state, and municipal finances. He has authored multiple publications analysing the finances of union and state governments. He began his career as a journalist, covering events and telling stories impacting India's economy. At Janaagraha, he works towards making urban finance data more accessible for various stakeholders."
+image = "/images/speakers/2026/speaker-tushar.webp"
+social = {website = "https://tusharchakrabarty.substack.com/?utm_campaign=profile_chips"}
+
+[[session.speakers]]
+name = "Shobana Venkatasubbu"
+designation = "Senior Manager"
+organisation = "Janaagraha"
+about = "Shobana took every traditional route her engineering, MBA and accounting degrees told her to, and then went looking for work that actually meant something. So she took a turn. She now spends her time with city balance sheets and looking for stories they tell. At Janaagraha, she leads CityFinance, the national platform for municipal financial data built in partnership with the Ministry of Housing and Urban Affairs. She also works with the Comptroller and Auditor General on revising the National Municipal Accounting Manual, which is the kind of sentence that clears a room at parties but is genuinely one of the most important things happening in urban fiscal governance right now. A thought she cannot stop returning to: India's cities have some of the most interesting data in the country,and not nearly enough stories to show for it. "
+image = "/images/speakers/2026/speaker-shobana.webp"
+social = {linkedin = "https://www.linkedin.com/in/shobana-subbu-3259737/"}
 
 
 
-
+# ACTIVITY | MORNING MELODY | NIKITA
 [[session]]
+
 slug = "morning-melody"
 sessionType = "Activities"
-date = "2026-07-04"
-time = ""
-slot = ""
 venue = "Bangalore International Centre"
 title = "Morning Melody"
 subtitle = "Your voice is already here. Let's find it together."
 shortDescription = "Most people arrive at a conference already in their heads. This session pulls you out before the day begins. A vocal warm-up and collective sing-along that turns a room of strangers into a room that has made something together. If you have ever wanted permission to hum loudly in public, this is it."
 longDescription = "Congratulations, you made it here on a Saturday morning! And you’re now staring at some unfamiliar faces. A conference room can sometimes feel a bit distant, but fear not, we’re here to shake off those morning blues. \n This session is a playful vocal warm-up and collective sing-along to pause, loosen up, open our voices, and tune into the same rhythm. Through simple exercises, surprising sounds, and shared song, we’ll create a moment of connection before the day unfolds, so you’re all set for the conversations, discussions and networking! \n You don’t need to be a singer. You don’t need any musical experience. Just unleash the bathroom singer within you! \n Come ready to make some noise, harmonise and go from strangers to not-so-strangers in minutes!"
-speakerName = "Nikita Deshpande"
-designation = ""
-organisation = ""
-speakerAbout = "Nikita is an Art & Animation Director and illustrator with over 12 years of experience bringing stories to life through expressive, concept-driven visuals. Her work spans editorial, animation, games, music videos, and brand identity, and is rooted in clarity, emotion, and atmosphere. \n She spent seven years as a Visual Artist and Designer at BBC News, where she created illustrations, animations, infographics, and motion graphics for digital, social, and broadcast platforms, helping audiences better understand complex stories through authentic and impactful design. As an independent creative, she has collaborated with clients including BBC Media Action, Purpose Global, Unbias the News, Revisual Labs, and Collective Newsroom, among others. \n Since childhood, Nikita has felt a pull towards listening to and learning Indian classical music. Under the guidance of Hindustani classical vocalist Nirali Kartik, she continues to nurture this lifelong passion alongside her visual practice."
-speakerImage = ""
 display = true
 pageReady = true
 order = 44
 
+[[session.speakers]]
+name = "Nikita Deshpande"
+designation = "Art & Animation Director, Illustrator"
+organisation = ""
+about = "Nikita is an Art & Animation Director and illustrator with over 12 years of experience bringing stories to life through expressive, concept-driven visuals. Her work spans editorial, animation, games, music videos, and brand identity, and is rooted in clarity, emotion, and atmosphere. \n She spent seven years as a Visual Artist and Designer at BBC News, where she created illustrations, animations, infographics, and motion graphics for digital, social, and broadcast platforms, helping audiences better understand complex stories through authentic and impactful design. As an independent creative, she has collaborated with clients including BBC Media Action, Purpose Global, Unbias the News, Revisual Labs, and Collective Newsroom, among others. \n Since childhood, Nikita has felt a pull towards listening to and learning Indian classical music. Under the guidance of Hindustani classical vocalist Nirali Kartik, she continues to nurture this lifelong passion alongside her visual practice."
+image = "/images/speakers/2026/speaker-nikita.webp"
+social = {website = "https://www.behance.net/nikita_deshpande", instagram = "https://www.instagram.com/we_oink", linkedin = "https://www.linkedin.com/in/nikitadeshpande/"}
+
+# ACTIVITY | AFTERNOON RHYTHM | ASHOK
 [[session]]
-slug = ""
+
+slug = "afternoon-rhythm"
 sessionType = "Activities"
-date = "2026-07-04"
-time = "11:45 to 12:30"
-slot = ""
 venue = "Bangalore International Centre"
 title = "Afternoon Rhythm"
 subtitle = "Every beat is data. Every pattern is yours."
 shortDescription = "Midway through a packed day, your attention is the first thing to go. This session brings it back with a solo djembe performance that pulls the room into call-and-response, claps, and a shared beat you did not expect to be following at a data visualisation conference. Rhythm is data too, and this is where you feel it."
 longDescription = "Rhythm is not just music. It is coordination, pattern, repetition, and response. It is data that lives in the body before it lives anywhere else. \n\n Midway through a packed day of talks and conversations, this session invites you to step out of your head and into something more immediate. A solo djembe performance, part interaction, part exploration, where the drum sets a beat and you find your place within it. \n\n You will clap. You will respond. You will discover where your instinct sits in relation to the group's pulse. Some will lock in early. Others will find it later. Both are the point. \n\n Finding Your Rhythm is a chance to listen, to move, and to notice what happens when you stop processing and start feeling. The beat is simple. What you do with it is yours."
-speakerName = "Ashok Kumar"
-designation = ""
-organisation = ""
-speakerAbout = ""
-speakerImage = ""
 display = true
 pageReady = true
 order = 45
+
+[[session.speakers]]
+name = "Ashok Kumar"
+designation = "Djembe. Artist. Actor."
+organisation = ""
+about = "Ashok Kumar is a musician, actor, and coach, who is a renowned Djembe percussion player. He is also an accomplished theatre actor with over 30 years of experience. Most recently, he can be seen on the small and big screen in Kannada television and film productions."
+image = "/images/speakers/2026/speaker-ashok.webp"
+social = {website = "https://jembeashok.com"}

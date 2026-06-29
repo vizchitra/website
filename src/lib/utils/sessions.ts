@@ -1,5 +1,6 @@
 import { parse as parseToml } from 'smol-toml';
 import sessionsRaw from '../../../content/2026/data/sessions.toml?raw';
+import scheduleRaw from '../../../content/2026/data/schedule.toml?raw';
 
 /** Color mapping for session types, used across all session components */
 export const sessionColorMap: Record<string, 'blue' | 'teal' | 'pink' | 'orange' | 'yellow'> = {
@@ -9,6 +10,16 @@ export const sessionColorMap: Record<string, 'blue' | 'teal' | 'pink' | 'orange'
 	Exhibition: 'orange',
 	Activities: 'yellow'
 };
+
+export interface Speaker {
+	name: string;
+	designation: string;
+	organisation: string;
+	about: string;
+	image: string;
+	social: Record<string, string>;
+	moderator?: boolean;
+}
 
 export interface SessionData {
 	slug: string;
@@ -21,47 +32,58 @@ export interface SessionData {
 	subtitle: string;
 	shortDescription: string;
 	longDescription: string;
-	speakerName: string;
-	designation: string;
-	organisation: string;
-	speakerAbout: string;
-	speakerImage: string;
+	speakers: Speaker[];
 	display: boolean;
 	tbd: boolean;
 	soldOut?: boolean;
 	sponsored?: boolean;
 	inviteOnly?: boolean;
-	/** Panel / multi-speaker sessions: structured list shared by the sessions and schedule views. */
-	speakers?: { name: string; role?: string; moderator?: boolean }[];
 	order?: number;
 	pageReady?: boolean;
 	ticketCode?: string;
 	exhibitNumber?: number;
-	speakerSocial?: string;
-	speaker2Name?: string;
-	speaker2Designation?: string;
-	speaker2Organisation?: string;
-	speaker2About?: string;
-	speaker2Image?: string;
-	speaker2Social?: string;
 	artworkHeroImage?: string;
-	artworkDetail1Image?: string;
-	artworkDetail2Image?: string;
 }
 
 export function getSessionOrder(s: Pick<SessionData, 'order'>): number {
 	return s.order ?? Number.POSITIVE_INFINITY;
 }
 
+interface SlotTiming {
+	date: string;
+	time: string;
+	slot: string;
+}
+
+/** Build a slug → timing index from the combined schedule file. */
+function buildTimingIndex(): Record<string, SlotTiming> {
+	const index: Record<string, SlotTiming> = {};
+	const parsed = parseToml(scheduleRaw) as {
+		day: Array<{ day: string; slot: Array<{ session?: string; start: string; end: string }> }>;
+	};
+	for (const dayEntry of parsed.day) {
+		for (const s of dayEntry.slot) {
+			if (!s.session) continue;
+			const startHour = parseInt(s.start.split(':')[0], 10);
+			index[s.session] = {
+				date: dayEntry.day,
+				time: `${s.start} - ${s.end}`,
+				slot: startHour < 13 ? 'morning' : 'afternoon'
+			};
+		}
+	}
+	return index;
+}
+
 /** Derive tbd from stored fields (not persisted in JSON to keep data clean) */
 function withTbd(s: Omit<SessionData, 'tbd'>): SessionData {
-	return { ...s, tbd: (!s.title && !s.speakerName) || !s.display };
+	return { ...s, tbd: (!s.title && !s.speakers?.[0]?.name) || !s.display };
 }
 
 const SESSIONS_FILE_PATH = 'content/2026/data/sessions.toml';
 
 function parseSessions(): Omit<SessionData, 'tbd'>[] {
-	return (parseToml(sessionsRaw) as { session: Omit<SessionData, 'tbd'>[] }).session;
+	return (parseToml(sessionsRaw) as unknown as { session: Omit<SessionData, 'tbd'>[] }).session;
 }
 
 function applyDevOverrides(raw: Omit<SessionData, 'tbd'>[]): Omit<SessionData, 'tbd'>[] {
@@ -78,7 +100,14 @@ function applyDevOverrides(raw: Omit<SessionData, 'tbd'>[]): Omit<SessionData, '
 
 /** Get all sessions (confirmed + TBD placeholders) and available formats */
 export function resolveAllSessions(): { sessions: SessionData[]; formats: string[] } {
-	const raw = applyDevOverrides(parseSessions());
+	const timing = buildTimingIndex();
+	const raw = applyDevOverrides(parseSessions()).map((s) => ({
+		date: '',
+		time: '',
+		slot: '',
+		...timing[s.slug],
+		...s
+	}));
 	const sessions = raw.map(withTbd);
 	const formats = [...new Set(sessions.map((s) => s.sessionType))];
 	return { sessions, formats };
@@ -86,7 +115,9 @@ export function resolveAllSessions(): { sessions: SessionData[]; formats: string
 
 /** Get only confirmed sessions (no TBD) */
 export function resolveConfirmedSessions(): SessionData[] {
+	const timing = buildTimingIndex();
 	return applyDevOverrides(parseSessions())
+		.map((s) => ({ date: '', time: '', slot: '', ...timing[s.slug], ...s }))
 		.map(withTbd)
 		.filter((s) => !s.tbd);
 }
