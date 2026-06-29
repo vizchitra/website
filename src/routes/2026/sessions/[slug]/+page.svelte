@@ -52,16 +52,12 @@
 
 	// Live-editable fields — untrack() marks intentional one-time init from props
 	let liveType = $state(untrack(() => session.sessionType));
-	let liveTime = $state(untrack(() => session.time));
 	let liveVenue = $state(untrack(() => session.venue));
-	let liveSpeaker = $state(untrack(() => session.speakerName));
-	let liveDesignation = $state(untrack(() => session.designation));
-	let liveOrganisation = $state(untrack(() => session.organisation));
 	let liveShortDescription = $state(untrack(() => session.shortDescription ?? ''));
 	let liveDescription = $state(untrack(() => session.longDescription ?? ''));
-	let liveSpeakerAbout = $state(untrack(() => session.speakerAbout ?? ''));
+	let liveSpeakerAbout = $state(untrack(() => session.speakers?.[0]?.about ?? ''));
 	let liveDescriptionHtml = $state(untrack(() => data.descriptionHtml));
-	let liveSpeakerAboutHtml = $state(untrack(() => data.speakerAboutHtml));
+	const speakersAboutHtml = $derived(data.speakersAboutHtml);
 
 	// Snapshots for cancel revert
 	let savedFields: Record<string, string> = {};
@@ -78,11 +74,7 @@
 	function startEdit() {
 		savedFields = {
 			sessionType: liveType,
-			time: liveTime,
 			venue: liveVenue,
-			speakerName: liveSpeaker,
-			designation: liveDesignation,
-			organisation: liveOrganisation,
 			shortDescription: liveShortDescription,
 			longDescription: liveDescription,
 			speakerAbout: liveSpeakerAbout
@@ -96,24 +88,16 @@
 
 	function cancelEdit() {
 		liveType = savedFields.sessionType ?? session.sessionType;
-		liveTime = savedFields.time ?? session.time;
 		liveVenue = savedFields.venue ?? session.venue;
-		liveSpeaker = savedFields.speakerName ?? session.speakerName;
-		liveDesignation = savedFields.designation ?? session.designation;
-		liveOrganisation = savedFields.organisation ?? session.organisation;
 		liveShortDescription = savedFields.shortDescription ?? session.shortDescription ?? '';
 		liveDescription = savedFields.longDescription ?? session.longDescription ?? '';
-		liveSpeakerAbout = savedFields.speakerAbout ?? session.speakerAbout ?? '';
+		liveSpeakerAbout = savedFields.speakerAbout ?? session.speakers?.[0]?.about ?? '';
 		isEditing = false;
 	}
 
 	function handleFieldChange(field: string, value: string) {
 		if (field === 'sessionType') liveType = value;
-		else if (field === 'time') liveTime = value;
 		else if (field === 'venue') liveVenue = value;
-		else if (field === 'speakerName') liveSpeaker = value;
-		else if (field === 'designation') liveDesignation = value;
-		else if (field === 'organisation') liveOrganisation = value;
 	}
 </script>
 
@@ -122,18 +106,13 @@
 	<SessionPanel
 		slug={session.slug}
 		sessionType={liveType}
-		date={session.date}
-		time={liveTime}
-		slot={session.slot}
 		venue={liveVenue}
 		order={session.order}
 		display={session.display}
 		soldOut={session.soldOut}
 		title={session.title}
 		subtitle={session.subtitle}
-		speakerName={liveSpeaker}
-		designation={liveDesignation}
-		organisation={liveOrganisation}
+		speakers={session.speakers}
 		shortDescription={liveShortDescription}
 		longDescription={liveDescription}
 		speakerAbout={liveSpeakerAbout}
@@ -146,7 +125,7 @@
 	/>
 {/if}
 
-<Header banner="curve" />
+<Header banner="curve" {color} />
 
 <Container>
 	<article class="max-w-3xl pt-14 pb-6 md:pt-16">
@@ -202,15 +181,36 @@
 			</div>
 		{/if}
 
-		<!-- Speaker -->
-		<div class="border-viz-grey/10 mt-6 space-y-1 border-t pt-6">
-			<p class="font-display-sans text-viz-{color}-dark text-lg font-semibold">
-				{session.speakerName}
-			</p>
-			<p class="text-viz-grey-dark/70 text-base">
-				{session.designation}{#if session.organisation}<span class="mx-1.5 opacity-40">·</span
-					>{session.organisation}{/if}
-			</p>
+		<!-- Speakers -->
+		<div class="border-viz-grey/10 mt-6 border-t pt-6">
+			<div class="flex flex-wrap gap-x-10 gap-y-5">
+				{#each session.speakers ?? [] as sp}
+					<div class="flex flex-col">
+						<p class="font-display-sans text-viz-{color}-dark text-xl font-semibold">{sp.name}</p>
+						{#if sp.designation || sp.organisation}
+							<p class="text-viz-grey-dark/70 text-base">
+								{[sp.designation, sp.organisation].filter(Boolean).join(' · ')}
+							</p>
+						{/if}
+						{#if Object.values(sp.social ?? {}).some((u) => u)}
+							<div class="mt-2 flex flex-wrap gap-3">
+								{#each Object.entries(sp.social ?? {}).filter(([, u]) => u) as [platform, url]}
+									{@const iconPath = `/images/socials/${['twitter', 'instagram', 'linkedin', 'bluesky', 'github', 'youtube'].includes(platform) ? platform : 'website'}.svg`}
+									<a
+										href={url}
+										target="_blank"
+										rel="noopener noreferrer"
+										aria-label="{platform} profile"
+										class="social-icon social-icon--{color}"
+									>
+										<img src={iconPath} alt={platform} width="20" height="20" />
+									</a>
+								{/each}
+							</div>
+						{/if}
+					</div>
+				{/each}
+			</div>
 		</div>
 
 		<!-- Tickets -->
@@ -306,10 +306,12 @@
 			{/if}
 		</section>
 
-		<!-- About the speaker -->
-		{#if liveSpeakerAbout || (isStudioUser && isEditing)}
+		<!-- About the speakers -->
+		{#if session.speakers && session.speakers.some((sp) => sp.about)}
 			<section class="border-viz-grey/10 border-t py-10">
-				<Heading tag="h2" align="left" class="pb-4">About the speaker</Heading>
+				<Heading tag="h2" align="left" class="pb-4">
+					About the {session.speakers.length > 1 ? 'speakers' : 'speaker'}
+				</Heading>
 				{#if isStudioUser && isEditing}
 					<ProseMirrorEditor
 						markdown={liveSpeakerAbout}
@@ -317,11 +319,36 @@
 						onChange={(md) => (liveSpeakerAbout = md)}
 					/>
 				{:else}
-					<div class="prose text-viz-grey/90 md:prose-lg markdown-content max-w-none">
-						<Prose>
-							{@html liveSpeakerAboutHtml}
-						</Prose>
-					</div>
+					{#each session.speakers as sp, i}
+						{#if sp.about}
+							<div class="mb-8 last:mb-0">
+								{#if session.speakers.length > 1}
+									<h3 class="font-display text-viz-grey mb-3 text-base font-semibold">{sp.name}</h3>
+								{/if}
+								<div class="prose text-viz-grey/90 md:prose-lg markdown-content max-w-none">
+									{#if sp.image}
+										<div class="speaker-photo-wrap speaker-photo-wrap--{color}">
+											<img class="speaker-photo" src={sp.image} alt={sp.name ?? ''} />
+										</div>
+									{:else}
+										<div class="speaker-photo-wrap speaker-photo-wrap--{color}">
+											<div class="speaker-photo-placeholder speaker-photo-placeholder--{color}">
+												{(sp.name ?? '')
+													.split(' ')
+													.map((n) => n[0] ?? '')
+													.join('')
+													.slice(0, 2)
+													.toUpperCase()}
+											</div>
+										</div>
+									{/if}
+									<Prose>
+										{@html speakersAboutHtml[i]}
+									</Prose>
+								</div>
+							</div>
+						{/if}
+					{/each}
 				{/if}
 			</section>
 		{/if}
@@ -376,3 +403,97 @@
 		</div>
 	</div>
 </Container>
+
+<style>
+	.social-icon {
+		display: inline-flex;
+		opacity: 0.55;
+		transition:
+			opacity 0.15s,
+			filter 0.15s;
+	}
+	.social-icon:hover {
+		opacity: 1;
+	}
+
+	.social-icon--blue:hover {
+		filter: invert(46%) sepia(60%) saturate(550%) hue-rotate(195deg);
+	}
+	.social-icon--teal:hover {
+		filter: invert(58%) sepia(40%) saturate(500%) hue-rotate(148deg);
+	}
+	.social-icon--pink:hover {
+		filter: invert(45%) sepia(60%) saturate(700%) hue-rotate(302deg);
+	}
+	.social-icon--orange:hover {
+		filter: invert(55%) sepia(75%) saturate(570%) hue-rotate(346deg);
+	}
+	.social-icon--yellow:hover {
+		filter: invert(60%) sepia(70%) saturate(700%) hue-rotate(5deg);
+	}
+
+	.speaker-photo-wrap {
+		float: right;
+		margin-left: 1.25rem;
+		margin-bottom: 0.75rem;
+		width: 124px;
+		height: 124px;
+		border-radius: 50%;
+		overflow: hidden;
+		border: 2px solid;
+	}
+	.speaker-photo-wrap--blue {
+		border-color: var(--color-viz-blue-light);
+	}
+	.speaker-photo-wrap--teal {
+		border-color: var(--color-viz-teal-light);
+	}
+	.speaker-photo-wrap--pink {
+		border-color: var(--color-viz-pink-light);
+	}
+	.speaker-photo-wrap--orange {
+		border-color: var(--color-viz-orange-light);
+	}
+	.speaker-photo-wrap--yellow {
+		border-color: var(--color-viz-yellow-light);
+	}
+
+	.speaker-photo {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: top center;
+	}
+
+	.speaker-photo-placeholder {
+		width: 100%;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-family: var(--font-display);
+		font-size: 2.5rem;
+		font-weight: 800;
+		letter-spacing: -0.02em;
+	}
+	.speaker-photo-placeholder--blue {
+		background: var(--color-viz-blue-light);
+		color: var(--color-viz-blue-dark);
+	}
+	.speaker-photo-placeholder--teal {
+		background: var(--color-viz-teal-light);
+		color: var(--color-viz-teal-dark);
+	}
+	.speaker-photo-placeholder--pink {
+		background: var(--color-viz-pink-light);
+		color: var(--color-viz-pink-dark);
+	}
+	.speaker-photo-placeholder--orange {
+		background: var(--color-viz-orange-light);
+		color: var(--color-viz-orange-dark);
+	}
+	.speaker-photo-placeholder--yellow {
+		background: var(--color-viz-yellow-light);
+		color: var(--color-viz-yellow-dark);
+	}
+</style>

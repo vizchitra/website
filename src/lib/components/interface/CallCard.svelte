@@ -99,10 +99,12 @@
 		teal: 'text-viz-black',
 		orange: 'text-viz-black',
 		pink: 'text-viz-black',
-		yellow: 'text-viz-black'
+		yellow: 'text-viz-white'
 	};
 
-	const strokeClass = $derived(tone === 'blue' ? 'text-stroke-dark' : 'text-stroke-white');
+	const strokeClass = $derived(
+		tone === 'blue' || tone === 'yellow' ? 'text-stroke-dark' : 'text-stroke-white'
+	);
 	const isCentered = $derived(titlePosition.includes('text-center'));
 
 	const outlineWidth = $derived(selected ? 'outline-4' : 'outline-2');

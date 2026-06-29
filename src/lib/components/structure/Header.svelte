@@ -1,9 +1,19 @@
 <script lang="ts">
 	import { BannerPolygon, BannerCurve, BannerSquare, BannerBlob, FullBleed } from '$lib/components';
-	import { CURVE_PALETTE_ORANGE } from '$lib/tokens';
+	import {
+		CURVE_PALETTE_ORANGE,
+		CURVE_PALETTE_BLUE,
+		CURVE_PALETTE_TEAL,
+		CURVE_PALETTE_PINK,
+		CURVE_PALETTE_YELLOW
+	} from '$lib/tokens';
 
 	const CURVE_TONE_PALETTES: Partial<Record<string, readonly string[]>> = {
-		orange: CURVE_PALETTE_ORANGE
+		orange: CURVE_PALETTE_ORANGE,
+		blue: CURVE_PALETTE_BLUE,
+		teal: CURVE_PALETTE_TEAL,
+		pink: CURVE_PALETTE_PINK,
+		yellow: CURVE_PALETTE_YELLOW
 	};
 
 	interface Props {

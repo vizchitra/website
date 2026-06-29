@@ -120,9 +120,7 @@
 				{#each filteredSessions as session, i (session.slug ? session.slug : `tbd-${session.sessionType}-${i}`)}
 					<SessionCardExpanded
 						title={session.title}
-						speakerName={session.speakerName}
-						designation={session.designation}
-						organisation={session.organisation}
+						speakers={session.speakers}
 						sessionType={session.sessionType}
 						subtitle={session.subtitle}
 						date={session.date}
@@ -130,9 +128,6 @@
 						slot={session.slot}
 						venue={session.venue}
 						slug={session.slug}
-						speakerImage={session.speakerImage}
-						speaker2Name={session.speaker2Name}
-						speaker2Image={session.speaker2Image}
 						descriptionHtml={session.descriptionHtml}
 						tbd={session.tbd}
 						soldOut={session.soldOut}

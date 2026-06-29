@@ -7,12 +7,12 @@
 	import { sessionColorMap } from '$lib/utils/sessions';
 	import { themeTokens, colorTokens } from '$lib/tokens';
 	import { buildSpeakerImageTransform } from './speakerConfig.js';
+	import ImageCluster from './ImageCluster.svelte';
+	import type { Speaker } from '$lib/utils/sessions';
 
 	interface Props {
 		title: string;
-		speakerName?: string;
-		designation?: string;
-		organisation?: string;
+		speakers?: Speaker[];
 		sessionType: string;
 		subtitle?: string;
 		date?: string;
@@ -20,9 +20,6 @@
 		slot?: string;
 		venue?: string;
 		slug?: string;
-		speakerImage?: string;
-		speaker2Name?: string;
-		speaker2Image?: string;
 		tbd?: boolean;
 		soldOut?: boolean;
 		sponsored?: boolean;
@@ -34,9 +31,7 @@
 
 	let {
 		title,
-		speakerName,
-		designation,
-		organisation,
+		speakers = [],
 		sessionType,
 		subtitle,
 		date,
@@ -44,9 +39,6 @@
 		slot,
 		venue,
 		slug,
-		speakerImage,
-		speaker2Name,
-		speaker2Image,
 		tbd = false,
 		soldOut = false,
 		sponsored = false,
@@ -57,12 +49,24 @@
 	}: Props = $props();
 
 	const effectiveSpeakerName = $derived(
-		speaker2Name ? `${speakerName ?? ''} // ${speaker2Name}` : (speakerName ?? '')
+		speakers
+			.map((sp) => sp.name)
+			.filter(Boolean)
+			.join(' // ')
 	);
-	const effectiveSpeakerImage = $derived(
-		speaker2Image ? `${speakerImage ?? ''} // ${speaker2Image}` : (speakerImage ?? '')
+	const speakerCount = $derived(speakers.length);
+	const designation = $derived(speakers[0]?.designation ?? '');
+	const organisation = $derived(speakers[0]?.organisation ?? '');
+	const speakerSubline = $derived(
+		speakerCount > 1
+			? speakers
+					.map((sp) => sp.organisation)
+					.filter(Boolean)
+					.join(' // ')
+			: designation && organisation
+				? `${designation}, ${organisation}`
+				: designation || organisation
 	);
-	const isDual = $derived(effectiveSpeakerName.includes('//'));
 
 	const textLayouts: Record<
 		string,
@@ -76,10 +80,10 @@
 	> = {
 		Talks: { titleMaxWidth: '100%', descriptionTop: '28%', floatWidth: '70%', floatHeight: '12em' },
 		Dialogues: {
-			titlePaddingRatio: 0.24,
-			titleMaxWidth: '70%',
-			descriptionTop: '40%',
-			floatWidth: '65%',
+			titlePaddingRatio: 0.05,
+			titleMaxWidth: '60%',
+			descriptionTop: '15%',
+			floatWidth: '75%',
 			floatHeight: '8em'
 		},
 		Workshops: {
@@ -88,31 +92,27 @@
 			floatWidth: '48%',
 			floatHeight: '11em'
 		},
-		WorkshopsDual: {
-			titleMaxWidth: '54%',
-			descriptionTop: '28%',
-			floatWidth: '46%',
-			floatHeight: '11em'
-		},
 		Exhibition: {
 			titleMaxWidth: '100%',
 			descriptionTop: '42%',
 			floatWidth: '48%',
 			floatHeight: '11em'
-		},
-		ExhibitionDual: {
-			titleMaxWidth: '54%',
-			descriptionTop: '42%',
-			floatWidth: '46%',
-			floatHeight: '11em'
 		}
 	};
 
-	const layout = $derived(
-		(isDual ? textLayouts[`${sessionType}Dual`] : undefined) ??
-			textLayouts[sessionType] ??
-			textLayouts.Talks
-	);
+	const layout = $derived.by(() => {
+		const base = textLayouts[sessionType] ?? textLayouts.Talks;
+		if (speakerCount >= 3)
+			return {
+				...base,
+				titleMaxWidth:
+					sessionType === 'Exhibition' || sessionType === 'Dialogues' ? base.titleMaxWidth : '45%',
+				floatWidth: sessionType === 'Dialogues' ? base.floatWidth : '40%',
+				floatHeight: base.floatHeight
+			};
+		if (speakerCount === 2) return textLayouts[`${sessionType}Dual`] ?? base;
+		return base;
+	});
 
 	const detailHref = $derived(
 		sessionType === 'Exhibition'
@@ -158,6 +158,7 @@
 	let backgroundWidth = $state(0);
 	let backgroundHeight = $derived.by(() => backgroundWidth * 1.25);
 	let expandedBgWidth = $derived(backgroundWidth * 0.55);
+	const clusterImgSize = $derived(Math.min(300, backgroundWidth * 0.55));
 
 	function hashStringToUnit(s: string): number {
 		let h = 0;
@@ -261,7 +262,7 @@
 								tone={color}
 								{variation}
 								width={backgroundWidth}
-								height={Math.round(backgroundHeight * 0.72)}
+								height={Math.round(backgroundHeight * 0.88)}
 								class="block h-full w-full"
 							/>
 						{/if}
@@ -308,6 +309,15 @@
 					<!-- Spacer to push wave overlay down -->
 					<div class="flex-1"></div>
 
+					<!-- Speaker image -->
+					<div
+						class="pointer-events-none absolute right-[1%] bottom-0 z-5 origin-bottom-right transition-transform duration-300 group-hover:scale-104 group-hover:rotate-1"
+						style:transform={buildSpeakerImageTransform(speakers[0]?.name, screenWidth)}
+						style:filter="drop-shadow(0px 8px 16px {shadowColor}cc)"
+					>
+						<ImageCluster {speakers} imgSize={clusterImgSize} />
+					</div>
+
 					<!-- Wave overlay with speaker details — same as other session types -->
 					<div
 						class="speaker-details-overlay pointer-events-auto absolute inset-x-0 bottom-0 z-10 flex flex-col"
@@ -352,18 +362,17 @@
 										<span
 											class="first-name text-[18px] leading-none font-extrabold md:text-[20px] lg:text-[22px] 2xl:text-[28px]"
 											>{person.split(' ')[0]}</span
-										>
-										<span
-											class="last-name text-[18px] leading-none font-medium md:text-[20px] lg:text-[22px] 2xl:text-[28px]"
-											>{person.split(' ').slice(1).join(' ')}</span
-										>
+										>{#if speakerCount === 1}<span
+												class="last-name text-[18px] leading-none font-medium md:text-[20px] lg:text-[22px] 2xl:text-[28px]"
+												>{' ' + person.split(' ').slice(1).join(' ')}</span
+											>{/if}
 									{/each}
 								</h3>
-								{#if designation || organisation}
+								{#if speakerSubline}
 									<span
 										class="font-display block text-sm leading-tight text-[#4c4c4c] md:text-[14px] lg:text-[15px] 2xl:text-lg"
 									>
-										{#if designation}{designation}{/if}{#if organisation}, {organisation}{/if}
+										{speakerSubline}
 									</span>
 								{/if}
 							</div>
@@ -529,7 +538,7 @@
 						>
 							{#if sponsored && sessionType === 'Dialogues'}
 								<span
-									class="sponsored-badge mb-1 block"
+									class="sponsored-badge absolute top-3 left-3 md:top-4 md:left-4"
 									style="color: {themeTokens[color]?.dark ?? themeTokens.blue.dark}">Sponsored</span
 								>
 							{/if}
@@ -546,7 +555,7 @@
 				{/if} -->
 						</div>
 
-						{#if isExpanded}
+						{#if isExpanded && !(sessionType === 'Dialogues' && speakerCount >= 4)}
 							<div class="short-description-container relative z-10 p-3 pt-0 md:p-4 md:pt-1">
 								<!-- float pushes text away from the photo/pattern on the right -->
 								<div
@@ -574,41 +583,13 @@
 					<div
 						class="background-container-expanded relative z-0 flex w-full flex-1 flex-row items-center justify-end"
 					>
-						{#each (effectiveSpeakerImage || '')
-							.split('//')
-							.map((s) => s.trim())
-							.filter(Boolean) as img, i}
-							<div
-								class="speaker-image pointer-events-none absolute bottom-0 origin-center transition-transform duration-300 group-hover:scale-104 group-hover:rotate-1"
-								class:speaker-image--dual={isDual}
-								style:right="{isDual ? (i === 0 ? 1 : 50) : 5 + i * 30}%"
-								style:bottom={isDual ? '20%' : undefined}
-								style:transform={buildSpeakerImageTransform(
-									effectiveSpeakerName.split('//')[i]?.trim(),
-									screenWidth,
-									sessionType
-								)}
-							>
-								<img
-									class="relative z-10 h-auto w-full"
-									style="filter: drop-shadow(0px 8px 16px {shadowColor}cc)"
-									src={img}
-									alt={effectiveSpeakerName?.split('//')[i]?.trim() ?? effectiveSpeakerName ?? ''}
-								/>
-							</div>
-						{:else}
-							<div
-								class="speaker-image pointer-events-none absolute right-5 bottom-0 origin-center transition-transform duration-300 group-hover:scale-104 group-hover:rotate-1"
-								style:transform={buildSpeakerImageTransform(speakerName, screenWidth, sessionType)}
-							>
-								<img
-									class="relative z-10 h-auto w-full"
-									style="filter: drop-shadow(0px 8px 16px {shadowColor}cc)"
-									src="/images/speakers/2026/speaker-placeholder.avif"
-									alt={speakerName ?? ''}
-								/>
-							</div>
-						{/each}
+						<div
+							class="pointer-events-none absolute right-[1%] bottom-0 z-5 origin-bottom-right transition-transform duration-300 group-hover:scale-104 group-hover:rotate-1"
+							style:transform={buildSpeakerImageTransform(speakers[0]?.name, screenWidth)}
+							style:filter="drop-shadow(0px 8px 16px {shadowColor}cc)"
+						>
+							<ImageCluster {speakers} imgSize={clusterImgSize} />
+						</div>
 					</div>
 
 					<div
@@ -647,7 +628,6 @@
 									class="font-display text-shadow mb-1 text-[18px] leading-none text-[#4c4c4c] uppercase md:text-[20px] lg:text-[22px] 2xl:text-[26px] 2xl:text-shadow-none!"
 								>
 									{#each effectiveSpeakerName.split('//').map((s) => s.trim()) as person, i}
-										{@const isDual = effectiveSpeakerName.includes('//')}
 										{#if i > 0}<span
 												class="text-[18px] leading-none font-medium md:text-[20px] lg:text-[22px] 2xl:text-[28px]"
 											>
@@ -656,22 +636,17 @@
 										<span
 											class="first-name text-[18px] leading-none font-extrabold md:text-[20px] lg:text-[22px] 2xl:text-[28px]"
 											>{person.split(' ')[0]}</span
-										>
-										<span
-											class="last-name text-[18px] leading-none font-medium md:text-[20px] lg:text-[22px] 2xl:text-[28px] {isDual
-												? 'hidden @sm:inline'
-												: ''}">{person.split(' ').slice(1).join(' ')}</span
-										>
+										>{#if speakerCount === 1}<span
+												class="last-name text-[18px] leading-none font-medium md:text-[20px] lg:text-[22px] 2xl:text-[28px]"
+												>{' ' + person.split(' ').slice(1).join(' ')}</span
+											>{/if}
 									{/each}
 								</h3>
-								{#if designation || organisation}
+								{#if speakerSubline}
 									<span
 										class="font-display block text-sm leading-tight text-[#4c4c4c] md:text-[14px] lg:text-[15px] 2xl:text-lg"
 									>
-										{#if designation}
-											{designation}
-										{/if}{#if organisation}, {organisation}
-										{/if}
+										{speakerSubline}
 									</span>
 								{/if}
 							</div>
@@ -802,14 +777,6 @@
 		gap: 0rem;
 	}
 
-	.speaker-image {
-		max-width: min(300px, 55%);
-	}
-
-	.speaker-image--dual {
-		max-width: min(200px, 48%);
-	}
-
 	/* .session-top-text-content: max-h set inline (52%) caps text area so background-container always gets space */
 
 	@media (min-width: 550px) {
@@ -831,7 +798,7 @@
 	}
 
 	.activities-mountain-bg {
-		height: 72%;
+		height: 88%;
 	}
 
 	.text-shape-float {

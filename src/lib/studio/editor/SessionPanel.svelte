@@ -12,7 +12,7 @@
 	import { invalidateAll } from '$app/navigation';
 	import { onMount, untrack } from 'svelte';
 	import PanelShell from './PanelShell.svelte';
-	import { sessionColorMap } from '$lib/utils/sessions';
+	import { sessionColorMap, type Speaker } from '$lib/utils/sessions';
 
 	const SESSION_TYPES = ['Talks', 'Dialogues', 'Workshops', 'Exhibition'] as const;
 
@@ -20,22 +20,19 @@
 		/** Slug identifies which session in the JSON array to update */
 		slug: string;
 		sessionType: string;
-		date: string;
-		time: string;
-		slot: string;
 		venue: string;
 		order?: number;
 		display: boolean;
 		soldOut?: boolean;
 		title: string;
 		subtitle: string;
-		speakerName: string;
-		designation: string;
-		organisation: string;
+		/** Speakers array — panel edits speakers[0] name/designation/organisation */
+		speakers: Speaker[];
 		/** Short description (shown below title on detail page and on session cards) */
 		shortDescription: string;
 		/** Long-form markdown fields edited inline on the page */
 		longDescription: string;
+		/** speakers[0].about — edited inline on the page, included in save */
 		speakerAbout: string;
 		/** og:image URL for social preview */
 		socialImage?: string;
@@ -50,18 +47,13 @@
 	let {
 		slug,
 		sessionType,
-		date,
-		time,
-		slot,
 		venue,
 		order,
 		display,
 		soldOut,
 		title,
 		subtitle,
-		speakerName,
-		designation,
-		organisation,
+		speakers,
 		shortDescription,
 		longDescription,
 		speakerAbout,
@@ -77,35 +69,29 @@
 	// untrack() marks these as intentionally non-reactive initial values;
 	// the $effect below re-syncs from props whenever editing starts.
 	let localType = $state(untrack(() => sessionType));
-	let localDate = $state(untrack(() => date?.slice(0, 10) ?? ''));
-	let localTime = $state(untrack(() => time));
-	let localSlot = $state(untrack(() => slot));
 	let localVenue = $state(untrack(() => venue));
 	let localOrder = $state(untrack(() => order ?? 0));
 	let localDisplay = $state(untrack(() => display));
 	let localSoldOut = $state(untrack(() => soldOut ?? false));
 	let localTitle = $state(untrack(() => title));
 	let localSubtitle = $state(untrack(() => subtitle));
-	let localSpeaker = $state(untrack(() => speakerName));
-	let localDesignation = $state(untrack(() => designation));
-	let localOrganisation = $state(untrack(() => organisation));
+	let localSpeaker0Name = $state(untrack(() => speakers[0]?.name ?? ''));
+	let localSpeaker0Designation = $state(untrack(() => speakers[0]?.designation ?? ''));
+	let localSpeaker0Organisation = $state(untrack(() => speakers[0]?.organisation ?? ''));
 
 	// Reset local copies whenever we enter a new editing session
 	$effect(() => {
 		if (isEditing) {
 			localType = sessionType;
-			localDate = date?.slice(0, 10) ?? '';
-			localTime = time;
-			localSlot = slot;
 			localVenue = venue;
 			localOrder = order ?? 0;
 			localDisplay = display;
 			localSoldOut = soldOut ?? false;
 			localTitle = title;
 			localSubtitle = subtitle;
-			localSpeaker = speakerName;
-			localDesignation = designation;
-			localOrganisation = organisation;
+			localSpeaker0Name = speakers[0]?.name ?? '';
+			localSpeaker0Designation = speakers[0]?.designation ?? '';
+			localSpeaker0Organisation = speakers[0]?.organisation ?? '';
 		}
 	});
 
@@ -148,21 +134,27 @@
 					key: slug,
 					data: {
 						sessionType: localType,
-						date: localDate,
-						time: localTime,
-						slot: localSlot,
 						venue: localVenue,
 						order: localOrder,
 						display: localDisplay,
 						soldOut: localSoldOut,
 						title: localTitle,
 						subtitle: localSubtitle,
-						speakerName: localSpeaker,
-						designation: localDesignation,
-						organisation: localOrganisation,
 						shortDescription,
 						longDescription,
-						speakerAbout
+						speakers:
+							speakers.length > 0
+								? [
+										{
+											...speakers[0],
+											name: localSpeaker0Name,
+											designation: localSpeaker0Designation,
+											organisation: localSpeaker0Organisation,
+											about: speakerAbout
+										},
+										...speakers.slice(1)
+									]
+								: []
 					}
 				})
 			});
@@ -227,14 +219,11 @@
 			<p class="text-viz-grey-light line-clamp-2 text-xs leading-snug font-medium">
 				{localTitle || '(untitled)'}
 			</p>
-			{#if localSpeaker}
+			{#if localSpeaker0Name}
 				<p class="text-viz-grey-muted text-[10px]">
-					{localSpeaker}{#if localOrganisation}
-						· {localOrganisation}{/if}
+					{localSpeaker0Name}{#if localSpeaker0Organisation}
+						· {localSpeaker0Organisation}{/if}
 				</p>
-			{/if}
-			{#if localTime}
-				<p class="text-viz-grey-muted font-mono text-[10px]">{localTime}</p>
 			{/if}
 		</div>
 	{/snippet}
@@ -278,37 +267,6 @@
 				{/if}
 			</div>
 
-			<!-- Date -->
-			<div class="mb-3">
-				<label class="text-viz-grey-muted mb-1 block text-xs font-medium" for="session-date">
-					date
-				</label>
-				<input
-					id="session-date"
-					type="date"
-					bind:value={localDate}
-					disabled={!isEditing}
-					oninput={() => update('date', localDate)}
-					class="border-grey-700 bg-grey-800 text-viz-grey-light focus:border-viz-yellow w-full rounded border px-2.5 py-1.5 text-xs focus:outline-none disabled:opacity-50"
-				/>
-			</div>
-
-			<!-- Time -->
-			<div class="mb-3">
-				<label class="text-viz-grey-muted mb-1 block text-xs font-medium" for="session-time">
-					time
-				</label>
-				<input
-					id="session-time"
-					type="text"
-					bind:value={localTime}
-					disabled={!isEditing}
-					oninput={() => update('time', localTime)}
-					placeholder="15:45 - 16:00"
-					class="border-grey-700 bg-grey-800 text-viz-grey-light focus:border-viz-yellow w-full rounded border px-2.5 py-1.5 text-xs focus:outline-none disabled:opacity-50"
-				/>
-			</div>
-
 			<!-- Venue -->
 			<div class="mb-3">
 				<label class="text-viz-grey-muted mb-1 block text-xs font-medium" for="session-venue">
@@ -322,29 +280,6 @@
 					oninput={() => update('venue', localVenue)}
 					class="border-grey-700 bg-grey-800 text-viz-grey-light focus:border-viz-yellow w-full rounded border px-2.5 py-1.5 text-xs focus:outline-none disabled:opacity-50"
 				/>
-			</div>
-
-			<!-- Slot -->
-			<div class="mb-3">
-				<label class="text-viz-grey-muted mb-1 block text-xs font-medium" for="session-slot">
-					slot
-				</label>
-				{#if isEditing}
-					<select
-						id="session-slot"
-						bind:value={localSlot}
-						class="border-grey-700 bg-grey-800 text-viz-grey-light focus:border-viz-yellow w-full rounded border px-2.5 py-1.5 text-xs focus:outline-none"
-					>
-						<option value="morning">morning</option>
-						<option value="afternoon">afternoon</option>
-					</select>
-				{:else}
-					<p
-						class="border-grey-700 bg-grey-800 text-viz-grey-muted w-full rounded border px-2.5 py-1.5 text-xs"
-					>
-						{slot}
-					</p>
-				{/if}
 			</div>
 
 			<!-- Order -->
@@ -391,7 +326,9 @@
 		</div>
 
 		<div class="px-4 py-4">
-			<h3 class="text-viz-grey-muted mb-3 text-[10px] tracking-widest uppercase">Speaker</h3>
+			<h3 class="text-viz-grey-muted mb-3 text-[10px] tracking-widest uppercase">
+				Speaker{speakers.length > 1 ? ' (primary)' : ''}
+			</h3>
 
 			<!-- Speaker name -->
 			<div class="mb-3">
@@ -401,9 +338,9 @@
 				<input
 					id="session-speaker"
 					type="text"
-					bind:value={localSpeaker}
+					bind:value={localSpeaker0Name}
 					disabled={!isEditing}
-					oninput={() => update('speakerName', localSpeaker)}
+					oninput={() => update('speakerName', localSpeaker0Name)}
 					class="border-grey-700 bg-grey-800 text-viz-grey-light focus:border-viz-yellow w-full rounded border px-2.5 py-1.5 text-xs focus:outline-none disabled:opacity-50"
 				/>
 			</div>
@@ -416,9 +353,9 @@
 				<input
 					id="session-designation"
 					type="text"
-					bind:value={localDesignation}
+					bind:value={localSpeaker0Designation}
 					disabled={!isEditing}
-					oninput={() => update('designation', localDesignation)}
+					oninput={() => update('designation', localSpeaker0Designation)}
 					class="border-grey-700 bg-grey-800 text-viz-grey-light focus:border-viz-yellow w-full rounded border px-2.5 py-1.5 text-xs focus:outline-none disabled:opacity-50"
 				/>
 			</div>
@@ -434,9 +371,9 @@
 				<input
 					id="session-organisation"
 					type="text"
-					bind:value={localOrganisation}
+					bind:value={localSpeaker0Organisation}
 					disabled={!isEditing}
-					oninput={() => update('organisation', localOrganisation)}
+					oninput={() => update('organisation', localSpeaker0Organisation)}
 					class="border-grey-700 bg-grey-800 text-viz-grey-light focus:border-viz-yellow w-full rounded border px-2.5 py-1.5 text-xs focus:outline-none disabled:opacity-50"
 				/>
 			</div>

@@ -104,7 +104,6 @@
 <div class="w-full">
 	{#each data.exhibitions as exhibit, i}
 		{@const isEven = i % 2 === 0}
-		{@const isDual = !!exhibit.speaker2Name}
 
 		<section class="exhibit-section" id={exhibit.slug}>
 			<Container paddingY="2xl">
@@ -143,126 +142,50 @@
 							{/if}
 						</div>
 
-						{#if exhibit.artworkDetail1Image || exhibit.artworkDetail2Image}
-							<div class="artwork-details">
-								{#if exhibit.artworkDetail1Image}
-									<img
-										src={exhibit.artworkDetail1Image}
-										alt="{exhibit.title} — detail 1"
-										class="artwork-img artwork-img--detail"
-									/>
-								{:else}
-									<div class="artwork-placeholder artwork-placeholder--detail"></div>
-								{/if}
-								{#if exhibit.artworkDetail2Image}
-									<img
-										src={exhibit.artworkDetail2Image}
-										alt="{exhibit.title} — detail 2"
-										class="artwork-img artwork-img--detail"
-									/>
-								{:else}
-									<div class="artwork-placeholder artwork-placeholder--detail"></div>
-								{/if}
-							</div>
-						{/if}
-
 						<!-- About the artist(s) — below artwork on desktop -->
 						<section class="artist-section">
 							<Heading tag="h2" align="left" class="pb-4">
-								About the artist{isDual ? 's' : ''}
+								About the artist{(exhibit.speakers?.length ?? 0) > 1 ? 's' : ''}
 							</Heading>
-							<div class="artist-blocks" class:artist-blocks--dual={isDual}>
-								<!-- Artist 1 -->
-								<div class="artist-block">
-									<p class="artist-name">
-										{exhibit.speakerName?.split('//')[0]?.trim() ?? exhibit.speakerName}
-									</p>
-									{#if exhibit.designation || exhibit.organisation}
-										<p class="artist-designation">
-											{[exhibit.designation, exhibit.organisation].filter(Boolean).join(' · ')}
-										</p>
-									{/if}
-									{#if exhibit.speakerAboutHtml}
-										<div class="artist-bio" class:expanded={expandedBios.has(`${exhibit.slug}-1`)}>
-											<div class="artist-photo-wrap">
-												{#if exhibit.speakerImage}
-													<img
-														class="artist-photo"
-														src={exhibit.speakerImage}
-														alt={exhibit.speakerName?.split('//')[0]?.trim() ?? ''}
-													/>
-												{:else}
-													<div class="artist-photo-placeholder" aria-hidden="true">
-														{(exhibit.speakerName?.split('//')[0]?.trim() ?? '')
-															.split(' ')
-															.map((n) => n[0] ?? '')
-															.join('')
-															.slice(0, 2)
-															.toUpperCase()}
-													</div>
-												{/if}
-											</div>
-											<Prose>
-												{@html exhibit.speakerAboutHtml}
-											</Prose>
-										</div>
-										<button class="read-more-btn" onclick={() => toggleBio(`${exhibit.slug}-1`)}>
-											{expandedBios.has(`${exhibit.slug}-1`) ? 'Read less ↑' : 'Read more ↓'}
-										</button>
-									{/if}
-									{#if exhibit.speakerSocial}
-										<a
-											href={exhibit.speakerSocial}
-											class="artist-social"
-											target="_blank"
-											rel="noopener noreferrer"
-										>
-											<svg
-												width="14"
-												height="14"
-												viewBox="0 0 24 24"
-												fill="none"
-												stroke="currentColor"
-												stroke-width="2"
-												stroke-linecap="round"
-												stroke-linejoin="round"
-												aria-hidden="true"
-											>
-												<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-												<polyline points="15 3 21 3 21 9" />
-												<line x1="10" y1="14" x2="21" y2="3" />
-											</svg>
-											<span>Website</span>
-										</a>
-									{/if}
-								</div>
-
-								<!-- Artist 2 (dual only) -->
-								{#if isDual}
+							<div
+								class="artist-blocks"
+								class:artist-blocks--multi={(exhibit.speakers?.length ?? 0) > 1}
+							>
+								{#each exhibit.speakers ?? [] as sp, si}
+									{@const bioKey = `${exhibit.slug}-${si + 1}`}
+									{@const bioHtml = exhibit.speakersAboutHtml?.[si] ?? ''}
 									<div class="artist-block">
-										<p class="artist-name">{exhibit.speaker2Name}</p>
-										{#if exhibit.speaker2Designation || exhibit.speaker2Organisation}
+										<p class="artist-name">{sp.name ?? ''}</p>
+										{#if sp.designation || sp.organisation}
 											<p class="artist-designation">
-												{[exhibit.speaker2Designation, exhibit.speaker2Organisation]
-													.filter(Boolean)
-													.join(' · ')}
+												{[sp.designation, sp.organisation].filter(Boolean).join(' · ')}
 											</p>
 										{/if}
-										{#if exhibit.speaker2AboutHtml}
-											<div
-												class="artist-bio"
-												class:expanded={expandedBios.has(`${exhibit.slug}-2`)}
-											>
+										<!-- Social icons -->
+										{#if Object.values(sp.social ?? {}).some((u) => u)}
+											<div class="artist-socials">
+												{#each Object.entries(sp.social ?? {}).filter(([, u]) => u) as [platform, url]}
+													{@const icon = `/images/socials/${['twitter', 'instagram', 'linkedin', 'bluesky', 'github', 'youtube'].includes(platform) ? platform : 'website'}.svg`}
+													<a
+														href={url}
+														target="_blank"
+														rel="noopener noreferrer"
+														aria-label="{platform} profile"
+														class="social-icon social-icon--orange"
+													>
+														<img src={icon} alt={platform} width="18" height="18" />
+													</a>
+												{/each}
+											</div>
+										{/if}
+										{#if bioHtml}
+											<div class="artist-bio" class:expanded={expandedBios.has(bioKey)}>
 												<div class="artist-photo-wrap">
-													{#if exhibit.speaker2Image}
-														<img
-															class="artist-photo"
-															src={exhibit.speaker2Image}
-															alt={exhibit.speaker2Name ?? ''}
-														/>
+													{#if sp.image}
+														<img class="artist-photo" src={sp.image} alt={sp.name ?? ''} />
 													{:else}
 														<div class="artist-photo-placeholder" aria-hidden="true">
-															{(exhibit.speaker2Name ?? '')
+															{(sp.name ?? '')
 																.split(' ')
 																.map((n) => n[0] ?? '')
 																.join('')
@@ -272,40 +195,15 @@
 													{/if}
 												</div>
 												<Prose>
-													{@html exhibit.speaker2AboutHtml}
+													{@html bioHtml}
 												</Prose>
 											</div>
-											<button class="read-more-btn" onclick={() => toggleBio(`${exhibit.slug}-2`)}>
-												{expandedBios.has(`${exhibit.slug}-2`) ? 'Read less ↑' : 'Read more ↓'}
+											<button class="read-more-btn" onclick={() => toggleBio(bioKey)}>
+												{expandedBios.has(bioKey) ? 'Read less ↑' : 'Read more ↓'}
 											</button>
 										{/if}
-										{#if exhibit.speaker2Social}
-											<a
-												href={exhibit.speaker2Social}
-												class="artist-social"
-												target="_blank"
-												rel="noopener noreferrer"
-											>
-												<svg
-													width="14"
-													height="14"
-													viewBox="0 0 24 24"
-													fill="none"
-													stroke="currentColor"
-													stroke-width="2"
-													stroke-linecap="round"
-													stroke-linejoin="round"
-													aria-hidden="true"
-												>
-													<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-													<polyline points="15 3 21 3 21 9" />
-													<line x1="10" y1="14" x2="21" y2="3" />
-												</svg>
-												<span>Website</span>
-											</a>
-										{/if}
 									</div>
-								{/if}
+								{/each}
 							</div>
 						</section>
 					</div>
@@ -380,7 +278,7 @@
 		gap: 2rem;
 	}
 
-	.artist-blocks--dual {
+	.artist-blocks--multi {
 		gap: 2.5rem;
 	}
 
@@ -465,22 +363,27 @@
 		letter-spacing: -0.02em;
 	}
 
-	.artist-social {
-		display: inline-flex;
-		align-items: center;
-		gap: 0.375rem;
-		margin-top: 0.5rem;
-		font-family: var(--font-mono);
-		font-size: 0.7rem;
-		letter-spacing: 0.06em;
-		text-transform: uppercase;
-		color: var(--color-viz-orange-solid);
-		text-decoration: none;
-		transition: color 0.15s;
+	.artist-socials {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.625rem;
+		margin-bottom: 0.75rem;
 	}
 
-	.artist-social:hover {
-		color: var(--color-viz-orange);
+	.social-icon {
+		display: inline-flex;
+		opacity: 0.55;
+		transition:
+			opacity 0.15s,
+			filter 0.15s;
+	}
+
+	.social-icon:hover {
+		opacity: 1;
+	}
+
+	.social-icon--orange:hover {
+		filter: invert(55%) sepia(75%) saturate(570%) hue-rotate(346deg);
 	}
 
 	/* ── Artwork column ── */
@@ -492,7 +395,7 @@
 
 	.artwork-hero {
 		width: 100%;
-		aspect-ratio: 4 / 3;
+		aspect-ratio: 1 / 1;
 		overflow: hidden;
 		border-radius: 0.5rem;
 	}
@@ -505,16 +408,6 @@
 		display: block;
 	}
 
-	.artwork-img--detail {
-		aspect-ratio: 1;
-	}
-
-	.artwork-details {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: 0.75rem;
-	}
-
 	.artwork-placeholder {
 		width: 100%;
 		background: var(--color-viz-orange-subtle);
@@ -525,11 +418,7 @@
 	}
 
 	.artwork-placeholder--hero {
-		aspect-ratio: 4 / 3;
-	}
-
-	.artwork-placeholder--detail {
-		aspect-ratio: 1;
+		aspect-ratio: 1 / 1;
 	}
 
 	.artwork-placeholder-label {

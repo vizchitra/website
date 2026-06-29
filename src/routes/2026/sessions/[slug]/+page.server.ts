@@ -34,7 +34,10 @@ export const load: PageServerLoad = async ({ params }) => {
 	}
 
 	const descriptionHtml = await markdownToHtml(session.longDescription);
-	const speakerAboutHtml = await markdownToHtml(session.speakerAbout);
+	const speakerAboutHtml = await markdownToHtml(session.speakers?.[0]?.about ?? '');
+	const speakersAboutHtml = await Promise.all(
+		(session.speakers ?? []).map((sp) => markdownToHtml(sp.about ?? ''))
+	);
 
 	// Related sessions: prioritise same theme (sessionType), then others
 	const relatedSessions = confirmed
@@ -50,6 +53,7 @@ export const load: PageServerLoad = async ({ params }) => {
 		session,
 		descriptionHtml,
 		speakerAboutHtml,
+		speakersAboutHtml,
 		relatedSessions,
 		pageMeta: {
 			title: `${session.title} | VizChitra 2026 Sessions`,
