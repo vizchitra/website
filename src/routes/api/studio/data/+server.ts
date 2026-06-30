@@ -15,6 +15,7 @@ import type { RequestHandler } from './$types';
 import { Octokit } from '@octokit/rest';
 import { ensureStagingBranch, stagingKey, type StagingState } from '$lib/studio/staging';
 import { GITHUB_OWNER, GITHUB_REPO } from '$lib/config/github';
+import { patchTomlArrayItem } from '$lib/studio/tomlPatch';
 
 export const prerender = false;
 
@@ -113,7 +114,16 @@ export const POST: RequestHandler = async ({ request, locals, platform }) => {
 			}
 
 			let serialised: string;
-			if (isToml) {
+			if (isToml && Array.isArray(arrayData)) {
+				// Comment-preserving patch: only the edited block is regenerated.
+				const orig = (arrayData as Record<string, unknown>[]).find((it) => it.slug === key);
+				try {
+					serialised = patchTomlArrayItem(raw, rootKey!, key, { ...orig, ...data });
+				} catch {
+					const { stringify: stringifyToml } = await import('smol-toml');
+					serialised = stringifyToml(updated as Record<string, unknown>);
+				}
+			} else if (isToml) {
 				const { stringify: stringifyToml } = await import('smol-toml');
 				serialised = stringifyToml(updated as Record<string, unknown>);
 			} else {
@@ -155,6 +165,7 @@ export const POST: RequestHandler = async ({ request, locals, platform }) => {
 
 		// Fetch current file from staging branch (fall back to master)
 		let currentData: unknown = null;
+		let currentRaw = '';
 		let sha: string | undefined;
 		for (const ref of [branchName, BASE_BRANCH]) {
 			try {
@@ -169,6 +180,7 @@ export const POST: RequestHandler = async ({ request, locals, platform }) => {
 					const decoded = new TextDecoder('utf-8').decode(
 						Uint8Array.from(binaryStr, (c) => c.charCodeAt(0))
 					);
+					currentRaw = decoded;
 					if (repoPath.endsWith('.toml')) {
 						const { parse: parseToml } = await import('smol-toml');
 						currentData = parseToml(decoded);
@@ -216,7 +228,16 @@ export const POST: RequestHandler = async ({ request, locals, platform }) => {
 
 		// Write updated file to staging branch
 		let serialised: string;
-		if (isToml) {
+		if (isToml && Array.isArray(arrayData) && currentRaw) {
+			// Comment-preserving patch: only the edited block is regenerated.
+			const orig = (arrayData as Record<string, unknown>[]).find((it) => it.slug === key);
+			try {
+				serialised = patchTomlArrayItem(currentRaw, rootKey!, key, { ...orig, ...data });
+			} catch {
+				const { stringify: stringifyToml } = await import('smol-toml');
+				serialised = stringifyToml(updated as Record<string, unknown>);
+			}
+		} else if (isToml) {
 			const { stringify: stringifyToml } = await import('smol-toml');
 			serialised = stringifyToml(updated as Record<string, unknown>);
 		} else {

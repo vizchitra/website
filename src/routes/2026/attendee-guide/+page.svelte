@@ -123,7 +123,12 @@
 				<strong>attendee-exclusive WhatsApp group</strong>. Share recommendations, coordinate
 				meetups, and be part of the chatter.
 			</p>
-			<p><em>The invite link will be shared closer to the event.</em></p>
+			<p>
+				<em
+					>The invite link will be shared closer to the event. If you are attending, you have
+					received an email about this in your inbox.</em
+				>
+			</p>
 		</Prose>
 
 		<DividerCurves />
@@ -147,9 +152,13 @@
 		<Prose color="yellow" id="food">
 			<h2>Food &amp; Refreshments</h2>
 			<p>
-				<strong>There is no breakfast on site</strong>, so eat before you arrive or grab something
-				nearby on your way in. Once you are here, chai and kaapi run all day on the
-				<strong>1st floor</strong> — help yourself between sessions.
+				<strong>There is no breakfast on site</strong>, so eat before you arrive or
+				<a
+					href="https://maps.app.goo.gl/cQXBEVRAXU7hWvf77"
+					target="_blank"
+					rel="noopener noreferrer">grab something nearby on your way in</a
+				>. Once you are here, chai and kaapi run all day on the <strong>1st floor</strong>. Help
+				yourself between sessions.
 			</p>
 			<p>
 				Lunch is complimentary build-your-own <strong>burrito bowls</strong> with a choice of protein,
@@ -175,21 +184,12 @@
 		</Grid>
 
 		<Prose>
-			<h3>Every bowl comes loaded with</h3>
-			<p>Whichever protein you choose, your bowl is built on:</p>
-			<ul>
-				<li>Cilantro lime rice</li>
-				<li>Black beans or pinto beans</li>
-				<li>Fajita veggies</li>
-				<li>Lettuce</li>
-				<li>Tomato salsa, corn salsa, hot salsa &amp; mild salsa</li>
-				<li>Sour cream</li>
-			</ul>
-			<h3>On the side</h3>
-			<ul>
-				<li>Plain nachos</li>
-				<li>Cold drinks &mdash; peach iced tea &amp; pink lemonade</li>
-			</ul>
+			<h3>Build your bowl</h3>
+			<p>
+				Whatever protein you choose, your bowl comes with the option to add cilantro lime rice,
+				black or pinto beans, fajita veggies, lettuce, sour cream, and tomato, corn, hot and mild
+				salsas. We'll have live counters to curate your bowl as we go.
+			</p>
 		</Prose>
 
 		<DividerCurves />
@@ -213,7 +213,8 @@
 					href="https://maps.app.goo.gl/nvCeGhT1x4e62o5z9"
 					color="orange"
 					external={true}
-					size="sm">Google Maps</Button
+					size="sm"
+					class_name="mt-4 px-3! py-2! justify-self-start">Google Maps</Button
 				>
 			</Card>
 			<Card variant="bordered" color="orange" title="Underline Center">
@@ -225,7 +226,8 @@
 					href="https://maps.app.goo.gl/ZcNqMtmzmqV4tcnd9"
 					color="orange"
 					external={true}
-					size="sm">Google Maps</Button
+					size="sm"
+					class_name="mt-4 px-3! py-2! justify-self-start">Google Maps</Button
 				>
 			</Card>
 		</Grid>
@@ -265,7 +267,7 @@
 			<p>
 				Please report in confidence by emailing
 				<a href="mailto:hello@vizchitra.com">hello@vizchitra.com</a>
-				or direct messaging the admins (Rasagy Sharma, Ipsa Jain) on the VizChitra Community WhatsApp.
+				or direct messaging the admins (Rasagy Sharma, Poojil Tiwari) on the VizChitra Community WhatsApp.
 			</p>
 			<p>
 				To escalate, call Gurman Bhatia at
