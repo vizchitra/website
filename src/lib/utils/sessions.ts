@@ -28,6 +28,8 @@ export interface SessionData {
 	time: string;
 	slot: string;
 	venue: string;
+	/** Room / track within the venue (e.g. "Auditorium", "Library"), from the schedule grid. */
+	room?: string;
 	title: string;
 	subtitle: string;
 	shortDescription: string;
@@ -53,13 +55,17 @@ interface SlotTiming {
 	date: string;
 	time: string;
 	slot: string;
+	room: string;
 }
 
-/** Build a slug → timing index from the combined schedule file. */
+/** Build a slug → timing index (date, time, room) from the combined schedule file. */
 function buildTimingIndex(): Record<string, SlotTiming> {
 	const index: Record<string, SlotTiming> = {};
 	const parsed = parseToml(scheduleRaw) as {
-		day: Array<{ day: string; slot: Array<{ session?: string; start: string; end: string }> }>;
+		day: Array<{
+			day: string;
+			slot: Array<{ session?: string; start: string; end: string; track?: string }>;
+		}>;
 	};
 	for (const dayEntry of parsed.day) {
 		for (const s of dayEntry.slot) {
@@ -68,7 +74,8 @@ function buildTimingIndex(): Record<string, SlotTiming> {
 			index[s.session] = {
 				date: dayEntry.day,
 				time: `${s.start} - ${s.end}`,
-				slot: startHour < 13 ? 'morning' : 'afternoon'
+				slot: startHour < 13 ? 'morning' : 'afternoon',
+				room: s.track ?? ''
 			};
 		}
 	}
@@ -105,6 +112,7 @@ export function resolveAllSessions(): { sessions: SessionData[]; formats: string
 		date: '',
 		time: '',
 		slot: '',
+		room: '',
 		...timing[s.slug],
 		...s
 	}));
@@ -117,7 +125,7 @@ export function resolveAllSessions(): { sessions: SessionData[]; formats: string
 export function resolveConfirmedSessions(): SessionData[] {
 	const timing = buildTimingIndex();
 	return applyDevOverrides(parseSessions())
-		.map((s) => ({ date: '', time: '', slot: '', ...timing[s.slug], ...s }))
+		.map((s) => ({ date: '', time: '', slot: '', room: '', ...timing[s.slug], ...s }))
 		.map(withTbd)
 		.filter((s) => !s.tbd);
 }

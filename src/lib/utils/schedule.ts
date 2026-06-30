@@ -56,7 +56,7 @@ export function resolveExhibitions(sessions: SessionData[]): ExhibitionEntry[] {
 				title: s.title,
 				speaker: primary?.name || undefined,
 				role: [primary?.designation, primary?.organisation].filter(Boolean).join(', ') || undefined,
-				href: `/2026/sessions/${s.slug}`
+				href: `/2026/exhibition#${s.slug}`
 			};
 		});
 }
@@ -135,6 +135,24 @@ export function trackColumn(tracks: string[], track: string): number {
 /** Display-formatted time range. */
 export function formatTimeRange(slot: ScheduleSlot): string {
 	return `${slot.start}–${slot.end}`;
+}
+
+/** Expand the venue abbreviations used as track prefixes in the workshop grid. */
+const TRACK_VENUE: Record<string, string> = {
+	BIC: 'Bangalore International Centre',
+	Underline: 'Underline Center'
+};
+
+/**
+ * Split a track into room + venue. Workshop tracks are "Venue - Room"
+ * ("BIC - LIBRARY", "Underline - FLR 3"); conference tracks are a bare room
+ * ("Auditorium") with no venue. Used so headers can show the full venue name.
+ */
+export function splitTrack(track: string): { room: string; venue: string } {
+	const idx = track.indexOf(' - ');
+	if (idx === -1) return { room: track, venue: '' };
+	const prefix = track.slice(0, idx);
+	return { room: track.slice(idx + 3), venue: TRACK_VENUE[prefix] ?? prefix };
 }
 
 /**

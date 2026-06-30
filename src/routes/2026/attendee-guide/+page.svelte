@@ -42,6 +42,7 @@
 				<li><a href="/2026/attendee-guide#venue">Venue &amp; How to Get There</a></li>
 				<li><a href="/2026/attendee-guide#whatsapp">Attendee WhatsApp Group</a></li>
 				<li><a href="/2026/attendee-guide#registration">Registration</a></li>
+				<li><a href="/2026/attendee-guide#food">Food &amp; Refreshments</a></li>
 				<li><a href="/2026/attendee-guide#workshops">Workshops</a></li>
 				<li><a href="/2026/attendee-guide#conduct">Code of Conduct</a></li>
 				<li><a href="/2026/attendee-guide#accommodation">Accommodation</a></li>
@@ -122,7 +123,12 @@
 				<strong>attendee-exclusive WhatsApp group</strong>. Share recommendations, coordinate
 				meetups, and be part of the chatter.
 			</p>
-			<p><em>The invite link will be shared closer to the event.</em></p>
+			<p>
+				<em
+					>The invite link will be shared closer to the event. If you are attending, you have
+					received an email about this in your inbox.</em
+				>
+			</p>
 		</Prose>
 
 		<DividerCurves />
@@ -137,6 +143,52 @@
 			<p>
 				The event starts sharp at <strong>9:00 AM</strong>, and Bangalore traffic can be
 				unpredictable, so arrive early.
+			</p>
+		</Prose>
+
+		<DividerCurves />
+
+		<!-- Food & Refreshments -->
+		<Prose color="yellow" id="food">
+			<h2>Food &amp; Refreshments</h2>
+			<p>
+				<strong>There is no breakfast on site</strong>, so eat before you arrive or
+				<a
+					href="https://maps.app.goo.gl/cQXBEVRAXU7hWvf77"
+					target="_blank"
+					rel="noopener noreferrer">grab something nearby on your way in</a
+				>. Once you are here, chai and kaapi run all day on the <strong>1st floor</strong>. Help
+				yourself between sessions.
+			</p>
+			<p>
+				Lunch is complimentary build-your-own <strong>burrito bowls</strong> with a choice of protein,
+				both vegetarian and non-vegetarian, plus nachos and cold drinks on the side.
+			</p>
+		</Prose>
+
+		<Grid minWidth="28ch" maxColumns={2} gap={6}>
+			<Card variant="bordered" color="teal" title="Vegetarian Bowls 🌱">
+				<p>Pick your protein:</p>
+				<ul>
+					<li>Mexican Paneer</li>
+					<li>Mushroom</li>
+				</ul>
+			</Card>
+			<Card variant="bordered" color="orange" title="Non-Vegetarian Bowls 🍗">
+				<p>Pick your protein:</p>
+				<ul>
+					<li>Crispy Chicken</li>
+					<li>BBQ Chicken</li>
+				</ul>
+			</Card>
+		</Grid>
+
+		<Prose>
+			<h3>Build your bowl</h3>
+			<p>
+				Whatever protein you choose, your bowl comes with the option to add cilantro lime rice,
+				black or pinto beans, fajita veggies, lettuce, sour cream, and tomato, corn, hot and mild
+				salsas. We'll have live counters to curate your bowl as we go.
 			</p>
 		</Prose>
 
@@ -161,16 +213,21 @@
 					href="https://maps.app.goo.gl/nvCeGhT1x4e62o5z9"
 					color="orange"
 					external={true}
-					size="sm">Google Maps</Button
+					size="sm"
+					class_name="mt-4 px-3! py-2! justify-self-start">Google Maps</Button
 				>
 			</Card>
 			<Card variant="bordered" color="orange" title="Underline Center">
-				<p>Indiranagar, Bengaluru</p>
+				<p>
+					2nd Floor, Indiranagar,<br />
+					Bengaluru, Karnataka
+				</p>
 				<Button
 					href="https://maps.app.goo.gl/ZcNqMtmzmqV4tcnd9"
 					color="orange"
 					external={true}
-					size="sm">Google Maps</Button
+					size="sm"
+					class_name="mt-4 px-3! py-2! justify-self-start">Google Maps</Button
 				>
 			</Card>
 		</Grid>
@@ -210,7 +267,7 @@
 			<p>
 				Please report in confidence by emailing
 				<a href="mailto:hello@vizchitra.com">hello@vizchitra.com</a>
-				or direct messaging the admins (Rasagy Sharma, Ipsa Jain) on the VizChitra Community WhatsApp.
+				or direct messaging the admins (Rasagy Sharma, Poojil Tiwari) on the VizChitra Community WhatsApp.
 			</p>
 			<p>
 				To escalate, call Gurman Bhatia at

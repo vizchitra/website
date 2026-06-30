@@ -1136,6 +1136,7 @@
 		position: relative;
 		left: 50%;
 		right: 50%;
+		margin-top: 3rem;
 		margin-left: -50vw;
 		margin-right: -50vw;
 		text-align: center;

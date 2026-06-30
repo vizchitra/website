@@ -43,7 +43,7 @@
 			</p>
 
 			<p>
-				The exhibition opens on <strong>Friday, 3rd July 2025, 3pm to 8pm</strong>, at Bangalore
+				The exhibition opens on <strong>Friday, 3rd July 2026, 3pm to 8pm</strong>, at Bangalore
 				International Centre, Bengaluru.
 			</p>
 
