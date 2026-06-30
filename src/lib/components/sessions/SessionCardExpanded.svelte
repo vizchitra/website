@@ -76,27 +76,38 @@
 			descriptionTop?: string;
 			floatWidth: string;
 			floatHeight: string;
+			/* width of the description column so it never wraps into the side photo/petal */
+			descMaxWidth?: string;
 		}
 	> = {
-		Talks: { titleMaxWidth: '100%', descriptionTop: '28%', floatWidth: '70%', floatHeight: '12em' },
+		Talks: {
+			titleMaxWidth: '100%',
+			descriptionTop: '28%',
+			floatWidth: '70%',
+			floatHeight: '12em',
+			descMaxWidth: '56%'
+		},
 		Dialogues: {
 			titlePaddingRatio: 0.05,
 			titleMaxWidth: '60%',
 			descriptionTop: '15%',
 			floatWidth: '75%',
-			floatHeight: '8em'
+			floatHeight: '8em',
+			descMaxWidth: '52%'
 		},
 		Workshops: {
 			titleMaxWidth: '100%',
 			descriptionTop: '28%',
 			floatWidth: '48%',
-			floatHeight: '11em'
+			floatHeight: '11em',
+			descMaxWidth: '64%'
 		},
 		Exhibition: {
 			titleMaxWidth: '100%',
 			descriptionTop: '42%',
 			floatWidth: '48%',
-			floatHeight: '11em'
+			floatHeight: '11em',
+			descMaxWidth: '100%'
 		}
 	};
 
@@ -205,7 +216,7 @@
 			/>
 
 			<div class="session-card-header relative z-10 p-2.5 pb-0! md:p-4">
-				<div class="title mb-2.5 flex flex-row items-baseline justify-start gap-2 md:mb-3">
+				<div class="title mb-1 flex flex-row items-baseline justify-start gap-2 md:mb-1.5">
 					<div class="logo-container text-2xl leading-none text-[#4c4c4c]">
 						<LogoType classes="text-2xl!" year={null} />
 					</div>
@@ -270,7 +281,7 @@
 
 					<!-- Header -->
 					<div class="session-card-header relative z-10 p-2.5 pb-0! md:p-4">
-						<div class="title mb-2.5 flex flex-row items-baseline justify-start gap-2 md:mb-3">
+						<div class="title mb-1 flex flex-row items-baseline justify-start gap-2 md:mb-1.5">
 							<div class="logo-container text-xl leading-none text-[#4c4c4c] md:text-2xl">
 								<LogoType classes="text-xl md:text-2xl" year={null} />
 							</div>
@@ -287,7 +298,7 @@
 					<!-- Title & subtitle -->
 					<div class="relative z-10 flex flex-col p-3 pt-1 md:p-4 md:pt-2">
 						<h3
-							class="title font-display text-shadow mb-2 text-[20px] leading-tight font-extrabold text-[#4c4c4c] uppercase md:text-[20px] lg:text-[22px] 2xl:text-[28px]"
+							class="title font-display text-shadow mb-1 text-[20px] leading-tight font-extrabold text-[#4c4c4c] uppercase md:text-[20px] lg:text-[22px] 2xl:text-[28px]"
 						>
 							{title}
 						</h3>
@@ -494,7 +505,7 @@
 					</div>
 					<div class="session-top-text-content z-20">
 						<div class="session-card-header relative z-10 p-2.5 pb-0! md:p-4">
-							<div class="title mb-2.5 flex flex-row items-baseline justify-start gap-2 md:mb-3">
+							<div class="title mb-1 flex flex-row items-baseline justify-start gap-2 md:mb-1.5">
 								<div class="logo-container text-xl leading-none text-[#4c4c4c] md:text-2xl">
 									<LogoType classes="text-xl md:text-2xl" year={null} />
 								</div>
@@ -531,17 +542,11 @@
 						</div>
 
 						<div
-							class="title-content relative z-10 p-3 pt-1 md:p-4 md:pt-3"
+							class="title-content relative z-10 px-3 pt-1 pb-1 md:px-4 md:pt-3 md:pb-1"
 							style={layout.titlePaddingRatio && backgroundWidth > 0
 								? `padding-top: ${Math.round(backgroundWidth * layout.titlePaddingRatio)}px`
 								: undefined}
 						>
-							{#if sponsored && sessionType === 'Dialogues'}
-								<span
-									class="sponsored-badge absolute top-3 left-3 md:top-4 md:left-4"
-									style="color: {themeTokens[color]?.dark ?? themeTokens.blue.dark}">Sponsored</span
-								>
-							{/if}
 							<h3
 								class="title font-display text-shadow mb-1 text-[20px] leading-none font-extrabold text-[#4c4c4c] uppercase md:text-[20px] lg:text-[22px] 2xl:text-[28px]"
 								style={layout.titleMaxWidth ? `max-width: ${layout.titleMaxWidth}` : undefined}
@@ -556,22 +561,18 @@
 						</div>
 
 						{#if isExpanded && !(sessionType === 'Dialogues' && speakerCount >= 4)}
-							<div class="short-description-container relative z-10 p-3 pt-0 md:p-4 md:pt-1">
-								<!-- float pushes text away from the photo/pattern on the right -->
-								<div
-									class="text-shape-float"
-									style="width: {layout.floatWidth}; height: {layout.floatHeight};"
-									aria-hidden="true"
-								></div>
-								<!-- div (not p) so that inner <p> tags from descriptionHtml don't break float context -->
+							<div class="short-description-container relative z-10 px-3 pt-0 pb-1 md:px-4 md:pb-1">
+								<!-- description sits in a clean left column (max-width per session type) so it
+								     never wraps below into the photo/petal on the right -->
 								<div
 									class="short-description font-body text-shadow mb-1 text-[15px] leading-tight font-normal text-[#4c4c4c] md:text-[18px]"
+									style={layout.descMaxWidth ? `max-width: ${layout.descMaxWidth}` : undefined}
 								>
 									{subtitle}
 								</div>
 							</div>
 						{/if}
-						{#if sponsored && sessionType !== 'Dialogues'}
+						{#if sponsored}
 							<div class="relative z-10 px-3 pb-1 md:px-4">
 								<span
 									class="sponsored-badge"
@@ -795,27 +796,29 @@
 		text-transform: uppercase;
 		line-height: 1.4;
 		white-space: nowrap;
+		/* same crisp outline + soft blur halo as the title/description text */
+		text-shadow:
+			-1px -1px 0 #fff,
+			1px -1px 0 #fff,
+			-1px 1px 0 #fff,
+			1px 1px 0 #fff,
+			0 0 7px rgba(255, 255, 255, 0.85),
+			0 0 16px rgba(255, 255, 255, 0.6);
 	}
 
 	.activities-mountain-bg {
 		height: 88%;
 	}
 
-	.text-shape-float {
-		float: right;
-		shape-outside: polygon(70% 0%, 100% 0%, 100% 80%, 0% 80%);
-		/* TODO: remove debug visuals once shape tuning is done */
-		/* background: rgba(255, 0, 80, 0.35);
-		clip-path: polygon(70% 0%, 100% 0%, 100% 80%, 0% 80%);
-		outline: 1px dashed rgba(255, 0, 80, 0.9); */
-	}
-
 	.text-shadow {
+		/* crisp 1px white outline for definition + soft blur for a fluid, readable halo */
 		text-shadow:
-			-1.5px -1.5px 0 white,
-			1.5px -1.5px 0 white,
-			-1.5px 1.5px 0 white,
-			1.5px 1.5px 0 white;
+			-1px -1px 0 #fff,
+			1px -1px 0 #fff,
+			-1px 1px 0 #fff,
+			1px 1px 0 #fff,
+			0 0 7px rgba(255, 255, 255, 0.85),
+			0 0 16px rgba(255, 255, 255, 0.6);
 	}
 
 	.view-details-text {
