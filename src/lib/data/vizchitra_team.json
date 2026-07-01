@@ -92,7 +92,8 @@
 		"order": 5,
 		"xOffset": 0,
 		"yOffset": 20,
-		"scale": null
+		"scale": null,
+		"alumni": true
 	},
 	{
 		"name": "Zainab Bawa",
@@ -111,7 +112,8 @@
 		"order": 5.5,
 		"xOffset": 0,
 		"yOffset": 20,
-		"scale": 0.75
+		"scale": 0.75,
+		"alumni": true
 	},
 	{
 		"name": "Hamsa Ganesh",
@@ -130,7 +132,8 @@
 		"order": 7,
 		"xOffset": null,
 		"yOffset": null,
-		"scale": null
+		"scale": null,
+		"alumni": true
 	},
 	{
 		"name": "Arpit",
@@ -168,7 +171,8 @@
 		"order": 9,
 		"xOffset": null,
 		"yOffset": 20,
-		"scale": null
+		"scale": null,
+		"alumni": true
 	},
 	{
 		"name": "Poojil",
@@ -206,7 +210,8 @@
 		"order": 10.5,
 		"xOffset": null,
 		"yOffset": 10,
-		"scale": null
+		"scale": null,
+		"alumni": true
 	},
 	{
 		"name": "Kashvi Bansal",
@@ -320,11 +325,12 @@
 		"order": 100,
 		"xOffset": null,
 		"yOffset": -10,
-		"scale": 0.9
+		"scale": 0.9,
+		"alumni": true
 	},
 	{
 		"name": "Rashi Shah",
-		"role": "Graphic designer",
+		"role": "Designer at Revisual Labs",
 		"bluesky": null,
 		"instagram": "https://www.instagram.com/rashi_tries/",
 		"twitter": null,
@@ -396,7 +402,8 @@
 		"order": 100,
 		"xOffset": 20,
 		"yOffset": 20,
-		"scale": 1.3
+		"scale": 1.3,
+		"alumni": true
 	},
 	{
 		"name": "Aman Bhargava",
@@ -434,7 +441,8 @@
 		"order": 100,
 		"xOffset": 5,
 		"yOffset": 8,
-		"scale": 0.8
+		"scale": 0.8,
+		"alumni": true
 	},
 	{
 		"name": "Samhita Chilukuri",
@@ -453,7 +461,8 @@
 		"order": 100,
 		"xOffset": -20,
 		"yOffset": 20,
-		"scale": null
+		"scale": null,
+		"alumni": true
 	},
 	{
 		"name": "Shubhangi Bhatia",
@@ -472,7 +481,8 @@
 		"order": 100,
 		"xOffset": null,
 		"yOffset": 25,
-		"scale": null
+		"scale": null,
+		"alumni": true
 	},
 	{
 		"name": "Eshanika Narayan",
@@ -491,7 +501,8 @@
 		"order": 100,
 		"xOffset": null,
 		"yOffset": 15,
-		"scale": null
+		"scale": null,
+		"alumni": true
 	},
 	{
 		"name": "Aabha Joshi",
@@ -510,7 +521,8 @@
 		"order": 100,
 		"xOffset": -30,
 		"yOffset": null,
-		"scale": null
+		"scale": null,
+		"alumni": true
 	},
 	{
 		"name": "Kirti Vardhan Rathore",
@@ -567,7 +579,8 @@
 		"order": 100,
 		"xOffset": null,
 		"yOffset": 40,
-		"scale": 1.2
+		"scale": 1.2,
+		"alumni": true
 	},
 	{
 		"name": "Sushmita Gangalapadu",
@@ -586,7 +599,8 @@
 		"order": 100,
 		"xOffset": 25,
 		"yOffset": 20,
-		"scale": 1.2
+		"scale": 1.2,
+		"alumni": true
 	},
 	{
 		"name": "Aditi Bhat",
@@ -662,7 +676,8 @@
 		"order": 100,
 		"xOffset": null,
 		"yOffset": null,
-		"scale": 0.75
+		"scale": 0.75,
+		"alumni": true
 	},
 	{
 		"name": "Nidhi Joshi",
@@ -700,6 +715,121 @@
 		"order": 100,
 		"xOffset": null,
 		"yOffset": null,
-		"scale": 0.9
+		"scale": 0.9,
+		"alumni": true
+	},
+	{
+		"name": "Arjun Srinivasan",
+		"role": "Research Scientist, Tableau",
+		"bluesky": null,
+		"instagram": null,
+		"twitter": null,
+		"linkedin": null,
+		"collection": 4,
+		"analysis": 5,
+		"coding": 4,
+		"designing": 4,
+		"narrating": 4,
+		"strength": "Analyzing data",
+		"image": "arjun.avif",
+		"order": 100,
+		"xOffset": null,
+		"yOffset": null,
+		"scale": null
+	},
+	{
+		"name": "Monisha Keswani",
+		"role": "UX Designer",
+		"bluesky": null,
+		"instagram": "https://www.instagram.com/basicbehen",
+		"twitter": null,
+		"linkedin": null,
+		"collection": 4,
+		"analysis": 4,
+		"coding": 2,
+		"designing": 5,
+		"narrating": 4,
+		"strength": "Designing visualizations",
+		"image": "monisha.avif",
+		"order": 100,
+		"xOffset": null,
+		"yOffset": null,
+		"scale": null
+	},
+	{
+		"name": "Debanshu Bhaumik",
+		"role": "Founder",
+		"bluesky": null,
+		"instagram": "https://www.instagram.com/debanshub",
+		"twitter": null,
+		"linkedin": null,
+		"collection": 5,
+		"analysis": 4,
+		"coding": 5,
+		"designing": 5,
+		"narrating": 5,
+		"strength": "Designing visualizations",
+		"image": "debanshu.avif",
+		"order": 100,
+		"xOffset": null,
+		"yOffset": null,
+		"scale": null
+	},
+	{
+		"name": "Shivani Singh",
+		"role": "Information and Visual Designer",
+		"bluesky": null,
+		"instagram": "https://www.instagram.com/_shivanigans_",
+		"twitter": null,
+		"linkedin": null,
+		"collection": 4,
+		"analysis": 4,
+		"coding": 4,
+		"designing": 5,
+		"narrating": 5,
+		"strength": "Designing visualizations",
+		"image": "shivani.avif",
+		"order": 100,
+		"xOffset": null,
+		"yOffset": null,
+		"scale": null
+	},
+	{
+		"name": "Arundathi Rajan",
+		"role": "Design Researcher (Independent)",
+		"bluesky": null,
+		"instagram": "https://www.instagram.com/thatspecsgirl",
+		"twitter": null,
+		"linkedin": "https://www.linkedin.com/in/arundathirajan/",
+		"collection": 5,
+		"analysis": 4,
+		"coding": 4,
+		"designing": 5,
+		"narrating": 5,
+		"strength": "Designing visualizations",
+		"image": "arundathi.avif",
+		"order": 100,
+		"xOffset": null,
+		"yOffset": null,
+		"scale": null
+	},
+	{
+		"name": "Ipshita Raj",
+		"role": "Designer, Revisual Labs",
+		"bluesky": null,
+		"instagram": "https://www.instagram.com/thenightowl1107",
+		"twitter": null,
+		"linkedin": null,
+		"collection": 4,
+		"analysis": 5,
+		"coding": 4,
+		"designing": 5,
+		"narrating": 5,
+		"strength": "Designing visualizations",
+		"image": "ipshita.avif",
+		"order": 100,
+		"xOffset": null,
+		"yOffset": null,
+		"scale": null
 	}
 ]
