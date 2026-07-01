@@ -831,5 +831,43 @@
 		"xOffset": null,
 		"yOffset": null,
 		"scale": null
+	},
+	{
+		"name": "Dhriti Verma",
+		"role": "Product Designer, Cultfit",
+		"bluesky": null,
+		"instagram": null,
+		"twitter": null,
+		"linkedin": "https://www.linkedin.com/in/dhritivermadesign",
+		"collection": 5,
+		"analysis": 4,
+		"coding": 4,
+		"designing": 5,
+		"narrating": 5,
+		"strength": "Narrating insights",
+		"image": "dhriti.avif",
+		"order": 100,
+		"xOffset": null,
+		"yOffset": null,
+		"scale": null
+	},
+	{
+		"name": "Siddhartha Mukherjee",
+		"role": "Assistant Professor, Mechanical Engineering, IIT Kanpur",
+		"bluesky": null,
+		"instagram": "https://www.instagram.com/sidzart",
+		"twitter": null,
+		"linkedin": null,
+		"collection": 5,
+		"analysis": 5,
+		"coding": 5,
+		"designing": 5,
+		"narrating": 5,
+		"strength": "Coding visualizations",
+		"image": "siddhartha.avif",
+		"order": 100,
+		"xOffset": null,
+		"yOffset": null,
+		"scale": null
 	}
 ]

@@ -744,6 +744,7 @@ longDescription = "Have you ever hit the limits of chart plugins and wanted to d
 display = true
 pageReady = true
 ticketCode = "workshop_2026_d3_viz"
+soldOut = true
 order = 3
 
 [[session.speakers]]
