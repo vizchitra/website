@@ -2,50 +2,32 @@
 	/** @type {any} */
 	export let memberData = {};
 
-	// 50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%
-	let regularPentagonPoints = [
-		{ x: 50, y: 0 },
-		{ x: 100, y: 38 },
-		{ x: 82, y: 100 },
-		{ x: 18, y: 100 },
-		{ x: 0, y: 38 }
-	];
+	// Recompute reactively from memberData so that when the list is reordered
+	// (each block reused with a new person) the pentagon shape + clip-path stay
+	// in sync with that person's image, name and ratings.
+	$: points = computePoints(memberData);
+	$: clipPath = points.map((point) => `${point.x}% ${point.y}%`).join(', ');
 
-	$: points = computePoints(regularPentagonPoints);
-	let clipPath;
-
-	function computePoints(points) {
+	function computePoints(member) {
 		const MIN_VALUE = 55;
 
-		let adjustedPoints = points.slice();
-
-		let data = [
-			memberData['collection'],
-			memberData['analysis'],
-			memberData['coding'],
-			memberData['designing'],
-			memberData['narrating']
+		const data = [
+			member['collection'],
+			member['analysis'],
+			member['coding'],
+			member['designing'],
+			member['narrating']
 		];
 
+		const adjustedPoints = [];
 		for (let i = 0; i < 5; i++) {
-			let angle = (2 * Math.PI) / 5;
-			let x1 =
-				50 +
-				((Math.cos(-i * angle - Math.PI / 2) *
-					(MIN_VALUE + ((100 - MIN_VALUE - 5) * data[i]) / 5)) /
-					100) *
-					50;
-			let y1 =
-				50 +
-				((Math.sin(-i * angle - Math.PI / 2) *
-					(MIN_VALUE + ((100 - MIN_VALUE - 5) * data[i]) / 5)) /
-					100) *
-					50;
-			adjustedPoints[i].x = x1;
-			adjustedPoints[i].y = y1;
+			const angle = (2 * Math.PI) / 5;
+			const r = MIN_VALUE + ((100 - MIN_VALUE - 5) * data[i]) / 5;
+			adjustedPoints.push({
+				x: 50 + ((Math.cos(-i * angle - Math.PI / 2) * r) / 100) * 50,
+				y: 50 + ((Math.sin(-i * angle - Math.PI / 2) * r) / 100) * 50
+			});
 		}
-
-		clipPath = adjustedPoints.map((point) => `${point.x}% ${point.y}%`).join(', ');
 		return adjustedPoints;
 	}
 
@@ -102,7 +84,7 @@
 	<div
 		class="member-details w-[150px] max-w-[200px] text-center md:w-[200px] xl:w-[250px] xl:max-w-[250px]"
 	>
-		<div class="mb-2 flex h-[45px] flex-col items-center justify-end">
+		<div class="mt-1 mb-1 flex h-[36px] flex-col items-center justify-end">
 			<h3 class="font-display align-bottom text-[18px] leading-[1] font-bold md:text-[22px]">
 				{memberData.name}
 			</h3>
