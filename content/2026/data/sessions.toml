@@ -1,7 +1,6 @@
 
 # WORKSHOP | AGENTIC DATAVIZ | KARTHIK
 [[session]]
-
 slug = "agentic-dataviz"
 sessionType = "Workshops"
 venue = "Underline Center"
@@ -13,6 +12,7 @@ display = true
 pageReady = true
 ticketCode = "agentic_dataviz"
 order = 1
+soldOut = true
 
 [[session.speakers]]
 name = "Karthik Shashidhar"
@@ -20,7 +20,12 @@ designation = "Data & AI Consultant"
 organisation = ""
 about = "Karthik Shashidhar is a fractional data and AI consultant based in Bangalore. Prior to this, he was founder and CEO of Babbage Insight, and SVP of Data at Delhivery.\n\nHe has written about data, analytics, and AI on his Substack The Art of Data Science since 2022 (before that, on a personal blog since the mid-2000s). He writes a column for Mint and is the author of Between the Buyer and the Seller. He holds a BTech in Computer Science from IIT Madras and an MBA from IIM Bangalore"
 image = "/images/speakers/2026/speaker-karthik.webp"
-social = {website = "https://karthiks.co", instagram = "https://www.instagram.com/skthewimp", linkedin = "https://www.linkedin.com/in/karthikshashidhar/", twitter = "https://x.com/karthiks"}
+
+[session.speakers.social]
+website = "https://karthiks.co"
+instagram = "https://www.instagram.com/skthewimp"
+linkedin = "https://www.linkedin.com/in/karthikshashidhar/"
+twitter = "https://x.com/karthiks"
 
 # TALK | THE SHAPE OF HEALTH COSTS | SAURABH
 [[session]]
