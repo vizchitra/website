@@ -869,5 +869,24 @@
 		"xOffset": null,
 		"yOffset": null,
 		"scale": null
+	},
+	{
+		"name": "Nikita Deshpande",
+		"role": "Independent Illustrator & Animator",
+		"bluesky": null,
+		"instagram": "https://www.instagram.com/we_oink/",
+		"twitter": null,
+		"linkedin": "https://www.linkedin.com/in/nikitadeshpande/",
+		"collection": 2,
+		"analysis": 3,
+		"coding": 4,
+		"designing": 5,
+		"narrating": 5,
+		"strength": "Narrating insights",
+		"image": "nikita.avif",
+		"order": 100,
+		"xOffset": null,
+		"yOffset": null,
+		"scale": null
 	}
 ]
