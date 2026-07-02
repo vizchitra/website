@@ -152,43 +152,26 @@
 		<Prose color="yellow" id="food">
 			<h2>Food &amp; Refreshments</h2>
 			<p>
-				<strong>There is no breakfast on site</strong>, so eat before you arrive or
+				<strong>There is no breakfast on site</strong> on either day, so eat before you arrive or
 				<a
 					href="https://maps.app.goo.gl/cQXBEVRAXU7hWvf77"
 					target="_blank"
 					rel="noopener noreferrer">grab something nearby on your way in</a
-				>. Once you are here, chai and kaapi run all day on the <strong>1st floor</strong>. Help
-				yourself between sessions.
+				>.
 			</p>
+			<h3>Workshop Day // 3rd July</h3>
 			<p>
-				Lunch is complimentary build-your-own <strong>burrito bowls</strong> with a choice of protein,
-				both vegetarian and non-vegetarian, plus nachos and cold drinks on the side.
+				There is no lunch on the workshop day, so plan to grab something nearby. We will have
+				<strong>tea, coffee, cookies and light snacks</strong> during a break in between to keep you going.
 			</p>
 		</Prose>
 
-		<Grid minWidth="28ch" maxColumns={2} gap={6}>
-			<Card variant="bordered" color="teal" title="Vegetarian Bowls 🌱">
-				<p>Pick your protein:</p>
-				<ul>
-					<li>Mexican Paneer</li>
-					<li>Mushroom</li>
-				</ul>
-			</Card>
-			<Card variant="bordered" color="orange" title="Non-Vegetarian Bowls 🍗">
-				<p>Pick your protein:</p>
-				<ul>
-					<li>Crispy Chicken</li>
-					<li>BBQ Chicken</li>
-				</ul>
-			</Card>
-		</Grid>
-
-		<Prose>
-			<h3>Build your bowl</h3>
+		<Prose color="yellow">
+			<h3>Conference Day // 4th July</h3>
 			<p>
-				Whatever protein you choose, your bowl comes with the option to add cilantro lime rice,
-				black or pinto beans, fajita veggies, lettuce, sour cream, and tomato, corn, hot and mild
-				salsas. We'll have live counters to curate your bowl as we go.
+				Chai and kaapi run all day on the <strong>1st floor</strong>, so help yourself between
+				sessions. Lunch is on us: <strong>burrito bowls</strong> with a choice of protein, vegetarian
+				(BBQ Paneer or Crispy Mushroom) or non-vegetarian (BBQ Chicken or Chipotle Chicken).
 			</p>
 		</Prose>
 
