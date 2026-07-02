@@ -565,6 +565,41 @@
 				International Centre (BIC) & Underline Center.
 			</Text>
 			{@render sessionRow('Workshops')}
+
+			<!-- Exhibition-only callout: the exhibition is open on Workshop Day (3rd) -->
+			<a
+				href="/2026/exhibition"
+				class="exhibition-callout group border-viz-orange-dark mt-2 flex flex-col gap-6 rounded-lg border-2 bg-white/80 p-6 no-underline transition-transform hover:scale-[1.01] md:flex-row md:items-center"
+			>
+				<div class="flex shrink-0 gap-3 md:w-2/5">
+					<img
+						src="/images/exhibition/KlimateKundli.jpg"
+						alt="Artwork from the VizChitra 2026 exhibition"
+						class="h-32 w-1/2 rounded-sm object-cover md:h-44"
+						loading="lazy"
+					/>
+					<img
+						src="/images/exhibition/VanishingWings.jpg"
+						alt="Artwork from the VizChitra 2026 exhibition"
+						class="h-32 w-1/2 rounded-sm object-cover md:h-44"
+						loading="lazy"
+					/>
+				</div>
+				<div class="flex flex-col gap-3 md:w-3/5">
+					<Heading tag="h3" align="left" class="font-body text-viz-orange-dark">
+						Can't make it to Conference Day?
+					</Heading>
+					<Text>
+						You can still catch the exhibition. <ColorSpan color="orange">Data, Otherwise</ColorSpan
+						>, our climate and ecology data-art gallery, is open
+						<strong>3:00 to 8:00 PM on Friday, 3rd July</strong> with an exhibition-only pass. Come spend
+						an unhurried evening with the work.
+					</Text>
+					<span class="font-body text-viz-orange-dark font-bold group-hover:underline">
+						Explore the exhibition &rarr;
+					</span>
+				</div>
+			</a>
 		</Stack>
 
 		<DividerCurves />
