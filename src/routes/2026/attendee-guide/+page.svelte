@@ -159,19 +159,19 @@
 					rel="noopener noreferrer">grab something nearby on your way in</a
 				>.
 			</p>
-			<h3>Conference Day // 4th July</h3>
-			<p>
-				Chai and kaapi run all day on the <strong>1st floor</strong>, so help yourself between
-				sessions. Lunch is on us: <strong>burrito bowls</strong> with a choice of protein, vegetarian
-				(Mexican Paneer or Mushroom) or non-vegetarian (Crispy Chicken or BBQ Chicken).
-			</p>
-		</Prose>
-
-		<Prose color="yellow">
 			<h3>Workshop Day // 3rd July</h3>
 			<p>
 				There is no lunch on the workshop day, so plan to grab something nearby. We will have
 				<strong>tea, coffee, cookies and light snacks</strong> during a break in between to keep you going.
+			</p>
+		</Prose>
+
+		<Prose color="yellow">
+			<h3>Conference Day // 4th July</h3>
+			<p>
+				Chai and kaapi run all day on the <strong>1st floor</strong>, so help yourself between
+				sessions. Lunch is on us: <strong>burrito bowls</strong> with a choice of protein, vegetarian
+				(BBQ Paneer or Crispy Mushroom) or non-vegetarian (BBQ Chicken or Chipotle Chicken).
 			</p>
 		</Prose>
 
