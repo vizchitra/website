@@ -162,34 +162,8 @@
 			<h3>Conference Day // 4th July</h3>
 			<p>
 				Chai and kaapi run all day on the <strong>1st floor</strong>, so help yourself between
-				sessions. Lunch is on us: build-your-own <strong>burrito bowls</strong> with a choice of protein,
-				both vegetarian and non-vegetarian, plus nachos and cold drinks on the side.
-			</p>
-		</Prose>
-
-		<Grid minWidth="28ch" maxColumns={2} gap={6}>
-			<Card variant="bordered" color="teal" title="Vegetarian Bowls 🌱">
-				<p>Pick your protein:</p>
-				<ul>
-					<li>Mexican Paneer</li>
-					<li>Mushroom</li>
-				</ul>
-			</Card>
-			<Card variant="bordered" color="orange" title="Non-Vegetarian Bowls 🍗">
-				<p>Pick your protein:</p>
-				<ul>
-					<li>Crispy Chicken</li>
-					<li>BBQ Chicken</li>
-				</ul>
-			</Card>
-		</Grid>
-
-		<Prose>
-			<h3>Build your bowl</h3>
-			<p>
-				Whatever protein you choose, your bowl comes with the option to add cilantro lime rice,
-				black or pinto beans, fajita veggies, lettuce, sour cream, and tomato, corn, hot and mild
-				salsas. We'll have live counters to curate your bowl as we go.
+				sessions. Lunch is on us: <strong>burrito bowls</strong> with a choice of protein, vegetarian
+				(Mexican Paneer or Mushroom) or non-vegetarian (Crispy Chicken or BBQ Chicken).
 			</p>
 		</Prose>
 
@@ -197,7 +171,7 @@
 			<h3>Workshop Day // 3rd July</h3>
 			<p>
 				There is no lunch on the workshop day, so plan to grab something nearby. We will have
-				<strong>tea, coffee, cookies and light snacks</strong> between sessions to keep you going.
+				<strong>tea, coffee, cookies and light snacks</strong> during a break in between to keep you going.
 			</p>
 		</Prose>
 
