@@ -137,11 +137,11 @@
 		<Prose color="teal" id="registration">
 			<h2>Registration</h2>
 			<p>
-				Registration opens at <strong>8:15 AM</strong> on the conference day. Show your confirmation email
+				Registration opens at <strong>8:30 AM</strong> on the conference day. Show your confirmation email
 				at the registration desk to collect your conference badge and kit.
 			</p>
 			<p>
-				The event starts sharp at <strong>9:00 AM</strong>, and Bangalore traffic can be
+				The event starts sharp at <strong>9:30 AM</strong>, and Bangalore traffic can be
 				unpredictable, so arrive early.
 			</p>
 		</Prose>
