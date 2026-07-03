@@ -29,6 +29,7 @@
 				{ name: 'Schedule', href: '/2026/schedule', group: 'primary', emoji: '🗓️' },
 				{ name: 'Sessions', href: '/2026/sessions', group: 'primary', emoji: '🎤' },
 				{ name: 'Exhibition', href: '/2026/exhibition', group: 'primary', emoji: '🖼️' },
+				{ name: 'Live Streams', href: 'https://live.vizchitra.com', group: 'primary', emoji: '🎥' },
 				{ name: 'Attendee Guide', href: '/2026/attendee-guide', group: 'primary', emoji: '🗺️' },
 				{ name: 'Sponsorship', href: '/2026/sponsorship', group: 'secondary' },
 				{ name: 'Scholarships', href: '/2026/scholarships', group: 'secondary' },

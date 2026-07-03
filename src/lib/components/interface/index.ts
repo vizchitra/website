@@ -1,6 +1,8 @@
 export { default as MarqueeRow } from './MarqueeRow.svelte';
 export { default as Button } from './Button.svelte';
 export { default as VideoModal } from './VideoModal.svelte';
+export { default as VideoLightBox } from './VideoLightBox.svelte';
+export { default as VideoThumbnail } from './VideoThumbnail.svelte';
 export { default as InlineSvg } from './InlineSvg.svelte';
 export { default as ButtonBar } from './ButtonBar.svelte';
 export { default as Dropdown } from './Dropdown.svelte';

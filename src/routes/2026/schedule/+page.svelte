@@ -21,6 +21,8 @@
 	} from '$lib/utils/schedule';
 	import type { PageData } from './$types';
 	import { utcParse, utcFormat } from 'd3';
+	import { replaceState } from '$app/navigation';
+	import { browser } from '$app/environment';
 
 	let { data }: { data: PageData } = $props();
 
@@ -31,10 +33,30 @@
 		return parsed ? formatDay(parsed) : schedule.day;
 	});
 
-	// Days are ordered chronologically; default to the last (latest) = Conference.
+	const dayKey = (d: { name: string }) => d.name.toLowerCase();
+
+	// Days are ordered chronologically; default to the last (latest) = Conference,
+	// unless a ?day= query param picks one out.
 	// One-time initial value by design — the day set never changes after load.
 	// svelte-ignore state_referenced_locally
-	let activeDayIndex = $state(data.days.length - 1);
+	let activeDayIndex = $state(
+		(() => {
+			const lastIndex = data.days.length - 1;
+			if (!browser) return lastIndex;
+			const param = new URLSearchParams(location.search).get('day');
+			const index = data.days.findIndex((d) => dayKey(d) === param);
+			return index >= 0 ? index : lastIndex;
+		})()
+	);
+
+	function setDay(index: number) {
+		activeDayIndex = index;
+		const isDefault = index === data.days.length - 1;
+		const params = new URLSearchParams();
+		if (!isDefault) params.set('day', dayKey(data.days[index]));
+		const search = params.toString();
+		replaceState(`/2026/schedule${search ? `?${search}` : ''}`, {});
+	}
 	const schedule = $derived(data.days[activeDayIndex]);
 	const sessionsBySlug = $derived(data.sessionsBySlug);
 	const exhibitions = $derived(data.exhibitions);
@@ -61,7 +83,13 @@
 		...exhibitions,
 		...resolvedSlots
 			.filter((r) => r.slot.track === exhibitionTrack)
-			.map((r) => ({ title: r.title, speaker: r.speaker, role: r.role, href: r.href }))
+			.map((r) => ({
+				title: r.title,
+				speaker: r.speaker,
+				role: r.role,
+				speakers: r.speakers,
+				href: r.href
+			}))
 	]);
 
 	// Only surface legend entries whose colour actually appears on the active day.
@@ -164,7 +192,7 @@
 			{#each data.days as d, i}
 				<button
 					type="button"
-					onclick={() => (activeDayIndex = i)}
+					onclick={() => setDay(i)}
 					class="rounded-full px-4 py-1.5 transition-colors {i === activeDayIndex
 						? 'bg-viz-grey-dark text-viz-white'
 						: 'text-viz-grey-dark hover:bg-viz-grey-light'}"
@@ -323,6 +351,13 @@
 										><span class="font-bold">{ex.speaker}</span>{#if ex.role}, {ex.role}{/if}</span
 									>
 								{/if}
+								{#if ex.speakers}
+									{#each ex.speakers as sp}
+										<span class="block text-[14px]"
+											><span class="font-bold">{sp.name}</span>{#if sp.role}, {sp.role}{/if}</span
+										>
+									{/each}
+								{/if}
 							</svelte:element>
 						{/each}
 					</div>
@@ -451,6 +486,18 @@
 	.slot-color-grey {
 		background: #fff;
 		border: 1px solid #555;
+		color: #222;
+	}
+	.slot-color-rainbow {
+		background: linear-gradient(
+			90deg,
+			var(--color-viz-blue-light),
+			var(--color-viz-teal-light),
+			var(--color-viz-pink-light),
+			var(--color-viz-orange-light),
+			var(--color-viz-yellow-light)
+		);
+		border: 2px solid #555;
 		color: #222;
 	}
 
