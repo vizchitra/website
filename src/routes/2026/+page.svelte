@@ -16,7 +16,9 @@
 		Container,
 		Stack,
 		Cluster,
-		CursorHint
+		CursorHint,
+		VideoLightBox,
+		VideoThumbnail
 	} from '$lib/components';
 	import SessionCardExpanded from '$lib/components/sessions/SessionCardExpanded.svelte';
 	import PhotoStrip from '$lib/components/sections/PhotoStrip.svelte';
@@ -285,6 +287,8 @@
 	let quoteIndex = $state(0);
 	let videoOpen = $state(false);
 	const videoId = 'LfJLCueKkb0';
+	let shortOpen = $state(false);
+	const shortVideoId = 'cKx04ECfAEE';
 	let currentQuote = $derived(quotes[quoteIndex]);
 	let quoteTimer: ReturnType<typeof setInterval>;
 
@@ -440,109 +444,103 @@
 	<div class="feedback-inner">
 		<h2 class="feedback-heading">What attendees told us after VizChitra 2025</h2>
 
-		<p class="feedback-context">How was your overall experience?</p>
-		<div class="stacked-bar">
-			<div
-				class="bar-segment"
-				style="width: 25%; background: oklch(96% 0.03 354);"
-				title="Far exceeded expectations (25%)"
-			></div>
-			<div
-				class="bar-segment"
-				style="width: 32%; background: oklch(84% 0.12 354);"
-				title="Better than expected (32%)"
-			></div>
-			<div
-				class="bar-segment"
-				style="width: 25%; background: oklch(66% 0.18 354);"
-				title="Met expectations (25%)"
-			></div>
-			<div
-				class="bar-segment"
-				style="width: 17%; background: oklch(46% 0.17 354);"
-				title="Met some expectations (17%)"
-			></div>
-			<div
-				class="bar-segment"
-				style="width: 1%; background: oklch(36% 0.15 354);"
-				title="Did not meet (1%)"
-			></div>
-		</div>
-		<div class="bar-legend">
-			<span class="legend-item"
-				><span class="legend-dot" style="background: oklch(96% 0.03 354);"></span> Far exceeded (25%)</span
-			>
-			<span class="legend-item"
-				><span class="legend-dot" style="background: oklch(84% 0.12 354);"></span> Better than expected
-				(32%)</span
-			>
-			<span class="legend-item"
-				><span class="legend-dot" style="background: oklch(66% 0.18 354);"></span> Met expectations (25%)</span
-			>
-			<span class="legend-item"
-				><span class="legend-dot" style="background: oklch(46% 0.17 354);"></span> Met some (17%)</span
-			>
-		</div>
+		<div class="feedback-media-row">
+			<div class="feedback-quote-col">
+				<Stack space="md">
+					<h3 class="feedback-context">How was your overall experience?</h3>
+					<div class="stacked-bar">
+						<div
+							class="bar-segment"
+							style="width: 25%; background: oklch(96% 0.03 354);"
+							title="Far exceeded expectations (25%)"
+						></div>
+						<div
+							class="bar-segment"
+							style="width: 32%; background: oklch(84% 0.12 354);"
+							title="Better than expected (32%)"
+						></div>
+						<div
+							class="bar-segment"
+							style="width: 25%; background: oklch(66% 0.18 354);"
+							title="Met expectations (25%)"
+						></div>
+						<div
+							class="bar-segment"
+							style="width: 17%; background: oklch(46% 0.17 354);"
+							title="Met some expectations (17%)"
+						></div>
+						<div
+							class="bar-segment"
+							style="width: 1%; background: oklch(36% 0.15 354);"
+							title="Did not meet (1%)"
+						></div>
+					</div>
+					<div class="bar-legend">
+						<span class="legend-item"
+							><span class="legend-dot" style="background: oklch(96% 0.03 354);"></span> Far exceeded
+							(25%)</span
+						>
+						<span class="legend-item"
+							><span class="legend-dot" style="background: oklch(84% 0.12 354);"></span> Better than expected
+							(32%)</span
+						>
+						<span class="legend-item"
+							><span class="legend-dot" style="background: oklch(66% 0.18 354);"></span> Met expectations
+							(25%)</span
+						>
+						<span class="legend-item"
+							><span class="legend-dot" style="background: oklch(46% 0.17 354);"></span> Met some (17%)</span
+						>
+					</div>
+					<h3 class="feedback-subheading">What they liked most</h3>
 
-		<h3 class="feedback-subheading">What they liked most</h3>
-
-		<div class="quote-rotator">
-			{#key quoteIndex}
-				<div class="quote-anim">
-					<p class="quote-rotating">{'\u201C'}{currentQuote.text}{'\u201D'}</p>
-				</div>
-			{/key}
-		</div>
-
-		<button
-			class="video-thumbnail"
-			onclick={() => (videoOpen = true)}
-			aria-label="Watch VizChitra 2025 recap video"
-		>
-			<img
-				src="/images/events/recap-2025-thumbnail.webp"
-				alt="VizChitra 2025 Recap"
-				class="video-thumbnail-img"
-			/>
-			<div class="video-play-overlay">
-				<svg viewBox="0 0 80 80" width="80" height="80">
-					<circle cx="40" cy="40" r="38" fill="white" opacity="0.9" />
-					<polygon
-						points="32,24 32,56 58,40"
-						fill="var(--color-viz-pink-solid, oklch(46% 0.17 354))"
-					/>
-				</svg>
-				<p class="video-play-text">Watch our 2025 Film</p>
+					<div class="quote-rotator">
+						{#key quoteIndex}
+							<div class="quote-anim">
+								<p class="quote-rotating">{'\u201C'}{currentQuote.text}{'\u201D'}</p>
+							</div>
+						{/key}
+					</div>
+				</Stack>
 			</div>
-		</button>
+
+			<div class="video-thumbnails">
+				<!-- <VideoThumbnail
+					src="/images/events/recap-2025-thumbnail.webp"
+					alt="VizChitra 2025 Recap"
+					caption="Watch our 2025 Film"
+					ariaLabel="Watch VizChitra 2025 recap video"
+					onclick={() => (videoOpen = true)}
+				/> -->
+
+				<VideoThumbnail
+					src="https://img.youtube.com/vi/{shortVideoId}/hqdefault.jpg"
+					alt="VizChitra Short"
+					caption="VizChitra 2026 is back"
+					ariaLabel="Watch VizChitra 2026 Short"
+					orientation="vertical"
+					onclick={() => (shortOpen = true)}
+				/>
+			</div>
+		</div>
 	</div>
 </div>
 
-{#if videoOpen}
-	<div
-		class="video-lightbox"
-		onclick={(e) => e.target === e.currentTarget && (videoOpen = false)}
-		onkeydown={(e) => e.key === 'Escape' && (videoOpen = false)}
-		role="dialog"
-		tabindex="-1"
-	>
-		<div class="video-lightbox-inner">
-			<button
-				class="video-lightbox-close"
-				onclick={() => (videoOpen = false)}
-				aria-label="Close video">✕</button
-			>
-			<div class="video-lightbox-iframe">
-				<iframe
-					src="https://www.youtube.com/embed/{videoId}?autoplay=1"
-					title="VizChitra 2025 Recap"
-					allow="autoplay; encrypted-media; picture-in-picture"
-					allowfullscreen
-				></iframe>
-			</div>
-		</div>
-	</div>
-{/if}
+<!-- <VideoLightBox
+	{videoId}
+	show={videoOpen}
+	onClose={() => (videoOpen = false)}
+	orientation="horizontal"
+	title="VizChitra 2025 Recap"
+/> -->
+
+<VideoLightBox
+	videoId={shortVideoId}
+	show={shortOpen}
+	onClose={() => (shortOpen = false)}
+	orientation="vertical"
+	title="VizChitra 2026 is back!"
+/>
 
 <Container>
 	<Stack>
@@ -897,25 +895,27 @@
 		font-family: var(--font-display);
 		font-size: 1.3rem;
 		font-weight: 700;
-		margin: 2.5rem 0 1rem;
+		margin: 0;
 		opacity: 0.7;
 		text-transform: uppercase;
 		letter-spacing: 0.05em;
-		text-align: center;
+		text-align: left;
 	}
 
 	.feedback-context {
-		font-size: 1rem;
-		opacity: 0.6;
-		margin: 0 0 0.5rem;
+		font-family: var(--font-display);
+		font-size: 1.3rem;
+		font-weight: 700;
+		margin: 0;
+		opacity: 0.7;
 		text-transform: uppercase;
 		letter-spacing: 0.05em;
-		text-align: center;
-		font-weight: 600;
+		text-align: left;
 	}
 
 	.stacked-bar {
 		display: flex;
+		width: 100%;
 		height: 28px;
 		border-radius: 4px;
 		overflow: hidden;
@@ -930,9 +930,9 @@
 
 	.bar-legend {
 		display: flex;
-		gap: 1.5rem;
+		column-gap: 1.5rem;
+		row-gap: 0.3rem;
 		flex-wrap: wrap;
-		margin-top: 0.75rem;
 		justify-content: center;
 	}
 
@@ -953,16 +953,32 @@
 
 	/* ── Rotating quote ────────────────────────────────────────────── */
 
-	.quote-rotator {
-		min-height: 130px;
+	.feedback-media-row {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: flex-start;
+		justify-content: center;
+		gap: 4rem;
+	}
+
+	.feedback-quote-col {
+		flex: 1 1 auto;
+		min-width: 280px;
 		max-width: 700px;
-		margin: 0 auto;
+	}
+
+	.quote-rotator {
+		height: 12.6rem;
 		position: relative;
 		overflow: hidden;
-		text-align: center;
+		text-align: left;
+		display: flex;
+		align-items: flex-start;
+		justify-content: flex-start;
 	}
 
 	.quote-anim {
+		width: 100%;
 		animation: quoteFadeUp 6s ease both;
 	}
 
@@ -992,98 +1008,32 @@
 		line-height: 1.5;
 		font-style: italic;
 		color: #eee;
-		margin: 0 0 0.5rem;
-	}
-
-	.video-thumbnail {
-		position: relative;
-		display: block;
-		width: 100%;
-		max-width: 700px;
-		margin: 2rem auto 0;
-		cursor: pointer;
-		border: none;
-		background: none;
-		padding: 0;
-		border-radius: 8px;
-		overflow: hidden;
-	}
-
-	.video-thumbnail-img {
-		width: 100%;
-		display: block;
-		border-radius: 8px;
-		transition: transform 0.3s ease;
-		max-height: 350px;
-		object-fit: cover;
-	}
-
-	.video-thumbnail:hover .video-thumbnail-img {
-		transform: scale(1.02);
-	}
-
-	.video-play-overlay {
-		position: absolute;
-		inset: 0;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-		gap: 0.75rem;
-	}
-
-	.video-play-text {
-		font-family: var(--font-display);
-		font-size: 1.3rem;
-		font-weight: 800;
-		color: white;
 		margin: 0;
-		text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 6;
+		line-clamp: 6;
+		overflow: hidden;
+		text-overflow: ellipsis;
 	}
 
-	.video-lightbox {
-		position: fixed;
-		inset: 0;
-		z-index: 100;
-		background: rgba(0, 0, 0, 0.85);
+	.video-thumbnails {
 		display: flex;
-		align-items: center;
+		flex-wrap: wrap;
+		align-items: flex-start;
 		justify-content: center;
-		padding: 2rem;
+		gap: 1.5rem;
+		flex: 0 0 200px;
 	}
 
-	.video-lightbox-inner {
-		position: relative;
-		width: 100%;
-		max-width: 1100px;
-	}
+	@media (max-width: 768px) {
+		.feedback-media-row {
+			flex-direction: column;
+		}
 
-	.video-lightbox-close {
-		position: absolute;
-		top: -2.5rem;
-		right: 0;
-		background: none;
-		border: none;
-		color: white;
-		font-size: 1.5rem;
-		cursor: pointer;
-		padding: 0.5rem;
-	}
-
-	.video-lightbox-iframe {
-		position: relative;
-		width: 100%;
-		padding-bottom: 56.25%;
-	}
-
-	.video-lightbox-iframe iframe {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		border: none;
-		border-radius: 8px;
+		.feedback-quote-col {
+			max-width: 100%;
+		}
 	}
 
 	/* ── How to Attend cards ───────────────────────────────────────── */

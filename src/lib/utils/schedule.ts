@@ -41,6 +41,7 @@ export interface ExhibitionEntry {
 	title: string;
 	speaker?: string;
 	role?: string;
+	speakers?: ResolvedSpeaker[];
 	href: string;
 }
 
@@ -51,11 +52,22 @@ export function resolveExhibitions(sessions: SessionData[]): ExhibitionEntry[] {
 		.sort((a, b) => getSessionOrder(a) - getSessionOrder(b))
 		.map((s) => {
 			const primary = s.speakers?.[0];
+			// Populate speakers only when there are multiple (matches resolveSlot's convention).
+			const speakers: ResolvedSpeaker[] | undefined =
+				(s.speakers?.length ?? 0) > 1
+					? s.speakers.map((sp) => ({
+							...sp,
+							role: [sp.designation, sp.organisation].filter(Boolean).join(', ')
+						}))
+					: undefined;
 			return {
 				slug: s.slug,
 				title: s.title,
-				speaker: primary?.name || undefined,
-				role: [primary?.designation, primary?.organisation].filter(Boolean).join(', ') || undefined,
+				speaker: speakers ? undefined : primary?.name || undefined,
+				role: speakers
+					? undefined
+					: [primary?.designation, primary?.organisation].filter(Boolean).join(', ') || undefined,
+				speakers,
 				href: `/2026/exhibition#${s.slug}`
 			};
 		});
@@ -70,7 +82,7 @@ export interface ResolvedSpeaker extends Speaker {
 export interface ResolvedSlot {
 	slot: ScheduleSlot;
 	kind: SlotKind;
-	color: 'blue' | 'teal' | 'pink' | 'orange' | 'yellow' | 'grey';
+	color: 'blue' | 'teal' | 'pink' | 'orange' | 'yellow' | 'grey' | 'rainbow';
 	title: string;
 	speaker?: string;
 	role?: string;
@@ -266,11 +278,15 @@ export function breakKey(r: ResolvedSlot): string {
 	return `${r.slot.start}-${r.slot.end}-${r.title}`;
 }
 
+/** Slot types that render as one full-width row when repeated across every track
+ *  (breaks/entries/exits, plus shared venue-wide OTHER events like a speaker dinner). */
+const SPANNABLE_TYPES = new Set(['BREAK', 'ENTRY', 'EXIT', 'OTHER']);
+
 /** Keys of breaks present in every track; these render as one full-width row. */
 export function computeSpanningBreakKeys(slots: ResolvedSlot[], trackCount: number): Set<string> {
 	const count = new Map<string, number>();
 	for (const r of slots) {
-		if (r.kind !== 'break') continue;
+		if (!SPANNABLE_TYPES.has((r.slot.type ?? '').toUpperCase())) continue;
 		count.set(breakKey(r), (count.get(breakKey(r)) ?? 0) + 1);
 	}
 	const keys = new Set<string>();
@@ -280,7 +296,7 @@ export function computeSpanningBreakKeys(slots: ResolvedSlot[], trackCount: numb
 
 /** Whether a slot is a break common to all tracks (drawn as one full-width row). */
 export function isSpanningBreak(r: ResolvedSlot, spanningKeys: Set<string>): boolean {
-	return r.kind === 'break' && spanningKeys.has(breakKey(r));
+	return SPANNABLE_TYPES.has((r.slot.type ?? '').toUpperCase()) && spanningKeys.has(breakKey(r));
 }
 
 /** Drop the per-track duplicates of each spanning break so it renders once. */
@@ -330,7 +346,7 @@ export const scheduleLegend: LegendEntry[] = [
 		label,
 		color
 	})),
-	{ label: 'Other', color: 'grey' }
+	{ label: 'Others', color: 'grey' }
 ];
 
 /** Legend filtered to the colours actually present among the given slots. */
