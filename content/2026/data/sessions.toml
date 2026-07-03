@@ -500,20 +500,13 @@ venue = "Bangalore International Centre"
 title = "Panes of Heat"
 subtitle = "Windows into a future too hot to step outside"
 shortDescription = ""
-longDescription = "A summer afternoon in Delhi reads 42°C on the weather app. For a street vendor selling fruit by the roadside, the experience of heat is closer to 50°C. \n\n As the world warms, this gap between heat data and lived experience of heat continues to widen. Days feel hotter, nights offer less relief, and prolonged heat impairs the body's ability to step outdoors, work, travel, rest, and recover.  \n\n Panes of Heat translates a year of urban heat into architectural form. Two skyscrapers stand side by side: one records air temperature, the other shows felt temperature. Each window is a day in 2024, the hottest year on record globally. Each passing hour on the clock points to two different realities of the same day.  \n\n The towers are reflective of concrete spaces that hold heat long into the night. Viewers are invited to feel the contrast between recorded temperatures and what the body endures: a dynamic, uneven, and unequally distributed experience of heat. \n\n We would like to thank Parth Bisen and Aditi Bhatt for their help in building this project."
+longDescription = "A summer afternoon in Delhi reads 42°C on the weather app. For a street vendor selling fruit by the roadside, the experience of heat is closer to 50°C. \n\n As the world warms, this gap between heat data and lived experience of heat continues to widen. Days feel hotter, nights offer less relief, and prolonged heat impairs the body's ability to step outdoors, work, travel, rest, and recover.  \n\n Panes of Heat translates a year of urban heat into architectural form. Two skyscrapers stand side by side: one records air temperature, the other shows felt temperature. Each window is a day in 2024, the hottest year on record globally. Each passing hour on the clock points to two different realities of the same day.  \n\n The towers are reflective of concrete spaces that hold heat long into the night. Viewers are invited to feel the contrast between recorded temperatures and what the body endures: a dynamic, uneven, and unequally distributed experience of heat."
 display = true
 pageReady = true
 order = 19
 exhibitNumber = 7
 artworkHeroImage = "/images/exhibition/PanesHeat.jpg"
 
-[[session.speakers]]
-name = "Surbhi Bhatia"
-designation = "Data Journalist"
-organisation = ""
-about = "Surbhi is a data journalist, and has spent many years searching for insights and composing stories that are coded and designed to turn numbers into striking and memorable visuals. She loves working on diverse topics to uncover what really may be happening in the boundless worlds of bollywood movies, digital commerce, climate change, urbanisation, and chocolates!\n\nShe has worked with different mindsets across many settings like: urgency in newsrooms, immersion in academia, clarity in communications, and creativity in design studios. She agrees that correlation is not causation, but believes strongly that walkable cities make for a better life. She has worked with xKDR Forum, Mint, World Bank, Thibi, Open Network for Digital Commerce, and written for Kontinentalist, Nikkei Asia, Indiaspend, The Hindu, and more. Her work has been recognised by the Society for Advancing Business Editing and Writing (SABEW), Festival de Datos, and The Pudding."
-image = "/images/speakers/2026/speaker-surbhi.webp"
-social = {website = "https://surbhibhatia.com/", instagram = "https://www.instagram.com/surbhibhatia", linkedin = "https://www.linkedin.com/in/surbhi-bhatia/", twitter = "https://x.com/surbhaai"}
 
 
 [[session.speakers]]
@@ -524,7 +517,13 @@ about = "Kashvi is an editorial designer at The Ken, turning complex ideas into 
 image = "/images/speakers/2026/speaker-kashvi.webp"
 social = {website = "https://kashvibansal.blog", instagram = "https://www.instagram.com/kashvi_bansal", linkedin = "https://www.linkedin.com/in/kashvibansal/", twitter = "https://x.com/kashviibansal"}
 
-
+[[session.speakers]]
+name = "Surbhi Bhatia"
+designation = "Data Journalist"
+organisation = ""
+about = "Surbhi is a data journalist, and has spent many years searching for insights and composing stories that are coded and designed to turn numbers into striking and memorable visuals. She loves working on diverse topics to uncover what really may be happening in the boundless worlds of bollywood movies, digital commerce, climate change, urbanisation, and chocolates!\n\nShe has worked with different mindsets across many settings like: urgency in newsrooms, immersion in academia, clarity in communications, and creativity in design studios. She agrees that correlation is not causation, but believes strongly that walkable cities make for a better life. She has worked with xKDR Forum, Mint, World Bank, Thibi, Open Network for Digital Commerce, and written for Kontinentalist, Nikkei Asia, Indiaspend, The Hindu, and more. Her work has been recognised by the Society for Advancing Business Editing and Writing (SABEW), Festival de Datos, and The Pudding."
+image = "/images/speakers/2026/speaker-surbhi.webp"
+social = {website = "https://surbhibhatia.com/", instagram = "https://www.instagram.com/surbhibhatia", linkedin = "https://www.linkedin.com/in/surbhi-bhatia/", twitter = "https://x.com/surbhaai"}
 
 [[session.speakers]]
 name = "Parth Bisen"
@@ -679,14 +678,6 @@ exhibitNumber = 3
 artworkHeroImage = "/images/exhibition/PollutionWasnt.jpg"
 
 [[session.speakers]]
-name = "Aman Bhargava"
-designation = "Developer"
-organisation = "Diagram Chasing"
-about = "Aman Bhargava is a developer and independent researcher. He is interested in public-interest technology and making charts, with his work appearing in Reuters, Rest of World, and Unearthed by Greenpeace.\n\nHe co-runs Diagram Chasing, an independent publication dedicated to turning public data into compelling, accessible visual stories and tools."
-image = "/images/speakers/2026/speaker-aman.webp"
-social = {website = "https://aman.bh", instagram = "https://www.instagram.com/thedivtagguy", linkedin = "https://www.linkedin.com/in/amnbh/", twitter = "https://x.com/thedivtagguy"}
-
-[[session.speakers]]
 name = "Aditya Jain"
 designation = "Designer & Technologist"
 organisation = ""
@@ -701,6 +692,16 @@ organisation = "Diagram Chasing"
 about = "Vivek is an Open data hobbyist. Government website collector. Occasional mapmaker. He co-runs Diagram Chasing, an independent publication dedicated to turning public data into compelling, accessible visual stories and tools."
 image = "/images/speakers/2026/speaker-vivek.webp"
 social = {linkedin = "https://www.linkedin.com/in/vivek-m-92818riri/", twitter = "https://x.com/Vonterinon"}
+
+[[session.speakers]]
+name = "Aman Bhargava"
+designation = "Developer"
+organisation = "Diagram Chasing"
+about = "Aman Bhargava is a developer and independent researcher. He is interested in public-interest technology and making charts, with his work appearing in Reuters, Rest of World, and Unearthed by Greenpeace.\n\nHe co-runs Diagram Chasing, an independent publication dedicated to turning public data into compelling, accessible visual stories and tools."
+image = "/images/speakers/2026/speaker-aman.webp"
+social = {website = "https://aman.bh", instagram = "https://www.instagram.com/thedivtagguy", linkedin = "https://www.linkedin.com/in/amnbh/", twitter = "https://x.com/thedivtagguy"}
+
+
 
 
 
@@ -913,7 +914,7 @@ social = {}
 slug = "so-you-want-to-work-with-data"
 sessionType = "Dialogues"
 venue = "Bangalore International Centre"
-title = "AMA: So You Want to Work with Data"
+title = "AMA: So You Want to Work with Data."
 subtitle = "A career in data viz is less a path and more a series of educated guesses. Three practitioners on theirs."
 shortDescription = "Data visualization has no single entry point. People arrive from journalism, design, engineering, social science, and places that have otherwise little to do with charts. If you're trying to figure out how to actually get into this field, what to learn, what kind of work exists, whether it pays — this is for you. A panel discussion with three practitioners who talk honestly about the work, the career, and how they found their way in."
 longDescription = "Data visualization sits at an uncomfortable intersection;  part design, part journalism, part engineering, part storytelling. Nobody arrives fully prepared and everyone spends at least some time feeling like an imposter. If you're early in your journey and wondering whether a career in data viz is for you — and where you'd even begin — this session is for you. \n\n What do you actually need to know before you touch a tool? What does a typical workday or a real project look like? What are the career structures that exist in this field in India, and what does compensation actually look like across them? Three practitioners — Sandeep Karmarkar, Hamsa Ganesh, and Areena Arora — with varying experiences, will address these questions from three different vantage points. Between them, they represent the corporate design track, the independent studio track, and the newsroom track. The conversation will be structured, yet informal. \n\n No one usually has it all charted out. No maps for a career in this field. But by the end of the session, you'll leave with a clearer picture of where you might fit, a more honest sense of what the work actually demands, and at least one answer to a question you've been carrying around for a while. Where your path goes from here is still yours to figure out. But you'll have a better sense of the terrain."
@@ -929,8 +930,6 @@ about = "Anushka Gokhale is a Product Designer and number-crunching storyteller.
 image = "/images/speakers/2026/speaker-anushka.webp"
 social = {website = "https://www.anushkagokhale.com", instagram = "https://www.instagram.com/anushahahaka", linkedin = "https://www.linkedin.com/in/anushkaag/", twitter = "https://x.com/GokhaleAnushka"}
 moderator = true
-
-
 
 [[session.speakers]]
 name = "Sandeep Karmarkar"
@@ -1027,13 +1026,13 @@ display = true
 pageReady = true
 order = 43
 
-[[session.speakers]]
-name = "Tushar Chakrabarty"
-designation = "Associate Manager"
-organisation = "Janaagraha"
-about = "Tushar is a public finance professional with experience ofworking across union, state, and municipal finances. He has authored multiple publications analysing the finances of union and state governments. He began his career as a journalist, covering events and telling stories impacting India's economy. At Janaagraha, he works towards making urban finance data more accessible for various stakeholders."
-image = "/images/speakers/2026/speaker-tushar.webp"
-social = {website = "https://tusharchakrabarty.substack.com/?utm_campaign=profile_chips"}
+# [[session.speakers]]
+# name = "Tushar Chakrabarty"
+# designation = "Associate Manager"
+# organisation = "Janaagraha"
+# about = "Tushar is a public finance professional with experience ofworking across union, state, and municipal finances. He has authored multiple publications analysing the finances of union and state governments. He began his career as a journalist, covering events and telling stories impacting India's economy. At Janaagraha, he works towards making urban finance data more accessible for various stakeholders."
+# image = "/images/speakers/2026/speaker-tushar.webp"
+# social = {website = "https://tusharchakrabarty.substack.com/?utm_campaign=profile_chips"}
 
 [[session.speakers]]
 name = "Shobana Venkatasubbu"

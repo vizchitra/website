@@ -1,6 +1,11 @@
 <script lang="ts">
 	const socials = [
 		{
+			icon: '/images/socials/whatsapp.svg',
+			alt: 'VizChitra WhatsApp link',
+			link: 'https://vizchitra.com/friends/'
+		},
+		{
 			icon: '/images/socials/instagram.svg',
 			alt: 'VizChitra instagram link',
 			link: 'https://www.instagram.com/vizchitra/'

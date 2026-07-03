@@ -7,20 +7,21 @@
 [[day]]
 day = "2026-07-03"
 name = "Workshops"
-tracks = ["Underline - FLR 2", "Underline - FLR 3", "BIC - BOARD ROOM", "BIC - LIBRARY", "Gallery"]
+tracks = ["Underline - FLOOR 2", "Underline - FLOOR 3", "BIC - BOARD ROOM", "BIC - LIBRARY", "Gallery"]
 galleryStart = "15:00"
 galleryEnd = "20:00"
 
 # --- Registration (one per room → renders as a single spanning row) ---
 [[day.slot]]
-track = "Underline - FLR 2"
+track = "Underline - FLOOR 2"
 start = "09:30"
 end = "10:00"
 type = "ENTRY"
 label = "Registration"
+description = "Scan your QR code and get ready for you session"
 
 [[day.slot]]
-track = "Underline - FLR 3"
+track = "Underline - FLOOR 3"
 start = "09:30"
 end = "10:00"
 type = "ENTRY"
@@ -42,14 +43,16 @@ label = "Registration"
 
 # --- Afternoon registration ---
 [[day.slot]]
-track = "Underline - FLR 2"
+track = "Underline - FLOOR 2"
 start = "14:00"
 end = "14:30"
 type = "ENTRY"
 label = "Registration"
+description = "Scan your QR code and get ready for you session"
+
 
 [[day.slot]]
-track = "Underline - FLR 3"
+track = "Underline - FLOOR 3"
 start = "14:00"
 end = "14:30"
 type = "ENTRY"
@@ -71,26 +74,26 @@ label = "Registration"
 
 # --- Underline Center, FLOOR 2 ---
 [[day.slot]]
-track = "Underline - FLR 2"
+track = "Underline - FLOOR 2"
 start = "10:00"
 end = "13:00"
 session = "observe-collect-map"
 
 [[day.slot]]
-track = "Underline - FLR 2"
+track = "Underline - FLOOR 2"
 start = "14:30"
 end = "17:30"
 session = "from-tables-to-maps"
 
 # --- Underline Center, FLOOR 3 ---
 [[day.slot]]
-track = "Underline - FLR 3"
+track = "Underline - FLOOR 3"
 start = "10:00"
 end = "13:00"
 session = "draw-with-data"
 
 [[day.slot]]
-track = "Underline - FLR 3"
+track = "Underline - FLOOR 3"
 start = "14:30"
 end = "17:30"
 session = "agentic-dataviz"
@@ -129,6 +132,36 @@ start = "18:30"
 end = "20:30"
 description = "SPONSORED | INVITE ONLY"
 session = "public-data-roundtable"
+
+# --- Speaker Dinner (one per room → renders as a single spanning row) ---
+[[day.slot]]
+track = "Underline - FLOOR 2"
+type = "OTHER"
+start = "20:30"
+end = "22:30"
+label = "VIZCHITRA SPEAKER DINNER @ CORACLE"
+description = "CO HOSTED with People + AI | INVITE ONLY"
+
+[[day.slot]]
+track = "Underline - FLOOR 3"
+type = "OTHER"
+start = "20:30"
+end = "22:30"
+label = "VIZCHITRA SPEAKER DINNER @ CORACLE"
+
+[[day.slot]]
+track = "BIC - BOARD ROOM"
+type = "OTHER"
+start = "20:30"
+end = "22:30"
+label = "VIZCHITRA SPEAKER DINNER @ CORACLE"
+
+[[day.slot]]
+track = "BIC - LIBRARY"
+type = "OTHER"
+start = "20:30"
+end = "22:30"
+label = "VIZCHITRA SPEAKER DINNER @ CORACLE"
 
 # ── Conference Day ─────────────────────────────────────────────────────────────
 
@@ -220,8 +253,9 @@ track = "Auditorium"
 start = "14:00"
 end = "14:15"
 type = "ACTIVITIES"
-label = "Afternoon Rhythm"
-speakerLabel = "Ashok Kumar"
+session = "afternoon-rhythm"
+# label = "Afternoon Rhythm"
+# speakerLabel = "Ashok Kumar"
 
 [[day.slot]]
 track = "Auditorium"
@@ -302,7 +336,8 @@ track = "Hall"
 start = "9:30"
 end = "10:45"
 type = "OTHER"
-label = "Auditorium Live Stream"
+label = "Auditorium Livestream"
+description = "Catch it on the big screen in the Hall"
 
 [[day.slot]]
 track = "Hall"
@@ -379,7 +414,9 @@ track = "Hall"
 start = "16:30"
 end = "17:30"
 type = "OTHER"
-label = "Auditorium Live Stream"
+label = "Auditorium LiveStream"
+description = "Catch it on the big screen in the Hall"
+
 
 [[day.slot]]
 track = "Hall"
@@ -471,7 +508,6 @@ start = "11:45"
 end = "12:30"
 type = "SPONSORED"
 label = "The Cities We Don't See"
-# speakerLabel = "Shobana Venkatasubbu, Tushar Chakrabarty"
 description = "SPONSORED | City Finance"
 session = "cities-we-dont-see"
 
