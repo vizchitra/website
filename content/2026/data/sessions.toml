@@ -902,11 +902,11 @@ order = 40
 
 [[session.speakers]]
 name = "Anupama Kashyap"
-designation = ""
+designation = "Partnership Lead"
 organisation = "People + AI"
-about = ""
-image = ""
-social = {}
+about = "Anupama Kashyap is an ecosystem builder with 7+ years of experience across philanthropy, impact investing, and public digital infrastructure. She currently leads partnerships and strategic communications at People+AI, EkStep Foundation, focused on AI Diffusion Infrastructure and India's data economy initiative. Previously, at ACT Grants, she built the fund's livelihoods vertical from the ground up and drove over $1.2M in grant deployment; at Dasra, she helped mobilize philanthropic capital and co-authored a women's ledership in healthcare report with McKinsey. Over her career, she has deployed and influenced over $20M in capital and led large-scale convenings bringing together governments, philanthropists, and founders. She holds an engineering degree (top 1% of her class) and is a marathon runner and equestrian."
+image = "/images/speakers/2026/speaker-anupama.webp"
+social = {linkedin = "https://www.linkedin.com/in/anupama-kashyap/"}
 
 # DIALOGUE | AMA | ANUSHKA
 [[session]]
