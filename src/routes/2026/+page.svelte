@@ -414,7 +414,19 @@
 				<span class="hero-btn-icon">🗓️</span>
 				<span class="hero-btn-text">See the Schedule →</span>
 			</a>
+			<a
+				href="https://live.vizchitra.com/"
+				target="_blank"
+				rel="noopener"
+				class="hero-btn hero-btn-teal"
+			>
+				<span class="hero-btn-icon">📺</span>
+				<span class="hero-btn-text">Watch Livestream →</span>
+			</a>
 		</div>
+		<Text type="body" align="center">
+			<span class="text-viz-teal-dark">The livestream is for ticket holders.</span>
+		</Text>
 
 		<Text type="body" align="center">
 			Not attending but want to back VizChitra?
@@ -809,6 +821,7 @@
 
 	.hero-actions {
 		display: flex;
+		flex-wrap: wrap;
 		gap: 1rem;
 		padding-top: 0.5rem;
 	}
@@ -818,7 +831,7 @@
 		align-items: center;
 		justify-content: center;
 		gap: 0.75rem;
-		width: 50%;
+		flex: 1 1 180px;
 		padding: 1.25rem 2rem;
 		border-radius: 4px;
 		text-decoration: none;
@@ -839,6 +852,10 @@
 
 	.hero-btn-blue {
 		background: var(--color-viz-blue-solid);
+	}
+
+	.hero-btn-teal {
+		background: var(--color-viz-teal-solid);
 	}
 
 	.hero-btn-icon {
