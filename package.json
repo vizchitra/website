@@ -23,6 +23,7 @@
 	"dependencies": {
 		"@handlewithcare/remark-prosemirror": "^0.1.5",
 		"fuse.js": "^7.3.0",
+		"html-to-image": "^1.11.13",
 		"prosemirror-tables": "^1.8.5",
 		"qrcode": "^1.5.4",
 		"remark-parse": "^11.0.0",
